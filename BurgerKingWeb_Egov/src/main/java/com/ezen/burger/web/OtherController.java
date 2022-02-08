@@ -107,6 +107,7 @@ public class OtherController {
 		return "ServiceCenter/deliveryuse";
 	}
 	
+	/*
 	// 회원 마이페이지로 이동
 	@RequestMapping(value="/deliveryMypageForm.do")
 	public ModelAndView deliveryMypageForm(HttpServletRequest request) {
@@ -142,7 +143,7 @@ public class OtherController {
 		return "product/popup3";
 	}
 	
-	
+	*/
 }
 
 

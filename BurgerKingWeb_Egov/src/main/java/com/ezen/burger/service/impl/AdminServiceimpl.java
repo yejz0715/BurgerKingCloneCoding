@@ -9,13 +9,9 @@ import org.springframework.stereotype.Service;
 import com.ezen.burger.dao.AdminDAO;
 import com.ezen.burger.dao.MemberDAO;
 import com.ezen.burger.dao.OrderDAO;
-import com.ezen.burger.dto.AdminVO;
-import com.ezen.burger.dto.EventVO;
-import com.ezen.burger.dto.MemberVO;
+
 import com.ezen.burger.dto.Paging;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.QnaVO;
-import com.ezen.burger.dto.orderVO;
+
 import com.ezen.burger.service.AdminService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -31,7 +27,7 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	@Resource(name="OrderDAO")
 	OrderDAO odao;
 
-	public AdminVO adminCheck(String id) {
+	/*public AdminVO adminCheck(String id) {
 		return adao.adminCheck(id);
 	}
 
@@ -169,5 +165,5 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	
 	public int getProductAllCount(String key) {
 		return adao.getProductAllCount(key);
-	}
+	}*/
 }

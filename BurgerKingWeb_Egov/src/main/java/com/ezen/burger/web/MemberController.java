@@ -36,7 +36,7 @@ public class MemberController {
 	@Resource(name="AddressService")
 	AddressService as;
 	
-	
+	/*
 	// 로그인 페이지로 이동
 	@RequestMapping(value="/loginForm")
 	public String loginForm() {
@@ -451,5 +451,5 @@ public class MemberController {
 	public String complet(Model model, HttpServletRequest request) {
 		return "member/complet";
 	}
-	
+	*/
 }	

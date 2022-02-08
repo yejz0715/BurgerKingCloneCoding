@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.CartDAO;
-import com.ezen.burger.dto.CartVO;
 import com.ezen.burger.service.CartService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -16,7 +15,7 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class CartServiceimpl extends EgovAbstractServiceImpl implements CartService{
 	@Resource(name="CartDAO")
 	CartDAO cdao;
-
+/*
 	public ArrayList<CartVO> selectCart(String id) {
 		return cdao.selectCart(id);
 	}
@@ -47,5 +46,5 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 
 	public ArrayList<CartVO> getPseqCart(int pseq) {
 		return cdao.getPseqCart(pseq);
-	}
+	}*/
 }

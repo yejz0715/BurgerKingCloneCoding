@@ -24,6 +24,7 @@ public class ProductController {
 	@Resource(name="CartService")
 	CartService cs;
 	
+	/*
 	@RequestMapping(value="menuListForm")
 	public String menuListForm(Model model, @RequestParam("kind1") String kind1) {
 		ArrayList<ProductVO> list = ps.getProduct(kind1);
@@ -82,5 +83,5 @@ public class ProductController {
 		mav.addObject("pseq", pseq);
 		mav.setViewName("delivery/addMeterial");
 		return mav;
-	}
+	}*/
 }

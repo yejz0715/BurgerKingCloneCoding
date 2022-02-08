@@ -2,7 +2,8 @@ package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.ProductDAO;
@@ -10,9 +11,11 @@ import com.ezen.burger.dto.ProductVO;
 import com.ezen.burger.dto.subProductVO;
 import com.ezen.burger.dto.subproductOrderVO;
 
-@Service
-public class ProductServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="ProductService")
+public class ProductServiceimpl extends EgovAbstractServiceImpl implements ProductService{
+	@Resource(name="ProductDAO")
 	ProductDAO pdao;
 
 	public ArrayList<ProductVO> getProduct(String kind1) {

@@ -1,8 +1,5 @@
 package com.ezen.burger.dto;
 
-import lombok.Data;
-
-@Data
 public class Paging {
 	// Variable----------------------------------------------------------------
 	private int page = 1; // 현재 화면에 표시할 페이지 번호
@@ -48,5 +45,86 @@ public class Paging {
 		// System.out.println("beginPage : " + beginPage + ", endPage : " + endPage);
 		// System.out.println("totalPage : " + totalPage + ", prev : " + prev + ", next : " + next);
 		// System.out.println("startNum : " + startNum + ", endNum : " + endNum);
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+	public int getTotalCount() {
+		return totalCount;
+	}
+
+	public void setTotalCount(int totalCount) {
+		this.totalCount = totalCount;
+		paging();
+	}
+
+	public int getDisplayRow() {
+		return displayRow;
+	}
+
+	public void setDisplayRow(int displayRow) {
+		this.displayRow = displayRow;
+	}
+
+	public int getDisplayPage() {
+		return displayPage;
+	}
+
+	public void setDisplayPage(int displayPage) {
+		this.displayPage = displayPage;
+	}
+
+	public int getBeginPage() {
+		return beginPage;
+	}
+
+	public void setBeginPage(int beginPage) {
+		this.beginPage = beginPage;
+	}
+
+	public int getEndPage() {
+		return endPage;
+	}
+
+	public void setEndPage(int endPage) {
+		this.endPage = endPage;
+	}
+
+	public boolean isPrev() {
+		return prev;
+	}
+
+	public void setPrev(boolean prev) {
+		this.prev = prev;
+	}
+
+	public boolean isNext() {
+		return next;
+	}
+
+	public void setNext(boolean next) {
+		this.next = next;
+	}
+
+	public int getStartNum() {
+		return startNum;
+	}
+
+	public void setStartNum(int startNum) {
+		this.startNum = startNum;
+	}
+
+	public int getEndNum() {
+		return endNum;
+	}
+
+	public void setEndNum(int endNum) {
+		this.endNum = endNum;
 	}
 }

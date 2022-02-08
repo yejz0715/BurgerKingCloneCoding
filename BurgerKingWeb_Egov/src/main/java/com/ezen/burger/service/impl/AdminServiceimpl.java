@@ -1,10 +1,9 @@
 package com.ezen.burger.service.impl;
 
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.AdminDAO;
@@ -17,16 +16,19 @@ import com.ezen.burger.dto.Paging;
 import com.ezen.burger.dto.ProductVO;
 import com.ezen.burger.dto.QnaVO;
 import com.ezen.burger.dto.orderVO;
+import com.ezen.burger.service.AdminService;
 
-@Service
-public class AdminServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="AdminService")
+public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminService{
+	@Resource(name="AdminDAO")
 	AdminDAO adao;
 	
-	@Autowired
+	@Resource(name="MemberDAO")
 	MemberDAO mdao;
 	
-	@Autowired
+	@Resource(name="OrderDAO")
 	OrderDAO odao;
 
 	public AdminVO adminCheck(String id) {

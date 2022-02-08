@@ -15,7 +15,7 @@ $(function(){
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
 			<li>메뉴소개</li>
 		</ul>
 		</div>
@@ -24,21 +24,21 @@ $(function(){
 		<h3 class="page_tit">메뉴소개</h3>
 		<div class="tab01" >
 			<ul>
-				<li><a href="menuListForm?kind1=1">
+				<li><a href="menuListForm.do?kind1=1">
 					<button type="button"><span id="pk1">스페셜&amp;할인팩</span></button></a></li>
-				<li><a href="menuListForm?kind1=2">
+				<li><a href="menuListForm.do?kind1=2">
 					<button type="button"><span id="pk2">프리미엄</span></button></a></li>
-				<li><a href="menuListForm?kind1=3">
+				<li><a href="menuListForm.do?kind1=3">
 					<button type="button"><span id="pk3">와퍼</span></button></a></li>
-				<li><a href="menuListForm?kind1=4">
+				<li><a href="menuListForm.do?kind1=4">
 					<button type="button"><span id="pk4">주니어&amp;버거</span></button></a></li>
-				<li><a href="menuListForm?kind1=5">
+				<li><a href="menuListForm.do?kind1=5">
 					<button type="button"><span id="pk5">올데이킹&amp;치킨버거</span></button></a></li> 
-				<li><a href="menuListForm?kind1=6">
+				<li><a href="menuListForm.do?kind1=6">
 					<button type="button"><span id="pk6">사이드</span></button></a></li>
-				<li><a href="menuListForm?kind1=7">
+				<li><a href="menuListForm.do?kind1=7">
 					<button type="button"><span id="pk7">음료&amp;디저트</span></button></a></li>
-				<li><a href="menuListForm?kind1=8">
+				<li><a href="menuListForm.do?kind1=8">
 					<button type="button"><span id="pk8">독퍼</span></button></a></li>
 			</ul>
 		</div>
@@ -47,13 +47,13 @@ $(function(){
 		<ul>
 			<c:forEach var="productVO" items="${productList}">
 				<c:choose>
-					<c:when test="${productVO.kind3==4 && productVO.useyn==1}">
-					<li><a href="menudetailForm?pseq=${productVO.pseq}">
+					<c:when test="${productVO.KIND3==4 && productVO.USEYN==1}">
+					<li><a href="menudetailForm.do?pseq=${productVO.PSEQ}">
 						<div class="menuImgdiv">
-							<img class="menuImg" src="image/menu/product/${productVO.image}">					
+							<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> "/>					
 						</div>
 						<div class="menuContdiv">
-							<p>${productVO.pname}</p>
+							<p>${productVO.PNAME}</p>
 						</div>
 						</a></li>
 					</c:when>

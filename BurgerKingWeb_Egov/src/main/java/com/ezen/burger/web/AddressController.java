@@ -1,7 +1,8 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -11,13 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.burger.dto.AddressVO;
-import com.ezen.burger.dto.CartVO;
-import com.ezen.burger.dto.GuestVO;
-import com.ezen.burger.dto.MemberVO;
-import com.ezen.burger.dto.MyAddressVO;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.orderVO;
 import com.ezen.burger.service.AddressService;
 import com.ezen.burger.service.CartService;
 import com.ezen.burger.service.OrderService;
@@ -25,13 +19,13 @@ import com.ezen.burger.service.ProductService;
 
 @Controller
 public class AddressController {
-	@Autowired
+	@Resource(name="AddressService")
 	AddressService as;
-	@Autowired
+	@Resource(name="ProductService")
 	ProductService ps;
-	@Autowired
+	@Resource(name="OrderService")
 	OrderService os;
-	@Autowired
+	@Resource(name="CartService")
 	CartService cs;
 	
 	// 주소찾기 팝업창 띄우기

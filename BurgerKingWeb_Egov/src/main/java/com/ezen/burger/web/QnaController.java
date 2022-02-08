@@ -1,5 +1,6 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -20,7 +21,7 @@ import com.ezen.burger.service.QnaService;
 
 @Controller
 public class QnaController {
-	@Autowired
+	@Resource(name="QnaService")
 	QnaService qs;
 	
 	

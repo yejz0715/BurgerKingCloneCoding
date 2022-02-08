@@ -1,46 +1,40 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.burger.dto.CartVO;
-import com.ezen.burger.dto.GuestVO;
-import com.ezen.burger.dto.MemberVO;
-import com.ezen.burger.dto.MyAddressVO;
-import com.ezen.burger.dto.orderVO;
 import com.ezen.burger.service.AddressService;
 import com.ezen.burger.service.CartService;
+import com.ezen.burger.service.MemberService;
 import com.ezen.burger.service.OrderService;
-import com.ezen.burger.service.OtherService;
 import com.ezen.burger.service.QnaService;
 
 @Controller
 public class OtherController {
-	@Autowired
-	OtherService os;
+	@Resource(name="MemberService") 
+	MemberService ms;
 	
-	@Autowired
+	@Resource(name="QnaService")
 	QnaService qs;	
 	
-	@Autowired
+	@Resource(name="OrderService")
 	OrderService os2;
 	
-	@Autowired
+	@Resource(name="CartService")
 	CartService cs;
 	
-	@Autowired
+	@Resource(name="AddressService")
 	AddressService as;
 	
 	@RequestMapping(value="/")
-
 	// 페이지 시작 리턴 값에 main, admin을 입력하여 사용자, 관리자 페이지로 이동한다.
 	public String index() {
 		return "redirect:/main";

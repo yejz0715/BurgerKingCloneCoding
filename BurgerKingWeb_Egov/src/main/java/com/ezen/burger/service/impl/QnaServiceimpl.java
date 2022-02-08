@@ -2,15 +2,19 @@ package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.QnaDAO;
 import com.ezen.burger.dto.QnaVO;
+import com.ezen.burger.service.QnaService;
 
-@Service
-public class QnaServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="QnaService")
+public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaService{
+	@Resource(name="QnaDAO")
 	QnaDAO qdao;
 
 	public ArrayList<QnaVO>  listQna(String id) {

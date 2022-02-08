@@ -1,7 +1,8 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -16,12 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.burger.dto.CartVO;
-import com.ezen.burger.dto.GuestVO;
-import com.ezen.burger.dto.MemberVO;
-import com.ezen.burger.dto.MyAddressVO;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.orderVO;
 import com.ezen.burger.service.AddressService;
 import com.ezen.burger.service.CartService;
 import com.ezen.burger.service.MemberService;
@@ -30,15 +25,15 @@ import com.ezen.burger.service.ProductService;
 
 @Controller
 public class MemberController {
-	@Autowired
+	@Resource(name="MemberService") 
 	MemberService ms;
-	@Autowired
+	@Resource(name="ProductService") 
 	ProductService ps;
-	@Autowired
+	@Resource(name="OrderService")
 	OrderService os;
-	@Autowired
+	@Resource(name="CartService")
 	CartService cs;
-	@Autowired
+	@Resource(name="AddressService")
 	AddressService as;
 	
 	

@@ -31,7 +31,7 @@
 						<table>
 							<tr>
 								<td>아이디</td>
-								<td><input type="text" name="id" size="10" value="${dto.ID }"></td>
+								<td><input type="text" name="id" size="10"></td>
 							</tr>
 							
 							<tr>

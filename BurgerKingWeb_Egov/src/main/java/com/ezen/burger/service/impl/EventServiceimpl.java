@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -40,6 +41,12 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 		edao.deleteEvent(eseq);	
 	}
 */
+
+	@Override
+	public void getAllEvents(HashMap<String, Object> paramMap) {
+		edao.getAllEvents(paramMap);
+		
+	}
 	
 		
 	}

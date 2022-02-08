@@ -1,6 +1,7 @@
 package com.ezen.burger.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
@@ -10,9 +11,9 @@ import com.ezen.burger.dto.Paging;
 @Mapper(value="AdminDAO")
 public interface AdminDAO {
 
+	void adminCheck(HashMap<String, Object> paramMap);
+
 	/*
-	 * AdminVO adminCheck(String id);
-	 * 
 	 * int getAllCount(String tableName, String fieldName, String key);
 	 * 
 	 * ArrayList<MemberVO> listMember(Paging paging, String key);

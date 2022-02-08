@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -27,10 +28,14 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	@Resource(name="OrderDAO")
 	OrderDAO odao;
 
-	/*public AdminVO adminCheck(String id) {
-		return adao.adminCheck(id);
+	@Override
+	public void adminCheck(HashMap<String, Object> paramMap) {
+		adao.adminCheck(paramMap);
 	}
 
+	
+	
+	/*
 	public int getAllCount(String tableName, String fieldName, String key) {
 		return adao.getAllCount(tableName,fieldName,key);
 	}

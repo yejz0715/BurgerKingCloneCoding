@@ -360,31 +360,46 @@ public class MemberController {
 	}
 	
 	// 약관동의 페이지
-	@RequestMapping(value="/contract")
+	@RequestMapping(value="/contract.do")
 	public String contractform(Model model, HttpServletRequest request) {
 		return "member/contract";
 	}
 	
 	// 약관동의 페이지 팝업1
-	@RequestMapping(value="/popup1")
+	@RequestMapping(value="/popup1.do")
 	public String popup1(Model model, HttpServletRequest request) {
 		return "member/popup1";
 	}
 	
 	// 약관동의 페이지 팝업2
-	@RequestMapping(value="/popup2")
+	@RequestMapping(value="/popup2.do")
 	public String popup2(Model model, HttpServletRequest request) {
 		return "member/popup2";
 	}
-	
+	/*
 	// joinpage로 이동
-	@RequestMapping(value="/joinpageForm")
-	public ModelAndView firstjoinpage(Model model, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("member/joinpage");
-		return mav;
-	}
+	@RequestMapping(value="/joinpageForm.do")
+	public String firstjoinpage(Model model, HttpServletRequest request) {
+		return "member/joinpage.do";
+	}*/
 	
+	
+	@RequestMapping(value = "/joinpage.do", method=RequestMethod.POST)
+	public String join(Model model, HttpServletRequest request) {
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		paramMap.put("id", request.getParameter("id") );
+		paramMap.put("pwd" , request.getParameter("pwd"));
+		paramMap.put( "phone" , request.getParameter("phone"));
+		paramMap.put( "name" ,  request.getParameter("name"));
+		
+		
+		ms.b_insertMember(paramMap);
+		
+		model.addAttribute("message", "회원가입이 완료되었어요. 로그인하세요");
+		return "member/complet";
+	}
 	
 	/*
 	// 회웝가입 정보저장
@@ -426,7 +441,8 @@ public class MemberController {
 			mav.setViewName("member/complet");
 		}		
 		return mav;
-	}
+	} 
+	
 	
 	// 중복확인
 	@RequestMapping("/idcheck")
@@ -448,4 +464,20 @@ public class MemberController {
 		return "member/complet";
 	}
 	*/
+	@RequestMapping("/idcheck.do")
+	public String idcheck( Model model, HttpServletRequest request ) {
+		String id = request.getParameter("id");
+		 
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put( "ref_cursor", null );
+		paramMap.put("id", id);
+		ms.b_getMember(paramMap);	 // 조회 
+		
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		if(list.size() == 0) model.addAttribute("result", -1);
+		else model.addAttribute("result", 1);
+		model.addAttribute("id", id);
+		return "member/idcheck";
+	}
 }	

@@ -376,7 +376,7 @@ public class MemberController {
 	public String popup2(Model model, HttpServletRequest request) {
 		return "member/popup2";
 	}
-	
+	/*
 	// joinpage로 이동
 	@RequestMapping(value="/joinpageForm")
 	public ModelAndView firstjoinpage(Model model, HttpServletRequest request) {
@@ -386,7 +386,7 @@ public class MemberController {
 	}
 	
 	
-	/*
+	
 	// 회웝가입 정보저장
 	@RequestMapping(value="/joinpage", method=RequestMethod.POST)
 	public ModelAndView joinpage( @ModelAttribute("dto") @Valid MemberVO membervo,

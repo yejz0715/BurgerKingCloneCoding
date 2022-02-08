@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.MemberDAO;
 import com.ezen.burger.dao.OrderDAO;
-import com.ezen.burger.dto.GuestVO;
-import com.ezen.burger.dto.MemberVO;
 import com.ezen.burger.service.MemberService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -19,7 +17,7 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	
 	@Resource(name="OrderDAO")
 	OrderDAO odao;
-
+/*
 	public MemberVO getMember(String id) {
 		return mdao.getMember(id);
 	}
@@ -85,5 +83,5 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 
 	public void lastDateUpdate(int mseq) {
 		mdao.lastDateUpdate(mseq);
-	}
+	}*/
 }

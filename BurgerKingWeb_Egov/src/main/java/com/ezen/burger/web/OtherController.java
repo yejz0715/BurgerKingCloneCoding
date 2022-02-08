@@ -34,6 +34,7 @@ public class OtherController {
 	@Resource(name="AddressService")
 	AddressService as;
 	
+	/*
 	@RequestMapping(value="/index.do")
 	// 페이지 시작 리턴 값에 main, admin을 입력하여 사용자, 관리자 페이지로 이동한다.
 	public String index() {
@@ -142,7 +143,7 @@ public class OtherController {
 		return "product/popup3";
 	}
 	
-	
+	*/
 }
 
 

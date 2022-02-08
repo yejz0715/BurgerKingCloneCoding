@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.EventDAO;
-import com.ezen.burger.dto.EventVO;
 import com.ezen.burger.service.EventService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -16,7 +15,7 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class EventServiceimpl extends EgovAbstractServiceImpl implements EventService{
 	@Resource(name="EventDAO")
 	EventDAO edao;
-
+/*
 	public ArrayList<EventVO> getAllEvents() {
 		return edao.getAllEvents();
 	}
@@ -40,7 +39,7 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 	public void deleteEvent(int eseq) {
 		edao.deleteEvent(eseq);	
 	}
-
+*/
 	
 		
 	}

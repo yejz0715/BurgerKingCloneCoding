@@ -59,6 +59,7 @@ public class AdminController {
 	@Autowired
 	ServletContext context;
 
+	/*
 	@RequestMapping(value = "/adminLogin")
 	public String adminLogin(@ModelAttribute("dto") @Valid AdminVO adminvo, BindingResult result,
 			HttpServletRequest request, Model model) {
@@ -994,5 +995,5 @@ public class AdminController {
 			mav.setViewName("redirect:/adminOrderDetailForm?kind="+kind+"&seq="+odseq);
 		}
 		return mav;
-	}
+	}*/
 }

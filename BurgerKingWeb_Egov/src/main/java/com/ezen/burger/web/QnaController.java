@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import com.ezen.burger.dto.MemberVO;
-import com.ezen.burger.dto.QnaVO;
 import com.ezen.burger.service.QnaService;
 
 @Controller
@@ -24,7 +21,7 @@ public class QnaController {
 	@Resource(name="QnaService")
 	QnaService qs;
 	
-	
+	/*
 		// 고객센터 문의
 		@RequestMapping(value="qnaForm")
 		public ModelAndView qnaForm(Model model, HttpServletRequest request , 
@@ -153,8 +150,6 @@ public class QnaController {
 			for( int qseq : qseqArr)
 				qs.deleteQna(qseq);
 			return "redirect:/qnaForm";
-		}
-	
-	
+		}*/
 	
 }

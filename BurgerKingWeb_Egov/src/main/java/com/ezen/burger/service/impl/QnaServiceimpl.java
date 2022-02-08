@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.QnaDAO;
-import com.ezen.burger.dto.QnaVO;
 import com.ezen.burger.service.QnaService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -16,7 +15,7 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaService{
 	@Resource(name="QnaDAO")
 	QnaDAO qdao;
-
+/*
 	public ArrayList<QnaVO>  listQna(String id) {
 		return qdao.listQna(id);
 	}
@@ -40,7 +39,7 @@ public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaServic
 	public void updateQna(int qseq, String reply) {
 		qdao.updateQna(qseq, reply);		
 	}
-
+*/
 
 
 

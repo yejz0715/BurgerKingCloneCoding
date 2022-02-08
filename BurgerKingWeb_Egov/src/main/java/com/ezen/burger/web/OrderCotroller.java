@@ -30,7 +30,7 @@ public class OrderCotroller {
 	
 	@Resource(name="AddressService")
 	AddressService as;
-	
+	/*
 	// 주문 페이지로 이동
 	@RequestMapping(value="/deliveryOrderList")
 	public ModelAndView deliveryOrderList(HttpServletRequest request,
@@ -287,5 +287,5 @@ public class OrderCotroller {
 			mav.setViewName("redirect:/loginForm");
 		}
 		return mav;
-	}
+	}*/
 }

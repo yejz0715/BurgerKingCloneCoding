@@ -28,6 +28,7 @@ public class AddressController {
 	@Resource(name="CartService")
 	CartService cs;
 	
+	/*
 	// 주소찾기 팝업창 띄우기
 	@RequestMapping(value="/findZipNum")
 	public ModelAndView findZipNum(HttpServletRequest request) {
@@ -153,5 +154,5 @@ public class AddressController {
 			}
 		}
 		return mav;
-	}
+	}*/
 }

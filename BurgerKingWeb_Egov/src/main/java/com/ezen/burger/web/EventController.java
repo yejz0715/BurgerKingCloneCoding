@@ -18,6 +18,7 @@ public class EventController {
 	@Resource(name="EventService")
 	EventService es;
 	
+	/*
 	//전체 이벤트목록
 	@RequestMapping(value="/eventListForm")
 	   public ModelAndView eventListForm(Model model) {
@@ -57,5 +58,5 @@ public class EventController {
 	    mav.setViewName("event/eventDetail");  
 	      return mav;
 	   }
-	
+	*/
 }

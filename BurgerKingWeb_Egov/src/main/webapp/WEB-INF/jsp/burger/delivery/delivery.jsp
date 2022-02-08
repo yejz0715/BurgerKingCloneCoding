@@ -25,7 +25,7 @@ function popup3() {
 		<div class="web_container1">
 			<div class="web_container1">
 				<ul>
-					<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+					<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
 					<li>카트</li>
 				</ul>
 			</div>
@@ -37,21 +37,21 @@ function popup3() {
 			<h3 class="page_tit">메뉴</h3>
 			<div class="tab01" >
 			<ul>
-				<li><a href="deliveryForm?kind1=1">
+				<li><a href="deliveryForm.do?kind1=1">
 					<button type="button" ><span id="pk1">스페셜&amp;할인팩</span></button></a></li>
-				<li><a href="deliveryForm?kind1=2">
+				<li><a href="deliveryForm.do?kind1=2">
 					<button type="button"><span id="pk2">프리미엄</span></button></a></li>
-				<li><a href="deliveryForm?kind1=3">
+				<li><a href="deliveryForm.do?kind1=3">
 					<button type="button"><span id="pk3">와퍼</span></button></a></li>
-				<li><a href="deliveryForm?kind1=4">
+				<li><a href="deliveryForm.do?kind1=4">
 					<button type="button"><span id="pk4">주니어&amp;버거</span></button></a></li>
-				<li><a href="deliveryForm?kind1=5">
+				<li><a href="deliveryForm.do?kind1=5">
 					<button type="button"><span id="pk5">올데이킹&amp;치킨버거</span></button></a></li> 
-				<li><a href="deliveryForm?kind1=6">
+				<li><a href="deliveryForm.do?kind1=6">
 					<button type="button"><span id="pk6">사이드</span></button></a></li>
-				<li><a href="deliveryForm?kind1=7">
+				<li><a href="deliveryForm.do?kind1=7">
 					<button type="button"><span id="pk7">음료&amp;디저트</span></button></a></li>
-				<li><a href="deliveryForm?kind1=8">
+				<li><a href="deliveryForm.do?kind1=8">
 					<button type="button"><span id="pk8">독퍼</span></button></a></li>
 			</ul>
 			</div>
@@ -60,16 +60,16 @@ function popup3() {
 			<ul>
 				<c:forEach var="productVO" items="${productList}">
 				<c:choose>
-					<c:when test='${productVO.kind3=="4" && productVO.useyn==1 }'>
+					<c:when test='${productVO.KIND3=="4" && productVO.USEYN==1 }'>
 						<li>
-							<a onclick="deliveryDetail('${productVO.pseq}')">
+							<a onclick="deliveryDetail.do('${productVO.PSEQ}')">
 							<div class="menuImgdiv">
-								<img class="menuImg" src="image/menu/product/${productVO.image}">					
+								<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> ">					
 							</div>
 							<div class="menuContdiv">
-								<p>${productVO.pname}</p>
-								<p style="font-size:90%;color:#8d8d8d">${productVO.content}</p>
-								<p style="color:red;font-weight:bold">&#8361;${productVO.price1}~</p>
+								<p>${productVO.PNAME}</p>
+								<p style="font-size:90%;color:#8d8d8d">${productVO.CONTENT}</p>
+								<p style="color:red;font-weight:bold">&#8361;${productVO.PRICE1}~</p>
 							</div>
 							</a>
 						</li>

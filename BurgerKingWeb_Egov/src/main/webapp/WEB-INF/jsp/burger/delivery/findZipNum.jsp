@@ -29,7 +29,7 @@ function result( zipNum, sido, gugun, dong){
 <body>
 <div id="popup">
 	<h1>우편번호검색</h1>
-	<form method="post" name="formm" action="findZipNum">
+	<form method="post" name="formm" action="findZipNum.do">
 		동 이름 : <input name="dong"  type="text">
 		<input type="submit" value="찾기"  class="submit">
 	</form>
@@ -37,11 +37,11 @@ function result( zipNum, sido, gugun, dong){
 		<tr><th width="100">우편번호</th><th>주소</th></tr>
 		<c:forEach items="${addressList}" var="AddressVo">
 			<tr>
-				<td>${AddressVo.zip_num}</td>
+				<td>${AddressVo.ZIP_NUM}</td>
 				<!-- onClick="result( 우편번호, 시도, 구군, 동);" -->
-				<td><a href="#" onClick="result( '${AddressVo.zip_num}' , 
-				'${AddressVo.sido}' , '${AddressVo.gugun}' , '${AddressVo.dong}'  );" >
-				${AddressVo.sido} ${AddressVo.gugun} ${AddressVo.dong} ${AddressVo.bunji}</a></td>
+				<td><a href="#" onClick="result( '${AddressVo.ZIP_NUM}' , 
+				'${AddressVo.SIDO}' , '${AddressVo.GUGUN}' , '${AddressVo.DONG}'  );" >
+				${AddressVo.SIDO} ${AddressVo.GUGUN} ${AddressVo.DONG} ${AddressVo.BUNJI}</a></td>
 			</tr>
 		</c:forEach>
 	</table>

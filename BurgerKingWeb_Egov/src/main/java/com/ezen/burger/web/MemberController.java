@@ -36,7 +36,7 @@ public class MemberController {
 	@Resource(name="AddressService")
 	AddressService as;
 	
-	/*
+
 	// 로그인 페이지로 이동
 	@RequestMapping(value="/loginForm")
 	public String loginForm() {
@@ -45,21 +45,7 @@ public class MemberController {
 	
 	// 로그인
 	@RequestMapping(value="login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("dto") @Valid MemberVO membervo, 
-			BindingResult result, Model model, HttpServletRequest request) {
-		
-		// 로그인시 에러가 있을 때
-		if(result.hasErrors()) { 
-			// 해당 에러가 id와 pw 관련이라면 로그인 창으로 돌아간다.
-			if(result.getFieldError("id") != null) {
-				model.addAttribute("message", result.getFieldError("id").getDefaultMessage());
-				return "member/loginForm";
-			}else if(result.getFieldError("pwd") != null) {
-				model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
-				return "member/loginForm";
-			}
-		}	
-		
+	public String login(Model model, HttpServletRequest request) {
 		// 사용자가 입력한 아이디 값을 검색
 		MemberVO mvo = ms.getMember(membervo.getId());
 		if(mvo == null) { // 해당 ID를 가진 회원이 없을경우
@@ -92,9 +78,9 @@ public class MemberController {
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "redirect:/";
+		return "redirect:/index.do";
 	}
-	
+	/*
 	// 아이디 찾기 페이지 이동
 	@RequestMapping(value="/findIdForm")
 	public String findIdForm() {

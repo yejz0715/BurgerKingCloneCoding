@@ -8,7 +8,7 @@
 <div class="location">
 <div class="web_container1">
 	<ul>
-		<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+		<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
 		<li>메뉴</li>
 	</ul>
 </div>
@@ -39,25 +39,25 @@
 			<div class="cont">
 				<div class="menu_titWrap">
 					<label class="menu_name">
-						<input type="checkbox" name="menu" title="선택" class="check02" value="${cartList.cseq}">
-						<span class="tit">${cartList.cseq} : ${cartList.pname}</span>
+						<input type="checkbox" name="menu" title="선택" class="check02" value="${cartList.CSEQ}">
+						<span class="tit">${cartList.CSEQ} : ${cartList.PNAME}</span>
 						<span class="set_info"></span>
 						<span class="price">
-							<strong><span>${cartList.price1}</span><span class="unit">원</span></strong>
+							<strong><span>${cartList.PRICE1}</span><span class="unit">원</span></strong>
 						</span>
 					</label>
-					<div class="prd_img"><img src="image/menu/product/${cartList.image}"></div>
+					<div class="prd_img"><img src="<c:url value='/image/menu/product/${cartList.IMAGE}'/> "></div>
 				</div>
 				<div class="quantity"><strong class="tit">수량</strong>
 					<div class="num_set">
 						<button type="button" class="btn_minus"
-						 onclick="location.href='minusQuantity?cseq=${cartList.cseq}'"><span>-</span></button>
-						<div class="result">${cartList.quantity}</div>
+						 onclick="location.href='minusQuantity.do?cseq=${cartList.CSEQ}'"><span>-</span></button>
+						<div class="result">${cartList.QUANTITY}</div>
 						<button type="button" class="btn_plus"
-						 onclick="location.href='plusQuantity?cseq=${cartList.cseq}'"><span>+</span></button>
+						 onclick="location.href='plusQuantity.do?cseq=${cartList.CSEQ}'"><span>+</span></button>
 					</div>
 				</div>
-				<button type="button" name="submit" class="btn_del02" onclick="go_cart_delete('${cartList.cseq}')"><span>Delete menu</span></button>
+				<button type="button" name="submit" class="btn_del02" onclick="go_cart_delete('${cartList.CSEQ}')"><span>Delete menu</span></button>
 			</div>
 			<c:choose>
 				<c:when test="${empty spseqAm}">
@@ -68,10 +68,10 @@
 					<li>
 					<div class="cont" style="padding: 32px 64px; font-size:2rem;font-weight: bold;">
 						<c:forEach items="${spseqAm}" var="spseqAm">
-							<c:if test="${spseqAm.cseq == cartList.cseq}">
+							<c:if test="${spseqAm.CSEQ == cartList.CSEQ}">
 								<div style="width:100%;">
-									${spseqAm.cseq}번 : ${spseqAm.sname}
-									<div style="color:red; float:right;">${spseqAm.addprice}원</div>
+									${spseqAm.CSEQ}번 : ${spseqAm.SNAME}
+									<div style="color:red; float:right;">${spseqAm.ADDPRICE}원</div>
 								</div>
 							</c:if>
 						</c:forEach>
@@ -98,7 +98,7 @@
 		<div class="cartinfo">
 			<div class="c_btn item2">
 				<c:if test="${!empty loginUser}">
-					<button type="button" class="btn01 m ico add" onclick="location.href='deliveryForm?kind1=1'">
+					<button type="button" class="btn01 m ico add" onclick="location.href='deliveryForm.do?kind1=1'">
 						<span>메뉴 추가</span>
 					</button>
 				</c:if>

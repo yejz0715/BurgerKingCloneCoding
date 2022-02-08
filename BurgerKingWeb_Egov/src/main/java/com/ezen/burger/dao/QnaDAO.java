@@ -2,11 +2,9 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.QnaVO;
-
-@Mapper
+@Mapper(value="QnaDAO")
 public interface QnaDAO {
 
 	void insertQna(QnaVO qnavo);

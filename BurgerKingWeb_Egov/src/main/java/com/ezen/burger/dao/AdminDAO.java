@@ -2,20 +2,12 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
-
-import com.ezen.burger.dto.AdminVO;
-
-import com.ezen.burger.dto.EventVO;
-
-import com.ezen.burger.dto.MemberVO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 import com.ezen.burger.dto.Paging;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.QnaVO;
-import com.ezen.burger.dto.orderVO;
 
-@Mapper
+
+@Mapper(value="AdminDAO")
 public interface AdminDAO {
 
 	AdminVO adminCheck(String id);

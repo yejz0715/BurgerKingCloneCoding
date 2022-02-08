@@ -2,13 +2,9 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.subProductVO;
-import com.ezen.burger.dto.subproductOrderVO;
-
-@Mapper
+@Mapper(value="ProductDAO")
 public interface ProductDAO {
 
 	public ArrayList<ProductVO> getProduct(String kind1);

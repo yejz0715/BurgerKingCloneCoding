@@ -2,12 +2,9 @@ package com.ezen.burger.dao;
 
 import javax.validation.Valid;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.GuestVO;
-import com.ezen.burger.dto.MemberVO;
-
-@Mapper
+@Mapper(value="MemberDAO")
 public interface MemberDAO {
 	public MemberVO getMember(String id);
 	public MemberVO findMember(String name, String phone);

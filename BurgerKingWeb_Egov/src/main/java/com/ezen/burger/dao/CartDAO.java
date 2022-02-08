@@ -2,11 +2,9 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.CartVO;
-
-@Mapper
+@Mapper(value="CartDAO")
 public interface CartDAO {
 	public ArrayList<CartVO> selectCart(String id);
 	public void insertCart(CartVO cvo);

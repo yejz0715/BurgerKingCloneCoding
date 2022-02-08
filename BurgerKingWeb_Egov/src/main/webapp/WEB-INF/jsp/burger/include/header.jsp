@@ -8,6 +8,7 @@
       <meta charset="UTF-8">
       <title>버거킹</title>
       <link href="<c:url value='css/burger.css' />" rel="stylesheet">
+      <link href="css/burger.css" rel="<c:url value='stylesheet' />">
       <script src="<c:url value='http://code.jquery.com/jquery-latest.js' />"></script>
       <script src="<c:url value='script/burger.js" type="text/javascript' />"></script>
       <script src="<c:url value='script/index.js" type="text/javascript' />"></script>

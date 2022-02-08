@@ -1,5 +1,7 @@
 package com.ezen.burger.service.impl;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -84,4 +86,14 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	public void lastDateUpdate(int mseq) {
 		mdao.lastDateUpdate(mseq);
 	}*/
+
+	@Override
+	public void getMember(HashMap<String, Object> paramMap) {
+		mdao.getMember(paramMap);
+	}
+
+	@Override
+	public void lastDateUpdate(HashMap<String, Object> paramMap) {
+		mdao.lastDateUpdate(paramMap);
+	}
 }

@@ -4,5 +4,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.burger.dao.MemberDAO">
+	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getMember(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 	
+	<update id="lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL lastDateUpdate(
+				#{id}
+			)
+		}
+	</update>
 </mapper>

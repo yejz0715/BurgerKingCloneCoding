@@ -34,7 +34,6 @@ public class OtherController {
 	@Resource(name="AddressService")
 	AddressService as;
 	
-	/*
 	@RequestMapping(value="/index.do")
 	// 페이지 시작 리턴 값에 main, admin을 입력하여 사용자, 관리자 페이지로 이동한다.
 	public String index() {
@@ -108,6 +107,7 @@ public class OtherController {
 		return "ServiceCenter/deliveryuse";
 	}
 	
+	/*
 	// 회원 마이페이지로 이동
 	@RequestMapping(value="/deliveryMypageForm.do")
 	public ModelAndView deliveryMypageForm(HttpServletRequest request) {

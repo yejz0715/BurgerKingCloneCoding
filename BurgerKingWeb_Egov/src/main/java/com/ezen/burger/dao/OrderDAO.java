@@ -2,12 +2,9 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.CartVO;
-import com.ezen.burger.dto.orderVO;
-
-@Mapper
+@Mapper(value="OrderDAO")
 public interface OrderDAO {
 	public ArrayList<orderVO> getOrderList(String id);
 

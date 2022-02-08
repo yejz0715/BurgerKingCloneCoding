@@ -2,13 +2,9 @@ package com.ezen.burger.dao;
 
 import java.util.ArrayList;
 
-import org.apache.ibatis.annotations.Mapper;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
-import com.ezen.burger.dto.AddressVO;
-import com.ezen.burger.dto.MemberVO;
-import com.ezen.burger.dto.MyAddressVO;
-
-@Mapper
+@Mapper(value="AddressDAO")
 public interface AddressDAO {
 
 	public MyAddressVO getMyAddress(int mseq);

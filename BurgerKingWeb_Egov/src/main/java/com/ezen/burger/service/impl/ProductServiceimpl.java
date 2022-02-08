@@ -1,15 +1,11 @@
 package com.ezen.burger.service.impl;
 
-import java.util.ArrayList;
-
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.ProductDAO;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.subProductVO;
-import com.ezen.burger.dto.subproductOrderVO;
+import com.ezen.burger.service.ProductService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 
@@ -17,7 +13,7 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class ProductServiceimpl extends EgovAbstractServiceImpl implements ProductService{
 	@Resource(name="ProductDAO")
 	ProductDAO pdao;
-
+/*
 	public ArrayList<ProductVO> getProduct(String kind1) {
 		return pdao.getProduct(kind1);
 	}
@@ -88,5 +84,5 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 
 	public int getResult(int odseq) {
 		return pdao.getResult(odseq);
-	}
+	}*/
 }

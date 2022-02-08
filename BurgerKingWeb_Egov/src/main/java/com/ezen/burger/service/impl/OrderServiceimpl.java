@@ -8,8 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.CartDAO;
 import com.ezen.burger.dao.OrderDAO;
-import com.ezen.burger.dto.CartVO;
-import com.ezen.burger.dto.orderVO;
 import com.ezen.burger.service.OrderService;
 
 import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
@@ -21,7 +19,7 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	
 	@Resource(name="CartDAO")
 	CartDAO cdao;
-
+/*
 	public ArrayList<orderVO> getOrderList(String id) {
 		return odao.getOrderList(id);
 	}
@@ -122,5 +120,5 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 
 	public ArrayList<orderVO> getOrderListResult2(String id) {
 		return odao.getOrderListResult2(id);
-	}
+	}*/
 }

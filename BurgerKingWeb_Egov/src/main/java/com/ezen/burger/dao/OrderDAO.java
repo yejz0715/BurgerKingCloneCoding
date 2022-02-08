@@ -6,39 +6,39 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="OrderDAO")
 public interface OrderDAO {
-	public ArrayList<orderVO> getOrderList(String id);
-
-	public void insertOrder(String id);
-
-	public void insertOrderDetail(CartVO list, int oseq);
-
-	public int selectOseq(String id);
-
-	public int selectOdseq(int oseq);
-
-	public void insertseq(int cseq, int oseq, int odseq);
-
-	public ArrayList<orderVO> getOrderListByGuest(String id);
-
-	public ArrayList<orderVO> getOrderByOseq(int oseq);
-
-	public int getOseq(String odseq);
-
-	public void deleteOrderDetail(String odseq);
-
-	public ArrayList<orderVO> getOrderDetailByOseq(int oseq);
-
-	public void deleteOrders(int oseq);
-
-	public orderVO getOrder_view(String odseq);
-	
-	public orderVO getOrder_view2(String odseq);
-
-	public void deleteSpo(String odseq);
-
-	public String getOrderDetail(String odseq);
-
-	public int[] getOseqs(String id);
-
-	public ArrayList<orderVO> getOrderListResult2(String id);
+//	public ArrayList<orderVO> getOrderList(String id);
+//
+//	public void insertOrder(String id);
+//
+//	public void insertOrderDetail(CartVO list, int oseq);
+//
+//	public int selectOseq(String id);
+//
+//	public int selectOdseq(int oseq);
+//
+//	public void insertseq(int cseq, int oseq, int odseq);
+//
+//	public ArrayList<orderVO> getOrderListByGuest(String id);
+//
+//	public ArrayList<orderVO> getOrderByOseq(int oseq);
+//
+//	public int getOseq(String odseq);
+//
+//	public void deleteOrderDetail(String odseq);
+//
+//	public ArrayList<orderVO> getOrderDetailByOseq(int oseq);
+//
+//	public void deleteOrders(int oseq);
+//
+//	public orderVO getOrder_view(String odseq);
+//	
+//	public orderVO getOrder_view2(String odseq);
+//
+//	public void deleteSpo(String odseq);
+//
+//	public String getOrderDetail(String odseq);
+//
+//	public int[] getOseqs(String id);
+//
+//	public ArrayList<orderVO> getOrderListResult2(String id);
 }

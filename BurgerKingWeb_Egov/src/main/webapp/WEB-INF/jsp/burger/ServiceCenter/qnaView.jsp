@@ -9,29 +9,29 @@
 			<table border="1" style="margin: 30px 0 30px 0;">
 				<tr>
 					<th>제목</th>
-					<td width="600" style="text-align: left;">${qnaVO.subject}</td>
+					<td width="600" style="text-align: left;">${qnaVO.SUBJECT}</td>
 				</tr>
 				<tr>
 					<th>등록일</th>
 					<td align="left" style="text-align: left;">
-						<fmt:formatDate value="${qnaVO.indate}" type="date" />
+						<fmt:formatDate value="${qnaVO.INDATE}" type="date" />
 					</td>
 				</tr>
 				<tr>
 					<th>질문내용</th>
 					<td align="left" style="text-align: left; font-size: 115%;">
-						<pre>${qnaVO.content}</pre>
+						<pre>${qnaVO.CONTENT}</pre>
 					</td>
 				</tr>
 				<tr>
 					<th>답변 내용</th>
-					<td align="left" style="text-align: left;">${qnaVO.reply}</td>
+					<td align="left" style="text-align: left;">${qnaVO.REPLY}</td>
 				</tr>
 			</table>
 			<div class="clear"></div>
 			<div id="buttons" style="float: right">
 				<input type="button" value="목록보기" class="btn01" style="height: 68px; margin-bottom: 30px;"
-					onclick="location.href='qnaForm'">
+					onclick="location.href='qnaForm.do'">
 			</div>
 		</form>
 	</div>

@@ -27,9 +27,9 @@
 			<c:forEach items="${qnaList}" var="qnaVO">
 				<tr>
 					<td>
-						${qnaVO.qseq}
+						${qnaVO.QSEQ}
 						<c:choose>
-							<c:when test='${qnaVO.rep=="1" }'>
+							<c:when test='${qnaVO.REP=="1" }'>
 								(미처리)
 							</c:when>
 							<c:otherwise>
@@ -37,11 +37,11 @@
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td><a href="#" onclick="javascript:go_qna_view('${qnaVO.qseq}')">${qnaVO.subject}</a></td>
-					<td>${qnaVO.id}</td>
-					<td><fmt:formatDate value="${qnaVO.indate}"/></td>
+					<td><a href="#" onclick="javascript:go_qna_view('${qnaVO.QSEQ}')">${qnaVO.SUBJECT}</a></td>
+					<td>${qnaVO.ID}</td>
+					<td><fmt:formatDate value="${qnaVO.INDATE}"/></td>
 					<td>
-						<input type="checkbox" name="delete" value="${qnaVO.qseq}">
+						<input type="checkbox" name="delete" value="${qnaVO.QSEQ}">
 					</td>
 				</tr>
 			</c:forEach>
@@ -55,7 +55,7 @@
 		<jsp:param name="endPage" value="${paging.endPage}"/>
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
-		<jsp:param name="command" value="adminQnaList"/>
+		<jsp:param name="command" value="adminQnaList.do"/>
 	</jsp:include>
 </article>
 

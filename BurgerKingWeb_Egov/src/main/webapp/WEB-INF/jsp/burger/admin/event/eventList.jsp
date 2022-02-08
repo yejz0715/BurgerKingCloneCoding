@@ -24,15 +24,15 @@
 			</tr>
 			<c:forEach items="${eventList}" var="eventVO">
 				<tr>
-					<td height="23" align="center">${eventVO.eseq}</td>
+					<td height="23" align="center">${eventVO.ESEQ}</td>
 					<td style="text-align: left; padding-left: 50px;">
-						<a href="#" onClick="go_event_detail('${eventVO.eseq}')">${eventVO.subject}</a>
+						<a href="#" onClick="go_event_detail('${eventVO.ESEQ}')">${eventVO.SUBJECT}</a>
 					</td>
-					<td>${eventVO.startdate.substring(0,10)}</td>
-					<td>${eventVO.enddate.substring(0,10)}</td>
+					<td>${eventVO.STARTDATE.substring(0,10)}</td>
+					<td>${eventVO.ENDDATE.substring(0,10)}</td>
 					<td>
 						<c:choose>
-							<c:when test='${eventVO.state=="0" }'>종료</c:when>
+							<c:when test='${eventVO.STATE=="0" }'>종료</c:when>
 							<c:otherwise>진행중</c:otherwise>
 						</c:choose>
 					</td>
@@ -50,7 +50,7 @@
 		<jsp:param name="endPage" value="${paging.endPage}"/>
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
-		<jsp:param name="command" value="adminEventList"/>
+		<jsp:param name="command" value="adminEventList.do"/>
 	</jsp:include>
 	
 </article>

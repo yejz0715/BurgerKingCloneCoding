@@ -26,17 +26,17 @@
 			</tr>
 			<c:forEach items="${memberList}" var="memberVO">
 				<tr>
-					<td height="23" align="center">${memberVO.mseq}</td>
+					<td height="23" align="center">${memberVO.MSEQ}</td>
 					<td style="text-align: left; padding-left: 50px;">
-						<a href="#" onclick="go_member_update('${memberVO.mseq}');">${memberVO.name}</a>
+						<a href="#" onclick="go_member_update('${memberVO.MSEQ}');">${memberVO.NAME}</a>
 					</td>
-					<td align="center">${memberVO.id}</td>
-					<td align="center">${memberVO.phone}</td>
-					<td><fmt:formatDate value="${memberVO.indate}"/></td>
-					<td><fmt:formatDate value="${memberVO.lastdate}"/></td>
-					<td>${memberVO.memberkind}</td>
+					<td align="center">${memberVO.ID}</td>
+					<td align="center">${memberVO.PHONE}</td>
+					<td><fmt:formatDate value="${memberVO.INDATE}"/></td>
+					<td><fmt:formatDate value="${memberVO.LASTDATE}"/></td>
+					<td>${memberVO.MEMBERKIND}</td>
 					<td>
-						<input type="checkbox" name="delete" value="${memberVO.mseq}">
+						<input type="checkbox" name="delete" value="${memberVO.MSEQ}">
 					</td>
 				</tr>
 			</c:forEach>
@@ -49,7 +49,7 @@
 		<jsp:param name="endPage" value="${paging.endPage}"/>
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
-		<jsp:param name="command" value="adminMemberList"/>
+		<jsp:param name="command" value="adminMemberList.do"/>
 	</jsp:include>
 	
 </article>

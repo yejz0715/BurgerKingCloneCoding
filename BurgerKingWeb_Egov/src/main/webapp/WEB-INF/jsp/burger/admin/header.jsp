@@ -7,11 +7,11 @@
 		<meta charset="UTF-8">
 		<title>Main</title>
 		<link rel="stylesheet" href="admin/css/admin.css">
-		<script type="text/javascript" src="admin/script/product.js"></script>
-		<script type="text/javascript" src="admin/script/member.js"></script>
-		<script type="text/javascript" src="admin/script/event.js"></script>
-		<script type="text/javascript" src="admin/script/qna.js"></script>
-		<script type="text/javascript" src="admin/script/order.js"></script>
+		<script type="text/javascript" src="<c:url value='admin/script/product.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='admin/script/member.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='admin/script/event.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='admin/script/qna.js'/>"></script>
+		<script type="text/javascript" src="<c:url value='admin/script/order.js'/>"></script>
 	</head>
 	<body>
 		<div id="wrap">
@@ -19,7 +19,7 @@
 				<div class="adminLogin_header">
 					<span>BurgerKing Manager Page</span><br>
 					<input type="button" class="btn" value="Logout" style="float: right;"
-					onclick="location.href='adminLogout'">
+					onclick="location.href='adminLogout.do'">
 				</div>
 			</header>
 			<div class="clear"></div>

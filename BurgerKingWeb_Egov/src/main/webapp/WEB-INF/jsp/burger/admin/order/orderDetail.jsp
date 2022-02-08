@@ -7,37 +7,37 @@
 	<table id="list" border="1">
 		<tr>
 			<th>아이디(이름)</th>
-			<td colspan="5">${ovo.id}(${ovo.mname})</td>
+			<td colspan="5">${ovo.ID}(${ovo.MNAME})</td>
 		</tr>
 		<tr>
 			<th>주문 번호</th>
-			<td colspan="2">${ovo.oseq}</td>
+			<td colspan="2">${ovo.OSEQ}</td>
 			<th>주문 상세 번호</th>
-			<td colspan="2">${ovo.odseq}</td>
+			<td colspan="2">${ovo.ODSEQ}</td>
 		</tr>
 		<tr>
 			<th align="center">상품명</th>
-			<td colspan="5">${ovo.pname}</td>
+			<td colspan="5">${ovo.PNAME}</td>
 		</tr>
 		<tr>
-			<th>주문 시간</th><td>${ovo.indate}</td>
+			<th>주문 시간</th><td>${ovo.INDATE}</td>
 			<th>회원 구분</th>
 			<td>
-				<c:if test="${ovo.memberkind == 1}">
+				<c:if test="${ovo.MEMBERKIND == 1}">
 					회원
 				</c:if>
-				<c:if test="${ovo.memberkind == 2}">
+				<c:if test="${ovo.MEMBERKIND == 2}">
 					비회원
 				</c:if>	
 			</td>
 			<c:choose>
-				<c:when test="${ovo.result == 1}">
+				<c:when test="${ovo.RESULT == 1}">
 					<th>처리상태</th><td>처리 전</td>
 				</c:when>
-				<c:when test="${ovo.result == 2}">
+				<c:when test="${ovo.RESULT == 2}">
 					<th>처리상태</th><td>처리 중</td>
 				</c:when>
-				<c:when test="${ovo.result == 3}">
+				<c:when test="${ovo.RESULT == 3}">
 					<th>처리상태</th><td>배달 중</td>
 				</c:when>
 				<c:otherwise>
@@ -47,13 +47,13 @@
 		</tr>
 		<tr>
 			<th>주소</th>
-			<td colspan="5">${ovo.zip_num} - ${ovo.address}</td>
+			<td colspan="5">${ovo.ZIP_NUM} - ${ovo.ADDRESS}</td>
 		</tr>
 		<tr>
 			<th>주문 수량</th>
-			<td colspan="2">${ovo.quantity}</td>
+			<td colspan="2">${ovo.QUANTITY}</td>
 			<th>주문 가격</th>
-			<td colspan="2">${ovo.price1}</td>
+			<td colspan="2">${ovo.PRICE1}</td>
 		</tr>
 	</table>
 	
@@ -70,21 +70,21 @@
 			</c:when>
 			<c:otherwise>
 				<c:forEach items="${spseqAm}" var="spseqAm">
-					<c:if test="${spseqAm.odseq == ovo.odseq}">
+					<c:if test="${spseqAm.ODSEQ == ovo.ODSEQ}">
 						<tr>
 							<th>주문 상세 번호</th>
-							<td>${spseqAm.odseq}</td>
+							<td>${spseqAm.ODSEQ}</td>
 							<th>추가 재료 번호</th>
-							<td>${spseqAm.sposeq}</td>
+							<td>${spseqAm.SPOSEQ}</td>
 							<th>추가 재료</th>
-							<td>${spseqAm.sname}</td>
+							<td>${spseqAm.SNAME}</td>
 						</tr>
 						<tr>
 							<th>추가 가격</th>
 							<td colspan="4">${spseqAm.addprice}원</td>
 							<td>
-								<button onclick="deleteSpo('${spseqAm.sposeq}', '${ovo.result}',
-								 '${kind}', '${spseqAm.odseq}');">
+								<button onclick="deleteSpo('${spseqAm.SPOSEQ}', '${ovo.RESULT}',
+								 '${kind}', '${spseqAm.ODSEQ}');">
 									재료 취소
 								</button>
 							</td>

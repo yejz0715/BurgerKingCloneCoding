@@ -4,9 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-<title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/buger.css'/>" >
+
 <script type="text/javascript" src="<c:url value='static/script/buger.js'/>"></script>
 </head>
 <body>
@@ -29,6 +28,7 @@
 	            <li><a href="eventDetailForm.do?eseq=22"><img
 	                  src="<c:url value='image/main/banner/banner_5.png'/>"></a></li>
 	         </ul>
+	         	
 	         <div class="btn">
 	            <button type="button" class="prev" id="prev_btn">
 	               <img src="<c:url value='image/main/banner/banner_prev.png'/>">
@@ -78,12 +78,13 @@
 	            <div class="web_container2">
 	               <div class="guide">
 	                  <div id="app">
-	                     <a href="appGuideForm"> <img
+	                     <a href="appGuideForm"> <img 
 	                        src="<c:url value='image/main/appimg.png'/>"></a>
 	                  </div>
 	                  <div id="delivery77">
 	                     <a href="deliveryUseForm"> 
 	                     	<img src="<c:url value='image/main/deliveryimg.png'/>">
+	                     	<img src="<c:url value='image/main/deliveryimg.png' />">
 	                     </a>
 	                  </div>
 	               </div>

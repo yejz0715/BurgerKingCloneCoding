@@ -17,11 +17,11 @@
 		<ul id="terms_wrap_ul" style="right: 0; top:0">
 			<li>
 				<span>
-					<a href="faqListForm?fnum=1">FAQ</a>
+					<a href="faqListForm.do?fnum=1">FAQ</a>
 				</span>
 			</li>
-			<li><span><a href="qnaForm">문의</a></span></li>
-			<li><span><a href="appGuideForm" style="color: red; text-decoration: underline;">App이용안내</a></span></li>
+			<li><span><a href="qnaForm.do">문의</a></span></li>
+			<li><span><a href="appGuideForm.do" style="color: red; text-decoration: underline;">App이용안내</a></span></li>
 		</ul>
 		
 		<h4 class="subtit"><span>버거킹 APP(앱) 다운로드</span></h4>
@@ -31,7 +31,7 @@
 		</p>
 
 		<div class="WEB_guide_img">
-			<img src="image/main/img_guide_appdown.jpg" alt="앱 화면 이미지">
+			<img src="<c:url value='image/main/img_guide_appdown.jpg'/>" alt="앱 화면 이미지">
 		</div>
 	</div>
 
@@ -63,7 +63,7 @@
 						<strong>버거킹 앱</strong>을 다운로드 해보세요.
 					</p>
 					<div class="QRcode">
-						<img	src="image/main/appQR.png">
+						<img	src="<c:url value='image/main/appQR.png'/>">
 					</div>
 				</dd>
 			</dl>

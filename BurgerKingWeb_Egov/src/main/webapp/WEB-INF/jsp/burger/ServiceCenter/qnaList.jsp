@@ -19,15 +19,15 @@
 					<a href="faqList1">FAQ</a>
 				</span>
 			</li>
-			<li><span><a href="qnaForm" style="color: red; text-decoration: underline;">문의</a></span></li>
-			<li><span><a href="appGuideForm">App이용안내</a></span></li>
+			<li><span><a href="qnaForm.do" style="color: red; text-decoration: underline;">문의</a></span></li>
+			<li><span><a href="appGuideForm.do">App이용안내</a></span></li>
 		</ul>
 	</div>
 	 
 	<div class="web_container1">
 		<c:choose>
 			<c:when test="${empty loginUser}">
-				<img style="width: 100%;" src="image/main/qna.PNG">
+				<img style="width: 100%;" src="<c:url value='image/main/qna.PNG'/>">
 				<span style="color: #6a6a6a; font-size: 2rem; float: right;">
 					QnA 작성 및 확인은 <a style="text-decoration: none;" href="loginForm">로그인</a> 후 이용해주세요.
 					</span>
@@ -37,7 +37,7 @@
 					<div class="tab_cont">
 						<div class="faq_category">
 							<label class="switch01">
-								<input type="radio" name="faqcategory" checked="checked" onclick="location.href='qnaWriteForm'">
+								<input type="radio" name="faqcategory" checked="checked" onclick="location.href='qnaWriteForm.do'">
 								<span>문의 작성</span>
 							</label>
 							<label class="switch01">
@@ -68,18 +68,18 @@
 							<form name="frm" method="post"> 
 								<c:forEach items="${qnaList}" var="qnaVO">
 									<tr align="center">
-										<td> ${qnaVO.qseq}</td>    
-							    		<td><a href="#" onclick="input_pass('${qnaVO.qseq}');">${qnaVO.subject}</a></td>      
-							       		<td><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
-							       		<td> ${qnaVO.id}</td> 
+										<td> ${qnaVO.QSEQ}</td>    
+							    		<td><a href="#" onclick="input_pass('${qnaVO.QSEQ}');">${qnaVO.SUBJECT}</a></td>      
+							       		<td><fmt:formatDate value="${qnaVO.INDATE}" type="date"/></td>
+							       		<td> ${qnaVO.ID}</td> 
 							       		<td>
 							       			<c:choose>
-												<c:when test="${qnaVO.rep==1}"> no </c:when>
-												<c:when test="${qnaVO.rep==2}"> yes </c:when>
+												<c:when test="${qnaVO.REP==1}"> no </c:when>
+												<c:when test="${qnaVO.REP==2}"> yes </c:when>
 											</c:choose>
 										</td> 
 										<td>
-											<input type="checkbox" style="position:relative; opacity:1;" name="delete" value="${qnaVO.qseq}">
+											<input type="checkbox" style="position:relative; opacity:1;" name="delete" value="${qnaVO.QSEQ}">
 										</td>
 									</tr>
 								</c:forEach>

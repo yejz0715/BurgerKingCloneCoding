@@ -17,19 +17,19 @@
 		<ul id="terms_wrap_ul" style="right: 0; top:0">
 			<li>
 				<span>
-					<a href="faqForm&fnum=1">FAQ</a>
+					<a href="faqForm.do?fnum=1">FAQ</a>
 				</span>
 			</li>
-			<li><span><a href="qnaForm" style="color: red; text-decoration: underline;">문의</a></span></li>
-			<li><span><a href="appGuideForm">App이용안내</a></span></li>
+			<li><span><a href="qnaForm.do" style="color: red; text-decoration: underline;">문의</a></span></li>
+			<li><span><a href="appGuideForm.do">App이용안내</a></span></li>
 		</ul>
 	</div>
 	
 	<div class="qna_webcon">
 		<h2>1:1 고객 게시판</h2>
 		<h3>고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
-		<form name="frm" method="post" action="qnaWrite">
-			<input type="hidden" name="command" value="qnaWrite">
+		<form name="frm" method="post" action="qnaWrite.do">
+			<input type="hidden" name="command" value="qnaWrite.do">
 			<input type="hidden" name="id" value="${id}">
 			<fieldset style="border: 0px; background-color: #f2ebe6;">
 				<legend>QnA Write</legend>
@@ -51,7 +51,7 @@
 							<span>작성</span>
 						</label>
 						<label class="switch01">
-							<input type="radio" name="faqcategory" onclick="location.href='qnaForm'">
+							<input type="radio" name="faqcategory" onclick="location.href='qnaForm.do'">
 							<span>취소</span>
 						</label>
 					</div>

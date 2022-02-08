@@ -8,7 +8,7 @@
 					<label style="color: red;">${message}</label><br><br>
 					<input type="password" name="pass" size="4" style="height: 30px;">
 					<input type="submit" class="qna_btn01" value="확인">
-					<input type="button" class="qna_btn01" value="뒤로가기" onclick="location.href='qnaForm'">
+					<input type="button" class="qna_btn01" value="뒤로가기" onclick="location.href='qnaForm.do'">
 				</span>
 			</form>
 		</div>

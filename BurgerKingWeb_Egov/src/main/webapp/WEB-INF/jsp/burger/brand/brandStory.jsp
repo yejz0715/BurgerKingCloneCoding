@@ -5,7 +5,7 @@
 	<div class="location">
 		<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
 			<li>브랜드스토리 &nbsp;>&nbsp;</li>
 			<li>버거킹스토리</li>
 		</ul>

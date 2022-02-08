@@ -1,21 +1,16 @@
 package com.ezen.burger.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.burger.service.AddressService;
 import com.ezen.burger.service.CartService;
@@ -46,27 +41,42 @@ public class MemberController {
 	// 로그인
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
-		// 사용자가 입력한 아이디 값을 검색
-		MemberVO mvo = ms.getMember(membervo.getId());
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("id", request.getParameter("id"));
+		paramMap.put("ref_cursor", null);
+		String pwd = request.getParameter("pwd");
+		
+		// 입력받은 아이디를 가진 회원 검색
+		ms.getMember(paramMap);
+		
+		// 검색한 아이디를 변수에 저장
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		HashMap<String, Object> mvo = list.get(0);
+		
 		if(mvo == null) { // 해당 ID를 가진 회원이 없을경우
 			model.addAttribute("message", "ID가 없습니다.");
 			return "member/loginForm";
-		}else if(mvo.getPwd() == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
+		}else if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
 			model.addAttribute("message", "관리자에게 문의하세요.");
 			return "member/loginForm";
-		}else if(!mvo.getPwd().equals(membervo.getPwd())) { // 입력한 패스워드가 일치하지 않을 경우
+		}else if(!mvo.get("PWD").equals(pwd)) { // 입력한 패스워드가 일치하지 않을 경우
 			model.addAttribute("message", "비밀번호가 맞지 않습니다..");
 			return "member/loginForm";
-		}else if(mvo.getPwd().equals(membervo.getPwd())) { // 정상 로그인
+		}else if(mvo.get("PWD").equals(pwd)){ // 정상 로그인
 			HttpSession session = request.getSession();
 			// 회원 로그인시 세션에 비회원카트정보가 있다면 제거
 			if(session.getAttribute("guestCartList") != null) {
 				session.removeAttribute("guestCartList");
 			}
-			ms.lastDateUpdate(mvo.getMseq());
+			
+			// 마지막 로그인시간 변경
+			HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+			paramMap2.put("id", request.getParameter("id"));
+			ms.lastDateUpdate(paramMap2);
+			
 			session.setAttribute("loginUser", mvo);
-			session.setAttribute("memberkind", mvo.getMemberkind());
-			return "redirect:/";
+			session.setAttribute("memberkind", mvo.get("MEMBERKIND"));
+			return "redirect:/index.do";
 		}else { // 기타 원인을 알 수 없는 오류
 			model.addAttribute("message", "알수없는 이유로 로그인 실패.");
 			return "member/loginForm";

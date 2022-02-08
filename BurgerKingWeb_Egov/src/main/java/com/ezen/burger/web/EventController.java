@@ -1,6 +1,7 @@
 package com.ezen.burger.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -18,17 +19,21 @@ public class EventController {
 	@Resource(name="EventService")
 	EventService es;
 	
-	/*
-	//전체 이벤트목록
-	@RequestMapping(value="/eventListForm")
-	   public ModelAndView eventListForm(Model model) {
-		ModelAndView mav=new ModelAndView();
-		ArrayList<EventVO> list = es.getAllEvents();
-		mav.addObject("eventList", list);
-	    mav.setViewName("event/eventList");
-	      return mav;
-	   }
 	
+	//전체 이벤트목록
+	@RequestMapping(value="/eventListForm.do")
+	   public String eventListForm(Model model) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put( "ref_cursor", null );
+		
+		ArrayList< HashMap/String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor"); 
+		es.getAllEvents(paramMap);
+		model.addAttribute("eventList", list);
+	   
+	      return "event/eventList";
+	   }
+	/*
 	//진행중인 이벤트목록
 	@RequestMapping(value="/eventTab2")
 	 public ModelAndView eventTab2(Model model) {

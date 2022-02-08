@@ -6,11 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Meterial</title>
-<link href="css/burger.css" rel="stylesheet">
+<link rel="stylesheet" href="<c:url value='/css/event.css'/> "/>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="script/burger.js" type="text/javascript"></script>
-<script src="script/index.js" type="text/javascript"></script>
-<link rel="icon" href="image/main/favicon.ico">
+<script src="<c:url value='/script/burger.js'/>" type="text/javascript"></script>
+<script src="<c:url value='/script/index.js'/>" type="text/javascript"></script>
+<link rel="icon" href="<c:url value='/image/main/favicon.ico'/>"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
 					<li>
 						<input type="checkbox" name="Meterial" value="${subproductVO.SPSEQ}" title="재료추가" class="check03">
 						<div class="prd_img">
-							<img src ="<c:url value='/image/menu/plus/${subproductVO.IMAGE}'/> " alt="재료">
+							<img src ="<c:url value='/image/menu/plus/${subproductVO.IMAGE}'/>" alt="재료">
 						</div>
 						<div class="cont">
 							<p class="tit"><span>${subproductVO.SNAME}</span></p>

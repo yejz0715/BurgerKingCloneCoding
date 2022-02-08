@@ -24,3 +24,13 @@ BEGIN
     OPEN p_rc FOR
         SELECT * FROM MEMBER WHERE ID=p_id;
 END;
+
+-- 로그인 시 마지막 접속일(lastdate) 변경 프로시져
+create or replace procedure lastDateUpdate(
+	p_id in member.id%type
+)
+is
+
+begin
+	update member set lastdate=sysdate where id=p_id;
+end;

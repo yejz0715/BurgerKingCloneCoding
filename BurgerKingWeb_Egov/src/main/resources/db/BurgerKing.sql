@@ -40,8 +40,9 @@ DROP SEQUENCE oseq;
 DROP SEQUENCE pseq;
 DROP SEQUENCE qseq;
 DROP SEQUENCE spseq;
-DROP SEQUENCE aseq;
 DROP SEQUENCE gseq;
+DROP SEQUENCE odseq;
+DROP SEQUENCE sposeq;
 
 
 /* Create Sequences */

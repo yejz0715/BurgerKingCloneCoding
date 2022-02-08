@@ -1,4 +1,4 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,14 +23,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.burger.dto.AdminVO;
-import com.ezen.burger.dto.EventVO;
-import com.ezen.burger.dto.MemberVO;
 import com.ezen.burger.dto.Paging;
-import com.ezen.burger.dto.ProductVO;
-import com.ezen.burger.dto.QnaVO;
-import com.ezen.burger.dto.orderVO;
-import com.ezen.burger.dto.subproductOrderVO;
+
 import com.ezen.burger.service.AdminService;
 import com.ezen.burger.service.EventService;
 import com.ezen.burger.service.MemberService;
@@ -43,22 +38,22 @@ import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 @Controller
 public class AdminController {
-	@Autowired
+	@Resource(name="AdminService")
 	AdminService as;
 
-	@Autowired
+	@Resource(name="MemberService")
 	MemberService ms;
 
-	@Autowired
+	@Resource(name="QnaService")
 	QnaService qs;
 
-	@Autowired
+	@Resource(name="EventService")
 	EventService es;
 	
-	@Autowired
+	@Resource(name="ProductService")
 	ProductService ps;
 	
-	@Autowired
+	@Resource(name="OrderService")
 	OrderService os;
 
 	@Autowired

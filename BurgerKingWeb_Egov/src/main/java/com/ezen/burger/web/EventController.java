@@ -1,6 +1,8 @@
-package com.ezen.burger.controller;
+package com.ezen.burger.web;
 
 import java.util.ArrayList;
+
+import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ezen.burger.dto.EventVO;
 import com.ezen.burger.service.EventService;
 
 @Controller
 public class EventController {
-	@Autowired
+	@Resource(name="EventService")
 	EventService es;
 	
 	//전체 이벤트목록

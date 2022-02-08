@@ -1,19 +1,23 @@
 package com.ezen.burger.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.MemberDAO;
 import com.ezen.burger.dao.OrderDAO;
 import com.ezen.burger.dto.GuestVO;
 import com.ezen.burger.dto.MemberVO;
+import com.ezen.burger.service.MemberService;
 
-@Service
-public class MermberServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="MemberService")
+public class MermberServiceimpl extends EgovAbstractServiceImpl implements MemberService{
+	@Resource(name="MemberDAO")
 	MemberDAO mdao;
 	
-	@Autowired
+	@Resource(name="OrderDAO")
 	OrderDAO odao;
 
 	public MemberVO getMember(String id) {

@@ -2,20 +2,24 @@ package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.CartDAO;
 import com.ezen.burger.dao.OrderDAO;
 import com.ezen.burger.dto.CartVO;
 import com.ezen.burger.dto.orderVO;
+import com.ezen.burger.service.OrderService;
 
-@Service
-public class OrderServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="OrderService")
+public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderService{
+	@Resource(name="OrderDAO")
 	OrderDAO odao;
 	
-	@Autowired
+	@Resource(name="CartDAO")
 	CartDAO cdao;
 
 	public ArrayList<orderVO> getOrderList(String id) {

@@ -2,17 +2,19 @@ package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
 
-import javax.validation.Valid;
+import javax.annotation.Resource;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.EventDAO;
 import com.ezen.burger.dto.EventVO;
+import com.ezen.burger.service.EventService;
 
-@Service
-public class EventServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="EventService")
+public class EventServiceimpl extends EgovAbstractServiceImpl implements EventService{
+	@Resource(name="EventDAO")
 	EventDAO edao;
 
 	public ArrayList<EventVO> getAllEvents() {

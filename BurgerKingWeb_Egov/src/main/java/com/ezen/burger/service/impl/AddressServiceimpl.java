@@ -2,17 +2,20 @@ package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.ezen.burger.dao.AddressDAO;
 import com.ezen.burger.dto.AddressVO;
-import com.ezen.burger.dto.MemberVO;
 import com.ezen.burger.dto.MyAddressVO;
+import com.ezen.burger.service.AddressService;
 
-@Service
-public class AddressServiceimpl {
-	@Autowired
+import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
+
+@Service(value="AddressService")
+public class AddressServiceimpl extends EgovAbstractServiceImpl implements AddressService{
+	@Resource(name="AddressDAO")
 	AddressDAO adao;
 
 	public MyAddressVO getMyAddress(int mseq) {

@@ -34,33 +34,33 @@ public class OtherController {
 	@Resource(name="AddressService")
 	AddressService as;
 	
-	@RequestMapping(value="/")
+	@RequestMapping(value="/index.do")
 	// 페이지 시작 리턴 값에 main, admin을 입력하여 사용자, 관리자 페이지로 이동한다.
 	public String index() {
-		return "redirect:/main";
+		return "redirect:/main.do";
 	}  
 	
 	// 메인페이지로 이동
-	@RequestMapping(value="/main")
+	@RequestMapping(value="/main.do")
 	public String main() { 
 		return "main/main";
 	}
 	
 	// 관리자페이지로 이동
-	@RequestMapping(value="/admin")
+	@RequestMapping(value="/admin.do")
 	public String admin() { 
 		return "admin/adminLogin";
 	}
 	
 	// faq 페이지로 이동
-	@RequestMapping(value="/faqList1")
+	@RequestMapping(value="/faqList1.do")
 	public String faqList1() {
 		return "ServiceCenter/faqList1";
 	}
 	
 	
 	// 고객센터 FAQ
-	@RequestMapping(value="faqListForm")
+	@RequestMapping(value="faqListForm.do")
 	public ModelAndView  faqListForm(Model model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView ();
 		String fnum = request.getParameter("fnum");	// faq페이지의 fnum을 이용하여 해당 페이지로 이동
@@ -70,45 +70,45 @@ public class OtherController {
 	
 	
 	// 고객센터 앱이용안내
-	@RequestMapping(value="appGuideForm")
+	@RequestMapping(value="appGuideForm.do")
 	public String appGuideForm(Model model, HttpServletRequest request) {
 		return "ServiceCenter/appGuide";
 	}
 	
 	
 	
-	@RequestMapping(value="/brandStroyForm")
+	@RequestMapping(value="/brandStroyForm.do")
 	public String brandStroyForm() {
 		return "brand/brandStory";
 	}
 
-	@RequestMapping(value="/terms")
+	@RequestMapping(value="/terms.do")
 	public String terms() {
 		return "footer/terms";
 	}
 	
-	@RequestMapping(value="/privacy")
+	@RequestMapping(value="/privacy.do")
 	public String privacy() {
 		return "footer/privacy";
 	}
 	
-	@RequestMapping(value="/videoPolicy")
+	@RequestMapping(value="/videoPolicy.do")
 	public String videoPolicy() {
 		return "footer/videoPolicy";
 	}
 	
-	@RequestMapping(value="/legal")
+	@RequestMapping(value="/legal.do")
 	public String legal() {
 		return "footer/legal";
 	} 
 	
-	@RequestMapping(value="/deliveryUseForm")
+	@RequestMapping(value="/deliveryUseForm.do")
 	public String deliveryUseForm() {
 		return "ServiceCenter/deliveryuse";
 	}
 	
 	// 회원 마이페이지로 이동
-	@RequestMapping(value="/deliveryMypageForm")
+	@RequestMapping(value="/deliveryMypageForm.do")
 	public ModelAndView deliveryMypageForm(HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -137,7 +137,7 @@ public class OtherController {
 	}
 	
 	// 원산지표시 팝업
-	@RequestMapping(value="/popup3")
+	@RequestMapping(value="/popup3.do")
 	public String popup3() {
 		return "product/popup3";
 	}

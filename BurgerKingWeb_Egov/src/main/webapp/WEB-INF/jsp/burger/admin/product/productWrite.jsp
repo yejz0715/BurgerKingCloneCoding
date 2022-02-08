@@ -11,7 +11,7 @@
 					<select name="kind1">
 						<option value="">선택</option>
 						<c:forEach items="${kindList}" var="kind" varStatus="status">
-							<option value="${status.count}">${kind}</option>
+							<option value="${status.COUNT}">${kind}</option>
 						</c:forEach>
 					</select>
 				</td>

@@ -7,17 +7,17 @@
 	<table id="list" border="1">
 		<tr>
 			<th>이벤트 번호</th>
-			<td colspan="5">${eventVO.eseq}</td>
+			<td colspan="5">${eventVO.ESEQ}</td>
 		</tr>
 		<tr>
 			<th align="center">이벤트명</th>
-			<td colspan="5">${eventVO.subject}</td>
+			<td colspan="5">${eventVO.SUBJECT}</td>
 		</tr>
 		<tr>
-			<th>시작일</th><td>${eventVO.startdate.substring(0,10)}</td>
-			<th>종료일</th><td>${eventVO.enddate.substring(0,10)}</td>
+			<th>시작일</th><td>${eventVO.STARTDATE.substring(0,10)}</td>
+			<th>종료일</th><td>${eventVO.ENDDATE.substring(0,10)}</td>
 			<c:choose>
-				<c:when test="${eventVO.state == 0}">
+				<c:when test="${eventVO.STATE == 0}">
 					<th>상태</th><td>종료</td>
 				</c:when>
 				<c:otherwise>
@@ -27,22 +27,24 @@
 		</tr>
 		<tr>
 			<th>상세설명</th>
-			<td colspan="5"><textarea rows="12" cols="80">${eventVO.content}</textarea></td>
+			<td colspan="5"><textarea rows="12" cols="80">${eventVO.CONTENT}</textarea></td>
 		</tr>
 		<tr>
 			<th>썸네일</th>
 			<td colspan="9">
-				<img src="image/main/event/${eventVO.thumbnail}" width="200px"><br>
+				<img src="<c:url value='/image/main/event/${eventVO.THUMBNAIL}'/>" width="200px">
+				<br>
 			</td>
 		</tr>
 		<tr>
 			<th>상세이미지</th>
 			<td colspan="9">
-				<img src="image/main/event/${eventVO.image}" width="200px"><br>
+				<img src="<c:url value='/image/main/event/${eventVO.IMAGE}' />" width="200px">
+				<br>
 			</td>
 		</tr>
 	</table>
-	<input type="button" class="btn" value="수정" onclick="go_event_mod('${eventVO.eseq}')">
+	<input type="button" class="btn" value="수정" onclick="go_event_mod('${eventVO.ESEQ}')">
 	<input type="button" class="btn" value="목록" onclick="go_event_mov()">
 </article>
 

@@ -17,4 +17,5 @@ public interface AddressDAO {
 
 	public void setGuestAddress(String address, int gseq, String zip_num);
 	
+	/* test*/
 }

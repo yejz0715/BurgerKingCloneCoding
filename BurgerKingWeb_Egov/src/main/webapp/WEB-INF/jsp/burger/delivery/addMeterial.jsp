@@ -27,13 +27,13 @@
 			<ul class="menu_sub_list check_mode">
 				<c:forEach items="${subProductVO}" var="subproductVO" >
 					<li>
-						<input type="checkbox" name="Meterial" value="${subproductVO.spseq}" title="재료추가" class="check03">
+						<input type="checkbox" name="Meterial" value="${subproductVO.SPSEQ}" title="재료추가" class="check03">
 						<div class="prd_img">
-							<img src = "image/menu/plus/${subproductVO.image}" alt="재료">
+							<img src ="<c:url value='/image/menu/plus/${subproductVO.IMAGE}'/> " alt="재료">
 						</div>
 						<div class="cont">
-							<p class="tit"><span>${subproductVO.sname}</span></p>
-							<p class="price"><span>${subproductVO.addprice}</span></p>
+							<p class="tit"><span>${subproductVO.SNAME}</span></p>
+							<p class="price"><span>${subproductVO.ADDPRICE}</span></p>
 						</div>
 					</li>
 				</c:forEach>

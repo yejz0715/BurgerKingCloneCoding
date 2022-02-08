@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <head profile="http://www.w3.org/2005/10/profile" />
-<link rel="stylesheet" type="text/css" href="/css/event.css">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/event.css'/> "/>
 
 <article>
 	<div class="location">
@@ -27,7 +27,7 @@
 	</p>
 	</div>
 	<div class="dt_ImgCon">
-	<img class="detailImg" src="<c:url value='/image/main/event/${EventVO.IMAGE} '/>"  />
+	<img class="detailImg" src="<c:url value='/image/main/event/${EventVO.IMAGE} '/> "/>
 	<p>${EventVO.CONTENT}</p></div>
 	</li>
 	</ul>

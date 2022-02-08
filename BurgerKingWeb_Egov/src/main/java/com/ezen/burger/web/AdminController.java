@@ -1,29 +1,17 @@
 package com.ezen.burger.web;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.ezen.burger.dto.Paging;
 
 import com.ezen.burger.service.AdminService;
 import com.ezen.burger.service.EventService;
@@ -31,8 +19,6 @@ import com.ezen.burger.service.MemberService;
 import com.ezen.burger.service.OrderService;
 import com.ezen.burger.service.ProductService;
 import com.ezen.burger.service.QnaService;
-import com.oreilly.servlet.MultipartRequest;
-import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -59,39 +45,44 @@ public class AdminController {
 	@Autowired
 	ServletContext context;
 
-	/*
+	
+	@RequestMapping(value = "/admin")
+	public String admin() {
+		return "/admin/main";
+	}
+	
+	
+	
 	@RequestMapping(value = "/adminLogin")
-	public String adminLogin(@ModelAttribute("dto") @Valid AdminVO adminvo, BindingResult result,
-			HttpServletRequest request, Model model) {
-		if (result.getFieldError("id") != null) {
-			model.addAttribute("message", result.getFieldError("id").getDefaultMessage());
-			return "admin/adminLogin";
-		} else if (result.getFieldError("pwd") != null) {
-			model.addAttribute("message", result.getFieldError("pwd").getDefaultMessage());
+	public String adminLogin(HttpServletRequest request, Model model) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		paramMap.put("id", id);
+		paramMap.put("ref_cursor", null);
+		
+		as.adminCheck(paramMap);
+		
+		ArrayList< HashMap<String,Object> > list 
+		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		if(list.size() == 0) {  // 입력한 아이디 없다면
+			model.addAttribute("message" , "아이디가 없어요");
 			return "admin/adminLogin";
 		}
-
-		AdminVO avo = as.adminCheck(adminvo.getId());
-
-		if (avo == null) {
-			model.addAttribute("message", "id가 없습니다.");
+		HashMap<String, Object> resultMap = list.get(0); 
+		if(resultMap.get("PWD")==null) {
+			model.addAttribute("message" , "관리자에게 문의하세요");
 			return "admin/adminLogin";
-		} else if (avo.getPwd() == null) {
-			model.addAttribute("message", "관리자에게 문의하세요");
-			return "admin/adminLogin";
-		} else if (!avo.getPwd().equals(adminvo.getPwd())) {
-			model.addAttribute("message", "비밀번호가 맞지 않습니다.");
-			return "admin/adminLogin";
-		} else if (avo.getPwd().equals(adminvo.getPwd())) {
+		}else if( pwd.equals( (String)resultMap.get("PWD") ) ) {
 			HttpSession session = request.getSession();
-			session.setAttribute("loginAdmin", avo);
+			session.setAttribute("loginAdmin", resultMap);
 			return "admin/main";
-		} else {
-			model.addAttribute("message", "원인미상의 오류로 로그인 불가");
+		}else {
+			model.addAttribute("message" , "비번이 안맞아요");
 			return "admin/adminLogin";
 		}
 	}
-
+	/*
 	@RequestMapping("/adminLogout")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();

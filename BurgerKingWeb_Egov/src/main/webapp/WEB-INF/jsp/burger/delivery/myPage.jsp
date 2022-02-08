@@ -7,7 +7,7 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
 			<li>MY킹</li>
 		</ul>
 	</div>
@@ -17,10 +17,10 @@
 	<h1 class="pageTit">MY킹</h1>
 	</div>
 	<div class="contentBox">
-	<p class="user"><strong>${MemberVO.name}님!&nbsp;</strong>반갑습니다.</p>
+	<p class="user"><strong>${MemberVO.NAME}님!&nbsp;</strong>반갑습니다.</p>
 	<div class="pageMove">
-	<a href="memberUpdateForm"><span>정보변경&nbsp;</span></a>
-	<a href="myAddressForm"><span>MY배달지</span></a>
+	<a href="memberUpdateForm.do"><span>정보변경&nbsp;</span></a>
+	<a href="myAddressForm.do"><span>MY배달지</span></a>
 	</div>
 	</div>
 

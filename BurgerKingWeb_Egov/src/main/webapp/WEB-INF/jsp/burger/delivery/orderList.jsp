@@ -11,7 +11,7 @@
 <div class="location">
 <div class="web_container1">
 	<ul>
-		<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+		<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
 		<li>주문내역</li>
 	</ul>
 </div>
@@ -38,7 +38,7 @@
 					<c:if test="${!empty mkind}">
 						<div style="color: red;">화면의 주문번호는 비회원 주문내역 확인에 필요합니다.(주문번호-주문세부번호)</div>
 					</c:if>
-					<span>${Myaddress.address}</span>	
+					<span>${Myaddress.ADDRESS}</span>	
 				</p>
 				<!-- <button type="button" class="btn04 h02 rbtn"><span>변경</span></button> -->
 			</div>
@@ -56,16 +56,16 @@
 				<div class="cont">
 					<div class="menu_titWrap">
 						<div class="menu_name">
-							<p class="tit"><strong><span>${orderList.oseq}-${orderList.odseq} : ${orderList.pname}</span></strong></p>
+							<p class="tit"><strong><span>${orderList.OSEQ}-${orderList.ODSEQ} : ${orderList.PNAME}</span></strong></p>
 							<p class="price">
 								<strong><span>
-									<c:if test="${orderList.result == 1}">
+									<c:if test="${orderList.RESULT == 1}">
 										주문 처리 전
 									</c:if>
-									<c:if test="${orderList.result == 2}">
+									<c:if test="${orderList.RESULT == 2}">
 										주문 처리 중
 									</c:if>
-									<c:if test="${orderList.result == 3}">
+									<c:if test="${orderList.RESULT == 3}">
 										배달 중
 									</c:if>
 								</span></strong>
@@ -74,17 +74,17 @@
 					</div>
 					<div class="quantity"><strong class="tit">수량</strong>
 						<div class="num_set">
-							<div class="result">${orderList.quantity}</div>
+							<div class="result">${orderList.QUANTITY}</div>
 						</div>
 					</div>
-					<button type="button" name="submit" class="btn_del02" onclick="go_order_delete('${orderList.odseq}')"><span>Delete menu</span></button>
+					<button type="button" name="submit" class="btn_del02" onclick="go_order_delete('${orderList.ODSEQ}')"><span>Delete menu</span></button>
 				</div>
 				<div class="sumWrap">
 				<dl>
 					<dt>상품금액</dt>
 					<dd>
 						<strong>
-							<em><span></span><span class="unit">${orderList.price1}원</span></em>
+							<em><span></span><span class="unit">${orderList.PRICE1}원</span></em>
 						</strong>
 					</dd>
 				</dl>
@@ -99,10 +99,10 @@
 					<li>
 					<div class="cont" style="padding: 32px 64px; font-size:2rem;font-weight: bold;">
 						<c:forEach items="${spseqAm}" var="spseqAm">
-							<c:if test="${spseqAm.odseq == orderList.odseq}">
+							<c:if test="${spseqAm.ODSEQ == orderList.ODSEQ}">
 								<div style="width:100%;">
-									${spseqAm.odseq} : ${spseqAm.sname}
-									<div style="color:red; float:right;">${spseqAm.addprice}원</div>
+									${spseqAm.ODSEQ} : ${spseqAm.SNAME}
+									<div style="color:red; float:right;">${spseqAm.ADDPRICE}원</div>
 								</div>
 							</c:if>
 						</c:forEach>
@@ -147,7 +147,7 @@
 		<div class="totamountWrap">
 			<div class="c_btn m_item2">
 				<c:if test="${!empty loginUser}">
-					<button type="button" class="btn01 m red" onclick="location.href='deliveryForm?kind1=1'">
+					<button type="button" class="btn01 m red" onclick="location.href='deliveryForm.do?kind1=1'">
 					<span>추가주문하기</span></button>
 				</c:if>
 			</div>

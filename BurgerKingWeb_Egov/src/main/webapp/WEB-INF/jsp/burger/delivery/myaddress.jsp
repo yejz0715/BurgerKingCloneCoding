@@ -9,15 +9,15 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="deliveryMypageForm">MY킹</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
 			<li>MY배달지</li>
 		</ul>
 	</div>
 	</div>
 
 	<div class="webAddress">
-		<form method="post" name="address" action="updateAddress">
+		<form method="post" name="address" action="updateAddress.do">
 			<fieldset>
 				<legend>MY배달지</legend>
 				<label>Zip Code</label><input type="text" name="zip_num" size="10" value="${zip_num}">

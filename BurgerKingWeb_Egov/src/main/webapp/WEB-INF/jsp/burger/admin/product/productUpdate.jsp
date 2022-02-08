@@ -5,11 +5,11 @@
 <article>
 	<h1>상품 수정</h1>
 	<form name="frm" method="post" action="adminProductUpdate" enctype="multipart/form-data">
-		<input type="hidden" name="pseq" value="${productVO.pseq}">
-		<input type="hidden" name="oldImage" value="${productVO.image}">
-		<input type="hidden" name="price2" value="${productVO.price2}">
-		<input type="hidden" name="price3" value="${productVO.price3}">
-		<input type="hidden" name="imagelocation" value="images/menu/${productVO.kind1}">
+		<input type="hidden" name="pseq" value="${productVO.PSEQ}">
+		<input type="hidden" name="oldImage" value="${productVO.IMAGE}">
+		<input type="hidden" name="price2" value="${productVO.PRICE2}">
+		<input type="hidden" name="price3" value="${productVO.PRICE3}">
+		<input type="hidden" name="imagelocation" value="<c:url value='images/menu/${productVO.KIND1}'/>">
 		<table id="list" width="500" border="1">
 			<tr>
 				<th>상품분류</th>
@@ -17,11 +17,11 @@
 					<select name="kind1">
 						<c:forEach items="${kindList1}" var="kind1" varStatus="status">
 							<c:choose>
-								<c:when test="${productVO.kind1==status.count}">
-									<option value="${status.count}" selected="selected">${kind1}</option>
+								<c:when test="${productVO.KIND1==status.count}">
+									<option value="${status.COUNT}" selected="selected">${kind1}</option>
 								</c:when>
 								<c:otherwise>
-									<option value="${status.count}">${kind1}</option>
+									<option value="${status.COUNT}">${kind1}</option>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -29,18 +29,18 @@
 				</td>
 				<th>분류번호</th>
 				<td>
-					<input type="text" name="kind2" size="3" maxlength="10-" value="${productVO.kind2}">
+					<input type="text" name="kind2" size="3" maxlength="10-" value="${productVO.KIND2}">
 				</td>
 				<th>세부</th>
 				<td>
 					<select name="kind3">
 						<c:forEach items="${kindList3}" var="kind3" varStatus="status">
 							<c:choose>
-								<c:when test="${productVO.kind3==status.count}">
-									<option value="${status.count}" selected="selected">${kind3}</option>
+								<c:when test="${productVO.KIND3==status.COUNT}">
+									<option value="${status.COUNT}" selected="selected">${kind3}</option>
 								</c:when>
 								<c:otherwise>
-									<option value="${status.count}">${kind3}</option>
+									<option value="${status.COUNT}">${kind3}</option>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -48,12 +48,12 @@
 				</td>
 				<th>가격</th>
 				<td>
-					<input type="text" name="price1" size="10" value="${productVO.price1}">
+					<input type="text" name="price1" size="10" value="${productVO.PRICE1}">
 				</td>
 				<th>사용유무</th>
 				<td>
 					<c:choose>
-						<c:when test='${productVO.useyn == "1"}'>
+						<c:when test='${productVO.USEYN == "1"}'>
 							<input type="checkbox" name="useyn" value="1" checked="checked">
 						</c:when>
 						<c:otherwise>
@@ -66,19 +66,19 @@
 			<tr>
 				<th>상품명</th>
 				<td colspan="9">
-					<input type="text" name="pname" size="80" maxlength="10-" value="${productVO.pname}">
+					<input type="text" name="pname" size="80" maxlength="10-" value="${productVO.PNAME}">
 				</td>
 			</tr>
 			<tr>
 				<th>상세설명</th>
 				<td colspan="9">
-					<textarea rows="8" cols="80" name="content">${productVO.content}</textarea>
+					<textarea rows="8" cols="80" name="content">${productVO.CONTENT}</textarea>
 				</td>
 			</tr>
 			<tr>
 				<th>상품이미지</th>
 				<td colspan="9">
-					<img src="image/menu/product/${productVO.image}" width="200px"><br>
+					<img src="<c:url value='image/menu/product/${productVO.IMAGE}'/>" width="200px"><br>
 					<div id="imageName" style="float:left; font-size:120%;margin-right:20px;font-weight:bold"></div>
 					<input type="button" class="btn" value="이미지선택" onClick="selectFile();"
 					style="width:30%">
@@ -88,7 +88,7 @@
 		</table>
 		<input type="button" class="btn" value="수정" onclick="go_mod_save()">
 		<input type="button" class="btn" value="취소" onclick=
-		"location.href='adminProductDetail?pseq=${productVO.pseq}'">
+		"location.href='adminProductDetail.do?pseq=${productVO.PSEQ}'">
 	</form>
 </article>
 

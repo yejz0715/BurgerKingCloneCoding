@@ -30,39 +30,39 @@
 				<tr>
 					<td>
 						<c:choose>
-							<c:when test='${orderVO.result=="1"}'>
-								<span style="font-weight: bold; color: blue">${orderVO.oseq}</span>
-								(<input type="checkbox" name="result" value="${orderVO.odseq}">미처리)
+							<c:when test='${orderVO.RESULT=="1"}'>
+								<span style="font-weight: bold; color: blue">${orderVO.OSEQ}</span>
+								(<input type="checkbox" name="result" value="${orderVO.ODSEQ}">미처리)
 							</c:when>
-							<c:when test='${orderVO.result=="2"}'>
-								<span style="font-weight: bold; color: blue">${orderVO.oseq}</span>
-								(<input type="checkbox" name="result" value="${orderVO.odseq}">처리중)
+							<c:when test='${orderVO.RESULT=="2"}'>
+								<span style="font-weight: bold; color: blue">${orderVO.OSEQ}</span>
+								(<input type="checkbox" name="result" value="${orderVO.ODSEQ}">처리중)
 							</c:when>
-							<c:when test='${orderVO.result=="3"}'>
-								<span style="font-weight: bold; color: blue">${orderVO.oseq}</span>
-								(<input type="checkbox" name="result" value="${orderVO.odseq}">배달중)
+							<c:when test='${orderVO.RESULT=="3"}'>
+								<span style="font-weight: bold; color: blue">${orderVO.OSEQ}</span>
+								(<input type="checkbox" name="result" value="${orderVO.ODSEQ}">배달중)
 							</c:when>
 							<c:otherwise>
-								<span style="font-weight: bold; color: red">${orderVO.oseq}</span>
+								<span style="font-weight: bold; color: red">${orderVO.OSEQ}</span>
 								(<input type="checkbox" checked="checked" disabled="disabled">완료)
 							</c:otherwise>
 						</c:choose>
 					</td>
-					<td>${orderVO.mname}</td>
-					<td><a href="adminOrderDetailForm?kind=${kind}&seq=${orderVO.odseq}">${orderVO.pname}</a></td>
-					<td>${orderVO.quantity}</td>
-					<td>${orderVO.phone}</td>
-					<td><fmt:formatDate value="${orderVO.indate}"/></td>
+					<td>${orderVO.MNAME}</td>
+					<td><a href="adminOrderDetailForm.do?kind=${kind}&seq=${orderVO.ODSEQ}">${orderVO.PNAME}</a></td>
+					<td>${orderVO.QUANTITY}</td>
+					<td>${orderVO.PHONE}</td>
+					<td><fmt:formatDate value="${orderVO.INDATE}"/></td>
 					<td>
-						<c:if test="${orderVO.memberkind == 1}">
+						<c:if test="${orderVO.MEMBERKIND == 1}">
 							회원
 						</c:if>
-						<c:if test="${orderVO.memberkind == 2}">
+						<c:if test="${orderVO.MEMBERKIND == 2}">
 							비회원
 						</c:if>
 					</td>
 					<td>
-						<input type="checkbox" name="delete" value="${orderVO.odseq}">
+						<input type="checkbox" name="delete" value="${orderVO.ODSEQ}">
 					</td>
 				</tr>
 			</c:forEach>
@@ -81,7 +81,7 @@
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
 		<jsp:param name="kind" value="${kind}"/>
-		<jsp:param name="command" value="adminOrderList"/>
+		<jsp:param name="command" value="adminOrderList.do"/>
 	</jsp:include>
 </article>
 

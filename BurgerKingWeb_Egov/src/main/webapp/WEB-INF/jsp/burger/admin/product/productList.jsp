@@ -10,7 +10,7 @@
 				<td width="800">상품명<input type="text" name="key" value="${key}">
 				<input class="btn" type="button" name="btn_search" value="검색" onclick="go_search();">
 				<input class="btn" type="button" name="btn_total" value="전체보기" onclick="go_total();">
-				<input class="btn" type="button" name="btn_wrt" value="목록별보기" onclick="location.href='adminShortProductList?page=1&key='">
+				<input class="btn" type="button" name="btn_wrt" value="목록별보기" onclick="location.href='adminShortProductList.do?page=1&key='">
 				<input class="btn" type="button" name="btn_wrt" value="상품등록" onclick="go_wrt();">
 			</tr>
 		</table>
@@ -28,23 +28,23 @@
 			</tr>
 			<c:forEach items="${productList}" var="productVO">
 				<tr>
-					<td height="23" align="center">${productVO.pseq}</td>
+					<td height="23" align="center">${productVO.PSEQ}</td>
 					<td style="text-align: left; padding-left: 50px;">
-						<a href="#" onClick="go_detail('${productVO.pseq}')">${productVO.pname}</a>
+						<a href="#" onClick="go_detail('${productVO.PSEQ}')">${productVO.PNAME}</a>
 					</td>
-					<td><fmt:formatNumber value="${productVO.price1}"/></td>
-					<td><fmt:formatNumber value="${productVO.kind1}"/></td>
-					<td><fmt:formatNumber value="${productVO.kind2}"/></td>
-					<td><fmt:formatNumber value="${productVO.kind3}"/></td>
-					<td><fmt:formatDate value="${productVO.indate}"/></td>
+					<td><fmt:formatNumber value="${productVO.PRICE1}"/></td>
+					<td><fmt:formatNumber value="${productVO.KIND1}"/></td>
+					<td><fmt:formatNumber value="${productVO.KIND2}"/></td>
+					<td><fmt:formatNumber value="${productVO.KIND3}"/></td>
+					<td><fmt:formatDate value="${productVO.INDATE}"/></td>
 					<td>
 						<c:choose>
-							<c:when test='${productVO.useyn==2}'>미사용</c:when>
+							<c:when test='${productVO.USEYN==2}'>미사용</c:when>
 							<c:otherwise>사용</c:otherwise>
 						</c:choose>
 					</td>
 					<td>
-						<input type="checkbox" name="delete" value="${productVO.pseq}">
+						<input type="checkbox" name="delete" value="${productVO.PSEQ}">
 					</td>
 				</tr>
 			</c:forEach>
@@ -57,7 +57,7 @@
 		<jsp:param name="endPage" value="${paging.endPage}"/>
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
-		<jsp:param name="command" value="adminProductList"/>
+		<jsp:param name="command" value="adminProductList.do"/>
 	</jsp:include>
 	
 </article>

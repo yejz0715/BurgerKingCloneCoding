@@ -4,20 +4,20 @@
 
 <article>
 	<h1>회원 정보 수정</h1>
-	<form name="frm" method="post" action="adminMemberUpdate">
-		<input type="hidden" name="mseq" value="${memberVO.mseq}">
-		<input type="hidden" name="id" value="${memberVO.id}">
+	<form name="frm" method="post" action="adminMemberUpdate.do">
+		<input type="hidden" name="mseq" value="${memberVO.MSEQ}">
+		<input type="hidden" name="id" value="${memberVO.ID}">
 		<table id="list" width="500" border="1">
 			<tr>
 				<th>아이디</th>
 				<td>
-					${memberVO.id}
+					${memberVO.ID}
 				</td>
 			</tr>
 			<tr>
 				<th>이름</th>
 				<td colspan="3">
-					<input type="text" name="name" value="${memberVO.name}">
+					<input type="text" name="name" value="${memberVO.NAME}">
 				</td>
 			</tr>
 			<tr>
@@ -35,13 +35,13 @@
 			<tr>
 				<th>전화번호</th>
 				<td>
-					<input type="text" name="phone" value="${memberVO.phone}">
+					<input type="text" name="phone" value="${memberVO.PHONE}">
 				</td>
 			</tr>
 		</table>
 		<input type="submit" class="btn" value="수정" >
 		<input type="button" class="btn" value="취소" onclick=
-		"location.href='adminMemberList'">
+		"location.href='adminMemberList.do'">
 		<h4 style="color: red">${message}</h4>
 	</form>
 </article>

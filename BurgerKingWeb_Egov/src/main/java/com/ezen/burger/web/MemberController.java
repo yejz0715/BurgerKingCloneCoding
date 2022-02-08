@@ -38,11 +38,11 @@ public class MemberController {
 	
 
 	// 로그인 페이지로 이동
-	@RequestMapping(value="/loginForm")
+	@RequestMapping(value="/loginForm.do")
 	public String loginForm() {
 		return "member/loginForm";
 	}
-	
+	/*
 	// 로그인
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
@@ -341,10 +341,10 @@ public class MemberController {
 			mav.setViewName("redirect:/loginForm");
 		}
 		return mav;
-	}
+	}*/
 	
 	// 회원가입 페이지
-	@RequestMapping(value="/joinForm")
+	@RequestMapping(value="/joinForm.do")
 	public String join_form(Model model, HttpServletRequest request) {
 		return "member/join";
 	}
@@ -376,7 +376,7 @@ public class MemberController {
 	}
 	
 	
-	
+	/*
 	// 회웝가입 정보저장
 	@RequestMapping(value="/joinpage", method=RequestMethod.POST)
 	public ModelAndView joinpage( @ModelAttribute("dto") @Valid MemberVO membervo,

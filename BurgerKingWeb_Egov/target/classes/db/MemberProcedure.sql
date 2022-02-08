@@ -26,7 +26,7 @@ BEGIN
 END;
 
 -- 로그인 시 마지막 접속일(lastdate) 변경 프로시져
-create or replace procedure lastDateUpdate(
+create or replace procedure b_lastDateUpdate(
 	p_id in member.id%type
 )
 is

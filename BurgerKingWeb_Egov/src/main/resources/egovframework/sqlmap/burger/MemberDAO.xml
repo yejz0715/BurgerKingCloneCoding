@@ -13,9 +13,9 @@
 		}
 	</select>
 	
-	<update id="lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<update id="b_lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL lastDateUpdate(
+			CALL b_lastDateUpdate(
 				#{id}
 			)
 		}

@@ -28,7 +28,7 @@ public interface MemberDAO {
 //	public void deleteQna(String id);
 //	public void deleteOrderDetail(int i);
 
-	void lastDateUpdate(HashMap<String, Object> paramMap);
+	void b_lastDateUpdate(HashMap<String, Object> paramMap);
 
 	void b_insertMember(HashMap<String, Object> paramMap);
 

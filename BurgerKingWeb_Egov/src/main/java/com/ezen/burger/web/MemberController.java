@@ -37,7 +37,7 @@ public class MemberController {
 	public String loginForm() {
 		return "member/loginForm";
 	}
-	/*
+	
 	// 로그인
 	@RequestMapping(value="login", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {

@@ -94,7 +94,7 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 
 	@Override
 	public void lastDateUpdate(HashMap<String, Object> paramMap) {
-		mdao.lastDateUpdate(paramMap);
+		mdao.b_lastDateUpdate(paramMap);
 	}
 
 	@Override

@@ -1,14 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 <head profile="http://www.w3.org/2005/10/profile" />
-<link rel="stylesheet" type="text/css" href="/css/event.css">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/event.css'/> "/>
 
 <article>
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="eventListForm">이벤트</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="eventListForm.do">이벤트</a>&nbsp;>&nbsp;</li>
 			<li>상세</li>
 		</ul>
 	</div>		
@@ -20,15 +20,15 @@
 	<ul>
 	<li>
 	<div class="detailTit">
-	<input type="hidden" name="eseq" value="${EventVO.eseq}" />
-	<h2>${EventVO.subject}</h2>
-	<p>${EventVO.startdate.substring(0,10)} ~ <!--substring:문자열 자르기(0부터 10까지)  -->
-	${EventVO.enddate.substring(0,10)}
+	<input type="hidden" name="eseq" value="${EventVO.ESEQ}" />
+	<h2>${EventVO.SUBJECT}</h2>
+	<p>${EventVO.STARTDATE.substring(0,10)} ~ <!--substring:문자열 자르기(0부터 10까지)  -->
+	${EventVO.ENDDATE.substring(0,10)}
 	</p>
 	</div>
 	<div class="dt_ImgCon">
-	<img class="detailImg" src="image/main/event/${EventVO.image} "  />
-	<p>${EventVO.content}</p></div>
+	<img class="detailImg" src="<c:url value='/image/main/event/${EventVO.IMAGE} '/> "/>
+	<p>${EventVO.CONTENT}</p></div>
 	</li>
 	</ul>
 	</form>
@@ -44,14 +44,14 @@
 	만나보세요!
 	</p>
 	<div class="qrCode">
-	<a href="https://play.google.com/store/apps/details?id=kr.co.burgerkinghybrid&hl=ko">
-	<img src="image/main/appQR.png">
+	<a href="https://play.google.com/store/apps/details.do?id=kr.co.burgerkinghybrid&hl=ko">
+	<img src="<c:url value='/image/main/appQR.png'/> "/>
 	</a>
 	</div>
 	
 	</div>
 	<div class="c_btnItem2">
-		<input type="button" class="btn01 m" onclick="location.href='eventListForm'" value="목록으로"/>
+		<input type="button" class="btn01 m" onclick="location.href='eventListForm.do'" value="목록으로"/>
 	</div>
 	</article>
 	

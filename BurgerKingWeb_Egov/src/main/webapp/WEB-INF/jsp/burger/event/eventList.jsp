@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-<link rel="stylesheet" type="text/css" href="/css/event.css">
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/event.css'/> "/>
 <article>
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="eventListForm">이벤트</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="eventListForm.do">이벤트</a>&nbsp;>&nbsp;</li>
 			<li>전체</li>
 		</ul>
 	</div>
@@ -16,9 +16,9 @@
 			<h1 class="event_tit">이벤트</h1>
 			<ul class="submenu_right">
 				<li><span style="border-bottom: 3px solid red;"><a
-						href="eventListForm" style="color: red;">전체</a></span></li>
-				<li><span><a href="eventTab2">진행중</a></span></li>
-				<li><span><a href="eventTab3">종료</a></span></li>
+						href="eventListForm.do" style="color: red;">전체</a></span></li>
+				<li><span><a href="eventTab2.do">진행중</a></span></li>
+				<li><span><a href="eventTab3.do">종료</a></span></li>
 			</ul>
 		</div>
 
@@ -27,14 +27,14 @@
 				<ul>
 					<c:forEach var="EventVO" items="${eventList}">
 						<li><a
-							href="eventDetailForm?eseq=${EventVO.eseq}">
-								<input type="hidden" name="eseq" value="${EventVO.eseq}" /> <img
-								class="eventImg" src="image/main/event/${EventVO.thumbnail}" />
+							href="eventDetailForm.do?eseq=${EventVO.ESEQ}">
+								<input type="hidden" name="eseq" value="${EventVO.ESEQ}" /> 
+								<img class="eventImg" src="<c:url value='/image/main/event/${EventVO.THUMBNAIL}'/>" />
 						</a>
 							<p>
-								${EventVO.startdate.substring(0,10)}
+								${EventVO.STARTDATE.substring(0,10)}
 								~
-								${EventVO.enddate.substring(0,10)}
+								${EventVO.ENDDATE.substring(0,10)}
 							</p></li>
 					</c:forEach>
 				</ul>

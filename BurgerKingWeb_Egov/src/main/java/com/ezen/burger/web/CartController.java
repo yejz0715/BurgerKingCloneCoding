@@ -190,7 +190,7 @@ public class CartController {
 			guestCartList.add(cvo);
 			session.setAttribute("guestCartList", guestCartList);
 		}
-		return "redirect:/deliveryCartForm";
+		return "redirect:/deliveryCartForm.do";
 	}
 	/*
 	// 카트 삭제

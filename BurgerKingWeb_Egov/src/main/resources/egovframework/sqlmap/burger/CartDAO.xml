@@ -17,7 +17,7 @@
 		{
 			CALL b_insertCart(
 				#{id},
-				#{pseq}
+				#{PSEQ}
 			)
 		}
 	</insert>

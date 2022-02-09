@@ -20,5 +20,7 @@ public interface MemberService {
 
 	void updateMember(HashMap<String, Object> mvo);
 
+	void deleteMember(HashMap<String, Object> paramMap);
+
 
 }

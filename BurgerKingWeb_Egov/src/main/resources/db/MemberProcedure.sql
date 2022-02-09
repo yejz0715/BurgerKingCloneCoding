@@ -143,3 +143,14 @@ begin
 	open p_rc for
 		select * from member where name=p_name and id=p_id;
 end;
+
+--updatePwd
+create or replace procedure b_updatePwd(
+	p_pwd in member.pwd%type,
+    p_mseq in member.mseq%type
+)
+is
+
+begin
+	update member set pwd=p_pwd where mseq=p_mseq;
+end;

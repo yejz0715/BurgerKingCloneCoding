@@ -94,4 +94,12 @@
 			)
 		}
 	</select>
+	
+	<update id="b_updatePwd" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_updatePwd(
+				#{pwd},#{mseq}
+			)
+		}
+	</update>
 </mapper>

@@ -1,6 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/Delivery/deli_header.jsp"%>
-<script src="<c:url value='member.js" type="text/javascript' />"></script>
+
+<script type="text/javascript">
+function find_id(){
+	if (document.frm.name.value == "") {
+		alert("이름을 입력하여 주세요."); 	    
+	    document.frm.name.focus();
+	} else if(document.frm.phone.value == "") {
+	    alert("휴대폰번호을 입력해 주세요.");	    
+	    document.frm.phone.focus();
+	} else{
+		document.frm.action ="findId.do";
+		document.frm.submit(); 
+	}
+  }
+</script>   
 <article style="background-color: #f2ebe6;">
 	<div class="location">
 	<div class="web_container1">
@@ -55,7 +69,7 @@
 				</ul>
 			</div>
 			<div class="c_btn item2 findidalign">
-				<input type="submit" class="btn01 m" value="아이디 찾기" onClick="find_id()"/>
+				<input type="button" class="btn01 m" value="아이디 찾기" onClick="find_id()"/>
 			</div>
 		</form>
 	</div>

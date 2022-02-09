@@ -68,17 +68,16 @@
 			)
 		}
 	</update>
-	
-<<<<<<< HEAD
-	<select id="b_findId" statementType="CALLABLE" parameterType="java.util.HashMap">
+
+	<select id="b_findMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL b_findId(
+			CALL b_findMember(
 				#{name}, #{phone},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
 		}
 	</select>
-=======
+
 	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_deleteMember(
@@ -86,5 +85,5 @@
 			)
 		}
 	</delete>
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov.git
+
 </mapper>

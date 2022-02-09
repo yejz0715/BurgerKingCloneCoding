@@ -94,6 +94,16 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 
 	@Override
 	public void lastDateUpdate(HashMap<String, Object> paramMap) {
-		mdao.lastDateUpdate(paramMap);
+		mdao.b_lastDateUpdate(paramMap);
+	}
+
+	@Override
+	public void b_insertMember(HashMap<String, Object> paramMap) {
+		mdao.b_insertMember(paramMap);
+	}
+
+	@Override
+	public void b_getMember(HashMap<String, Object> paramMap) {
+		mdao.b_getMember(paramMap);
 	}
 }

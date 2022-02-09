@@ -8,4 +8,9 @@ public interface MemberService {
 
 	void lastDateUpdate(HashMap<String, Object> paramMap);
 
+	void b_insertMember(HashMap<String, Object> paramMap);
+
+	void b_getMember(HashMap<String, Object> paramMap);
+
+
 }

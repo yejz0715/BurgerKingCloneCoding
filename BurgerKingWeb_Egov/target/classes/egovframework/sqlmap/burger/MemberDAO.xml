@@ -13,11 +13,30 @@
 		}
 	</select>
 	
-	<update id="lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<update id="b_lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL lastDateUpdate(
+			CALL b_lastDateUpdate(
 				#{id}
 			)
 		}
 	</update>
+	
+	<insert id="b_insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL b_insertMember( 
+				#{id}, #{pwd}, #{phone}, #{name}
+		) }
+	</insert>
+	
+	<select id="b_getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getMember(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	
+	
+	
 </mapper>

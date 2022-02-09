@@ -17,7 +17,7 @@
 	   <div class="banner">
 	      <div class="slide" id="slide">
 	         <ul class="cnt" id="cnt">
-	            <li><a href="eventDetailForm.do?eseq=5"><img
+	            <li><a href="eventDetailForm.do?eseq=4"><img
 	                  src="<c:url value='image/main/banner/banner_3.png'/>"></a></li>
 	            <li><a href="eventDetailForm.do?eseq=3"><img
 	                  src="<c:url value='image/main/banner/banner_1.png'/>"></a></li>

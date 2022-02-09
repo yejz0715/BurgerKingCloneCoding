@@ -4,11 +4,11 @@
 		
 		<footer>
 			<div id="copy">
-				<img src="image/main/bottom_logo.png"><br><br>
+				<img src="<c:url value='/image/main/bottom_logo.png'/> "/><br><br>
 				
 				<ul>
-					<li style="border-right:1px solid gray"><span><a class="footer_a" href="terms">이용약관</a></span></li>
-					<li style="border-right:1px solid gray"><span><a class="footer_a" href="privacy">개인정보취급방침</a></span></li>
+					<li style="border-right:1px solid gray"><span><a class="footer_a" href="terms.do">이용약관</a></span></li>
+					<li style="border-right:1px solid gray"><span><a class="footer_a" href="privacy.do">개인정보취급방침</a></span></li>
 					<li><span><a class="footer_a" href="legal">법적고지</a></span></li>
 				</ul>
 				
@@ -19,8 +19,8 @@
 				</div><br>
 				
 				<div id="bottom_img">
-					<a href="https://www.facebook.com/burgerkingkorea" target="_blank"><img src="image/main/bottom_image02.png"></a>
-					<a href="https://www.instagram.com/burgerkingkorea" target="_blank"><img src="image/main/bottom_image03.png" style="padding-top:4px"></a>
+					<a href="https://www.facebook.com/burgerkingkorea" target="_blank"><img src="<c:url value='/image/main/bottom_image02.png'/> "></a>
+					<a href="https://www.instagram.com/burgerkingkorea" target="_blank"><img src="<c:url value='/image/main/bottom_image03.png" style="padding-top:4px'/> "></a>
 				</div>
 			</div>
 		</footer>

@@ -5,7 +5,7 @@
 	<div class="location">
 		<div class="web_container1">
 			<ul>
-				<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
+				<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
 				<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
 				<li><a href="guestLoginForm.do">비회원 주문</a></li>
 			</ul>

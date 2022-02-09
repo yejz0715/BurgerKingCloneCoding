@@ -5,7 +5,7 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
 			<li>고객센터 &nbsp;>&nbsp;</li>
 			<li>FAQ</li>
 		</ul>
@@ -17,7 +17,7 @@
 		<ul id="terms_wrap_ul" style="right: 0; top:0">
 			<li>
 				<span>
-					<a href=faqList1 style="color: red; text-decoration: underline;">FAQ</a>
+					<a href="faqList1.do" style="color: red; text-decoration: underline;">FAQ</a>
 				</span>
 			</li>
 			<li><span><a href="qnaForm.do">문의</a></span></li>

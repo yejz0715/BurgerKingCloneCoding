@@ -6,9 +6,9 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="join">회원가입</a></li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+			<li><a href="join.do">회원가입</a></li>
 		</ul>
 	</div>
 	</div>
@@ -29,8 +29,8 @@
 				</p>
 			</div>
 			<div class="c_btn m_item2">
-				<a href="main" class="btn01"><span>홈으로</span></a><a
-					href="loginForm?non=1" class="btn01"><span>주문하기</span></a>
+				<a href="main.do" class="btn01"><span>홈으로</span></a><a
+					href="loginForm.do?non=1" class="btn01"><span>주문하기</span></a>
 			</div>
 		</div>
 	</div>

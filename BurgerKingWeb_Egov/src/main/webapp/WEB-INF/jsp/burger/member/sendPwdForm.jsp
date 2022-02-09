@@ -7,10 +7,10 @@
 		<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 			<li>
 				<span>
-					<a href="findIdForm" style="font-size: 1.45em;">아이디 찾기</a>
+					<a href="findIdForm.do" style="font-size: 1.45em;">아이디 찾기</a>
 				</span>
 			</li>
-			<li><span><a href="findPwdForm?id=${memberVO.id}&name=${memberVO.name}" style="color: red; text-decoration: underline; font-size: 1.45em;">비밀번호 찾기</a></span></li>
+			<li><span><a href="findPwdForm.do?id=${memberVO.ID}&name=${memberVO.NAME}" style="color: red; text-decoration: underline; font-size: 1.45em;">비밀번호 찾기</a></span></li>
 		</ul>
 		<div class="btnarea" style="height:0px; margin-top: 80px;"></div>
 		<div class="textarea" style="height: 800px;">
@@ -24,8 +24,8 @@
 						
 					</c:when>
 					<c:otherwise>
-						<form method="post" name="frm" action="updatePwd">
-							<input type="hidden" name="mseq" value="${memberVO.mseq}">
+						<form method="post" name="frm" action="updatePwd.do">
+							<input type="hidden" name="mseq" value="${memberVO.MSEQ}">
 							<div class="textareapwd" style="right: 140px;">
 								<div class="inpbox" style="margin-bottom: 30px;">
 									<div class="vtop">비밀번호</div>

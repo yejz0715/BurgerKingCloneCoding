@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -47,4 +48,9 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	public ArrayList<CartVO> getPseqCart(int pseq) {
 		return cdao.getPseqCart(pseq);
 	}*/
+
+	@Override
+	public void selectCart(HashMap<String, Object> paramMap3) {
+		cdao.b_selectCart(paramMap3);
+	}
 }

@@ -1,11 +1,14 @@
 package com.ezen.burger.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="AddressDAO")
 public interface AddressDAO {
+
+	void b_getMyAddress(HashMap<String, Object> paramMap);
 
 	/*
 	 * public MyAddressVO getMyAddress(int mseq);

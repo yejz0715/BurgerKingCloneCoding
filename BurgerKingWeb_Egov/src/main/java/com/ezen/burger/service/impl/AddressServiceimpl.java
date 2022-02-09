@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -15,6 +16,11 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class AddressServiceimpl extends EgovAbstractServiceImpl implements AddressService{
 	@Resource(name="AddressDAO")
 	AddressDAO adao;
+
+	@Override
+	public void b_getMyAddress(HashMap<String, Object> paramMap) {
+		adao.b_getMyAddress(paramMap);
+	}
 
 //	public MyAddressVO getMyAddress(int mseq) {
 //		return adao.getMyAddress(mseq);

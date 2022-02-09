@@ -1,5 +1,7 @@
 package com.ezen.burger.service.impl;
 
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -85,4 +87,9 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	public int getResult(int odseq) {
 		return pdao.getResult(odseq);
 	}*/
+
+	@Override
+	public void getProductList(HashMap<String, Object> paramMap4) {
+		pdao.b_getProductList(paramMap4);
+	}
 }

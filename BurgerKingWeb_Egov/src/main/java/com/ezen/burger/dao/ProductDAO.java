@@ -1,11 +1,14 @@
 package com.ezen.burger.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="ProductDAO")
 public interface ProductDAO {
+
+	void b_getProductList(HashMap<String, Object> paramMap4);
 
 //	public ArrayList<ProductVO> getProduct(String kind1);
 //

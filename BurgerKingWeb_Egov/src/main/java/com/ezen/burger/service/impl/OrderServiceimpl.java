@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -121,4 +122,9 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	public ArrayList<orderVO> getOrderListResult2(String id) {
 		return odao.getOrderListResult2(id);
 	}*/
+
+	@Override
+	public void getOrderList(HashMap<String, Object> paramMap2) {
+		odao.b_getOrderList(paramMap2);
+	}
 }

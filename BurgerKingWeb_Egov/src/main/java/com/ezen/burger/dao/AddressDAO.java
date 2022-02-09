@@ -1,6 +1,5 @@
 package com.ezen.burger.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
@@ -16,8 +15,5 @@ public interface AddressDAO {
 
 	void b_selectAddressByDong(HashMap<String, Object> paramMap);
 
-	/*
-	 * public MyAddressVO getMyAddress(int mseq);
-	 * public void updateUserAddress(MyAddressVO mavo);
-	 */
+	void b_updateUserAddress(HashMap<String, Object> paramMap);
 }

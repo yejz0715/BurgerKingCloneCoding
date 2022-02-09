@@ -10,8 +10,8 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="deliveryMypageForm">MY킹</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
 			<li>회원정보변경</li>
 		</ul>
 	</div>
@@ -19,17 +19,17 @@
 	<div class="web_profileUpdate">
 		<h1 class="subTit">회원정보변경</h1>
 		<h2 style="color: red; font-weight: bold;">${message}</h2>
-		<form name="frm" method="post" action="updateMember">
+		<form name="frm" method="post" action="updateMember.do">
 			<fieldset>
 				<legend>기본정보</legend>
 				<label>이메일</label>
-				<input type="text" name="id" value="${MemberVO.id}" readonly /><br> 
+				<input type="text" name="id" value="${MemberVO.ID}" readonly /><br> 
 				<label>비밀번호</label>
-				<input type="password" name="pwd" value="${MemberVO.pwd}" /><br> 
+				<input type="password" name="pwd" value="${MemberVO.PWD}" /><br> 
 				<label>이름</label>
-				<input type="text" name="name" value="${MemberVO.name}" /><br>
+				<input type="text" name="name" value="${MemberVO.NAME}" /><br>
 				<label>핸드폰</label>
-				<input type="text" name="phone" value="${MemberVO.phone}" /><br>
+				<input type="text" name="phone" value="${MemberVO.PHONE}" /><br>
 			</fieldset>
 
 			<fieldset>
@@ -52,8 +52,8 @@
 		</form>
 
 		<div class="resign_container">
-			<form name="deletefrm" method="post" action="memberDelete">
-				<input type="hidden" name="mseq" value="${MemberVO.mseq}"> 
+			<form name="deletefrm" method="post" action="memberDelete.do">
+				<input type="hidden" name="mseq" value="${MemberVO.MSEQ}"> 
 				<input type="submit" value="회원탈퇴" onClick="return resign()" />
 			</form>
 

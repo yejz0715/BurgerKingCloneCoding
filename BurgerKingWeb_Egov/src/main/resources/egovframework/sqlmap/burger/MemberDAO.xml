@@ -23,7 +23,7 @@
 	
 	<insert id="b_insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
 		{ CALL b_insertMember( 
-				#{id}, #{pwd}, #{phone}, #{name}
+			#{id}, #{pwd}, #{phone}, #{name}
 		) }
 	</insert>
 	
@@ -61,4 +61,28 @@
 		}
 	</select>
 	
+	<update id="b_updateMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_updateMember(
+				#{ID},#{PWD},#{NAME},#{PHONE}
+			)
+		}
+	</update>
+
+	<select id="b_findMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_findMember(
+				#{name}, #{phone},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+
+	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteMember(
+				#{mseq}
+			)
+		}
+	</delete>
 </mapper>

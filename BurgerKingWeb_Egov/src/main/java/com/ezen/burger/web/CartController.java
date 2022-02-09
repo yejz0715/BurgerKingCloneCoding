@@ -1,16 +1,15 @@
 package com.ezen.burger.web;
 
-import java.sql.Timestamp;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.burger.service.CartService;
@@ -28,85 +27,115 @@ public class CartController {
 	@Resource(name="ProductService")
 	ProductService ps;
 	
-	/*
 	// 카트 리스트 페이지로 이동
-	@RequestMapping(value="/deliveryCartForm")
-	public ModelAndView deliveryCartForm(HttpServletRequest request,
-			@RequestParam(value="message", required = false) String message) {
+	@RequestMapping(value="/deliveryCartForm.do")
+	public String deliveryCartForm(HttpServletRequest request, Model model) {
+		String message = request.getParameter("message");
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+				HashMap<String, Object> mvo = (HashMap<String, Object>)session.getAttribute("loginUser");
 				
 				//해당 접속 회원의 주문 목록과 카트 목록 가져오기
-				ArrayList<orderVO> list1 = os.getOrderList(mvo.getId());
-				ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("id", mvo.get("ID").toString());
+				paramMap2.put("ref_cursor", null);
+				HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+				paramMap3.put("id", mvo.get("ID").toString());
+				paramMap3.put("ref_cursor", null);
+				
+				os.getOrderList(paramMap2);
+				cs.selectCart(paramMap3);
+				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
 				
 				// 가져온 카트 목록에서 가격 총합 계산 
 				int totalPrice = 0; 
-				for(CartVO cvo : list2) totalPrice += cvo.getPrice1() * cvo.getQuantity();
-				
+				for(HashMap<String, Object> cvo : list2) { 
+					totalPrice += 
+					Integer.parseInt(cvo.get("PRICE1").toString()) * 
+					Integer.parseInt(cvo.get("QUANTITY").toString());
+				}
 				// 해당 접속 회원의 추가 재료의 목록을 가져오기
-				ArrayList<subproductOrderVO> spovo = ps.selectSubProductOrder(mvo.getMseq());
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("mseq", mvo.get("MSEQ").toString());
+				paramMap.put("ref_cursor", null);
+				
+				ps.selectSubProductOrder(paramMap);
+				
+				ArrayList<HashMap<String, Object>> spovo = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 				
 				// 추가 재료의 가격까지 총 가격으로 계산
 				for(int i = 0; i < spovo.size(); i++) {
-					totalPrice += spovo.get(i).getAddprice();
+					totalPrice += Integer.parseInt(spovo.get(i).get("ADDPRICE").toString());
 				}
 				if(totalPrice<=12000) {
 				// 해당 값을 전송
 					if(message !=null) {
-						mav.addObject("message", message);
+						model.addAttribute("message", message);
 					}
 				}
-				mav.addObject("totalPrice", totalPrice);
-				mav.addObject("spseqAm", spovo);
-				mav.addObject("ovo", list1);
-				mav.addObject("cvo", list2);
-				mav.setViewName("delivery/cart");
+				model.addAttribute("totalPrice", totalPrice);
+				model.addAttribute("spseqAm", spovo);
+				model.addAttribute("ovo", list1);
+				model.addAttribute("cvo", list2);
+				return "delivery/cart";
 			}else if(memberKind == 2) {
-				GuestVO gvo = (GuestVO)session.getAttribute("loginUser");
+				HashMap<String, Object> gvo = (HashMap<String, Object>)session.getAttribute("loginUser");
 				//해당 접속 회원의 주문 목록과 카트 목록 가져오기
-				ArrayList<orderVO> list1 = os.getOrderList(gvo.getId());
-				ArrayList<CartVO> list2 = (ArrayList<CartVO>)session.getAttribute("guestCartList");
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("id", gvo.get("ID").toString());
+				paramMap2.put("ref_cursor", null);
+				os.getOrderList(paramMap2);
+				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)session.getAttribute("guestCartList");
 				
 				// 가져온 카트 목록에서 가격 총합 계산 
 				int totalPrice = 0; 
-				for(CartVO cvo : list2) totalPrice += cvo.getPrice1() * cvo.getQuantity();
+				for(HashMap<String, Object> cvo : list2) { 
+					totalPrice += 
+					Integer.parseInt(cvo.get("PRICE1").toString()) * 
+					Integer.parseInt(cvo.get("QUANTITY").toString());
+				}
 				
 				// 해당 접속 회원의 추가 재료의 목록을 가져오기
-				ArrayList<subproductOrderVO> spovo = ps.selectSubProductOrder2(gvo.getGseq());
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("gseq", gvo.get("GSEQ").toString());
+				paramMap.put("ref_cursor", null);
+				
+				ps.selectSubProductOrder2(paramMap);
+				
+				ArrayList<HashMap<String, Object>> spovo = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 				
 				// 추가 재료의 가격까지 총 가격으로 계산
 				for(int i = 0; i < spovo.size(); i++) {
-					totalPrice += spovo.get(i).getAddprice();
+					totalPrice += Integer.parseInt(spovo.get(i).get("ADDPRICE").toString());
 				}
 		
 				// 해당 값을 전송
 				if(totalPrice<=12000) {
 					if(message !=null) {
-						mav.addObject("message", message);
+						model.addAttribute("message", message);
 					}
 				}
 				mav.addObject("totalPrice", totalPrice);
 				mav.addObject("spseqAm", spovo);
 				mav.addObject("ovo", list1);
 				mav.addObject("cvo", list2);
-				mav.setViewName("delivery/cart");
+				return "delivery/cart";
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		
-		
-		return mav;
 	}
-	
+	/*
 	// 재료 추가 없이 카트 저장
 	@RequestMapping(value="noMeterialCart")
 	public String noMeterialCart(@RequestParam("pseq") int pseq, HttpServletRequest request) {

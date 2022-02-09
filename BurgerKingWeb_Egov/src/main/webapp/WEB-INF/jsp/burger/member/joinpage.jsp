@@ -82,9 +82,9 @@
 								<dd>
 									<div class="inpbox">
                               <label>
-                              <input type="email" placeholder="이메일 아이디"class="st02" name="id" value="${dto.id}"></label>
+                              <input type="email" placeholder="이메일 아이디"class="st02" name="id" value="${memberVO.ID}"></label>
                               <p class="txt77"><input type="button" width="40" value="중복확인" class="dup reid" onclick="idcheck()">  사용 가능한 이메일 주소를 입력해 주세요. (예:
-                                 name@mail.com)<input type="hidden" name="reid" value=""></p>
+                                 name@mail.com)<input type="hidden" name="reid" value="${reid }"></p>
                            </div>
 								</dd>
 							</dl>
@@ -93,7 +93,7 @@
 								<dd>
 									<div class="inpbox">
 										<label><input type="text" placeholder="이름"
-											class="st02" id="name" name="name" value="${dto.name}">
+											class="st02" id="name" name="name" value="${memberVO.NAME}">
 											<button type="button" class="btn_del01"
 												style="display: none;">
 											</button></label>
@@ -106,7 +106,7 @@
 								<dd>
 									<div class="inpbox">
 										<label><input type="text" placeholder="휴대폰 번호"
-											class="st02" id="phone" name="phone" value="${dto.phone}">
+											class="st02" id="phone" name="phone" value="${memberVO.PHONE}">
 											<button type="button" class="btn_del01"
 												style="display: none;">
 											</button></label>
@@ -152,8 +152,9 @@
 							</dl>
 						</div>
 					</div>
+					
 					<div class="c_btn">
-						<button type="submit" id="btnJoin" value="submit" class="btn77 btn01_m">
+						<button type="button"  onclick="go_save();" class="btn77 btn01_m">
 							<span>회원가입</span><br>
 						</button>
 					</div>

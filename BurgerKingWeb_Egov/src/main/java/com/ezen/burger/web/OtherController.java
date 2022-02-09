@@ -1,6 +1,7 @@
 package com.ezen.burger.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -107,34 +108,41 @@ public class OtherController {
 		return "ServiceCenter/deliveryuse";
 	}
 	
-	/*
 	// 회원 마이페이지로 이동
 	@RequestMapping(value="/deliveryMypageForm.do")
-	public ModelAndView deliveryMypageForm(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	public String deliveryMypageForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-				ArrayList<orderVO> list1 = os2.getOrderList(mvo.getId());
-				ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );	
-
-				mav.addObject("ovo", list1);
-				mav.addObject("cvo", list2);
-				mav.addObject("MemberVO", mvo);
-				mav.setViewName("delivery/myPage");
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("id", mvo.get("ID").toString());
+				paramMap2.put("ref_cursor", null);
+				HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+				paramMap3.put("id", mvo.get("ID").toString());
+				paramMap3.put("ref_cursor", null);
+				
+				os2.getOrderList(paramMap2);
+				cs.selectCart(paramMap3);
+				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+				
+				model.addAttribute("ovo", list1);
+				model.addAttribute("cvo", list2);
+				model.addAttribute("MemberVO", mvo);
+				return "delivery/myPage";
 			}else if(memberKind == 2){
 				// 비회원일 경우에는 마이 페이지로 이동하지 않는다.
-				mav.addObject("kind1", 1);
-				mav.setViewName("redirect:/deliveryForm");
+				model.addAttribute("kind1", 1);
+				return "redirect:/deliveryForm.do";
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
 	
 	// 원산지표시 팝업
@@ -142,8 +150,6 @@ public class OtherController {
 	public String popup3() {
 		return "product/popup3";
 	}
-	
-	*/
 }
 
 

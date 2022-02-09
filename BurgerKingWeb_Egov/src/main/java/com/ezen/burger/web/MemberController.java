@@ -120,43 +120,47 @@ public class MemberController {
 		}
 		return "member/showIdForm";
 	}
-	/*
-	// 비밀번호 찾기 페이지로 이동
-	@RequestMapping(value="/findPwdForm")
-	public String findPwdForm(@RequestParam(value="id", required = false) String id,
-			@RequestParam(value="name", required = false) String name,
-			HttpServletRequest request) {
-		request.setAttribute("name", name);
-		request.setAttribute("id", id);
+	
+	@RequestMapping(value="/findPwdForm.do")
+	public String findPwdForm(Model model,HttpServletRequest request) {
+		String name=request.getParameter("name");
+		String id=request.getParameter("id");
+		
+		model.addAttribute("name", name);
+		model.addAttribute("id", id);
+		
 		return "member/findPwdForm";
 	}
 	
 	// 비밀번호 찾기
-	@RequestMapping(value="/findPwd")
-	public ModelAndView findPwd(@ModelAttribute("dto") @Valid MemberVO membervo, 
-			BindingResult result, Model model, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/findPwd.do" , method = RequestMethod.POST)
+	public String findPwd(Model model, HttpServletRequest request) {
+		String name=request.getParameter("name");
+		String id=request.getParameter("id");
 		
-		if(result.hasErrors()) { 
-			if(result.getFieldError("name") != null) {
-				mav.addObject("message", result.getFieldError("name").getDefaultMessage());
-				mav.setViewName("member/findPwdForm");
-			}else if(result.getFieldError("id") != null) {
-				mav.addObject("message", result.getFieldError("id").getDefaultMessage());
-				mav.setViewName("member/findPwdForm");
-			}
-		}	
-		MemberVO mvo = ms.findPwd(membervo.getName(), membervo.getId());
-		if(mvo == null) {
-			mav.addObject("message", "해당 정보를 가진 회원이 없습니다.");
-			mav.setViewName("member/findIdForm");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("name",name);
+		paramMap.put("id",id);
+		paramMap.put("ref_cursor",null);
+		
+		ms.b_findPwd(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list =
+				(ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
+		if(list.size() == 0) {
+			
+			model.addAttribute("message", "해당 정보를 가진 회원이 없습니다.");
+			
+			return "member/findPwdForm";
 		}else{
-			mav.addObject("memberVO", mvo);
-			mav.setViewName("member/sendPwdForm");
+			
+			model.addAttribute("memberVO", list.get(0));
+			
 		}
-		return mav;
+		return "member/sendPwdForm";
 	}
-	
+	/*
 	// 비밀번호 찾기, 정보 일치 후 비밀번호 재설정
 	@RequestMapping(value="updatePwd")
 	public ModelAndView updatePwd(@RequestParam("pwd") String pwd,

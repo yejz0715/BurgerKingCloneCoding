@@ -21,10 +21,7 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	@Resource(name="OrderDAO")
 	OrderDAO odao;
 /*
-	public MemberVO findPwd(String name, String id) {
-		return mdao.findPwd(name, id);
-	}
-
+ * 
 	public void updatePwd(String mseq, String pwd) {
 		mdao.updatePwd(mseq, pwd);
 	}
@@ -82,5 +79,11 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	@Override	
 	public void deleteMember(HashMap<String, Object> paramMap) {
 		mdao.b_deleteMember(paramMap);
+	}
+
+	@Override
+	public void b_findPwd(HashMap<String, Object> paramMap) {
+		mdao.b_findPwd(paramMap);
+		
 	}
 }

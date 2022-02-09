@@ -131,3 +131,15 @@ begin
 	open p_rc for
 		select * from member where name=p_name and phone=p_phone;
 end;
+
+--findPwd
+create or replace procedure b_findPwd(
+	p_name in member.name%type,
+    p_id in member.id%type,
+	p_rc out SYS_REFCURSOR  
+)
+is
+begin
+	open p_rc for
+		select * from member where name=p_name and id=p_id;
+end;

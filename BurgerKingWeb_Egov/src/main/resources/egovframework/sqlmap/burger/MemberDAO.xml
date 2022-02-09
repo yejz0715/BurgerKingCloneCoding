@@ -85,4 +85,13 @@
 			)
 		}
 	</delete>
+	
+	<select id="b_findPwd" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_findPwd(
+				#{name}, #{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

@@ -45,4 +45,6 @@ public interface MemberDAO {
 	void b_findMember(HashMap<String, Object> paramMap);
 
 	void b_deleteMember(HashMap<String, Object> paramMap);
+
+	void b_findPwd(HashMap<String, Object> paramMap);
 }

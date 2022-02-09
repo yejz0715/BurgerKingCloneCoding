@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
+<script type="text/javascript">
+function find_pwd(){
+	if (document.frm.name.value == "") {
+		alert("이름을 입력하여 주세요."); 	    
+	    document.frm.name.focus();
+	} else if(document.frm.id.value == "") {
+	    alert("아이디(이메일)를 입력해 주세요.");	    
+	    document.frm.id.focus();
+	} else{
+		document.frm.action ="findPwd.do";
+		document.frm.submit(); 
+	}
+  }
+</script> 
+
 <article style="background-color: #f2ebe6;">
 	<div class="location">
 	<div class="web_container1">
@@ -54,7 +69,7 @@
 				</ul>
 			</div>
 			<div class="c_btn item2 findidalign">
-				<input type="submit" class="btn01 m" value="비밀번호 찾기"/>
+				<input type="button" class="btn01 m" value="비밀번호 찾기" onClick="find_pwd()"/>
 			</div>
 		</form>
 	</div>

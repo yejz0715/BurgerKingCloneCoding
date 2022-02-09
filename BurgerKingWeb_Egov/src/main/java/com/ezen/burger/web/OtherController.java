@@ -117,7 +117,6 @@ public class OtherController {
 			if(memberKind == 1) {
 				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
-				
 				paramMap2.put("id", mvo.get("ID").toString());
 				paramMap2.put("ref_cursor", null);
 				HashMap<String, Object> paramMap3 = new HashMap<String, Object>();

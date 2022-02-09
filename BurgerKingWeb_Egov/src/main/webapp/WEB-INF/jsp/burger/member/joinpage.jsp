@@ -152,8 +152,9 @@
 							</dl>
 						</div>
 					</div>
+					
 					<div class="c_btn">
-						<button type="submit" id="btnJoin" value="submit" class="btn77 btn01_m">
+						<button type="button"  onclick="go_save();" class="btn77 btn01_m">
 							<span>회원가입</span><br>
 						</button>
 					</div>

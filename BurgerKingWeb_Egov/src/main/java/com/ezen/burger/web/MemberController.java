@@ -439,7 +439,6 @@ public class MemberController {
 	// 회원가입
 	@RequestMapping(value = "/joinpage.do", method=RequestMethod.POST)
 	public String join(Model model, HttpServletRequest request) {
-		
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		
 		paramMap.put("id", request.getParameter("id") );
@@ -448,9 +447,11 @@ public class MemberController {
 		paramMap.put( "name" ,  request.getParameter("name"));
 		
 		
+		
+		
 		ms.b_insertMember(paramMap);
 		
-		model.addAttribute("message", "회원가입이 완료되었어요. 로그인하세요");
+		
 		return "member/complet";
 	}
 	

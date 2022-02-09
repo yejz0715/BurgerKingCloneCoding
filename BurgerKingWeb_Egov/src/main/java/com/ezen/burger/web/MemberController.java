@@ -39,7 +39,7 @@ public class MemberController {
 	}
 	
 	// 로그인
-	@RequestMapping(value="login", method = RequestMethod.POST)
+	@RequestMapping(value="login.do", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", request.getParameter("id"));
@@ -51,12 +51,13 @@ public class MemberController {
 		
 		// 검색한 아이디를 변수에 저장
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		HashMap<String, Object> mvo = list.get(0);
-		
-		if(mvo == null) { // 해당 ID를 가진 회원이 없을경우
+		if(list.size() == 0) { // 해당 ID를 가진 회원이 없을경우
 			model.addAttribute("message", "ID가 없습니다.");
 			return "member/loginForm";
-		}else if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
+		}
+		HashMap<String, Object> mvo = list.get(0);
+		
+		if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
 			model.addAttribute("message", "관리자에게 문의하세요.");
 			return "member/loginForm";
 		}else if(!mvo.get("PWD").equals(pwd)) { // 입력한 패스워드가 일치하지 않을 경우

@@ -10,8 +10,8 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="deliveryForm?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="deliveryMypageForm">MY킹</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+			<li><a href="deliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
 			<li>회원정보변경</li>
 		</ul>
 	</div>
@@ -52,7 +52,7 @@
 		</form>
 
 		<div class="resign_container">
-			<form name="deletefrm" method="post" action="memberDelete">
+			<form name="deletefrm" method="post" action="memberDelete.do">
 				<input type="hidden" name="mseq" value="${MemberVO.MSEQ}"> 
 				<input type="submit" value="회원탈퇴" onClick="return resign()" />
 			</form>

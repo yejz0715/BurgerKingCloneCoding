@@ -13,12 +13,17 @@ public interface AdminDAO {
 
 	void adminCheck(HashMap<String, Object> paramMap);
 
+	void getAllCountMem(HashMap<String, Object> paramMap);
+
+	void listMember(HashMap<String, Object> paramMap);
+
+	void deleteMember(HashMap<String, Object> paramMap1);
+
+	void getAllCountEvent(HashMap<String, Object> paramMap);
+
+	void listEvent(HashMap<String, Object> paramMap);
+
 	/*
-	 * int getAllCount(String tableName, String fieldName, String key);
-	 * 
-	 * ArrayList<MemberVO> listMember(Paging paging, String key);
-	 * 
-	 * void deleteMember(int mseq);
 	 * 
 	 * ArrayList<EventVO> listEvent(Paging paging, String key);
 	 * 

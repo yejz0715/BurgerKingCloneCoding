@@ -102,26 +102,22 @@ public class MemberController {
 	public String findId(Model model, HttpServletRequest request) {
 		String name=request.getParameter("name");
 		String phone=request.getParameter("phone");
-		System.out.println(1);
+		
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("name",name);
 		paramMap.put("phone",phone);
 		paramMap.put("ref_cursor",null);
-		System.out.println(2);
+		
 		ms.b_findMember(paramMap);
-		System.out.println(3);
+		
 		ArrayList<HashMap<String, Object>> list =
 				(ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		HashMap<String, Object> resultMap = list.get(0);
-		System.out.println(4);
 		if(list.size() == 0) {
 			model.addAttribute("message", "해당 정보를 가진 회원이 없습니다.");
-			System.out.println(5);
 			return "member/findIdForm";
 		}else{
-			model.addAttribute("memberVO", resultMap);
+			model.addAttribute("memberVO", list.get(0));
 		}
-		System.out.println(6);
 		return "member/showIdForm";
 	}
 	/*

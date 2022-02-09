@@ -119,3 +119,15 @@ begin
     delete from member where mseq=p_mseq;
     commit;
 end;
+
+--findId
+create or replace procedure b_findMember(
+	p_name in member.name%type,
+    p_phone in member.phone%type,
+	p_rc out SYS_REFCURSOR  
+)
+is
+begin
+	open p_rc for
+		select * from member where name=p_name and phone=p_phone;
+end;

@@ -6,7 +6,7 @@
 <mapper namespace="com.ezen.burger.dao.MemberDAO">
 	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL getMember(
+			CALL b_getMember(
 				#{id},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
@@ -69,9 +69,9 @@
 		}
 	</update>
 
-	<select id="b_findId" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_findMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL b_findId(
+			CALL b_findMember(
 				#{name}, #{phone},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)

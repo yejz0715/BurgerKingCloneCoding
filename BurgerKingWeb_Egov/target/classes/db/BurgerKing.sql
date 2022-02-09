@@ -283,3 +283,4 @@ ALTER TABLE cart
 ALTER TABLE order_detail
    ADD FOREIGN KEY (pseq)
    REFERENCES product (pseq)
+;

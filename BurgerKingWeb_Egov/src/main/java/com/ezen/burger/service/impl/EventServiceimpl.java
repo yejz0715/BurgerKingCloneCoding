@@ -45,6 +45,11 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 		edao.b_getDetailEvent(paramMap);
 		
 	}
+	@Override
+	public void getEvent(HashMap<String, Object> paramMap) {
+		edao.b_getEvent(paramMap);
+		
+	}
 	
 		
 	}

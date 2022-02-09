@@ -118,13 +118,16 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	public String getOrderDetail(String odseq) {
 		return odao.getOrderDetail(odseq);
 	}
-
-	public ArrayList<orderVO> getOrderListResult2(String id) {
-		return odao.getOrderListResult2(id);
-	}*/
+	*/
 
 	@Override
 	public void getOrderList(HashMap<String, Object> paramMap2) {
 		odao.b_getOrderList(paramMap2);
+	}
+
+	@Override
+	public void getOrderListResult2(HashMap<String, Object> paramMap) {
+		odao.getOrderListResult2(paramMap);
+		
 	}
 }

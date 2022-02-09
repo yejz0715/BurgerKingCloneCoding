@@ -77,4 +77,12 @@
 			)
 		}
 	</select>
+
+	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteMember(
+				#{mseq}
+			)
+		}
+	</delete>
 </mapper>

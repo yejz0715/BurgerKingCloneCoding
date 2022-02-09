@@ -39,7 +39,7 @@ public class MemberController {
 	}
 	
 	// 로그인
-	@RequestMapping(value="login", method = RequestMethod.POST)
+	@RequestMapping(value="login.do", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", request.getParameter("id"));
@@ -51,12 +51,13 @@ public class MemberController {
 		
 		// 검색한 아이디를 변수에 저장
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-		HashMap<String, Object> mvo = list.get(0);
-		
-		if(mvo == null) { // 해당 ID를 가진 회원이 없을경우
+		if(list.size() == 0) { // 해당 ID를 가진 회원이 없을경우
 			model.addAttribute("message", "ID가 없습니다.");
 			return "member/loginForm";
-		}else if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
+		}
+		HashMap<String, Object> mvo = list.get(0);
+		
+		if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
 			model.addAttribute("message", "관리자에게 문의하세요.");
 			return "member/loginForm";
 		}else if(!mvo.get("PWD").equals(pwd)) { // 입력한 패스워드가 일치하지 않을 경우
@@ -385,37 +386,44 @@ public class MemberController {
 			return "redirect:/loginForm.do";
 		}
 	}
-	/*
+	
 	// 회원정보 삭제
-	@RequestMapping(value="/memberDelete")
-	public ModelAndView memberDelete(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/memberDelete.do")
+	public String memberDelete(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-				ArrayList<orderVO> list = os.getOrderListResult2(mvo.getId());
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("id", mvo.get("ID").toString());
+				paramMap2.put("ref_cursor", null);
+				
+				os.getOrderList(paramMap2);
+				
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+				// 진행중인 주문이 있으면 회원탈퇴 거절
 				if(list.size() > 0) {
-					mav.addObject("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
-					mav.setViewName("redirect:/memberUpdateForm");
-					return mav;
+					model.addAttribute("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
+					return "redirect:/memberUpdateForm.do";
 				}
-				int mseq = Integer.parseInt(request.getParameter("mseq"));
-				ms.deleteMember(mseq);
+				
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("mseq", Integer.parseInt(request.getParameter("mseq").toString()));
+				ms.deleteMember(paramMap);
+				
 				session.invalidate();
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}else if(memberKind == 2){
-				mav.addObject("kind1", 1);
-				mav.setViewName("redirect:/deliveryForm");
+				model.addAttribute("kind1", 1);
+				return "redirect:/deliveryForm.do";
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
-	}*/
+	}
 	
 	// 회원가입 페이지로 이동
 	@RequestMapping(value="/joinForm.do")

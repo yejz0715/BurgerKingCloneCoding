@@ -43,4 +43,6 @@ public interface MemberDAO {
 	void b_updateMember(HashMap<String, Object> mvo);
 
 	void b_findMember(HashMap<String, Object> paramMap);
+
+	void b_deleteMember(HashMap<String, Object> paramMap);
 }

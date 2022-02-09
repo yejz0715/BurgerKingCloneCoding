@@ -1,6 +1,5 @@
 create or replace PROCEDURE b_insertMember
 (   p_id IN MEMBER.ID%TYPE,
-    p_mseq in MEMBER.MSEQ%type,
     p_pwd IN MEMBER.PWD%TYPE, 
     p_phone IN MEMBER.PHONE%TYPE,
     p_name IN MEMBER.NAME%TYPE
@@ -85,5 +84,38 @@ is
 
 begin
 	update member set pwd=p_pwd, name=p_name, phone=p_phone where id=p_id;
+    commit;
+end;
+
+-- 회원 삭제 프로시져
+create or replace procedure b_updateMember(
+	p_mseq in member.mseq%type
+)
+is
+    v_id member.id%type;
+    v_oseq orders.oseq%type;
+    list1 sys_refcursor;
+begin
+    -- mseq에 해당하는 id
+	select id into v_id from member where mseq=p_mseq;
+    
+    --id에 해당하는 oseq 목록 찾기
+    open list1 for 
+        select oseq from orders where id=v_id;
+        
+    -- oseq값에 해당하는 주문 상세 삭제
+    loop
+        fetch list1 into v_oseq;
+        exit when list1%notfound;
+        delete from order_detail where oseq = v_oseq;
+    end loop;
+    
+    -- 해당 id를 가진 cart order qna myaddress 지우기
+    delete from cart where id=v_id;
+    delete from orders where id=v_id;
+    delete from qna where id=v_id;
+    delete from myaddress where mseq=p_mseq;
+    -- 해당 member를 지우기
+    delete from member where mseq=p_mseq;
     commit;
 end;

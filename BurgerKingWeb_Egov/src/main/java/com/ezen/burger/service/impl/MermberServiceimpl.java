@@ -1,5 +1,6 @@
 package com.ezen.burger.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.annotation.Resource;
@@ -30,19 +31,6 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 
 	public MemberVO getMember_mseq(int mseq) {
 		return mdao.getMember_mseq(mseq);
-	}
-
-	public void deleteMember(int mseq) {
-		MemberVO mvo = mdao.getMember_mseq(mseq);
-		int[] oseq = odao.getOseqs(mvo.getId());
-		for(int i = 0; i < oseq.length; i++) {
-			mdao.deleteOrderDetail(oseq[i]);
-		}
-		mdao.deleteOrders(mvo.getId());
-		mdao.deleteCart(mvo.getId());
-		mdao.deleteQna(mvo.getId());
-		mdao.deleteMyaddress(mvo.getMseq());
-		mdao.deleteMember(mvo.getMseq());
 	}
 */
 
@@ -89,6 +77,10 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	@Override
 	public void b_findMember(HashMap<String, Object> paramMap) {
 		mdao.b_findMember(paramMap);
-		
+	}
+	
+	@Override	
+	public void deleteMember(HashMap<String, Object> paramMap) {
+		mdao.b_deleteMember(paramMap);
 	}
 }

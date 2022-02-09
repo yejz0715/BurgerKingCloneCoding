@@ -21,6 +21,6 @@ public interface MemberService {
 	void updateMember(HashMap<String, Object> mvo);
 
 	void b_findMember(HashMap<String, Object> paramMap);
-
-
+	
+	void deleteMember(HashMap<String, Object> paramMap);
 }

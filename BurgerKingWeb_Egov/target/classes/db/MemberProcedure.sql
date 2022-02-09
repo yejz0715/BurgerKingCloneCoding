@@ -35,6 +35,7 @@ begin
 	update member set lastdate=sysdate where id=p_id;
 end;
 
+-- gseq 다음 값 호출
 create or replace procedure b_selectGseq(
 	p_rc out guest.gseq%type
 )
@@ -45,6 +46,7 @@ begin
     p_rc := v_gseq;
 end;
 
+-- 게스트 정보 테이블 삽입
 create or replace procedure b_insertGuest(
 	p_gseq in guest.gseq%type,
     p_id in guest.id%type,
@@ -60,6 +62,7 @@ begin
     commit;
 end;
 
+-- gseq값에 따른 게스트 정보 조회
 create or replace procedure b_getGuest(
 	p_gseq in guest.gseq%type,
 	p_rc out SYS_REFCURSOR  

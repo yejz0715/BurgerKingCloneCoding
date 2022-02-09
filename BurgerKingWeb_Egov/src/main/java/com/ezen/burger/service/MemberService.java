@@ -23,4 +23,6 @@ public interface MemberService {
 	void b_findMember(HashMap<String, Object> paramMap);
 	
 	void deleteMember(HashMap<String, Object> paramMap);
+
+	void b_findPwd(HashMap<String, Object> paramMap);
 }

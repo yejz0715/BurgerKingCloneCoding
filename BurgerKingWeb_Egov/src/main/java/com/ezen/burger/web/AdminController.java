@@ -12,7 +12,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.ezen.burger.dto.Paging;
 import com.ezen.burger.service.AdminService;
 import com.ezen.burger.service.EventService;
 import com.ezen.burger.service.MemberService;
@@ -82,17 +85,16 @@ public class AdminController {
 			return "admin/adminLogin";
 		}
 	}
-	/*
+	
 	@RequestMapping("/adminLogout")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.removeAttribute("loginAdmin");
 		return "redirect:/admin";
 	}
-
+	
 	@RequestMapping("adminMemberList")
-	public String adminMemberList(HttpServletRequest request, Model model,
-			@RequestParam(value="message", required = false) String message) {
+	public String adminMemberList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("loginAdmin") == null) {
 			return "admin/adminLogin";
@@ -121,46 +123,62 @@ public class AdminController {
 
 			Paging paging = new Paging();
 			paging.setPage(page);
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+			paramMap.put("key", key);
+			
+			as.getAllCountMem(paramMap);
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
+			
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put("ref_cursor", null);
+			as.listMember(paramMap);
 
-			int count = as.getAllCount("member", "name", key);
-			paging.setTotalCount(count);
-			paging.paging();
-
-			ArrayList<MemberVO> memberList = as.listMember(paging, key);
-
-			if(message !=null) {
-				model.addAttribute("message", message);
-			}
-			model.addAttribute("memberList", memberList);
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
+			model.addAttribute("memberList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
 		}
 		return "admin/member/memberList";
 	}
-
+	
 	@RequestMapping(value = "/adminMemberDelete", method = RequestMethod.POST)
-	public ModelAndView adminMemberDelete(HttpServletRequest request,
-			@RequestParam("delete") int[] mseqArr) {
-		ModelAndView mav = new ModelAndView();
+	public String adminMemberDelete(HttpServletRequest request,
+			@RequestParam("delete") int[] mseqArr, Model model) {
+		String id = request.getParameter("id");
+		
 		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 		
 		// 해당 아이디의 result가 2,3인 주문을 가지고 온
-		ArrayList<orderVO> list = os.getOrderListResult2(mvo.getId());
-		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ref_cursor" , null);
+		paramMap.put("id" , id);
+		paramMap.put("result" , null);
+		System.out.println(id);
+		os.getOrderListResult2(paramMap);
+
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		// 해당 리스트가 1개라도 있으면 주문 처리중인 주문이 하나 이상 있는 것이므로
 		// 삭제를 하지 않고 메시지만 보내고 중지한다.
 		if(list.size() > 0) {
-			mav.addObject("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
-			mav.setViewName("redirect:/adminMemberList?page=1&key=");
-			return mav;
+			model.addAttribute("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
+			return "redirect:/adminMemberList.do?page=1&key=";
 		}
 		
-		for (int mseq : mseqArr)
-			as.deleteMember(mseq);
 		
-		mav.setViewName("redirect:/adminMemberList");
-		return mav;
+		HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+		for (int mseq : mseqArr)
+			paramMap.put("mseq", mseq);
+			as.deleteMember(paramMap1);
+		
+		return "redirect:/adminMemberList.do";
+		 
 	}
 
 //event
@@ -193,12 +211,21 @@ public class AdminController {
 			}
 
 			Paging paging = new Paging();
-			paging.setPage(page);
-			int count = as.getAllCount("event", "subject", key);
-			paging.setTotalCount(count);
-			paging.paging();
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+			paramMap.put("key", key);
+			
+			as.getAllCountEvent(paramMap);
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
+			
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put("ref_cursor", null);
+			as.listEvent(paramMap);
 
-			ArrayList<EventVO> list = as.listEvent(paging, key);
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 
 			model.addAttribute("eventList", list);
 			model.addAttribute("paging", paging);
@@ -206,6 +233,8 @@ public class AdminController {
 			return "admin/event/eventList";
 		}
 	}
+	
+	
 //이벤트상세보기
 	@RequestMapping("/adminEventDetail")
 	public String adminEventDetail(HttpServletRequest request, Model model, @RequestParam("eseq") int eseq) {
@@ -213,8 +242,13 @@ public class AdminController {
 		if (session.getAttribute("loginAdmin") == null) {
 			return "admin/adminLogin";
 		} else {
-			EventVO evo = es.getEvent(eseq);
-			model.addAttribute("eventVO", evo);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("eseq", eseq);
+			paramMap.put("ref_cursor", null);
+			es.getEvent(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			model.addAttribute("eventVO", list.get(0));
 			return "admin/event/eventDetail";
 		}
 	}
@@ -227,6 +261,7 @@ public class AdminController {
 
 		return "admin/event/eventWrite";
 	}
+	/*
 //이벤트등록
 	@RequestMapping(value = "/adminEventWrite", method = RequestMethod.POST) 
 	public String adminEventWrite(Model model, HttpServletRequest request) {

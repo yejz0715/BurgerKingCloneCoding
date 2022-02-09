@@ -9,6 +9,8 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 public interface OrderDAO {
 
 	void b_getOrderList(HashMap<String, Object> paramMap2);
+	
+	void getOrderListResult2(HashMap<String, Object> paramMap);
 //	public ArrayList<orderVO> getOrderList(String id);
 //
 //	public void insertOrder(String id);
@@ -43,5 +45,6 @@ public interface OrderDAO {
 //
 //	public int[] getOseqs(String id);
 //
-//	public ArrayList<orderVO> getOrderListResult2(String id);
+
+	
 }

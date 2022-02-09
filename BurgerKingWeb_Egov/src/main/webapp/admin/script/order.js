@@ -2,7 +2,7 @@ function go_search_order(kind){
 	if(document.frm.key.value=="")
 		return;
 		
-	var url = "adminOrderList?page=1&kind=" + kind;
+	var url = "adminOrderList.do?page=1&kind=" + kind;
 	// 보던 페이지가 어떤 페이지이던간에 검색 결과의 1페이지로 가기위해 파라미터 page를 1로 전송
 	document.frm.action = url;
 	document.frm.submit();
@@ -10,7 +10,7 @@ function go_search_order(kind){
 
 function go_total_order(kind){
 	document.frm.key.value="";
-	document.frm.action = "adminOrderList?page=1&kind=" + kind;
+	document.frm.action = "adminOrderList.do?page=1&kind=" + kind;
 	document.frm.submit();
 }
 
@@ -29,7 +29,7 @@ function go_order_save(kind){
 	if(count == 0){
 		alert("주문처리할 항목을 선택해 주세요.")
 	}else{
-		document.frm.action = "adminOrderSave?kind="+kind;
+		document.frm.action = "adminOrderSave.do?kind="+kind;
 		document.frm.submit();
 	}
 }
@@ -48,17 +48,17 @@ function del_order(kind){
 	if( count == 0 ){
 		alert("삭제할 항목을 선택해주세요");
 	} else{
-		document.frm.action = "adminOrderDelete?kind="+kind;
+		document.frm.action = "adminOrderDelete.do?kind="+kind;
 	    document.frm.submit();
 	}
 }
 
 function memberKindChange(kind){
 	if(kind=="1"){
-		document.frm.action = "adminOrderList?kind="+2;
+		document.frm.action = "adminOrderList.do?kind="+2;
 		document.frm.submit();
 	}else if(kind=="2"){
-		document.frm.action = "adminOrderList?kind="+1;
+		document.frm.action = "adminOrderList.do?kind="+1;
 		document.frm.submit();
 	}
 }
@@ -67,13 +67,13 @@ function deleteSpo(sposeq, result, kind, odseq){
 	if(result == 3 || result == 4){
 		alert("주문이 배달 중이거나 배달완료해 취소처리 할 수 없습니다.");
 	}else{
-		document.location.href = "adminOrderMDelete?sposeq=" + sposeq + "&kind=" + kind
+		document.location.href = "adminOrderMDelete.do?sposeq=" + sposeq + "&kind=" + kind
 		 + "&odseq=" + odseq;
 	}
 }
 
 function go_order_mov(){
-	document.location.href = "adminOrderList?kind="+1;
+	document.location.href = "adminOrderList.do?kind="+1;
 }
 
 function resultAllCheck(resultAllCheck){

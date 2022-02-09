@@ -6,7 +6,7 @@
 <mapper namespace="com.ezen.burger.dao.MemberDAO">
 	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL getMember(
+			CALL b_getMember(
 				#{id},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)

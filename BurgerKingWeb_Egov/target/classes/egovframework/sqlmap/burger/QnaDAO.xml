@@ -11,7 +11,7 @@
 	</select>
 	
 	<select id="b_insertQna" statementType="CALLABLE" parameterType="java.util.HashMap">
-		{  	CALL b_insertQna(	#{ id } , #{ subject } , #{ content } )  }
+		{  	CALL b_insertQna(	 #{ id } , #{ subject } , #{ content }, #{pass} )  }
 	</select>
 	
 </mapper>

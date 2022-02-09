@@ -9,10 +9,10 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="joinForm">회원가입</a>&nbsp;>&nbsp;</li>
-			<li><a href="contract">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+			<li><a href="joinForm.do">회원가입</a>&nbsp;>&nbsp;</li>
+			<li><a href="contract.do">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
 		</ul>
 	</div>
 	</div>
@@ -20,11 +20,11 @@
 	<script type="text/javascript">
 	/* 팝업창 */
 		function go_pop1() {
-			window.open("popup1", "a",
+			window.open("popup1.do", "a",
 					"width=570, height=760, left=50, top=50,resizable=no");}
 	
 		function go_pop2() {
-			window.open("popup2", "a",
+			window.open("popup2.do", "a",
 					"width=570, height=650, left=50, top=50,resizable=no");}
 		
 		
@@ -75,7 +75,7 @@
 					  
 						if( result == "1 2 " || result=="1 2 3 4 " || result=="1 2 3 " || result=="1 2 4 " || result=="1 2 3 4 5 ")
 						{	
-							document.contractFrm.action ="joinpageForm";
+							document.contractFrm.action ="joinpage.do";
 							document.contractFrm.submit(); 
 						}
 						else

@@ -4,5 +4,61 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.burger.dao.MemberDAO">
+	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL getMember(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<update id="b_lastDateUpdate" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_lastDateUpdate(
+				#{id}
+			)
+		}
+	</update>
+	
+	<insert id="b_insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
+		{ CALL b_insertMember( 
+				#{id}, #{pwd}, #{phone}, #{name}
+		) }
+	</insert>
+	
+	<select id="b_getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getMember(
+				#{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_selectGseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectGseq(
+				#{ref_cursor, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<insert id="b_insertGuest" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_insertGuest(
+				#{gseq}, #{id}, #{pwd}, #{name}, #{phone}
+			)
+		}
+	</insert>
+	
+	<select id="b_getGuest" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getGuest(
+				#{gseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 	
 </mapper>

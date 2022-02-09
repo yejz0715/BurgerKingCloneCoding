@@ -11,7 +11,7 @@
 		alert('약관에 동의하셔야 회원 가입이 가능합니다.');
 	} else {
 		//  스크립트 명령으로 폼의 액션 설정하고 submit  실행
-		document.popboxFrm.action = "contractform";
+		document.popboxFrm.action = "contractform.do";
 		document.popboxFrm.submit();
 	}
 </script>    

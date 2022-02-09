@@ -9,10 +9,10 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="joinForm">회원가입</a>&nbsp;>&nbsp;</li>
-			<li><a href="contract">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+			<li><a href="joinForm.do">회원가입</a>&nbsp;>&nbsp;</li>
+			<li><a href="contract.do">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
 		</ul>
 	</div>
 	</div>
@@ -26,7 +26,7 @@
 			documnet.firstjoinpageForm.id.focus();
 			return;
 		}
-		var url = "idCheckForm?id=" + document.firstjoinpageForm.id.value;
+		var url = "idCheckForm.do?id=" + document.firstjoinpageForm.id.value;
 		var opt = "toolbar=no, menubar=no, resizable=no, width=400, height=350";
 		window.open(url, "idCheck", opt);
 	}

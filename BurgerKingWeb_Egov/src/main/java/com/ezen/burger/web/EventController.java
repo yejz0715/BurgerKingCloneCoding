@@ -25,43 +25,51 @@ public class EventController {
 	   public String eventListForm(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
-		
-		ArrayList< HashMap/String,Object> > list 
-			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor"); 
-		es.getAllEvents(paramMap);
+		es.b_getAllEvents(paramMap);
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		model.addAttribute("eventList", list);
-	   
-	      return "event/eventList";
+		return "event/eventList";
 	   }
-	/*
+	
 	//진행중인 이벤트목록
-	@RequestMapping(value="/eventTab2")
-	 public ModelAndView eventTab2(Model model) {
-		ModelAndView mav=new ModelAndView();
-		ArrayList<EventVO> list=es.getOngoingEvents();
-		mav.addObject("eventList", list);
-	    mav.setViewName("event/eventTab2");
-	      return mav;
+	@RequestMapping(value="/eventTab2.do")
+	 public String eventTab2(Model model) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put( "ref_cursor", null );
+		es.b_getOngoingEvents(paramMap);
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		
+		model.addAttribute("eventList", list);
+	      return "event/eventTab2";
 	   }
 	
 	//종료된 이벤트목록
-	@RequestMapping(value="/eventTab3")
-	 public ModelAndView eventTab3(Model model) {
-		ModelAndView mav=new ModelAndView();
-		ArrayList<EventVO> list=es.getPastEvents();
-		mav.addObject("eventList", list);
-	    mav.setViewName("event/eventTab3"); 
-	    //System.out.printf("mav2", mav);
-	      return mav;
+	@RequestMapping(value="/eventTab3.do")
+	 public String eventTab3(Model model) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put( "ref_cursor", null );
+		es.b_getPastEvents(paramMap);
+		ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		
+		model.addAttribute("eventList", list);
+	      return "event/eventTab3";
 	   }
 	
 	//이벤트 상세보기
-	@RequestMapping(value="/eventDetailForm")
-	 public ModelAndView eventDetailForm(@RequestParam("eseq")int eseq) {
-		ModelAndView mav=new ModelAndView();
-		mav.addObject("EventVO", es.getDetailEvent(eseq));
-	    mav.setViewName("event/eventDetail");  
-	      return mav;
+	@RequestMapping(value="/eventDetailForm.do")
+	 public String eventDetailForm(Model model, @RequestParam("eseq")int eseq) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("eseq", eseq);
+		paramMap.put( "ref_cursor", null );
+		es.b_getDetailEvent(paramMap);
+		ArrayList< HashMap<String,Object> > list 
+		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		HashMap<String, Object> resultMap = list.get(0);
+		model.addAttribute("EventVO" , resultMap);
+	      return "event/eventDetail";
 	   }
-	*/
+	
 }

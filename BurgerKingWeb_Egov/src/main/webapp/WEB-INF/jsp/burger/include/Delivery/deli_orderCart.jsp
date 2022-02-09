@@ -8,7 +8,7 @@
 		<article>
 		 <div class="web_deliveryContainer">
 				 <div class="deliveryOrder" onclick="go_order_select()">
-				 <img class= "deliveryIcon" src="image/main/my_delivery.png" />
+				 <img class= "deliveryIcon" src="<c:url value='/image/main/my_delivery.png'/> " />
 				 <c:choose>
 					 <c:when test="${ovo.size() == 0}">
 						 <dl>
@@ -31,8 +31,8 @@
 				 
 				 
 				 <div class="deliveryCart" onclick="go_cart02()">
-				 <img class= "deliveryIcon" src="image/main/my_cart.png" />
-				 <form name="cartForm" action="deliveryCartForm">
+				 <img class= "deliveryIcon" src="<c:url value='/image/main/my_cart.png'/> " />
+				 <form name="cartForm" action="deliveryCartForm.do">
 				 <c:choose>
 					 <c:when test="${cvo.size() == 0}"> 
 						 <dl>

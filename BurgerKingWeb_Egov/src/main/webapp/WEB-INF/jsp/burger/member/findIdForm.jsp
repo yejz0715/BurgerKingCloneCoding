@@ -5,23 +5,23 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="findIdForm">아이디/비밀번호 찾기</a></li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+			<li><a href="findIdForm.do">아이디/비밀번호 찾기</a></li>
 		</ul>
 	</div>
 	</div>
 
 	<div class="web_container02">
-		<form name="frm" action="findId" method="post">
+		<form name="frm" action="findId.do" method="post">
 			<h1 class="big_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
 			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 				<li>
 					<span>
-						<a href="findIdForm" style="color: red; text-decoration: underline; font-size: 1.45em;">아이디 찾기</a>
+						<a href="findIdForm.do" style="color: red; text-decoration: underline; font-size: 1.45em;">아이디 찾기</a>
 					</span>
 				</li>
-				<li><span><a href="findPwdForm" style="font-size: 1.45em;">비밀번호 찾기</a></span></li>
+				<li><span><a href="findPwdForm.do" style="font-size: 1.45em;">비밀번호 찾기</a></span></li>
 			</ul>
 			<div class="btnarea" style="text-align: center; margin-top: 80px;">
 				<c:if test="${empty message}">

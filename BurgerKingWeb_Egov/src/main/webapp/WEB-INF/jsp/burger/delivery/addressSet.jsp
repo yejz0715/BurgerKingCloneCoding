@@ -18,7 +18,7 @@
 
 	<div class="webAddress">
 		<h1>주소지를 설정해주세요. <b>주소를 설정하셔야 주문이 가능합니다.</b></h1>
-		<form method="post" name="address" action="myAddress">
+		<form method="post" name="address" action="myAddress.do">
 			<fieldset>
 				<legend>MY배달지</legend>
 				<label>Zip Code</label><input type="text" name="zip_num" size="10">

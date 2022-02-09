@@ -38,7 +38,7 @@
 					</div><br>
 					<lable style="color: red;">${message}</lable>
 					<div class="c_btn item2">
-						<input type="submit" class="btn01 m red" value="로그인" onclick="loginCheck()"/> 
+						<input type="submit" class="btn01 m red" value="로그인" onclick="return login_chk()"/> 
 						<input type="button" class="btn01 m" onclick="location.href='joinForm.do'" value="회원가입" />
 					</div>
 					<div class="login_menu">

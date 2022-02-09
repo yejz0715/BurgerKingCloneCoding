@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/Delivery/deli_header.jsp"%>
-<script src="member.js" type="text/javascript"></script>
+<script src="<c:url value='member.js" type="text/javascript' />"></script>
 
 
 
@@ -9,10 +9,10 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="joinForm">회원가입</a>&nbsp;>&nbsp;</li>
-			<li><a href="contract">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+			<li><a href="joinForm.do">회원가입</a>&nbsp;>&nbsp;</li>
+			<li><a href="contract.do">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
 		</ul>
 	</div>
 	</div>
@@ -26,7 +26,7 @@
 			documnet.joinpageForm.id.focus();
 			return;
 		}
-		var url = "idcheck?id=" + document.joinpageForm.id.value;
+		var url = "idcheck.do?id=" + document.joinpageForm.id.value;
 		var opt = "toolbar=no, menubar=no, resizable=no, width=400, height=350";
 		window.open(url, "idcheck", opt);
 	}
@@ -60,7 +60,7 @@
 
 
 
-	<form method="post" name="joinpageForm" action="joinpage">
+	<form method="post" name="joinpageForm" action="joinpage.do">
 	<fieldset>
 		<div class="contentsBox01">
 			<div class="web_container">

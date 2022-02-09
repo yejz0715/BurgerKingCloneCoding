@@ -1,11 +1,15 @@
 package com.ezen.burger.dao;
 
+import java.util.HashMap;
+
 import javax.validation.Valid;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="MemberDAO")
 public interface MemberDAO {
+
+	void getMember(HashMap<String, Object> paramMap);
 //	public MemberVO getMember(String id);
 //	public MemberVO findMember(String name, String phone);
 //	public MemberVO findPwd(String name, String id);
@@ -23,4 +27,16 @@ public interface MemberDAO {
 //	public void deleteCart(String id);
 //	public void deleteQna(String id);
 //	public void deleteOrderDetail(int i);
+
+	void b_lastDateUpdate(HashMap<String, Object> paramMap);
+
+	void b_insertMember(HashMap<String, Object> paramMap);
+
+	void b_getMember(HashMap<String, Object> paramMap);
+
+	void b_selectGseq(HashMap<String, Object> paramMap);
+
+	void b_insertGuest(HashMap<String, Object> paramMap);
+
+	void b_getGuest(HashMap<String, Object> paramMap3);
 }

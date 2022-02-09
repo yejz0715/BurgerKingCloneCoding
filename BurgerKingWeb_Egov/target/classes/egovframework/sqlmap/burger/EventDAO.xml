@@ -5,4 +5,27 @@
 
 <mapper namespace="com.ezen.burger.dao.EventDAO">
 	
+	<select id="b_getAllEvents"  statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_getAllEvents(
+	#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO }
+	)}
+	</select>
+	
+	<select id="b_getOngoingEvents"  statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_getOngoingEvents(
+	#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO }
+	)}
+	</select>
+	
+	<select id="b_getPastEvents"  statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_getPastEvents(
+	#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO }
+	)}
+	</select>
+	
+	<select id="b_getDetailEvent"  statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_getDetailEvent(#{eseq},
+	#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO }
+	)}
+	</select>
 </mapper>

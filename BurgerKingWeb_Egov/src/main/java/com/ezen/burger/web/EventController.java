@@ -24,12 +24,13 @@ public class EventController {
 	@RequestMapping(value="/eventListForm.do")
 	   public String eventListForm(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
 		paramMap.put( "ref_cursor", null );
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		es.getAllEvents(paramMap);
 		model.addAttribute("eventList", list);
-	      return "event/eventList";
+		return "event/eventList";
 	   }
 	
 	//진행중인 이벤트목록
@@ -37,6 +38,7 @@ public class EventController {
 	 public String eventTab2(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
+		
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		es.getOngoingEvents(paramMap);
@@ -49,6 +51,7 @@ public class EventController {
 	 public String eventTab3(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
+		
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		es.getPastEvents(paramMap);

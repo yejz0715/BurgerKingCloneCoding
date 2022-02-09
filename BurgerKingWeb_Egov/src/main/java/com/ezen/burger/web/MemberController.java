@@ -197,67 +197,102 @@ public class MemberController {
 		mav.setViewName("redirect:/");
 		return mav;
 	}
-	
+	*/
 	// 로그인 이후 딜리버리 페이지로 이동
 	@RequestMapping(value="/deliveryForm")
-	public ModelAndView deliveryForm(HttpServletRequest request,
-			@RequestParam("kind1") String kind1) {
-		ModelAndView mav = new ModelAndView();
+	public String deliveryForm(HttpServletRequest request, Model model) {
+		String kind1 = request.getParameter("kind1");
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("memberkind") != null) {
 			int memberKind = (int)session.getAttribute("memberkind");
 			// 회원 종류 검사 (1:회원, 2:비회원)
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					mav.setViewName("redirect:/loginForm");
+					return "redirect:/loginForm.do";
 				}else {
 					// 로그인한 회원의 주소지를 확인 후 없으면 주소 초기설정 페이지로 이동
-					MyAddressVO avo = as.getMyAddress(mvo.getMseq());
+					HashMap<String, Object> paramMap = new HashMap<String, Object>();
+					paramMap.put("mseq", mvo.get("MSEQ").toString());
+					paramMap.put("ref_cursor", null);
+					
+					as.b_getMyAddress(paramMap);
+					
+					ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+					HashMap<String, Object> avo = list.get(0);
+					
 					if(avo == null) {
-						ArrayList<orderVO> list1 = os.getOrderList(mvo.getId());
-						ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );	
+						HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+						paramMap2.put("id", mvo.get("ID").toString());
+						paramMap2.put("ref_cursor", null);
+						HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+						paramMap3.put("id", mvo.get("ID").toString());
+						paramMap3.put("ref_cursor", null);
 						
-						mav.addObject("ovo", list1);
-						mav.addObject("cvo", list2);
-						mav.setViewName("delivery/addressSet");
+						os.getOrderList(paramMap2);
+						cs.selectCart(paramMap3);
+						
+						ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+						ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+						
+						model.addAttribute("ovo", list1);
+						model.addAttribute("cvo", list2);
+						return "delivery/addressSet";
 					}else {
 						// 주소지가 있다면 주문 상품목록과 회원의 카트, 주문의 리스트를 가지고 딜리버리페이지로 이동
-						ArrayList<ProductVO> list = ps.getProductList(kind1);
-						ArrayList<orderVO> list1 = os.getOrderList(mvo.getId());
-						ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );	
+						HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+						paramMap2.put("id", mvo.get("ID").toString());
+						paramMap2.put("ref_cursor", null);
+						HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+						paramMap3.put("id", mvo.get("ID").toString());
+						paramMap3.put("ref_cursor", null);
+						HashMap<String, Object> paramMap4 = new HashMap<String, Object>();
+						paramMap4.put("kind1", kind1);
+						paramMap4.put("ref_cursor", null);
 						
-						mav.addObject("ovo", list1);
-						mav.addObject("cvo", list2);
-						mav.addObject("productList", list);
-						mav.addObject("kind1", kind1);
-						mav.setViewName("delivery/delivery");
+						os.getOrderList(paramMap2);
+						cs.selectCart(paramMap3);
+						ps.getProductList(paramMap4);
+						
+						ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+						ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+						ArrayList<HashMap<String, Object>> list3 = (ArrayList<HashMap<String, Object>>)paramMap4.get("ref_cursor");
+						model.addAttribute("ovo", list1);
+						model.addAttribute("cvo", list2);
+						model.addAttribute("productList", list3);
+						model.addAttribute("kind1", kind1);
+						return "delivery/delivery";
 					}
 				}
 			}else if(memberKind == 2){
-				GuestVO gvo = (GuestVO)session.getAttribute("loginUser");
+				HashMap<String, Object> gvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(gvo == null) {
-					mav.setViewName("redirect:/loginForm");
+					return "redirect:/loginForm";
 				}else {
-					if(gvo.getAddress() == null) {
-						mav.setViewName("delivery/addressSet");
+					if(gvo.get("ADDRESS") == null) {
+						return "delivery/addressSet";
 					}else {
-						ArrayList<ProductVO> list = ps.getProductList(kind1);
-						mav.addObject("productList", list);
-						mav.addObject("kind1", kind1);
-						mav.setViewName("delivery/delivery");
+						HashMap<String, Object> paramMap = new HashMap<String, Object>();
+						paramMap.put("kind1", kind1);
+						paramMap.put("ref_cursor", null);
+						ps.getProductList(paramMap);
+						
+						ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+						
+						model.addAttribute("productList", list);
+						model.addAttribute("kind1", kind1);
+						return "delivery/delivery";
 					}
 				}
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm";
 		}
-		return mav;
 	}
-	
+	/*
 	// 회원 정보 변경 페이지로 이동
 	@RequestMapping(value="/memberUpdateForm")
 	public ModelAndView memberUpdateForm(HttpServletRequest request,

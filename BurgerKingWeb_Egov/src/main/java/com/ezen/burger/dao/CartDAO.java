@@ -1,11 +1,14 @@
 package com.ezen.burger.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="CartDAO")
 public interface CartDAO {
+
+	void b_selectCart(HashMap<String, Object> paramMap3);
 //	public ArrayList<CartVO> selectCart(String id);
 //	public void insertCart(CartVO cvo);
 //	public int getCseq();

@@ -6,4 +6,12 @@
 <mapper namespace="com.ezen.burger.dao.ProductDAO">
 	<resultMap type="java.util.HashMap" id="BurgerVO"></resultMap>
 	
+	<select id="b_getProductList" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getProductList(
+				#{kind1},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

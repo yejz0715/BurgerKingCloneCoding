@@ -1,11 +1,14 @@
 package com.ezen.burger.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
 
 @Mapper(value="OrderDAO")
 public interface OrderDAO {
+
+	void b_getOrderList(HashMap<String, Object> paramMap2);
 //	public ArrayList<orderVO> getOrderList(String id);
 //
 //	public void insertOrder(String id);

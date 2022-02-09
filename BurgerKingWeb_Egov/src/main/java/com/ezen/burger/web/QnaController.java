@@ -1,25 +1,60 @@
 package com.ezen.burger.web;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.ezen.burger.service.MemberService;
 import com.ezen.burger.service.QnaService;
 
 @Controller
 public class QnaController {
 	@Resource(name="QnaService")
 	QnaService qs;
+	
+	@Resource(name="MemberService")
+	MemberService ms;
+	
+	
+	
+	// 고객센터 문의
+			@RequestMapping(value="/qnaForm.do")
+			public String qna_list(Model model, HttpServletRequest request) {
+				HttpSession session = request.getSession();
+				HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+				if( loginUser == null ) {
+						return "ServiceCenter/qnaList";
+					}else {
+						HashMap<String, Object> paramMap = new HashMap<String, Object>();
+						paramMap.put("id", loginUser.get("ID").toString() );
+						paramMap.put("ref_curser", null);
+						if(session.getAttribute("memberkind") != null) {
+							int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
+							/* int memberKind = (int)session.getAttribute("memberkind"); */
+							// 회원 종류 검사 (1:회원, 2:비회원)
+							if(memberKind == 1) {	// 회원
+									qs.listQna( paramMap );
+									ArrayList<HashMap<String, Object>> list 
+									= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+									model.addAttribute("qnaList", list);	
+									return "ServiceCenter/qnaList";
+							}else if(memberKind == 2 ) {
+									model.addAttribute("message", "Qna문의를 하려면 로그인을 하셔야합니다.");
+									return "member/loginForm";	
+								}
+						}
+				}
+				return " ServiceCenter/qnaList";
+			}
 	
 	/*
 		// 고객센터 문의

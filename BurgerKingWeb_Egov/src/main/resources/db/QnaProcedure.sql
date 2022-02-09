@@ -25,3 +25,15 @@ BEGIN
     values( qseq.nextVal, p_id, p_subject, p_content, p_pass);
     commit;
 END;
+
+
+--qna passcheck
+create or replace PROCEDURE b_getpassChk
+(   p_qseq in QNA.qseq%type,
+    p_rc    OUT SYS_REFCURSOR)
+IS
+
+BEGIN
+    OPEN p_rc FOR
+        select * from Qna where qseq=p_qseq;
+END;

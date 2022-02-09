@@ -127,9 +127,10 @@ public class QnaController {
 						HashMap<String, Object> paramMap = new HashMap<String, Object>();
 						String pass = request.getParameter("pass");
 						int qseq = Integer.parseInt(request.getParameter("qseq"));
+						paramMap.put("qseq", qseq);
 						paramMap.put("ref_cursor", null);
 						
-						//qs.b_getpassChk(paramMap); 
+						qs.b_getpassChk(paramMap); 
 						ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 						HashMap<String, Object> mvo = list.get(0);
 						

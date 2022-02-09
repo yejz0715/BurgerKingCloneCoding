@@ -8,6 +8,8 @@ public interface QnaService {
 
 	void b_insertQna(HashMap<String, Object> paramMap);
 
+	void b_getpassChk(HashMap<String, Object> paramMap);
+
 	
 
 }

@@ -12,6 +12,8 @@ public interface QnaDAO {
 
 	void b_insertQna(HashMap<String, Object> paramMap);
 
+	void b_getpassChk(HashMap<String, Object> paramMap);
+
 //	void insertQna(QnaVO qnavo);
 //
 //	ArrayList<QnaVO> listQna(String id);

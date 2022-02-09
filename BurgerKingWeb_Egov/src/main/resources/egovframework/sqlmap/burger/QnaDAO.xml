@@ -14,4 +14,10 @@
 		{  	CALL b_insertQna(	 #{ id } , #{ subject } , #{ content }, #{pass} )  }
 	</select>
 	
+	<select id="b_getpassChk" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{	CALL b_getpassChk(
+				#{qseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO} ) }
+	</select>
+	
 </mapper>

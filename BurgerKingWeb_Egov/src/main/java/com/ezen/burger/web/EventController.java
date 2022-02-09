@@ -24,16 +24,11 @@ public class EventController {
 	@RequestMapping(value="/eventListForm.do")
 	   public String eventListForm(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		System.out.println(1);
 		paramMap.put( "ref_cursor", null );
-		System.out.println(2);
-		es.getAllEvents(paramMap);
-		System.out.println(3);
+		es.b_getAllEvents(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		System.out.println(4);
 		model.addAttribute("eventList", list);
-		System.out.println(paramMap);
 		return "event/eventList";
 	   }
 	
@@ -42,7 +37,7 @@ public class EventController {
 	 public String eventTab2(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
-		es.getOngoingEvents(paramMap);
+		es.b_getOngoingEvents(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		
@@ -55,7 +50,7 @@ public class EventController {
 	 public String eventTab3(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
-		es.getPastEvents(paramMap);
+		es.b_getPastEvents(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		
@@ -69,7 +64,7 @@ public class EventController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("eseq", eseq);
 		paramMap.put( "ref_cursor", null );
-		es.getDetailEvent(paramMap);
+		es.b_getDetailEvent(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		HashMap<String, Object> resultMap = list.get(0);

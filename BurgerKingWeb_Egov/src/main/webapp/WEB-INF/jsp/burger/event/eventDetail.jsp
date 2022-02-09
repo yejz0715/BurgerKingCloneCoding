@@ -22,8 +22,8 @@
 	<div class="detailTit">
 	<input type="hidden" name="eseq" value="${EventVO.ESEQ}" />
 	<h2>${EventVO.SUBJECT}</h2>
-	<p>${EventVO.STARTDATE.substring(0,10)} ~ <!--substring:문자열 자르기(0부터 10까지)  -->
-	${EventVO.ENDDATE.substring(0,10)}
+	<p>${EventVO.STARTDATE} ~ <!--substring(0,10):문자열 자르기(0부터 10까지)  -->
+	${EventVO.ENDDATE}
 	</p>
 	</div>
 	<div class="dt_ImgCon">

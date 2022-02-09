@@ -96,61 +96,32 @@ public class MemberController {
 	public String findIdForm() {
 		return "member/findIdForm";
 	}
-	
-/*	// 아이디 찾기
-	@RequestMapping(value="/findId.do")
-	public ModelAndView findId(@ModelAttribute("dto") @Valid MemberVO membervo, 
-			BindingResult result, Model model, HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
-		
-		// 입력받은 이름과 핸드폰정보에 대한 에러 체크
-		if(result.hasErrors()) { 
-			if(result.getFieldError("name") != null) {
-				mav.addObject("message", result.getFieldError("name").getDefaultMessage());
-				mav.setViewName("member/findIdForm");
-			}else if(result.getFieldError("phone") != null) {
-				mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
-				mav.setViewName("member/findIdForm");
-			}
-		}	
-		MemberVO mvo = ms.findMember(membervo.getName(), membervo.getPhone());
-		if(mvo == null) {
-			mav.addObject("message", "해당 정보를 가진 회원이 없습니다.");
-			mav.setViewName("member/findIdForm");
-		}else{
-			mav.addObject("memberVO", mvo);
-			mav.setViewName("member/showIdForm");
-		}
-		return mav;
-	}
-	 */
-	/*
-	@RequestMapping(value="/findId.do")
-	public String findId(@ModelAttribute("dto") @Valid MemberVO membervo, 
-			BindingResult result, Model model, HttpServletRequest request) {
-
+	//아이디 찾기
+	@RequestMapping(value="/findId.do", method = RequestMethod.POST)
+	public String findId(Model model, HttpServletRequest request) {
+		String name=request.getParameter("name");
+		String phone=request.getParameter("phone");
+		System.out.println(1);
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		
-		
-		// 입력받은 이름과 핸드폰정보에 대한 에러 체크
-		if(result.hasErrors()) { 
-			if(result.getFieldError("name") != null) {
-				mav.addObject("message", result.getFieldError("name").getDefaultMessage());
-				mav.setViewName("member/findIdForm");
-			}else if(result.getFieldError("phone") != null) {
-				mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
-				mav.setViewName("member/findIdForm");
-			}
-		}	
-		MemberVO mvo = ms.findMember(membervo.getName(), membervo.getPhone());
-		if(mvo == null) {
-			mav.addObject("message", "해당 정보를 가진 회원이 없습니다.");
-			mav.setViewName("member/findIdForm");
+		paramMap.put("name",name);
+		paramMap.put("phone",phone);
+		paramMap.put("ref_cursor",null);
+		System.out.println(2);
+		ms.b_findMember(paramMap);
+		System.out.println(3);
+		ArrayList<HashMap<String, Object>> list =
+				(ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		HashMap<String, Object> resultMap = list.get(0);
+		System.out.println(4);
+		if(list.size() == 0) {
+			model.addAttribute("message", "해당 정보를 가진 회원이 없습니다.");
+			System.out.println(5);
+			return "member/findIdForm";
 		}else{
-			mav.addObject("memberVO", mvo);
-			mav.setViewName("member/showIdForm");
+			model.addAttribute("memberVO", resultMap);
 		}
-		return mav;
+		System.out.println(6);
+		return "member/showIdForm";
 	}
 	/*
 	// 비밀번호 찾기 페이지로 이동

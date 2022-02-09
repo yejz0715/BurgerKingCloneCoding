@@ -51,4 +51,19 @@ function go_save(){
 		document.joinpageForm.action ="burger.do";
 		document.joinpageForm.submit(); 
 	}
+	
+	function find_id(){
+	if (document.frm.name.value == "") {
+		alert("이름을 입력하여 주세요."); 	    
+	    document.frm.name.focus();
+	} else if(document.frm.phone.value == "") {
+	    alert("휴대폰번호을 입력해 주세요.");	    
+	    document.frm.phone.focus();
+	} else{
+		document.frm.action ="findId.do";
+		document.frm.submit(); 
+	}
+  }
+	
+	
 }

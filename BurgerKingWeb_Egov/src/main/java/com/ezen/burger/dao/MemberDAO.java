@@ -41,4 +41,6 @@ public interface MemberDAO {
 	void b_getGuest(HashMap<String, Object> paramMap3);
 
 	void b_updateMember(HashMap<String, Object> mvo);
+
+	void b_findMember(HashMap<String, Object> paramMap);
 }

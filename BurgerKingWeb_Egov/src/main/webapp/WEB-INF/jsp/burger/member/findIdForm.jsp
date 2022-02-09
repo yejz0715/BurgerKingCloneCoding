@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/Delivery/deli_header.jsp"%>
-
+<script src="<c:url value='member.js" type="text/javascript' />"></script>
 <article style="background-color: #f2ebe6;">
 	<div class="location">
 	<div class="web_container1">
@@ -36,7 +36,7 @@
 					<div class="vtop">이름</div>
 					<label>
 						<span class="hide">ID</span>
-						<input type="text" placeholder="이름" id="name" name="name" onblur="check_input1();">
+						<input type="text" placeholder="이름" id="name" name="name" value="${memberVO.NAME}" onblur="check_input1();" >
 						<span id="name_coment" class="coment_text">이름을 입력해 주세요.</span>
 					</label>
 				</div>
@@ -44,7 +44,7 @@
 				<div class="vtop">휴대폰 번호</div>
 					<label>
 						<span class="hide">Phone</span>
-						<input placeholder="휴대폰 번호" type="text" name="phone" id="phone" onblur="check_input2();">
+						<input placeholder="휴대폰 번호" type="text" name="phone" id="phone" value="${memberVO.PHONE}" onblur="check_input2();">
 						<span id="phone_coment" class="coment_text">휴대폰 번호를 입력해 주세요.</span>
 					</label>
 				</div>
@@ -55,7 +55,7 @@
 				</ul>
 			</div>
 			<div class="c_btn item2 findidalign">
-				<input type="submit" class="btn01 m" value="아이디 찾기"/>
+				<input type="submit" class="btn01 m" value="아이디 찾기" onClick="find_id()"/>
 			</div>
 		</form>
 	</div>

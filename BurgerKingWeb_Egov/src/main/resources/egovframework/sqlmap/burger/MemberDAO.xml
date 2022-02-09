@@ -68,4 +68,13 @@
 			)
 		}
 	</update>
+	
+	<select id="b_findId" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_findId(
+				#{name}, #{phone},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

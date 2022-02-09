@@ -12,4 +12,13 @@
 			)
 		}
 	</select>
+	
+	<select id="getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getOrderListResult2(
+				#{id}, #{result},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

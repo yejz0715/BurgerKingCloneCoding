@@ -14,8 +14,8 @@
 			<td colspan="5">${eventVO.SUBJECT}</td>
 		</tr>
 		<tr>
-			<th>시작일</th><td>${eventVO.STARTDATE.substring(0,10)}</td>
-			<th>종료일</th><td>${eventVO.ENDDATE.substring(0,10)}</td>
+			<th>시작일</th><td>${eventVO.startdate.substring(0,10)}</td>
+			<th>종료일</th><td>${eventVO.enddate.substring(0,10)}</td>
 			<c:choose>
 				<c:when test="${eventVO.STATE == 0}">
 					<th>상태</th><td>종료</td>

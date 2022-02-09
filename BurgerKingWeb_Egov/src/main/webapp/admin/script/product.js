@@ -1,18 +1,18 @@
 function go_wrt(){
-	document.frm.action = "adminProductWriteForm";
+	document.frm.action = "adminProductWriteForm.do";
 	document.frm.submit();
 }
 
 function go_wrt2(){
-	document.frm.action = "adminShortProductWriteForm";
+	document.frm.action = "adminShortProductWriteForm.do";
 	document.frm.submit();
 }
 
 function go_mov(){
-	location.href="adminProductList";
+	location.href="adminProductList.do";
 }
 function go_mov2(){
-	location.href="adminShortProductList";
+	location.href="adminShortProductList.do";
 }
 
 function del_product(){
@@ -30,7 +30,7 @@ function del_product(){
 	if( count == 0 ){
 		alert("삭제할 항목을 선택해주세요");
 	} else{
-		document.frm.action = "adminProductDelete";
+		document.frm.action = "adminProductDelete.do";
 	    document.frm.submit();
 	}
 }
@@ -59,7 +59,7 @@ function go_save(){
 		alert("상품이미지를 입력하세요");
 		theForm.image.focus();
 	}else{
-		theForm.action = "adminProductWrite?";
+		theForm.action = "adminProductWrite.do";
 		theForm.submit();
 	}
 }
@@ -79,24 +79,24 @@ function go_save2(){
 		alert("상품이미지를 입력하세요");
 		theForm.image.focus();
 	}else{
-		theForm.action = "adminShortProductWrite";
+		theForm.action = "adminShortProductWrite.do";
 		theForm.submit();
 	}
 }
 
 function go_detail(pseq){
-	var url = "adminProductDetail?pseq=" + pseq;
+	var url = "adminProductDetail.do?pseq=" + pseq;
 	document.frm.action = url;
 	document.frm.submit();
 }
 function go_detail2(pseq){
-	var url = "adminShortProductDetail?pseq=" + pseq;
+	var url = "adminShortProductDetail.do?pseq=" + pseq;
 	document.frm.action = url;
 	document.frm.submit();
 }
 
 function go_mod(pseq){
-	var url = "adminProductUpdateForm?pseq=" + pseq;
+	var url = "adminProductUpdateForm.do?pseq=" + pseq;
 	location.href=url;
 }
 
@@ -121,7 +121,7 @@ function go_mod_save(){
 		document.frm.content.focus();
 	}else{
 		if(confirm('수정하시겠습니까?')){
-			document.frm.action = "adminProductUpdate";
+			document.frm.action = "adminProductUpdate.do";
 			document.frm.submit();
 		}
 	}
@@ -138,7 +138,7 @@ function go_mod_save2(k1){
 		document.frm.kind2.focus();
 	}else{
 		if(confirm('수정하시겠습니까?')){
-			document.frm.action = "adminShortProductUpdate?k1="+k1;
+			document.frm.action = "adminShortProductUpdate.do?k1="+k1;
 			document.frm.submit();
 		}
 	}
@@ -148,7 +148,7 @@ function go_search(){
 	if(document.frm.key.value=="")
 		return;
 		
-	var url = "adminProductList?page=1";
+	var url = "adminProductList.do?page=1";
 	// 보던 페이지가 어떤 페이지이던간에 검색 결과의 1페이지로 가기위해 파라미터 page를 1로 전송
 	document.frm.action = url;
 	document.frm.submit();
@@ -157,7 +157,7 @@ function go_search2(){
 	if(document.frm.key.value=="")
 		return;
 		
-	var url = "adminShortProductList?page=1";
+	var url = "adminShortProductList.do?page=1";
 	// 보던 페이지가 어떤 페이지이던간에 검색 결과의 1페이지로 가기위해 파라미터 page를 1로 전송
 	document.frm.action = url;
 	document.frm.submit();
@@ -165,12 +165,12 @@ function go_search2(){
 
 function go_total(){
 	document.frm.key.value="";
-	document.frm.action = "adminProductList?page=1";
+	document.frm.action = "adminProductList.do?page=1";
 	document.frm.submit();
 }
 function go_total2(){
 	document.frm.key.value="";
-	document.frm.action = "adminShortProductList?page=1";
+	document.frm.action = "adminShortProductList.do?page=1";
 	document.frm.submit();
 }
 
@@ -178,7 +178,7 @@ function go_search_order(){
 	if(document.frm.key.value=="")
 		return;
 		
-	var url = "adminOrderList?page=1";
+	var url = "adminOrderList.do?page=1";
 	// 보던 페이지가 어떤 페이지이던간에 검색 결과의 1페이지로 가기위해 파라미터 page를 1로 전송
 	document.frm.action = url;
 	document.frm.submit();
@@ -186,7 +186,7 @@ function go_search_order(){
 
 function go_total_order(){
 	document.frm.key.value="";
-	document.frm.action = "adminOrderList?page=1";
+	document.frm.action = "adminOrderList.do?page=1";
 	document.frm.submit();
 }
 
@@ -205,7 +205,7 @@ function go_order_save(){
 	if(count == 0){
 		alert("주문처리할 항목을 선택해 주세요.")
 	}else{
-		document.frm.action = "adminOrderSave";
+		document.frm.action = "adminOrderSave.do";
 		document.frm.submit();
 	}
 }
@@ -214,23 +214,23 @@ function go_search_qna(){
 	if(document.frm.key.value=="")
 		return;
 		
-	var url = "adminQnaList?page=1";
+	var url = "adminQnaList.do?page=1";
 	document.frm.action = url;
 	document.frm.submit();
 }
 
 function go_total_qna(){
 	document.frm.key.value="";
-	document.frm.action = "adminQnaList?page=1";
+	document.frm.action = "adminQnaList.do?page=1";
 	document.frm.submit();
 }
 
 function go_view(qseq){
-	location.href = "adminQnaDetail?qseq=" + qseq;
+	location.href = "adminQnaDetail.do?qseq=" + qseq;
 }
 
 function go_rep(){
-	document.frm.action="adminQnaRepsave";
+	document.frm.action="adminQnaRepsave.do";
 	document.frm.submit();
 }
 

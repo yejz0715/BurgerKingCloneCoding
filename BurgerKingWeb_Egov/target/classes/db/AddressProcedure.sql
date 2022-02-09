@@ -48,3 +48,16 @@ begin
 	open p_rc for
 		select * from address where dong like '%'||p_dong||'%';
 end;
+
+-- member 주소지 변경 프로시져
+create or replace procedure b_updateUserAddress(
+	p_mseq in myaddress.mseq%type,
+    p_zip_num in myaddress.zip_num%type,
+    p_address in myaddress.address%type
+)
+is
+
+begin
+	update myaddress set zip_num=p_zip_num, address=p_address where mseq=p_mseq;
+    commit;
+end;

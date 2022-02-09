@@ -8,7 +8,7 @@ IS
 
 BEGIN
     insert into member( mseq, id, pwd, phone, name)
-    values( member_seq.nextVal, p_id, p_pwd, p_phone, p_name);
+    values( mseq.nextVal, p_id, p_pwd, p_phone, p_name);
     commit;
 END;
 

@@ -67,7 +67,8 @@ public class QnaController {
 		// 고객센터 문의내용전송
 		@RequestMapping(value="/qnaWrite.do")
 		public String qnaWrite(Model model, HttpServletRequest request,
-				@RequestParam("subject") String subject, @RequestParam("content") String content) {
+				@RequestParam("subject") String subject, @RequestParam("content") String content,
+				 @RequestParam("pass") String pass) {
 			HttpSession session = request.getSession();
 			HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
 			if( loginUser == null ) {
@@ -84,8 +85,9 @@ public class QnaController {
 							paramMap.put("id", loginUser.get("ID").toString() );
 							paramMap.put("subject", subject );
 							paramMap.put("content", content);
+							paramMap.put("pass", pass);
 							qs.b_insertQna( paramMap );	
-								return "redirect:/ServiceCenter/qnaList";
+								return "ServiceCenter/qnaList";
 						}else if(memberKind == 2 ) {
 								model.addAttribute("message", "Qna문의를 하려면 로그인을 하셔야합니다.");
 								return "member/loginForm";	
@@ -97,57 +99,57 @@ public class QnaController {
 		
 		
 		
-		/*
-		
-		// 고객센터 문의내용전송
-		@RequestMapping(value="qnaWrite" , method=RequestMethod.POST)
-		public ModelAndView qna_write( @ModelAttribute("dto") @Valid QnaVO qnavo,
-				BindingResult result, Model model, HttpServletRequest request){
-			ModelAndView mav = new ModelAndView();
-			if(result.getFieldError("subject") !=null) {	// 제목 미입력
-				mav.addObject("message", "제목을 입력하세요"); 
-				mav.setViewName("ServiceCenter/qnaWrite");
-				return mav;
-			}else if(result.getFieldError("content") !=null) {	// 내용 미입력
-				mav.addObject("message", "내용을 입력하세요");
-				mav.setViewName("ServiceCenter/qnaWrite");
-				return mav;
-			}else if(result.getFieldError("pass") !=null) {	// 비밀번호 미입력
-				mav.addObject("message", "비밀번호를 입력하세요");
-				mav.setViewName("ServiceCenter/qnaWrite");
-				return mav;
-			}  
-			HttpSession session = request.getSession();
-			MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-			  if (mvo == null) mav.setViewName("member/loginform");	// 비로그인상태
-			    else {
-			    	qnavo.setId(mvo.getId());
-			    	qs.insertQna(qnavo);
-			    }   
-			    mav.setViewName("redirect:/qnaForm");
-				return mav;
-			}
-		
 		
 		// 고객센터 qna passform
 		@RequestMapping(value="/passCheckForm")
-		 public ModelAndView passCheckForm(@RequestParam("qseq")int qseq,
+		 public String passCheckForm(@RequestParam("qseq")int qseq,
 				 @RequestParam(value="message", required = false)String message,
-				 HttpServletRequest request) {
-			ModelAndView mav=new ModelAndView();
+				 HttpServletRequest request, Model model) {
 			HttpSession session = request.getSession();
-			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm";
 			}else {
 				if(message != null) {
-					mav.addObject("message", message);	// qna 게시물의 pass가 틀린경우 passChk의 message를 출력 
+					model.addAttribute("message", "비밀번호를 확인하세요");	// qna 게시물의 pass가 틀린경우 passChk의 message를 출력 
 				}
-				mav.addObject("qseq", qseq);
-			    mav.setViewName("ServiceCenter/passChk");
+				paramMap.put("qseq", qseq);
+				return "ServiceCenter/passChk";
 			}
-		    return mav;
 		 }
+		
+		
+	
+		// 고객센터 qna pass검사
+					@RequestMapping(value="/passChk", method=RequestMethod.POST)
+					public String passChk (HttpServletRequest request , Model model) {
+						HttpSession session = request.getSession();
+						HashMap<String, Object> paramMap = new HashMap<String, Object>();
+						String pass = request.getParameter("pass");
+						int qseq = Integer.parseInt(request.getParameter("qseq"));
+						paramMap.put("ref_cursor", null);
+						
+						qs.b_getpassChk(paramMap); 
+						ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+						HashMap<String, Object> mvo = list.get(0);
+						
+						if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
+							return "redirect:/loginForm";
+						}else {
+							
+							if(!mvo.get("pass").equals(pass)) {	// 비밀번호 불일치
+								model.addAttribute("message", "비밀번호를 확인하세요");
+								return "redirect:/passCheckForm?qseq=" + qseq;
+							}else {	// 비밀번호 일치
+								paramMap.put("qseq", qseq);
+								return "redirect:/qnaView";
+							}
+						}
+					}
+		
+		
+		/*
+		
 		
 
 		// 고객센터 qna pass검사

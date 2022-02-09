@@ -23,13 +23,13 @@
 			<fieldset>
 				<legend>기본정보</legend>
 				<label>이메일</label>
-				<input type="text" name="id" value="${MemberVO.id}" readonly /><br> 
+				<input type="text" name="id" value="${MemberVO.ID}" readonly /><br> 
 				<label>비밀번호</label>
-				<input type="password" name="pwd" value="${MemberVO.pwd}" /><br> 
+				<input type="password" name="pwd" value="${MemberVO.PWD}" /><br> 
 				<label>이름</label>
-				<input type="text" name="name" value="${MemberVO.name}" /><br>
+				<input type="text" name="name" value="${MemberVO.NAME}" /><br>
 				<label>핸드폰</label>
-				<input type="text" name="phone" value="${MemberVO.phone}" /><br>
+				<input type="text" name="phone" value="${MemberVO.PHONE}" /><br>
 			</fieldset>
 
 			<fieldset>
@@ -53,7 +53,7 @@
 
 		<div class="resign_container">
 			<form name="deletefrm" method="post" action="memberDelete">
-				<input type="hidden" name="mseq" value="${MemberVO.mseq}"> 
+				<input type="hidden" name="mseq" value="${MemberVO.MSEQ}"> 
 				<input type="submit" value="회원탈퇴" onClick="return resign()" />
 			</form>
 

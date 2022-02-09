@@ -106,4 +106,19 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	public void b_getMember(HashMap<String, Object> paramMap) {
 		mdao.b_getMember(paramMap);
 	}
+
+	@Override
+	public void b_selectGseq(HashMap<String, Object> paramMap) {
+		mdao.b_selectGseq(paramMap);
+	}
+
+	@Override
+	public void b_insertGuest(HashMap<String, Object> paramMap) {
+		mdao.b_insertGuest(paramMap);
+	}
+
+	@Override
+	public void b_getGuest(HashMap<String, Object> paramMap3) {
+		mdao.b_getGuest(paramMap3);
+	}
 }

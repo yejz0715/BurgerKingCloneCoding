@@ -24,12 +24,16 @@ public class EventController {
 	@RequestMapping(value="/eventListForm.do")
 	   public String eventListForm(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
-		
+		System.out.println(1);
 		paramMap.put( "ref_cursor", null );
+		System.out.println(2);
+		es.getAllEvents(paramMap);
+		System.out.println(3);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		es.getAllEvents(paramMap);
+		System.out.println(4);
 		model.addAttribute("eventList", list);
+		System.out.println(paramMap);
 		return "event/eventList";
 	   }
 	
@@ -38,10 +42,10 @@ public class EventController {
 	 public String eventTab2(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
-		
+		es.getOngoingEvents(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		es.getOngoingEvents(paramMap);
+		
 		model.addAttribute("eventList", list);
 	      return "event/eventTab2";
 	   }
@@ -51,10 +55,10 @@ public class EventController {
 	 public String eventTab3(Model model) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put( "ref_cursor", null );
-		
+		es.getPastEvents(paramMap);
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-		es.getPastEvents(paramMap);
+		
 		model.addAttribute("eventList", list);
 	      return "event/eventTab3";
 	   }

@@ -6,8 +6,8 @@
 		<div class="web_container1">
 			<ul>
 				<li><a href="main">HOME</a>&nbsp;>&nbsp;</li>
-				<li><a href="loginForm">로그인</a>&nbsp;>&nbsp;</li>
-				<li><a href="guestLoginForm">비회원 주문</a></li>
+				<li><a href="loginForm.do">로그인</a>&nbsp;>&nbsp;</li>
+				<li><a href="guestLoginForm.do">비회원 주문</a></li>
 			</ul>
 		</div>
 	</div>
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		
-		<form action="guestLogin" method="post" name="frm">
+		<form action="guestLogin.do" method="post" name="frm">
 			<h2 class="tit01 tit_ico setting"><span>비회원 설정</span></h2>
 	
 			<div class="container02">

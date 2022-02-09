@@ -12,5 +12,11 @@ public interface MemberService {
 
 	void b_getMember(HashMap<String, Object> paramMap);
 
+	void b_selectGseq(HashMap<String, Object> paramMap2);
+
+	void b_insertGuest(HashMap<String, Object> paramMap);
+
+	void b_getGuest(HashMap<String, Object> paramMap3);
+
 
 }

@@ -33,4 +33,10 @@ public interface MemberDAO {
 	void b_insertMember(HashMap<String, Object> paramMap);
 
 	void b_getMember(HashMap<String, Object> paramMap);
+
+	void b_selectGseq(HashMap<String, Object> paramMap);
+
+	void b_insertGuest(HashMap<String, Object> paramMap);
+
+	void b_getGuest(HashMap<String, Object> paramMap3);
 }

@@ -47,6 +47,12 @@ public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaServic
 		qdao.b_listQna(paramMap);	
 	}
 
+	@Override
+	public void b_insertQna(HashMap<String, Object> paramMap) {
+		qdao.b_insertQna(paramMap);	
+	}
+
+
 
 
 

@@ -68,8 +68,7 @@
 			)
 		}
 	</update>
-	
-<<<<<<< HEAD
+
 	<select id="b_findId" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_findId(
@@ -78,7 +77,7 @@
 			)
 		}
 	</select>
-=======
+
 	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_deleteMember(
@@ -86,5 +85,4 @@
 			)
 		}
 	</delete>
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov.git
 </mapper>

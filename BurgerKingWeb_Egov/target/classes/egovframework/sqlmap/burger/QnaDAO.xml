@@ -10,4 +10,8 @@
 				#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
+	<select id="b_insertQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  	CALL b_insertQna(	#{ id } , #{ subject } , #{ content } )  }
+	</select>
+	
 </mapper>

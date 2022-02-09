@@ -35,7 +35,7 @@
          <header>
             <div id="web_container">
 
-               <a id="logo" href="main"> 
+               <a id="logo" href="index.do"> 
 
                <img src="<c:url value='image/main/burgerkinglogo.png' />" style="vertical-align: middle; width:83; height:82;">
                </a>

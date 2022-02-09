@@ -24,10 +24,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 		return pdao.getDeliveryDetail(pseq);
 	}
 
-	public ProductVO getProducts(int pseq) {
-		return pdao.getProducts(pseq);
-	}
-
 	public ArrayList<subProductVO> getSubProduct() {
 		return pdao.getSubProduct();
 	}
@@ -91,5 +87,10 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	@Override
 	public void getProductkind(HashMap<String, Object> paramMap2) {
 		pdao.b_getProductkind(paramMap2);
+	}
+
+	@Override
+	public void getProducts(HashMap<String, Object> paramMap) {
+		pdao.b_getProducts(paramMap);
 	}
 }

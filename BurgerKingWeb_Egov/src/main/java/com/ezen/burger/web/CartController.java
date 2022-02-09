@@ -1,5 +1,6 @@
 package com.ezen.burger.web;
 
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.burger.service.CartService;
@@ -135,47 +137,62 @@ public class CartController {
 			return "redirect:/loginForm.do";
 		}
 	}
-	/*
+	
 	// 재료 추가 없이 카트 저장
-	@RequestMapping(value="noMeterialCart")
-	public String noMeterialCart(@RequestParam("pseq") int pseq, HttpServletRequest request) {
+	@RequestMapping(value="noMeterialCart.do")
+	public String noMeterialCart(@RequestParam("pseq") int pseq, HttpServletRequest request,
+			Model model) { 
 		HttpSession session = request.getSession();
-		MemberVO mvo;
-		GuestVO gvo;
-		CartVO cvo = new CartVO();
-		ProductVO pvo = ps.getProducts(pseq);
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("pseq", pseq);
+		paramMap.put("ref_cursor", null);
+		
+		ps.getProducts(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		HashMap<String, Object> pvo = list.get(0);
 		
 		//로그인이 되어 있다면 로그인 정보에스 id 를 추출하고  상품번호와 아이디를  CartVO 에 담아서
-		if((int)session.getAttribute("memberkind") == 1) {
-			mvo = (MemberVO)session.getAttribute("loginUser");
-			cvo.setId( mvo.getId() );   // 아이디 저장
-			cvo.setPseq(pseq);  // 상품번호저장
-			cs.insertCart(cvo);
-		}else if((int)session.getAttribute("memberkind") == 2) {
-			gvo = (GuestVO)session.getAttribute("loginUser");
+		if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 1) {
+			HashMap<String, Object> mvo = (HashMap<String, Object>)session.getAttribute("loginUser");
+			HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+			paramMap2.put("id", mvo.get("ID"));
+			paramMap2.put("PSEQ", pseq);
+			
+			cs.insertCart(paramMap2);
+		}else if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 2) {
+			HashMap<String, Object> gvo = (HashMap<String, Object>)session.getAttribute("loginUser");
+			
 			// 비회원 카트 리스트 호출
-			ArrayList<CartVO> guestCartList = (ArrayList<CartVO>) session.getAttribute("guestCartList");
-			cvo.setId( gvo.getId() );   // 아이디 저장
-			cvo.setCseq(cs.getCseq());
-			cvo.setPseq(pseq);
-			cvo.setQuantity(1);
-			cvo.setResult("1");
+			ArrayList<HashMap<String, Object>> guestCartList = (ArrayList<HashMap<String, Object>>) session.getAttribute("guestCartList");
+			HashMap<String, Object> cvo = new HashMap<String, Object>();
+			cvo.put("ID", gvo.get("ID"));   // 아이디 저장
+			
+			HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+			paramMap2.put("ref_cursor", null);
+			cs.getCseq(paramMap2);
+			cvo.put("CSEQ", Integer.parseInt(paramMap2.get("ref_cursor").toString()));
+			
+			cvo.put("PSEQ", pseq);
+			cvo.put("QUANTITY", 1);
+			cvo.put("RESULT", "1");
+
 			Timestamp ts = new Timestamp(System.currentTimeMillis());
-			cvo.setDate(ts);
-			cvo.setPname(pvo.getPname());
-			cvo.setMname(gvo.getName());
-			cvo.setImage(pvo.getImage());
-			cvo.setPrice1(pvo.getPrice1());
-			cvo.setKind1(pvo.getKind1());
-			cvo.setKind3(pvo.getKind3());
-			cvo.setPhone(gvo.getPhone());
-			cvo.setMemberkind(gvo.getMemberkind());
+			cvo.put("DATE", ts);
+			cvo.put("PNAME", pvo.get("PNAME"));
+			cvo.put("NAME", pvo.get("NAME"));
+			cvo.put("IMAGE", pvo.get("IMAGE"));
+			cvo.put("PRICE1", pvo.get("PRICE1"));
+			cvo.put("KIND1", pvo.get("KIND1"));
+			cvo.put("KIND3", pvo.get("KIND3"));
+			cvo.put("PHONE", pvo.get("PHONE"));
+			cvo.put("MEMBERKIND", gvo.get("MEMBERKIND"));
 			guestCartList.add(cvo);
 			session.setAttribute("guestCartList", guestCartList);
 		}
 		return "redirect:/deliveryCartForm";
 	}
-	
+	/*
 	// 카트 삭제
 	@RequestMapping(value="/cartDelete")
 	public ModelAndView cartDelete(HttpServletRequest request,

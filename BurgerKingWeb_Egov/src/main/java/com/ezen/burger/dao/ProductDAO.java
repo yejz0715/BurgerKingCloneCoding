@@ -18,11 +18,11 @@ public interface ProductDAO {
 
 	void b_getProductkind(HashMap<String, Object> paramMap2);
 
+	void b_getProducts(HashMap<String, Object> paramMap);
+
 //	public ArrayList<ProductVO> getProduct(String kind1);
 //
 //	public ProductVO getDeliveryDetail(int pseq);
-//
-//	public ProductVO getProducts(int pseq);
 //
 //	public ArrayList<subProductVO> getSubProduct();
 //

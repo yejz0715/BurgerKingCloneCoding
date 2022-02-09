@@ -53,3 +53,14 @@ BEGIN
     OPEN p_rc FOR
         select * from product where kind1 = p_kind1 and kind2 = p_kind2 and kind3<4;
 end;
+
+-- 해당 pseq 값에 해당하는 메뉴 정보를 불러올 것.
+create or replace PROCEDURE b_getProducts(        
+    p_pseq IN product.pseq%TYPE,
+    p_rc OUT SYS_REFCURSOR
+)  
+IS
+BEGIN
+    OPEN p_rc FOR
+       select * from product where pseq = p_pseq;
+end;

@@ -14,4 +14,6 @@ public interface ProductService {
 
 	void getProductkind(HashMap<String, Object> paramMap2);
 
+	void getProducts(HashMap<String, Object> paramMap);
+
 }

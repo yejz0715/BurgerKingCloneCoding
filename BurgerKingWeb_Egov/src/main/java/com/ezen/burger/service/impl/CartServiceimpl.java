@@ -17,17 +17,6 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	@Resource(name="CartDAO")
 	CartDAO cdao;
 /*
-	public ArrayList<CartVO> selectCart(String id) {
-		return cdao.selectCart(id);
-	}
-
-	public void insertCart(CartVO cvo) {
-		cdao.insertCart(cvo);
-	}
-
-	public int getCseq() {
-		return cdao.getCseq();
-	}
 
 	public void deleteCart(int cseq) {
 		cdao.deleteCart(cseq);
@@ -52,5 +41,15 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	@Override
 	public void selectCart(HashMap<String, Object> paramMap3) {
 		cdao.b_selectCart(paramMap3);
+	}
+
+	@Override
+	public void insertCart(HashMap<String, Object> paramMap2) {
+		cdao.b_insertCart(paramMap2);
+	}
+
+	@Override
+	public void getCseq(HashMap<String, Object> paramMap2) {
+		cdao.b_getCseq(paramMap2);
 	}
 }

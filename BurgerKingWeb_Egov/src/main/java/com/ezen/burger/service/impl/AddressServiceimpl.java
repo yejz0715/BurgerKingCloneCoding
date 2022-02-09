@@ -22,23 +22,21 @@ public class AddressServiceimpl extends EgovAbstractServiceImpl implements Addre
 		adao.b_getMyAddress(paramMap);
 	}
 
-//	public MyAddressVO getMyAddress(int mseq) {
-//		return adao.getMyAddress(mseq);
-//	}
-//
-//	public ArrayList<AddressVO> selectAddressByDong(String dong) {
-//		return adao.selectAddressByDong(dong);
-//	}
-//
-//	public void setUserAddress(MyAddressVO mavo) {
-//		adao.setUserAddress(mavo);
-//	}
-//
+	@Override
+	public void setUserAddress(HashMap<String, Object> paramMap) {
+		adao.b_setUserAddress(paramMap);
+	}
 //	public void updateUserAddress(MyAddressVO mavo) {
 //		adao.updateUserAddress(mavo);
 //	}
-//
-//	public void setGuestAddress(String address, int gseq, String zip_num) {
-//		adao.setGuestAddress(address, gseq, zip_num);
-//	}
+
+	@Override
+	public void setGuestAddress(HashMap<String, Object> gvo) {
+		adao.b_setGuestAddress(gvo);
+	}
+
+	@Override
+	public void selectAddressByDong(HashMap<String, Object> paramMap) {
+		adao.b_selectAddressByDong(paramMap);
+	}
 }

@@ -288,7 +288,7 @@ public class MemberController {
 			}else if(memberKind == 2){
 				HashMap<String, Object> gvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(gvo == null) {
-					return "redirect:/loginForm";
+					return "redirect:/loginForm.do";
 				}else {
 					if(gvo.get("ADDRESS") == null) {
 						return "delivery/addressSet";
@@ -306,10 +306,10 @@ public class MemberController {
 					}
 				}
 			}else {
-				return "redirect:/loginForm";
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm";
+			return "redirect:/loginForm.do";
 		}
 	}
 	/*

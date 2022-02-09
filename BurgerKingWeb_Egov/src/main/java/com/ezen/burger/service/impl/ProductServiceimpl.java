@@ -20,22 +20,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 		return pdao.getProduct(kind1);
 	}
 
-	public ArrayList<ProductVO> getProductdetail(int pseq) {
-		return pdao.getProductdetail(pseq);
-	}
-
-	public ArrayList<ProductVO> getProductkind(String kind1, String kind2) {
-		return pdao.getProductkind(kind1, kind2);
-	}
-
-	public ArrayList<ProductVO> getProductList(String kind1) {
-		return pdao.getProductList(kind1);
-	}
-
-	public ArrayList<subproductOrderVO> selectSubProductOrder(int mseq) {
-		return pdao.selectSubProductOrder(mseq);
-	}
-
 	public ProductVO getDeliverydetail(int pseq) {
 		return pdao.getDeliveryDetail(pseq);
 	}
@@ -46,10 +30,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 
 	public ArrayList<subProductVO> getSubProduct() {
 		return pdao.getSubProduct();
-	}
-
-	public ArrayList<subproductOrderVO> selectSubProductOrder2(int gseq) {
-		return pdao.selectSubProductOrder2(gseq);
 	}
 
 	public subProductVO getSubProduct2(int spseq) {
@@ -101,5 +81,15 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	@Override
 	public void selectSubProductOrder2(HashMap<String, Object> paramMap) {
 		pdao.b_selectSubProductOrder2(paramMap);
+	}
+
+	@Override
+	public void getDeliverydetail(HashMap<String, Object> paramMap) {
+		pdao.b_getDeliverydetail(paramMap);
+	}
+
+	@Override
+	public void getProductkind(HashMap<String, Object> paramMap2) {
+		pdao.b_getProductkind(paramMap2);
 	}
 }

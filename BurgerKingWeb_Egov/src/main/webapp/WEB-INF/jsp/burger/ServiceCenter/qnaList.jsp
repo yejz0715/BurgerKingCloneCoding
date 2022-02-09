@@ -29,7 +29,7 @@
 			<c:when test="${empty loginUser}">
 				<img style="width: 100%;" src="<c:url value='image/main/qna.PNG'/>">
 				<span style="color: #6a6a6a; font-size: 2rem; float: right;">
-					QnA 작성 및 확인은 <a style="text-decoration: none;" href="loginForm">로그인</a> 후 이용해주세요.
+					QnA 작성 및 확인은 <a style="text-decoration: none;" href="loginForm.do">로그인</a> 후 이용해주세요.
 					</span>
 			</c:when>
 			<c:otherwise>

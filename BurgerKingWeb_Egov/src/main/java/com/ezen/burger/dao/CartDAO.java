@@ -17,4 +17,8 @@ public interface CartDAO {
 //	public int getQuantity(int cseq);
 //	public void plusQuantity(int cseq);
 //	public ArrayList<CartVO> getPseqCart(int pseq);
+
+	void b_insertCart(HashMap<String, Object> paramMap2);
+
+	void b_getCseq(HashMap<String, Object> paramMap2);
 }

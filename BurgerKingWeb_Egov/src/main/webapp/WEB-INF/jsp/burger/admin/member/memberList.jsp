@@ -30,7 +30,7 @@
 					<td style="text-align: left; padding-left: 50px;">
 						<a href="#" onclick="go_member_update('${memberVO.MSEQ}');">${memberVO.NAME}</a>
 					</td>
-					<td align="center">${memberVO.ID}</td>
+					<td align="center"><input type="hidden" name="id" value="${memberVO.ID}">${memberVO.ID}</td>
 					<td align="center">${memberVO.PHONE}</td>
 					<td><fmt:formatDate value="${memberVO.INDATE}"/></td>
 					<td><fmt:formatDate value="${memberVO.LASTDATE}"/></td>

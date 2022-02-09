@@ -96,69 +96,96 @@ public class AddressController {
 			return "redirect:/loginForm.do";
 		}
 	}
-	/*
+	
 	// 회원 주소지 페이지로 이동
-	@RequestMapping(value="/myAddressForm")
-	public ModelAndView myAddressForm(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/myAddressForm.do")
+	public String myAddressForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
-			if((int)session.getAttribute("memberkind") == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-				MyAddressVO mavo = as.getMyAddress(mvo.getMseq());
-				ArrayList<orderVO> list1 = os.getOrderList(mvo.getId());
-				ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );
-				String addr = mavo.getAddress();
-				String[] addrs= addr.split(" ");
-				String addr1="";
-				for(int i=0; i<3; i++) {
-					addr1 += addrs[i] + " ";
+			if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 1) {
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("mseq", mvo.get("MSEQ").toString());
+				paramMap.put("ref_cursor", null);
+				
+				as.b_getMyAddress(paramMap);
+				
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+				if(list.size() == 0) {
+					return "delivery/addressSet";
+				}else {
+					HashMap<String, Object> mavo = list.get(0);
+					String addr = mavo.get("ADDRESS").toString();
+					String[] addrs= addr.split(" ");
+					String addr1="";
+					for(int i=0; i<3; i++) {
+						addr1 += addrs[i] + " ";
+					}
+					String addr2="";
+					for(int i=3; i<addrs.length; i++) {
+						addr2 += addrs[i] + " ";
+					}			 
+					
+					// order, cart View 조회
+					HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+					paramMap2.put("id", mvo.get("ID").toString());
+					paramMap2.put("ref_cursor", null);
+					HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+					paramMap3.put("id", mvo.get("ID").toString());
+					paramMap3.put("ref_cursor", null);
+					
+					os.getOrderList(paramMap2);
+					cs.selectCart(paramMap3);
+					
+					ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+					ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+					
+					model.addAttribute("ovo", list1);
+					model.addAttribute("cvo", list2);
+					model.addAttribute("addr1", addr1);
+					model.addAttribute("addr2", addr2);
+					model.addAttribute("zip_num", mavo.get("ZIP_NUM").toString());
+					return "delivery/myaddress";
 				}
-				String addr2="";
-				for(int i=3; i<addrs.length; i++) {
-					addr2 += addrs[i] + " ";
-				}			 
-				mav.addObject("addr1", addr1);
-				mav.addObject("addr2", addr2);
-				mav.addObject("zip_num", mavo.getZip_num());
-				request.setAttribute("ovo", list1);
-				request.setAttribute("cvo", list2);
-				mav.setViewName("delivery/myaddress");
-			}else if((int)session.getAttribute("memberkind") == 2) {
-				mav.setViewName("redirect:/loginForm");
+			}else if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 2) {
+				return "redirect:/loginForm.do";
+			}else {
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
 	
 	// 회원 주소지  변경
 	@RequestMapping(value="/updateAddress")
-	public ModelAndView updateAddress(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	public String updateAddress(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			String address = request.getParameter("addr1") + " " + request.getParameter("addr2");
 			String zip_num = request.getParameter("zip_num");
 			// 회원 종류 검사 (1:회원, 2:비회원)
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					mav.setViewName("redirect:/loginForm");
+					return "redirect:/loginForm.do";
 				}else {
-					MyAddressVO mavo = new MyAddressVO();
-					mavo.setZip_num(zip_num);
-					mavo.setAddress(address);
-					mavo.setMseq(mvo.getMseq());
-					as.updateUserAddress(mavo);
-					mav.setViewName("redirect:/deliveryMypageForm");
+					HashMap<String, Object> paramMap = new HashMap<String, Object>();
+					paramMap.put("zip_num", zip_num);
+					paramMap.put("address", address);
+					paramMap.put("mseq", Integer.parseInt(mvo.get("MSEQ").toString()));
+					
+					as.updateUserAddress(paramMap);
+					
+					model.addAttribute("kind1", 1);
+					return "redirect:/deliveryMypageForm.do";
 				}
 			} else{
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
+		}else {
+			return "redirect:/loginForm.do";
 		}
-		return mav;
-	}*/
+	}
 }

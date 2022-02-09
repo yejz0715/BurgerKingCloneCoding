@@ -37,4 +37,12 @@
 			)
 		}
 	</select>
+	
+	<update id="b_updateUserAddress" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_updateUserAddress(
+				#{mseq}, #{zip_num}, #{address}
+			)
+		}
+	</update>
 </mapper>

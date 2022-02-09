@@ -26,9 +26,6 @@ public class AddressServiceimpl extends EgovAbstractServiceImpl implements Addre
 	public void setUserAddress(HashMap<String, Object> paramMap) {
 		adao.b_setUserAddress(paramMap);
 	}
-//	public void updateUserAddress(MyAddressVO mavo) {
-//		adao.updateUserAddress(mavo);
-//	}
 
 	@Override
 	public void setGuestAddress(HashMap<String, Object> gvo) {
@@ -38,5 +35,10 @@ public class AddressServiceimpl extends EgovAbstractServiceImpl implements Addre
 	@Override
 	public void selectAddressByDong(HashMap<String, Object> paramMap) {
 		adao.b_selectAddressByDong(paramMap);
+	}
+
+	@Override
+	public void updateUserAddress(HashMap<String, Object> paramMap) {
+		adao.b_updateUserAddress(paramMap);
 	}
 }

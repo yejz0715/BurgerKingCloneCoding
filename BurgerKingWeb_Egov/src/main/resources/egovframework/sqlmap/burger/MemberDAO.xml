@@ -6,7 +6,7 @@
 <mapper namespace="com.ezen.burger.dao.MemberDAO">
 	<select id="getMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL getMember(
+			CALL b_getMember(
 				#{id},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
@@ -23,7 +23,7 @@
 	
 	<insert id="b_insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
 		{ CALL b_insertMember( 
-				#{id}, #{pwd}, #{phone}, #{name}
+			#{id}, #{pwd}, #{phone}, #{name}
 		) }
 	</insert>
 	
@@ -61,4 +61,37 @@
 		}
 	</select>
 	
+	<update id="b_updateMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_updateMember(
+				#{ID},#{PWD},#{NAME},#{PHONE}
+			)
+		}
+	</update>
+
+	<select id="b_findMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_findMember(
+				#{name}, #{phone},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+
+	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteMember(
+				#{mseq}
+			)
+		}
+	</delete>
+	
+	<select id="b_findPwd" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_findPwd(
+				#{name}, #{id},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

@@ -12,4 +12,6 @@ public interface AddressService {
 
 	void selectAddressByDong(HashMap<String, Object> paramMap);
 
+	void updateUserAddress(HashMap<String, Object> paramMap);
+
 }

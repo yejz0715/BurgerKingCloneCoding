@@ -10,23 +10,21 @@ public interface ProductDAO {
 
 	void b_getProductList(HashMap<String, Object> paramMap4);
 
+	void b_selectSubProductOrder(HashMap<String, Object> paramMap);
+
+	void b_selectSubProductOrder2(HashMap<String, Object> paramMap);
+
+	void b_getDeliverydetail(HashMap<String, Object> paramMap);
+
+	void b_getProductkind(HashMap<String, Object> paramMap2);
+
+	void b_getProducts(HashMap<String, Object> paramMap);
+
 //	public ArrayList<ProductVO> getProduct(String kind1);
-//
-//	public ArrayList<ProductVO> getProductdetail(int pseq);
-//
-//	public ArrayList<ProductVO> getProductkind(String kind1, String kind2);
-//
-//	public ArrayList<ProductVO> getProductList(String kind1);
-//
-//	public ArrayList<subproductOrderVO> selectSubProductOrder(int mseq);
 //
 //	public ProductVO getDeliveryDetail(int pseq);
 //
-//	public ProductVO getProducts(int pseq);
-//
 //	public ArrayList<subProductVO> getSubProduct();
-//
-//	public ArrayList<subproductOrderVO> selectSubProductOrder2(int gseq);
 //
 //	public subProductVO getSubProduct2(int spseq);
 //

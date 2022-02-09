@@ -62,7 +62,7 @@ function popup3() {
 				<c:choose>
 					<c:when test='${productVO.KIND3=="4" && productVO.USEYN==1 }'>
 						<li>
-							<a onclick="deliveryDetail.do('${productVO.PSEQ}')">
+							<a onclick="deliveryDetail('${productVO.PSEQ}')">
 							<div class="menuImgdiv">
 								<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> ">					
 							</div>

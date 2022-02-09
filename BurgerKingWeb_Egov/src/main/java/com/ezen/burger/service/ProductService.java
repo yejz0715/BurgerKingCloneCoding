@@ -10,4 +10,10 @@ public interface ProductService {
 
 	void selectSubProductOrder2(HashMap<String, Object> paramMap);
 
+	void getDeliverydetail(HashMap<String, Object> paramMap);
+
+	void getProductkind(HashMap<String, Object> paramMap2);
+
+	void getProducts(HashMap<String, Object> paramMap);
+
 }

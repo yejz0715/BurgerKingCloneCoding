@@ -8,19 +8,20 @@ import egovframework.rte.psl.dataaccess.mapper.Mapper;
 @Mapper(value="EventDAO")
 public interface EventDAO {
 
-	void getAllEvents(HashMap<String, Object> paramMap);
-//	ArrayList<EventVO> getAllEvents();
-//
-//	ArrayList<EventVO> getOngoingEvents();
-//
-//	ArrayList<EventVO> getPastEvents();
-//
 //	EventVO getDetailEvent(int eseq);
 //	
 ////admin event
 //	EventVO getEvent(int eseq);
 //
 //	void deleteEvent(int eseq);
+	
+	void getAllEvents(HashMap<String, Object> paramMap);
+
+	void getOngoingEvents(HashMap<String, Object> paramMap);
+
+	void getPastEvents(HashMap<String, Object> paramMap);
+
+	void getDetailEvent(HashMap<String, Object> paramMap);
 
 
 

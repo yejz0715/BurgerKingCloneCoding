@@ -32,9 +32,9 @@
 								<img class="eventImg" src="<c:url value='/image/main/event/${EventVO.THUMBNAIL}'/>" />
 						</a>
 							<p>
-								${EventVO.STARTDATE.substring(0,10)}
+								 ${EventVO.STARTDATE.substring(0,10)}
 								~
-								${EventVO.ENDDATE.substring(0,10)}
+								${EventVO.ENDDATE.substring(0,10)} 
 							</p></li>
 					</c:forEach>
 				</ul>

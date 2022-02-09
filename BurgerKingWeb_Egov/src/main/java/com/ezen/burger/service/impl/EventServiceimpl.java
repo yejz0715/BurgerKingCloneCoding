@@ -16,22 +16,8 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class EventServiceimpl extends EgovAbstractServiceImpl implements EventService{
 	@Resource(name="EventDAO")
 	EventDAO edao;
+	
 /*
-	public ArrayList<EventVO> getAllEvents() {
-		return edao.getAllEvents();
-	}
-
-	public ArrayList<EventVO> getOngoingEvents() {
-		return edao.getOngoingEvents();
-	}
-
-	public ArrayList<EventVO> getPastEvents() {
-		return edao.getPastEvents();
-	}
-
-	public EventVO getDetailEvent(int eseq) {
-		return edao.getDetailEvent(eseq);
-	}
 //admin event
 	public EventVO getEvent(int eseq) {
 		return edao.getEvent(eseq);
@@ -44,7 +30,19 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 
 	@Override
 	public void getAllEvents(HashMap<String, Object> paramMap) {
-		edao.getAllEvents(paramMap);
+		edao.getAllEvents(paramMap);	
+	}
+	@Override
+	public void getOngoingEvents(HashMap<String, Object> paramMap) {
+		edao.getOngoingEvents(paramMap);
+	}
+	@Override
+	public void getPastEvents(HashMap<String, Object> paramMap) {
+		edao.getPastEvents(paramMap);	
+	}
+	@Override
+	public void getDetailEvent(HashMap<String, Object> paramMap) {
+		edao.getDetailEvent(paramMap);
 		
 	}
 	

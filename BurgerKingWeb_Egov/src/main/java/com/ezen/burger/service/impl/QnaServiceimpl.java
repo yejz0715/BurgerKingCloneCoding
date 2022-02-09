@@ -1,6 +1,7 @@
 package com.ezen.burger.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 
@@ -40,6 +41,11 @@ public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaServic
 		qdao.updateQna(qseq, reply);		
 	}
 */
+
+	@Override
+	public void listQna(HashMap<String, Object> paramMap) {
+		qdao.b_listQna(paramMap);	
+	}
 
 
 

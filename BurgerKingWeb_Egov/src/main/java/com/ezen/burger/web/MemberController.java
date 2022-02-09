@@ -75,7 +75,7 @@ public class MemberController {
 			ms.lastDateUpdate(paramMap2);
 			
 			session.setAttribute("loginUser", mvo);
-			session.setAttribute("memberkind", mvo.get("MEMBERKIND"));
+			session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
 			return "redirect:/index.do";
 		}else { // 기타 원인을 알 수 없는 오류
 			model.addAttribute("message", "알수없는 이유로 로그인 실패.");
@@ -207,7 +207,7 @@ public class MemberController {
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			// 회원 종류 검사 (1:회원, 2:비회원)
 			if(memberKind == 1) {
 				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
@@ -222,9 +222,7 @@ public class MemberController {
 					as.b_getMyAddress(paramMap);
 					
 					ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-					HashMap<String, Object> avo = list.get(0);
-					
-					if(avo == null) {
+					if(list.size() == 0) {
 						HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
 						paramMap2.put("id", mvo.get("ID").toString());
 						paramMap2.put("ref_cursor", null);

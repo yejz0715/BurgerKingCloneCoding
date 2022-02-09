@@ -32,7 +32,6 @@
 			<input type="hidden" name="command" value="qnaWrite.do">
 			<input type="hidden" name="id" value="${id}">
 			<fieldset style="border: 0px; background-color: #f2ebe6;">
-				<legend>QnA Write</legend>
 				<label>제목</label><br>
 				<input type="text" name="subject" size="100"><br>
 				<label>질문내용</label>

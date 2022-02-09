@@ -10,6 +10,10 @@ public interface ProductDAO {
 
 	void b_getProductList(HashMap<String, Object> paramMap4);
 
+	void b_selectSubProductOrder(HashMap<String, Object> paramMap);
+
+	void b_selectSubProductOrder2(HashMap<String, Object> paramMap);
+
 //	public ArrayList<ProductVO> getProduct(String kind1);
 //
 //	public ArrayList<ProductVO> getProductdetail(int pseq);

@@ -6,6 +6,8 @@ public interface QnaService {
 
 	void listQna(HashMap<String, Object> paramMap);
 
+	void b_insertQna(HashMap<String, Object> paramMap);
+
 	
 
 }

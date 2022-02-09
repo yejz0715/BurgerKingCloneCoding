@@ -14,4 +14,22 @@
 			)
 		}
 	</select>
+	
+	<select id="b_selectSubProductOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder(
+				#{mseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_selectSubProductOrder2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder(
+				#{gseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

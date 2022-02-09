@@ -312,69 +312,80 @@ public class MemberController {
 			return "redirect:/loginForm.do";
 		}
 	}
-	/*
+	
 	// 회원 정보 변경 페이지로 이동
-	@RequestMapping(value="/memberUpdateForm")
-	public ModelAndView memberUpdateForm(HttpServletRequest request,
-			@RequestParam(value="message", required = false) String message) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/memberUpdateForm.do")
+	public String memberUpdateForm(HttpServletRequest request, Model model) {
+		String message = request.getParameter("message");
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-				ArrayList<orderVO> list1 = os.getOrderList(mvo.getId());
-				ArrayList<CartVO> list2 = cs.selectCart( mvo.getId() );	
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				
+				// order,cart view 조회
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("id", mvo.get("ID").toString());
+				paramMap2.put("ref_cursor", null);
+				HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+				paramMap3.put("id", mvo.get("ID").toString());
+				paramMap3.put("ref_cursor", null);
+				
+				os.getOrderList(paramMap2);
+				cs.selectCart(paramMap3);
+				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+				
+				// message 확인
 				if(message !=null) {
-					mav.addObject("message", message);
+					model.addAttribute("message", message);
 				}
-				mav.addObject("ovo", list1);
-				mav.addObject("cvo", list2);
-				mav.addObject("MemberVO", mvo);
-				mav.setViewName("member/updateForm");
+				
+				model.addAttribute("ovo", list1);
+				model.addAttribute("cvo", list2);
+				model.addAttribute("MemberVO", mvo);
+				return "member/updateForm";
 			}else if(memberKind == 2){
-				mav.addObject("kind1", 1);
-				mav.setViewName("redirect:/deliveryForm");
+				model.addAttribute("kind1", 1);
+				return "redirect:/deliveryForm.do";
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
 	
 	// 회원정보 수정
 	@RequestMapping(value="/updateMember")
-	public ModelAndView updateMember(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	public String updateMember(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-				mvo.setId(request.getParameter("id"));
-				mvo.setPwd(request.getParameter("pwd"));
-				mvo.setName(request.getParameter("name"));
-				mvo.setPhone(request.getParameter("phone"));
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
+				mvo.put("ID", request.getParameter("id"));
+				mvo.put("PWD", request.getParameter("pwd"));
+				mvo.put("NAME", request.getParameter("name"));
+				mvo.put("PHONE", request.getParameter("phone"));
+
 				ms.updateMember(mvo);
 				
 				session.setAttribute("loginUser", mvo);
-				session.setAttribute("memberkind", mvo.getMemberkind());
-				mav.setViewName("redirect:/deliveryMypageForm");
+				session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
+				return "redirect:/deliveryMypageForm.do";
 			}else if(memberKind == 2){
-				mav.addObject("kind1", 1);
-				mav.setViewName("redirect:/deliveryForm");
+				model.addAttribute("kind1", 1);
+				return "redirect:/deliveryForm.do";
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
-	
+	/*
 	// 회원정보 삭제
 	@RequestMapping(value="/memberDelete")
 	public ModelAndView memberDelete(HttpServletRequest request) {

@@ -61,4 +61,11 @@
 		}
 	</select>
 	
+	<update id="b_updateMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_updateMember(
+				#{ID},#{PWD},#{NAME},#{PHONE}
+			)
+		}
+	</update>
 </mapper>

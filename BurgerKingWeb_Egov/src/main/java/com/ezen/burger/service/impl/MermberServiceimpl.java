@@ -20,9 +20,6 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	@Resource(name="OrderDAO")
 	OrderDAO odao;
 /*
-	public MemberVO getMember(String id) {
-		return mdao.getMember(id);
-	}
 
 	public MemberVO findMember(String name, String phone) {
 		return mdao.findMember(name, phone);
@@ -40,24 +37,6 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 		return mdao.getMember_mseq(mseq);
 	}
 
-	public void updateMember(MemberVO mvo) {
-		mdao.updateMember(mvo);
-	}
-
-	public GuestVO guestSessionLogin(String name, String phone, String pwd) {
-		int gseq = mdao.selectGseq();
-		String id = "Non" + gseq;
-		GuestVO gvo = new GuestVO();
-		gvo.setGseq(gseq);
-		gvo.setId(id);
-		gvo.setName(name);
-		gvo.setPhone(phone);
-		gvo.setPwd(pwd);
-		gvo.setMemberkind(2);
-		
-		return gvo;
-	}
-
 	public void deleteMember(int mseq) {
 		MemberVO mvo = mdao.getMember_mseq(mseq);
 		int[] oseq = odao.getOseqs(mvo.getId());
@@ -70,22 +49,7 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 		mdao.deleteMyaddress(mvo.getMseq());
 		mdao.deleteMember(mvo.getMseq());
 	}
-
-	public void insertMember( MemberVO membervo) {
-		mdao.insertMember(membervo);
-	}
-
-	public MemberVO joinMember(String id, String name, String phone, String pwd) {
-		return mdao.joinMember(id, name, phone, pwd);
-	}
-
-	public void insertGuest(GuestVO gvo) {
-		mdao.insertGuest(gvo);
-	}
-
-	public void lastDateUpdate(int mseq) {
-		mdao.lastDateUpdate(mseq);
-	}*/
+*/
 
 	@Override
 	public void getMember(HashMap<String, Object> paramMap) {
@@ -120,5 +84,10 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 	@Override
 	public void b_getGuest(HashMap<String, Object> paramMap3) {
 		mdao.b_getGuest(paramMap3);
+	}
+
+	@Override
+	public void updateMember(HashMap<String, Object> mvo) {
+		mdao.b_updateMember(mvo);
 	}
 }

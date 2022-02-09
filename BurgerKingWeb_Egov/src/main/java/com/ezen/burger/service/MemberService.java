@@ -18,5 +18,7 @@ public interface MemberService {
 
 	void b_getGuest(HashMap<String, Object> paramMap3);
 
+	void updateMember(HashMap<String, Object> mvo);
+
 
 }

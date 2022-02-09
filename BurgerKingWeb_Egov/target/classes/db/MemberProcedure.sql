@@ -73,3 +73,17 @@ begin
 	open p_rc for
 		select * from guest where gseq=p_gseq;
 end;
+
+-- 회원정보 변경 프로시져
+create or replace procedure b_updateMember(
+	p_id in member.id%type,
+    p_pwd in member.pwd%type,
+    p_name in member.name%type,
+    p_phone in member.phone%type
+)
+is
+
+begin
+	update member set pwd=p_pwd, name=p_name, phone=p_phone where id=p_id;
+    commit;
+end;

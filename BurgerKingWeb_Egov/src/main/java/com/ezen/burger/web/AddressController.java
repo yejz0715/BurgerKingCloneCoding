@@ -1,16 +1,15 @@
 package com.ezen.burger.web;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.ezen.burger.service.AddressService;
 import com.ezen.burger.service.CartService;
@@ -28,69 +27,76 @@ public class AddressController {
 	@Resource(name="CartService")
 	CartService cs;
 	
-	/*
+	
 	// 주소찾기 팝업창 띄우기
-	@RequestMapping(value="/findZipNum")
-	public ModelAndView findZipNum(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/findZipNum.do")
+	public String findZipNum(HttpServletRequest request, Model model) {
 		String dong = request.getParameter("dong");
 		if( dong != null) {
 			if( dong.equals("") == false ) {
-				ArrayList<AddressVO> list = as.selectAddressByDong(dong);
-				mav.addObject("addressList", list);
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("dong", dong);
+				paramMap.put("ref_cursor", null);
+				
+				as.selectAddressByDong(paramMap);
+				
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+				
+				model.addAttribute("addressList", list);
 			}
 		}else {
 			// 별일없이 다음 페이지로 이동
 		}
-		mav.setViewName("delivery/findZipNum");
-		return mav;
+		return "delivery/findZipNum";
 	}
 	
 	// 입력한 주소 저장
-	@RequestMapping(value="/myAddress")
-	public ModelAndView myAddress(HttpServletRequest request) {
-		ModelAndView mav = new ModelAndView();
+	@RequestMapping(value="/myAddress.do")
+	public String myAddress(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
-			int memberKind = (int)session.getAttribute("memberkind");
+			int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
 			String address = request.getParameter("addr1") + " " + request.getParameter("addr2");
 			String zip_num = request.getParameter("zip_num");
 			// 회원 종류 검사 (1:회원, 2:비회원)
 			if(memberKind == 1) {
-				MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					mav.setViewName("redirect:/loginForm");
+					return "redirect:/loginForm.do";
 				}else {
-					MyAddressVO mavo = new MyAddressVO();
-					mavo.setZip_num(zip_num);
-					mavo.setAddress(address);
-					mavo.setMseq(mvo.getMseq());
-					as.setUserAddress(mavo);
-					mav.addObject("kind1", 1);
-					mav.setViewName("redirect:/deliveryForm");
+					HashMap<String, Object> paramMap = new HashMap<String, Object>();
+					paramMap.put("zip_num", zip_num);
+					paramMap.put("address", address);
+					paramMap.put("mseq", Integer.parseInt(mvo.get("MSEQ").toString()));
+					
+					as.setUserAddress(paramMap);
+					
+					model.addAttribute("kind1", 1);
+					return "redirect:/deliveryForm.do";
 				}
 			}else if(memberKind == 2){
-				GuestVO gvo = (GuestVO)session.getAttribute("loginUser");
+				HashMap<String, Object> gvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(gvo == null) {
-					mav.setViewName("redirect:/loginForm");
+					return "redirect:/loginForm.do";
 				}else {
-					gvo.setZip_num(zip_num);
-					gvo.setAddress(address);
-					as.setGuestAddress(address, gvo.getGseq(), gvo.getZip_num());
+					gvo.put("ZIP_NUM", zip_num);
+					gvo.put("ADDRESS", address);
+					
+					as.setGuestAddress(gvo);
+					
 					session.setAttribute("loginUser", gvo);
-					session.setAttribute("memberkind", gvo.getMemberkind());
-					mav.addObject("kind1", 1);
-					mav.setViewName("redirect:/deliveryForm");
+					session.setAttribute("memberkind", gvo.get("MEMBERKIND"));
+					model.addAttribute("kind1", 1);
+					return "redirect:/deliveryForm.do";
 				}
 			}else {
-				mav.setViewName("redirect:/loginForm");
+				return "redirect:/loginForm.do";
 			}
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
-	
+	/*
 	// 회원 주소지 페이지로 이동
 	@RequestMapping(value="/myAddressForm")
 	public ModelAndView myAddressForm(HttpServletRequest request) {

@@ -12,4 +12,29 @@
 			)
 		}
 	</select>
+	
+	<insert id="b_setUserAddress" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_setUserAddress(
+				#{mseq}, #{zip_num}, #{address}
+			)
+		}
+	</insert>
+	
+	<update id="b_setGuestAddress" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_setGuestAddress(
+				#{GSEQ}, #{ZIP_NUM}, #{ADDRESS}
+			)
+		}
+	</update>
+	
+	<select id="b_selectAddressByDong" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectAddressByDong(
+				#{dong},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

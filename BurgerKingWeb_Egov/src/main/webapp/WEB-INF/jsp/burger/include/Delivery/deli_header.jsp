@@ -34,7 +34,7 @@
 				<c:choose>
 					<c:when test="${empty loginUser}">
 						<div class="WEB utilWrap">
-							<a href="/"><span>브랜드홈</span></a>
+							<a href="index.do"><span>브랜드홈</span></a>
 							<a style="display: none;"><span>로그아웃</span></a>
 							<a style="display: none;"><span>MY킹</span></a>
 							<a href="loginForm.do"><span>로그인</span></a>
@@ -43,7 +43,7 @@
 					</c:when>
 					<c:when test="${memberkind == 2}">
 						<div class="WEB utilWrap">
-							<a href="/"><span>브랜드홈</span></a>
+							<a href="index.do"><span>브랜드홈</span></a>
 							<a href="logout.do"><span>비회원 로그아웃</span></a>
 							<a href="deliveryOrderList.do"><span>주문 내역 확인</span></a>
 						</div>
@@ -53,7 +53,7 @@
 					</c:when>
 					<c:otherwise>
 						<div class="WEB utilWrap">
-							<a href="/"><span>브랜드홈</span></a>
+							<a href="index.do"><span>브랜드홈</span></a>
 							<a href="logout.do"><span>로그아웃</span></a>
 							<a href="deliveryMypageForm.do"><span>MY킹</span></a>
 							<a style="display: none;"><span>로그인</span></a>

@@ -171,7 +171,7 @@ public class MemberController {
 		mav.setViewName("redirect:/loginForm");
 		return mav;
 	}
-	
+	*/
 	// 비회원 로그인 정보 입력화면 이동
 	@RequestMapping(value="/guestLoginForm")
 	public String guestLoginForm() {
@@ -180,26 +180,48 @@ public class MemberController {
 	
 	// 비회원 로그인
 	@RequestMapping(value="/guestLogin")
-	public ModelAndView guestLogin(HttpServletRequest request,
-			@RequestParam("name") String name, @RequestParam("phone") String phone,
-			@RequestParam("pwd") String pwd) {
-		ModelAndView mav = new ModelAndView(); 
-		GuestVO gvo = ms.guestSessionLogin(name, phone, pwd);
+	public String guestLogin(HttpServletRequest request, Model model) {
+		String name = request.getParameter("name");
+		String phone = request.getParameter("phone");
+		String pwd = request.getParameter("pwd");
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("name", name);
+		paramMap.put("phone", phone);
+		paramMap.put("pwd", pwd);
+
+		HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+		paramMap2.put("ref_cursor", null);
+		
+		ms.b_selectGseq(paramMap2);
+		
+		int gseq = Integer.parseInt(paramMap2.get("ref_cursor").toString());
+		String id = "Non" + gseq;
+		
+		paramMap.put("gseq", gseq);
+		paramMap.put("id", id);
 		
 		// 이후 게스트 주문내역을 위한 게스트 정보 저장
-		ms.insertGuest(gvo);
+		ms.b_insertGuest(paramMap);
 		
+		HashMap<String, Object> paramMap3 = new HashMap<String, Object>();
+		paramMap3.put("ref_cursor", null);
+		paramMap3.put("gseq", gseq);
+		
+		ms.b_getGuest(paramMap3);
+		
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap3.get("ref_cursor");
+		HashMap<String, Object> gvo = list.get(0);
 		// 세션에 담아둘 게스트 카트정보 생성
-		ArrayList<CartVO> guestCartList = new ArrayList<CartVO>();
+		ArrayList<HashMap<String, Object>> guestCartList = new ArrayList<HashMap<String, Object>>();
 		HttpSession session = request.getSession();
 		
 		session.setAttribute("loginUser", gvo);
-		session.setAttribute("memberkind", gvo.getMemberkind());
+		session.setAttribute("memberkind", gvo.get("MEMBERKIND").toString());
 		session.setAttribute("guestCartList", guestCartList);
-		mav.setViewName("redirect:/");
-		return mav;
+		return "redirect:/index.do";
 	}
-	*/
+	
 	// 로그인 이후 딜리버리 페이지로 이동
 	@RequestMapping(value="/deliveryForm")
 	public String deliveryForm(HttpServletRequest request, Model model) {

@@ -234,7 +234,7 @@ public class AdminController {
 		}
 	}
 	
-	/*
+	
 //이벤트상세보기
 	@RequestMapping("/adminEventDetail")
 	public String adminEventDetail(HttpServletRequest request, Model model, @RequestParam("eseq") int eseq) {
@@ -242,8 +242,13 @@ public class AdminController {
 		if (session.getAttribute("loginAdmin") == null) {
 			return "admin/adminLogin";
 		} else {
-			EventVO evo = es.getEvent(eseq);
-			model.addAttribute("eventVO", evo);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("eseq", eseq);
+			paramMap.put("ref_cursor", null);
+			es.getEvent(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			model.addAttribute("eventVO", list.get(0));
 			return "admin/event/eventDetail";
 		}
 	}
@@ -256,6 +261,7 @@ public class AdminController {
 
 		return "admin/event/eventWrite";
 	}
+	/*
 //이벤트등록
 	@RequestMapping(value = "/adminEventWrite", method = RequestMethod.POST) 
 	public String adminEventWrite(Model model, HttpServletRequest request) {

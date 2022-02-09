@@ -10,26 +10,26 @@
 	</select>
 	
 	<select id="getAllCountMem" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL getAllCountMem(
+	{CALL b_getAllCountMem(
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	
 	<select id="listMember" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL listMember(#{startNum}, #{endNum}, #{key} ,
+	{CALL b_listMember(#{startNum}, #{endNum}, #{key} ,
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
 	<delete id="deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL deleteMember(#{mseq}) }
+	{CALL b_deleteMember(#{mseq}) }
 	</delete>
 	
 	<select id="getAllCountEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL getAllCountEvent(
+	{CALL b_getAllCountEvent(
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	
 	<select id="listEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL listEvent(#{startNum}, #{endNum}, #{key} ,
+	{CALL b_listEvent(#{startNum}, #{endNum}, #{key} ,
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	

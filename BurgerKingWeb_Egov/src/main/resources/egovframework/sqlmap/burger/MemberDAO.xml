@@ -23,7 +23,7 @@
 	
 	<insert id="b_insertMember" statementType="CALLABLE" parameterType="java.util.HashMap" >
 		{ CALL b_insertMember( 
-				#{id}, #{pwd}, #{phone}, #{name}
+			#{id}, #{pwd}, #{phone}, #{name}
 		) }
 	</insert>
 	

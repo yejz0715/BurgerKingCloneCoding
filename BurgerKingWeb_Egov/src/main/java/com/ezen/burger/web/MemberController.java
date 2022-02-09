@@ -90,15 +90,15 @@ public class MemberController {
 		session.invalidate();
 		return "redirect:/index.do";
 	}
-	/*
+	
 	// 아이디 찾기 페이지 이동
-	@RequestMapping(value="/findIdForm")
+	@RequestMapping(value="/findIdForm.do")
 	public String findIdForm() {
 		return "member/findIdForm";
 	}
 	
-	// 아이디 찾기
-	@RequestMapping(value="/findId")
+/*	// 아이디 찾기
+	@RequestMapping(value="/findId.do")
 	public ModelAndView findId(@ModelAttribute("dto") @Valid MemberVO membervo, 
 			BindingResult result, Model model, HttpServletRequest request) {
 		ModelAndView mav = new ModelAndView();
@@ -123,7 +123,36 @@ public class MemberController {
 		}
 		return mav;
 	}
-	
+	 */
+	/*
+	@RequestMapping(value="/findId.do")
+	public String findId(@ModelAttribute("dto") @Valid MemberVO membervo, 
+			BindingResult result, Model model, HttpServletRequest request) {
+
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		
+		// 입력받은 이름과 핸드폰정보에 대한 에러 체크
+		if(result.hasErrors()) { 
+			if(result.getFieldError("name") != null) {
+				mav.addObject("message", result.getFieldError("name").getDefaultMessage());
+				mav.setViewName("member/findIdForm");
+			}else if(result.getFieldError("phone") != null) {
+				mav.addObject("message", result.getFieldError("phone").getDefaultMessage());
+				mav.setViewName("member/findIdForm");
+			}
+		}	
+		MemberVO mvo = ms.findMember(membervo.getName(), membervo.getPhone());
+		if(mvo == null) {
+			mav.addObject("message", "해당 정보를 가진 회원이 없습니다.");
+			mav.setViewName("member/findIdForm");
+		}else{
+			mav.addObject("memberVO", mvo);
+			mav.setViewName("member/showIdForm");
+		}
+		return mav;
+	}
+	/*
 	// 비밀번호 찾기 페이지로 이동
 	@RequestMapping(value="/findPwdForm")
 	public String findPwdForm(@RequestParam(value="id", required = false) String id,

@@ -1,6 +1,5 @@
 create or replace PROCEDURE b_insertMember
 (   p_id IN MEMBER.ID%TYPE,
-    p_mseq in MEMBER.MSEQ%type,
     p_pwd IN MEMBER.PWD%TYPE, 
     p_phone IN MEMBER.PHONE%TYPE,
     p_name IN MEMBER.NAME%TYPE

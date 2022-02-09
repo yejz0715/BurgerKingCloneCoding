@@ -19,13 +19,13 @@
 	         <ul class="cnt" id="cnt">
 	            <li><a href="eventDetailForm.do?eseq=4"><img
 	                  src="<c:url value='image/main/banner/banner_3.png'/>"></a></li>
-	            <li><a href="eventDetailForm.do?eseq=3"><img
+	            <li><a href="eventDetailForm.do?eseq=2"><img
 	                  src="<c:url value='image/main/banner/banner_1.png'/>"></a></li>
-	            <li><a href="eventDetailForm.do?eseq=4"><img
+	            <li><a href="eventDetailForm.do?eseq=3"><img
 	                  src="<c:url value='image/main/banner/banner_2.png'/>"></a></li>
-	            <li><a href="eventDetailForm.do?eseq=21"><img
-	                  src="<c:url value='image/main/banner/banner_4.png'/>"></a></li>
 	            <li><a href="eventDetailForm.do?eseq=22"><img
+	                  src="<c:url value='image/main/banner/banner_4.png'/>"></a></li>
+	            <li><a href="eventDetailForm.do?eseq=23"><img
 	                  src="<c:url value='image/main/banner/banner_5.png'/>"></a></li>
 	         </ul>
 	         	
@@ -78,11 +78,11 @@
 	            <div class="web_container2">
 	               <div class="guide">
 	                  <div id="app">
-	                     <a href="appGuideForm"> <img 
+	                     <a href="appGuideForm.do"> <img 
 	                        src="<c:url value='image/main/appimg.png'/>"></a>
 	                  </div>
 	                  <div id="delivery77">
-	                     <a href="deliveryUseForm"> 
+	                     <a href="deliveryUseForm.do"> 
 	                     	<img src="<c:url value='image/main/deliveryimg.png'/>">
 	                     	<img src="<c:url value='image/main/deliveryimg.png' />">
 	                     </a>

@@ -489,7 +489,7 @@ public class AdminController {
 		}
 
 	}
-	
+	*/
 // shortproduct는 썸네일을 위한 작업
 	@RequestMapping("adminShortProductList.do")
 	public String adminShortProductList(HttpServletRequest request, Model model) {
@@ -519,21 +519,26 @@ public class AdminController {
 				session.removeAttribute("key");
 				key = "";
 			}
-
+			
 			Paging paging = new Paging();
+			paging.setPage(page);
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
-
-			int count = as.getShortProductAllCount(key);
-			paging.setTotalCount(count);
-			paging.paging();
 			
-			as.listShortProduct(paramMap);
+			as.b_getShortProductAllCount(paramMap);
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt(paramMap.get("cnt").toString() );
+			paging.setTotalCount(cnt);
+			
+			paramMap.put("StartNum",paging.getStartNum());
+			paramMap.put("endNum", paging.getEndNum());
+			paramMap.put("ref_cursor", null);
+			as.b_listShortProduct(paramMap);
+			
 			ArrayList<HashMap<String, Object>> list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
-
 			model.addAttribute("shortproductList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);

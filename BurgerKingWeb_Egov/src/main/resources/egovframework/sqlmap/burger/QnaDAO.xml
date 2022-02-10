@@ -20,4 +20,14 @@
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO} ) }
 	</select>
 	
+	<select id="b_getQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{	CALL b_getQna(
+				#{qseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO} ) }
+	</select>
+	
+	<delete id="b_deleteQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{	CALL b_deleteQna( #{qseq} ) }
+	</delete>
+	
 </mapper>

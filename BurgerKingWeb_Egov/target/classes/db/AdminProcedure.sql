@@ -131,3 +131,82 @@ begin
 		values(eseq.nextVal, p_subject, p_content, sysdate, to_Date(p_enddate,'yyyy-MM-dd'), p_image, p_state , p_thumbnail);
    commit;
 end;
+
+--product
+create or replace PROCEDURE b_getShortProductAllCount(
+    p_count out number  
+)
+IS
+    vs_count number;    
+begin
+    select count(*) as cnt into vs_count from product;
+    p_count := vs_count;
+end;
+
+create or replace PROCEDURE b_listShortProduct(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key product.pname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' order by pseq desc) p)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;
+
+create or replace PROCEDURE b_getProductAllCount(
+    p_count out number  
+)
+IS
+    vs_count number;    
+begin
+    select count(*) as cnt into vs_count from product;
+    p_count := vs_count;
+end;
+
+create or replace PROCEDURE b_listProduct(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key product.pname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' order by pseq desc) p)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;
+
+
+create or replace procedure b_deleteEvent(
+   p_eseq in event.eseq%type 
+)
+is
+begin
+   delete from event where eseq = p_eseq;
+   commit;
+end;
+
+
+create or replace procedure b_updateEvent(
+   p_eseq in event.eseq%type,
+   p_subject in event.subject%type,
+   p_content in event.content%type,
+   p_enddate in event.enddate%type,
+   p_image in event.image%type,
+   p_state in event.state%type,
+   p_thumbnail in event.thumbnail%type  
+)
+is
+
+begin
+    update event set subject=p_subject, content=p_content, image=p_image, enddate=to_Date(p_enddate,'yyyy-MM-dd'), state=p_state, 
+    thumbnail=p_thumbnail where eseq=p_eseq;
+    commit;
+end;

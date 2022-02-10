@@ -37,7 +37,7 @@
 						</c:choose>
 					</td>
 					<td>
-						<input type="checkbox" name="delete" value="${eventVO.ESEQ}">
+						<input type="checkbox" name="delete" value="${eventVO.eseq}">
 					</td>
 				</tr>
 			</c:forEach>

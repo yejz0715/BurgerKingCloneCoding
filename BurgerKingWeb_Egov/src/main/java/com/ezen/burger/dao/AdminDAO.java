@@ -31,12 +31,13 @@ public interface AdminDAO {
 
 	void b_updateEvent(HashMap<String, Object> paramMap);
 
+	void b_getProductAllCount(HashMap<String, Object> paramMap);
+
+	void b_listProduct(HashMap<String, Object> paramMap);
+
+	void b_deleteProduct(HashMap<String, Object> paramMap);
+
 	/*
-	 * 
-	 * ArrayList<EventVO> listEvent(Paging paging, String key);
-	 * 
-	 * void deleteEvent(int eseq);
-	 * 
 	 * ArrayList<QnaVO> listQna(Paging paging, String key);
 	 * 
 	 * void deleteQna(int qseq);

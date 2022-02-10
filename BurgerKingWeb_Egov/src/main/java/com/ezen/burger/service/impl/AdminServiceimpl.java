@@ -110,6 +110,59 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_getAllCountQna(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountQna(paramMap);
+		
+	}
+
+	@Override
+	public void b_adminListQna(HashMap<String, Object> paramMap) {
+		adao.b_adminListQna(paramMap);
+		
+	}
+
+	@Override
+	public void b_getAllCountOrderMem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderMem(paramMap);
+	}
+
+	@Override
+	public void b_getAllCountOrderNonmem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderNonmem(paramMap);
+	}
+
+	@Override
+	public void b_adminListOrder(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder(paramMap);
+
+	}
+
+	@Override
+	public void b_adminListOrder2(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder2(paramMap);
+		
+	}
+
+	@Override
+	public void b_selectProduct1(HashMap<String, Object> paramMap1) {
+		adao.b_selectProduct1(paramMap1);
+		
+	}
+
+	@Override
+	public void b_selectProduct2(HashMap<String, Object> paramMap2) {
+		adao.b_selectProduct2(paramMap2);
+		
+	}
+
+	@Override
+	public void b_insertProduct(HashMap<String, Object> pvo) {
+		adao.b_insertProduct(pvo);
+		
+	}
+
+
 	
 	
 	/*
@@ -143,15 +196,6 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
-	public ArrayList<EventVO> listEvent(Paging paging, String key) {
-		return adao.listEvent(paging, key);
-		
-	}
-
-	public void deleteEvent(int eseq) {
-		adao.deleteEvent(eseq);
-		
-	}
 
 	public ArrayList<ProductVO> listShortProduct(Paging paging, String key) {
 		return adao.listShortProduct(paging, key);
@@ -178,24 +222,8 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	public void updateEvent(EventVO evo) {
 		adao.updateEvent(evo);        
 	}
-
-	public int checkShortProductYN(String k1, String k2, String k3) {
-		int result = 1;
-		ArrayList<ProductVO> list1=adao.selectProduct1(k1);
-		if(list1.size()==0) {
-			result=2; return result;
-		}
-		
-		ArrayList<ProductVO> list2=adao.selectProduct2(k1,k2);
-		if(list2.size()==0) {
-			result=3; return result;
-		}
-		if(k3.equals("4")) {
-			result=4; return result;
-		}
-		return result;
-	}
-
+*/
+/*
 	public int checkShortProductYN2(String k1, String k2) {
 		int result = 1;
 		ArrayList<ProductVO> list2=adao.selectProduct2(k1,k2);

@@ -30,4 +30,7 @@
 		{	CALL b_deleteQna( #{qseq} ) }
 	</delete>
 	
+	<update id="b_updateQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{  	CALL b_updateQna(	 #{ qseq } , #{ reply })  }
+	</update>
 </mapper>

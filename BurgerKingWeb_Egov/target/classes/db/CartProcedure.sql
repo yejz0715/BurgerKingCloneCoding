@@ -71,3 +71,14 @@ BEGIN
     update cart set quantity=quantity+1 where cseq = p_cseq;
     commit;
 end;
+
+-- 카트 하나를 제거하는 프로시져
+create or replace PROCEDURE b_deleteCart(        
+    p_cseq in cart.cseq%type
+)  
+IS
+BEGIN
+    delete from cart where cseq = p_cseq;
+    delete from subproduct_order where cseq = p_cseq;
+    commit;
+end;

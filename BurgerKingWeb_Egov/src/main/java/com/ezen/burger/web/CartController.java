@@ -192,50 +192,54 @@ public class CartController {
 		}
 		return "redirect:/deliveryCartForm.do";
 	}
-	/*
+	
 	// 카트 삭제
-	@RequestMapping(value="/cartDelete")
-	public ModelAndView cartDelete(HttpServletRequest request,
+	@RequestMapping(value="/cartDelete.do")
+	public String cartDelete(HttpServletRequest request, Model model,
 			@RequestParam("cseq") int cseq) {
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		if((int)session.getAttribute("memberkind") == 1) {
-			cs.deleteCart(cseq);
-			mav.setViewName("redirect:/deliveryCartForm");
-		}else if((int)session.getAttribute("memberkind") == 2) {
+		if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 1) {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cseq", cseq);
+			cs.deleteCart(paramMap);
+			return "redirect:/deliveryCartForm.do";
+		}else if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 2) {
 			// 비회원 카트 삭제시 세션에서 카트 정보를 불러온 뒤
-			ArrayList<CartVO> guestCartList = (ArrayList<CartVO>)session.getAttribute("guestCartList");
+			ArrayList<HashMap<String, Object>> guestCartList = (ArrayList<HashMap<String, Object>>)session.getAttribute("guestCartList");
 			int index = 0;
 			// 해당 cseq 값을 가진 CartVO를 삭제한다.
-			for(CartVO cvo : guestCartList) {
-				if(cvo.getCseq() == cseq) {
+			for(HashMap<String, Object> cvo : guestCartList) {
+				if(Integer.parseInt(cvo.get("CSEQ").toString()) == cseq) {
 					guestCartList.remove(index++);
 					break;
 				}
 			}
 			session.setAttribute("guestCartList", guestCartList);
-			mav.setViewName("redirect:/deliveryCartForm");
+			return "redirect:/deliveryCartForm.do";
+		}else {
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
 	
 	// 카트 여러개 삭제, 전체 삭제
 	@RequestMapping(value="/deliveryCartDelete")
-	public ModelAndView deliveryCartDelete(HttpServletRequest request,
-			@RequestParam("menu") int[] cseq) {
-		ModelAndView mav = new ModelAndView();
+	public String deliveryCartDelete(HttpServletRequest request, Model model,
+			@RequestParam("menu") String c) {
 		HttpSession session = request.getSession();
-		if((int)session.getAttribute("memberkind") == 1) {
-			for(int cq : cseq) {
-				cs.deleteCart(cq);
+		String[] cseq = c.split(",");
+		if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 1) {
+			for(String cq : cseq) {
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("cseq", cq);
+				cs.deleteCart(paramMap);
 			}
-			mav.setViewName("redirect:/deliveryCartForm");
-		}else if((int)session.getAttribute("memberkind") == 2) {
-			ArrayList<CartVO> guestCartList = (ArrayList<CartVO>)session.getAttribute("guestCartList");
-			for(int cq : cseq) {
+			return "redirect:/deliveryCartForm.do";
+		}else if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 2) {
+			ArrayList<HashMap<String, Object>> guestCartList = (ArrayList<HashMap<String, Object>>)session.getAttribute("guestCartList");
+			for(String cq : cseq) {
 				int index = 0;
-				for(CartVO cvo : guestCartList) {
-					if(cvo.getCseq() == cq) {
+				for(HashMap<String, Object> cvo : guestCartList) {
+					if(cvo.get("CSEQ").toString().equals(cq)) {
 						guestCartList.remove(index);
 						break;
 					}
@@ -243,11 +247,11 @@ public class CartController {
 				}
 			}
 			session.setAttribute("guestCartList", guestCartList);
-			mav.setViewName("redirect:/deliveryCartForm");
+			return "redirect:/deliveryCartForm.do";
+		}else {
+			return "redirect:/loginForm.do";
 		}
-		return mav;
 	}
-	*/
 	// 카트 상품 수량 감소
 	@RequestMapping(value="/minusQuantity.do")
 	public String minusQuantity(HttpServletRequest request, Model model,

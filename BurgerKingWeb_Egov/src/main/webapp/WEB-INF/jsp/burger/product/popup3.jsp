@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value='/css/event.css'/> "/> 
+<link rel="stylesheet" href="<c:url value='/css/burger.css'/> "/> 
 <script type="text/javascript">
 	
 </script>

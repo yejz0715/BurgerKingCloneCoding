@@ -35,6 +35,8 @@ public interface AdminDAO {
 
 	void b_deleteProduct(HashMap<String, Object> paramMap);
 
+	void b_productDetail(HashMap<String, Object> paramMap);
+
 	/*
 	 * 
 	 * ArrayList<EventVO> listEvent(Paging paging, String key);

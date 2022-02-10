@@ -99,6 +99,12 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_productDetail(HashMap<String, Object> paramMap) {
+		adao.b_productDetail(paramMap);
+		
+	}
+
 	
 	
 	/*

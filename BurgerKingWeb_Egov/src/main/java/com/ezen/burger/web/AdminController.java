@@ -614,11 +614,12 @@ public class AdminController {
 		return "redirect:/adminShortProductList.do";
 	}
 	}
-	/*
-	@RequestMapping("/adminProductWriteForm")
+	
+	@RequestMapping("/adminProductWriteForm.do")
 	public String adminProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			String kindList[] = { "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼" };
@@ -626,11 +627,12 @@ public class AdminController {
 			return "admin/product/productWrite";
 		}
 	}
-
-	@RequestMapping("/adminShortProductWriteForm")
+	
+	@RequestMapping("/adminShortProductWriteForm.do")
 	public String adminShortProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			String kindList[] = { "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼" };
@@ -638,8 +640,8 @@ public class AdminController {
 			return "admin/product/shortproductWrite";
 		}
 	}
-
-	@RequestMapping(value = "adminProductWrite", method = RequestMethod.POST)
+	/*
+	@RequestMapping(value = "adminProductWrite.do", method = RequestMethod.POST)
 	public String adminProductWrite(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String savePath = context.getRealPath("/image/menu/product");
@@ -689,9 +691,10 @@ public class AdminController {
 			}
 			
 		} catch (IOException e) {e.printStackTrace();	}
-		return "redirect:/adminProductList";
+		return "redirect:/adminProductList.do";
 	}
-	@RequestMapping(value = "adminShortProductWrite", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "adminShortProductWrite.do", method = RequestMethod.POST)
 	public String adminShortProductWrite(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String savePath = context.getRealPath("/image/menu/product");
@@ -728,55 +731,71 @@ public class AdminController {
 			}
 			
 		} catch (IOException e) {e.printStackTrace();	}
-		return "redirect:/adminShortProductList";
+		return "redirect:/adminShortProductList.do";
 	}
-	@RequestMapping("adminProductDetail")
+	*/
+	@RequestMapping("adminProductDetail.do")
 	public String productDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			ProductVO pvo = as.productDetail(pseq);
+			HashMap<String, Object> paramMap=new HashMap<String, Object>();
+			paramMap.put("pseq",pseq);
+			paramMap.put("ref_cursor",null);
+			as.b_productDetail(paramMap);
+			ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 
+			HashMap<String,Object>resultMap=list.get(0);
 			// 카테고리 별 타이틀을 배열에 저장 
 			String kindList1[] = {"0", "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
-			int index = Integer.parseInt(pvo.getKind1());
+			int index = Integer.parseInt(resultMap.get("KIND1").toString());
 			String kindList3[] = {"0", "Single", "Set", "LargeSet", "Menu list"};
-			int index2 = Integer.parseInt(pvo.getKind3());
+			int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 			// 추출한 kind 번호로 배열에서 해당 타이틀 추출 & 리퀘스트에 저장 
-			request.setAttribute("kind1", kindList1[index]);
-			request.setAttribute("kind3", kindList3[index2]);
-			request.setAttribute("productVO", pvo); 
+			model.addAttribute("productVO", resultMap);
+			model.addAttribute("kind1", kindList1[index]);
+			model.addAttribute("kind3", kindList3[index2]);
 			return "admin/product/productDetail";
 		}
 	}
 	
-	@RequestMapping("adminShortProductDetail")
+	@RequestMapping("adminShortProductDetail.do")
 	public String shortProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			ProductVO pvo = as.productDetail(pseq);
+			HashMap<String, Object> paramMap=new HashMap<String, Object>();
+			paramMap.put("pseq",pseq);
+			paramMap.put("ref_cursor",null);
+			as.b_productDetail(paramMap);
 
+			ArrayList< HashMap<String,Object> > list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+
+			HashMap<String,Object>resultMap=list.get(0);
 			// 카테고리 별 타이틀을 배열에 저장 
 			String kindList1[] = {"0", "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
-			int index = Integer.parseInt(pvo.getKind1());
+			int index = Integer.parseInt(resultMap.get("Kind1").toString());
 			String kindList3[] = {"0", "Single", "Set", "LargeSet", "Menu list"};
-			int index2 = Integer.parseInt(pvo.getKind3());
+			int index2 = Integer.parseInt(resultMap.get("Kind1").toString());
 			String useynList[] = {"0", "사용", "미사용"};
-			int index3 = Integer.parseInt(pvo.getUseyn());
+			int index3 = Integer.parseInt(resultMap.get("useyn").toString());
 			// 추출한 kind 번호로 배열에서 해당 타이틀 추출 & 리퀘스트에 저장 
-			request.setAttribute("kind1", kindList1[index]);
-			request.setAttribute("kind3", kindList3[index2]);
-			request.setAttribute("useyn", useynList[index3]);
-			request.setAttribute("productVO", pvo); 
-			request.setAttribute("k1", pvo.getKind1());
+			model.addAttribute("kind1", kindList1[index]);
+			model.addAttribute("kind3", kindList3[index2]);
+			model.addAttribute("useyn", useynList[index3]);
+			model.addAttribute("productVO", resultMap); 
+			model.addAttribute("k1", resultMap.get("Kind1"));
 			model.addAttribute("pseq", pseq);
 			return "admin/product/shortproductDetail";
 		}
 	}
-	
+	/*
 	@RequestMapping("adminProductUpdateForm")
 	public String adminProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		ProductVO pvo = as.productDetail(pseq);

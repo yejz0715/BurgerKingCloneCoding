@@ -8,4 +8,6 @@ public interface OrderService {
 
 	void b_getOrderListResult2(HashMap<String, Object> paramMap);
 
+	void getOrderListByGuest(HashMap<String, Object> paramMap2);
+
 }

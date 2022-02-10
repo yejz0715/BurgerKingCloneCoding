@@ -122,6 +122,28 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_getAllCountOrderMem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderMem(paramMap);
+	}
+
+	@Override
+	public void b_getAllCountOrderNonmem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderNonmem(paramMap);
+	}
+
+	@Override
+	public void b_adminListOrder(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder(paramMap);
+
+	}
+
+	@Override
+	public void b_adminListOrder2(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder2(paramMap);
+		
+	}
+
 
 	
 	

@@ -36,7 +36,12 @@ public interface AdminService {
 
 	void b_adminListQna(HashMap<String, Object> paramMap);
 
+	void b_getAllCountOrderMem(HashMap<String, Object> paramMap);
 
+	void b_getAllCountOrderNonmem(HashMap<String, Object> paramMap);
 
+	void b_adminListOrder(HashMap<String, Object> paramMap);
+
+	void b_adminListOrder2(HashMap<String, Object> paramMap);
 
 }

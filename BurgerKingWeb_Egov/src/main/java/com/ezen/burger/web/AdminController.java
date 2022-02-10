@@ -10,6 +10,7 @@ import java.util.HashMap;
 import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -722,7 +723,7 @@ public class AdminController {
 			return "admin/product/productWrite";
 		}
 	}
-	/*
+	
 	@RequestMapping("/adminShortProductWriteForm.do")
 	public String adminShortProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -738,7 +739,8 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminProductWrite.do", method = RequestMethod.POST)
 	public String adminProductWrite(Model model, HttpServletRequest request,HttpServletResponse response){
-		HashMap<String, Object>paramMap=new HashMap<String, Object>();
+		
+		
 		
 		String savePath = context.getRealPath("/image/menu/product");
 		System.out.println(savePath);
@@ -751,37 +753,53 @@ public class AdminController {
 			String k2 = multi.getParameter("kind2");
 			String k3 = multi.getParameter("kind3");
 			
-			int result = as.checkShortProductYN(k1, k2, k3);
+			HashMap<String, Object>paramMap1=new HashMap<String, Object>();
+			paramMap1.put("kind1", k1);
+			paramMap1.put("ref_cursor", null);
 			
-			if(result == 2) {
+			as.b_selectProduct1(paramMap1);
+			ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
+			
+			if(list1.size()==0) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 종류분류 값이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
-			}else if(result == 3) {
+			}
+			
+			HashMap<String, Object>paramMap2=new HashMap<String, Object>();
+			paramMap2.put("kind1", k1);
+			paramMap2.put("kind2", k2);
+			paramMap2.put("ref_cursor", null);
+			as.b_selectProduct2(paramMap2);
+			ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>) paramMap2.get("ref_cursor");
+			
+			if(list2.size()==0) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 분류번호의 상품 썸네일이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
-			}else if(result == 4) {
+			}
+			if(k3.equals("4")) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('입력할 수 없는 세부 값입니다.'); location.href='adminProductWriteForm.do';</script>");
-				writer.close();
+				writer.close();	
 			}else {
-				pvo.setKind1(multi.getParameter("kind1"));
-				pvo.setKind2(multi.getParameter("kind2"));
-				pvo.setKind3(multi.getParameter("kind3"));
+				HashMap<String, Object>pvo=new HashMap<String, Object>();
+				pvo.put("kind1", multi.getParameter("kind1"));
+				pvo.put("kind2", multi.getParameter("kind2"));
+				pvo.put("kind3", multi.getParameter("kind3"));
 						
-			    pvo.setPname(multi.getParameter("pname"));
-			    pvo.setPrice1(Integer.parseInt(multi.getParameter("price1")));
-			    pvo.setPrice2(Integer.parseInt("0"));
-			    pvo.setPrice3(Integer.parseInt("0"));
-			    pvo.setContent(multi.getParameter("content"));
-			    pvo.setImage(multi.getFilesystemName("image"));
-			    pvo.setUseyn(multi.getParameter("useyn"));
+				pvo.put("pname", multi.getParameter("pname"));
+				pvo.put("price1", Integer.parseInt(multi.getParameter("price1")));
+				pvo.put("price2", Integer.parseInt("0"));
+				pvo.put("price3", Integer.parseInt("0"));
+				pvo.put("content", multi.getParameter("content"));
+				pvo.put("image", multi.getFilesystemName("image"));
+				pvo.put("useyn", multi.getParameter("useyn"));
 			    
-			    as.insertProduct(pvo);
+			    as.b_insertProduct(pvo);
 			}
 			
 		} catch (IOException e) {e.printStackTrace();	}

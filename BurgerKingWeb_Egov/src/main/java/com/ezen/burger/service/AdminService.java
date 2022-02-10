@@ -44,4 +44,10 @@ public interface AdminService {
 
 	void b_adminListOrder2(HashMap<String, Object> paramMap);
 
+	void b_selectProduct1(HashMap<String, Object> paramMap1);
+
+	void b_selectProduct2(HashMap<String, Object> paramMap2);
+
+	void b_insertProduct(HashMap<String, Object> pvo);
+
 }

@@ -72,3 +72,15 @@ begin
     update qna set reply=p_reply, rep='2' where qseq=p_qseq;
     commit;
 end;
+
+
+--  qna 댓글업데이트
+create or replace procedure b_updateQna(
+    p_qseq in QNA.QSEQ%type,  
+    p_reply in QNA.reply%type
+)
+is
+begin
+    update qna set reply=p_reply, rep='2' where qseq=p_qseq;
+    commit;
+end;

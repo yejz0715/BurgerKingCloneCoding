@@ -801,8 +801,7 @@ public class AdminController {
 		} catch (IOException e) {e.printStackTrace();	}
 		return "redirect:/adminProductList.do";
 	}
-	
-	/*
+/*	
 	@RequestMapping(value = "adminShortProductWrite.do", method = RequestMethod.POST)
 	public String adminShortProductWrite(Model model, HttpServletRequest request,
 			HttpServletResponse response) {

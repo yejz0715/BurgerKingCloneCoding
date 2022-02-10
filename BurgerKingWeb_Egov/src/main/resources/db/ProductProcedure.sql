@@ -153,9 +153,10 @@ end;
 -- 아직 배달 종료되지 않은 주문들의 상태만 가져오는 프로시져 
 create or replace PROCEDURE b_getResult(        
     p_odseq IN subproduct_order.odseq%TYPE,    
-    p_rc OUT number
+    p_rc OUT SYS_REFCURSOR
 )  
 IS
 BEGIN
-    select result into p_rc from order_detail where odseq = p_odseq;
-end; 
+    open p_rc for
+        select result from order_detail where odseq = p_odseq;
+end;

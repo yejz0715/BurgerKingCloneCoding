@@ -1,6 +1,8 @@
 package com.ezen.burger.web;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -230,7 +232,15 @@ public class AdminController {
 			as.b_listEvent(paramMap);
 
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-
+			for(int i = 0; i < list.size(); i++) {
+				String start = list.get(i).get("STARTDATE").toString();
+				String end = list.get(i).get("ENDDATE").toString();
+				//substring
+				start = start.substring(2,10);
+				end = end.substring(2,10);
+				list.get(i).put("STARTDATE", start);
+				list.get(i).put("ENDDATE", end);
+			}
 			model.addAttribute("eventList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
@@ -252,6 +262,15 @@ public class AdminController {
 			es.b_getEvent(paramMap);
 			
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			for(int i = 0; i < list.size(); i++) {
+				String start = list.get(i).get("STARTDATE").toString();
+				String end = list.get(i).get("ENDDATE").toString();
+				//substring
+				start = start.substring(2,10);
+				end = end.substring(2,10);
+				list.get(i).put("STARTDATE", start);
+				list.get(i).put("ENDDATE", end);
+			}
 			model.addAttribute("eventVO", list.get(0));
 			return "admin/event/eventDetail";
 		}
@@ -285,6 +304,7 @@ public class AdminController {
 			String subject = multi.getParameter("subject");
 			String content = multi.getParameter("content");
 			String enddate = multi.getParameter("enddate");
+			enddate = enddate.substring(2,10);
 			image = multi.getFilesystemName("image");
 			thumbnail = multi.getFilesystemName("thumbnail");
 			
@@ -307,42 +327,64 @@ public class AdminController {
 		return "redirect:/adminEventList.do";
 	}
 	
-	/*	
+	
 //이벤트삭제
 	@RequestMapping(value = "/adminEventDelete")
-	public String adminEventDelete(@RequestParam("delete") int[] eseqArr, HttpServletRequest request) {
+	public String adminEventDelete(@RequestParam("delete") String[] eseqArr, HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			for (int eseq : eseqArr)
-				es.b_deleteEvent(eseq);
-			return "redirect:/adminEventList";
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			for (String eseq : eseqArr) {
+				paramMap.put("eseq", eseq);
+				es.b_deleteEvent(paramMap);
+			}				
+			return "redirect:/adminEventList.do";
 		}
 	}
-	
+			
 	@RequestMapping(value = "/adminEventUpdateForm")
 	public String adminEventUpdateForm(HttpServletRequest request, Model model, @RequestParam("eseq")int eseq) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			EventVO evo = es.getEvent(eseq);
-			model.addAttribute("eventVO", evo);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("eseq", eseq);
+			paramMap.put("ref_cursor", null);
+			es.b_getEvent(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			for(int i = 0; i < list.size(); i++) {
+				String end = list.get(i).get("ENDDATE").toString();
+				//substring
+				end = end.substring(0,10);
+				list.get(i).put("ENDDATE", end);
+			}
+			model.addAttribute("eventVO", list.get(0));
 
 			return "admin/event/eventUpdate";
 		}
 	}
+	
 	//이벤트수정
 	@RequestMapping(value="/adminEventUpdate" , method=RequestMethod.POST) 
 	  public String adminEventUpdate( Model model, HttpServletRequest request) { 
-	  String savePath=context.getRealPath("image/main/event");
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		String savePath = context.getRealPath("image/main/event");
 		System.out.println(savePath);
+		
+		
+		String image = "";
+		String thumbnail = "";
 		try {
 			MultipartRequest multi=new MultipartRequest(request, savePath,
 					5*1024*1024, "UTF-8", new DefaultFileRenamePolicy());
-			EventVO evo=new EventVO();
 			
 			Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 	        SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
@@ -354,29 +396,34 @@ public class AdminController {
 	        if(sdf.format(timestamp).compareTo(enddate) > 0) {
 	        	state = 0;
 	        }
-	        evo.setState(state);
-			enddate = enddate.substring(0, 10);
-			evo.setEseq(Integer.parseInt(multi.getParameter("eseq")));
-			evo.setSubject(multi.getParameter("subject"));
-			evo.setContent(multi.getParameter("content"));
-		    evo.setEnddate(enddate);
+	        
+	        String subject = multi.getParameter("subject");
+			String content = multi.getParameter("content");
+			image = multi.getFilesystemName("image");
+			thumbnail = multi.getFilesystemName("thumbnail");
+			int eseq = Integer.parseInt(multi.getParameter("eseq"));
 			
-		    evo.setImage(multi.getFilesystemName("image"));		
+			paramMap.put("eseq", eseq);
+			paramMap.put("subject", subject);
+			paramMap.put("content", content);
+			paramMap.put("enddate", enddate);
+			paramMap.put("state", state);
+			
+			
 			if(multi.getFilesystemName("image") == null)
-				evo.setImage(multi.getParameter("oldImage"));
+				paramMap.put("image",multi.getParameter("oldImage"));
 			else
-				evo.setImage(multi.getFilesystemName("image"));
-			
-			evo.setThumbnail(multi.getFilesystemName("thumbnail"));
+				paramMap.put("image", image);
 			if(multi.getFilesystemName("thumbnail") == null)
-				evo.setThumbnail(multi.getParameter("oldthumbnail"));
+				paramMap.put("thumbnail",multi.getParameter("oldthumbnail"));
 			else
-				evo.setThumbnail(multi.getFilesystemName("thumbnail"));
-			as.updateEvent(evo);
+				paramMap.put("thumbnail", thumbnail);
+			
+			as.b_updateEvent(paramMap);
 		} catch (IOException e) {		e.printStackTrace();	}
-		return "redirect:/adminEventList";
+		return "redirect:/adminEventList.do";
 	  }
-	
+	/*
 	@RequestMapping(value = "/adminMemberUpdateForm")
 	public String adminMemberUpdateForm(@RequestParam("mseq") int mseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -492,10 +539,65 @@ public class AdminController {
 	*/
 // shortproduct는 썸네일을 위한 작업
 	@RequestMapping("adminShortProductList.do")
-	public String adminShortProductList(HttpServletRequest request, Model model) {
+	public String adminShortProductList(HttpServletRequest request, Model model) {		
+			HttpSession session = request.getSession();
+			
+			HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+			if (loginAdmin == null) {
+				return "admin/adminLogin";
+			} else {
+				int page = 1;
+				if (request.getParameter("page") != null) {
+					page = Integer.parseInt(request.getParameter("page"));
+					session.setAttribute("page", page);
+				} else if (session.getAttribute("page") != null) {
+					page = (int) session.getAttribute("page");
+				} else {
+					page = 1;
+					session.removeAttribute("page");
+				}
+
+				String key = "";
+				if (request.getParameter("key") != null) {
+					key = request.getParameter("key");
+					session.setAttribute("key", key);
+				} else if (session.getAttribute("key") != null) {
+					key = (String) session.getAttribute("key");
+				} else {
+					session.removeAttribute("key");
+					key = "";
+				}
+
+				Paging paging = new Paging();
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+				paramMap.put("key", key);
+				
+				as.b_getShortProductAllCount(paramMap);
+				System.out.println(paramMap);
+				int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+				paging.setTotalCount( cnt );
+				
+				paramMap.put("startNum" , paging.getStartNum() );
+				paramMap.put("endNum", paging.getEndNum() );
+				paramMap.put("ref_cursor", null);
+				as.b_listShortProduct(paramMap);
+
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+
+				model.addAttribute("shortproductList", list);
+				model.addAttribute("paging", paging);
+				model.addAttribute("key", key);
+		}
+		return "admin/product/shortproductList";
+	}
+
+	@RequestMapping("adminProductList.do")
+	public String adminProductList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			int page = 1;
@@ -519,84 +621,47 @@ public class AdminController {
 				session.removeAttribute("key");
 				key = "";
 			}
-			
+
 			Paging paging = new Paging();
-			paging.setPage(page);
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
 			
-			as.b_getShortProductAllCount(paramMap);
+			as.b_getProductAllCount(paramMap);
 			System.out.println(paramMap);
-			int cnt = Integer.parseInt(paramMap.get("cnt").toString() );
-			paging.setTotalCount(cnt);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
 			
-			paramMap.put("StartNum",paging.getStartNum());
-			paramMap.put("endNum", paging.getEndNum());
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
 			paramMap.put("ref_cursor", null);
-			as.b_listShortProduct(paramMap);
-			
-			ArrayList<HashMap<String, Object>> list 
-			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-			
-			model.addAttribute("shortproductList", list);
-			model.addAttribute("paging", paging);
-			model.addAttribute("key", key);
-		}
-		return "admin/product/shortproductList";
-	}
-/*
-	@RequestMapping("adminProductList")
-	public String adminProductList(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			return "admin/adminLogin";
-		} else {
-			int page = 1;
-			if (request.getParameter("page") != null) {
-				page = Integer.parseInt(request.getParameter("page"));
-				session.setAttribute("page", page);
-			} else if (session.getAttribute("page") != null) {
-				page = (int) session.getAttribute("page");
-			} else {
-				page = 1;
-				session.removeAttribute("page");
-			}
+			as.b_listProduct(paramMap);
 
-			String key = "";
-			if (request.getParameter("key") != null) {
-				key = request.getParameter("key");
-				session.setAttribute("key", key);
-			} else if (session.getAttribute("key") != null) {
-				key = (String) session.getAttribute("key");
-			} else {
-				session.removeAttribute("key");
-				key = "";
-			}
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 
-			Paging paging = new Paging();
-			paging.setPage(page);
-
-			int count = as.getProductAllCount(key);
-			paging.setTotalCount(count);
-			paging.paging();
-
-			ArrayList<ProductVO> productList = as.listProduct(paging, key);
-
-			model.addAttribute("productList", productList);
+			model.addAttribute("productList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
 		}
 		return "admin/product/productList";
 	}
-
-	@RequestMapping(value = "/adminProductDelete", method = RequestMethod.POST)
-	public String adminProductDelete(@RequestParam("delete") int[] pseqArr) {
-		for (int pseq : pseqArr)
-			as.deleteProduct(pseq);
-		return "redirect:/adminShortProductList";
+	
+	@RequestMapping(value = "/adminProductDelete.do", method = RequestMethod.POST)
+	public String adminProductDelete(HttpServletRequest request, @RequestParam("delete") int[] pseqArr, Model model) {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {		
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();		
+			for (int pseq : pseqArr) {
+				paramMap.put("pseq", pseq);
+				as.b_deleteProduct(paramMap);
+		}		
+		return "redirect:/adminShortProductList.do";
 	}
-
+	}
+	/*
 	@RequestMapping("/adminProductWriteForm")
 	public String adminProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

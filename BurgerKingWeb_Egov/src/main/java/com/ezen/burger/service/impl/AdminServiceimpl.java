@@ -81,13 +81,32 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+
+	public void b_updateEvent(HashMap<String, Object> paramMap) {
+		adao.b_updateEvent(paramMap);
+	}
+	
+	public void b_getProductAllCount(HashMap<String, Object> paramMap) {
+		adao.b_getProductAllCount(paramMap);
+		
+	}
+
+	@Override
+	public void b_listProduct(HashMap<String, Object> paramMap) {
+		adao.b_listProduct(paramMap);
+		
+	}
+
+	@Override
+	public void b_deleteProduct(HashMap<String, Object> paramMap) {
+		adao.b_deleteProduct(paramMap);
+		
+	}
+
 	
 	
 	/*
-
-	public ArrayList<MemberVO> listMember(Paging paging, String key) {
-		return adao.listMember(paging, key);
-	}
 
 	public void deleteMember(int mseq) {
 		// 해당 mseq의 회원 정보를 불러온다.

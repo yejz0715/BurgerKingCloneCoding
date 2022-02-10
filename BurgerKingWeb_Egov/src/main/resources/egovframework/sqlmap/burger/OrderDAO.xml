@@ -47,4 +47,22 @@
 			)
 		}
 	</insert>
+	
+	<select id="b_getOrderDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getOrderDetail(
+				#{odseq},
+				#{result, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<delete id="b_deleteOrder2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteOrder2(
+				#{odseq}
+			)
+		}
+	</delete>
+	
 </mapper>

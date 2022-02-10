@@ -382,25 +382,27 @@ public class OrderCotroller {
 		}
 		return mav;
 	}
-	
+	*/
 	// 주문 삭제
-	@RequestMapping(value="/orderDelete")
-	public ModelAndView orderDelete(HttpServletRequest request,
+	@RequestMapping(value="/orderDelete.do")
+	public String orderDelete(HttpServletRequest request, Model model,
 			@RequestParam("odseq") String odseq) {
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		String result = os.getOrderDetail(odseq);
-		if(result.equals("3")) {
-			mav.addObject("message", "배달이 진행중이라 취소가 불가능합니다.");
-			mav.setViewName("redirect:/deliveryOrderList");
-			return mav;
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("odseq", odseq);
+		paramMap.put("result", 0);
+		
+		os.getOrderDetail(paramMap);
+		
+		if(Integer.parseInt(paramMap.get("result").toString()) > 3) {
+			model.addAttribute("message", "삭제하려는 주문 중 진행중인 배달이 있습니다.");
+			return "redirect:/deliveryOrderList.do";
 		}
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
-			os.deleteOrder2(odseq);
-			mav.setViewName("redirect:/deliveryOrderList");
+			os.deleteOrder2(paramMap);
+			return "redirect:/deliveryOrderList.do";
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
-	}*/
+	}
 }

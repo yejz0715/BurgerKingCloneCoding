@@ -52,3 +52,37 @@ BEGIN
     delete from cart where cseq=p_cseq;
     commit;
 end;
+
+-- 해당 odseq값을 가진 주문상세의 진행상황을 가져오는 프로시져
+create or replace PROCEDURE b_getOrderDetail(        
+    p_odseq IN order_detail.odseq%TYPE,    
+    p_rc OUT number
+)  
+IS
+BEGIN
+    select result into p_rc from order_detail where odseq = p_odseq;
+end;
+
+-- 선택한 주문을 삭제하는 프로시져
+create or replace PROCEDURE b_deleteOrder2(        
+    p_odseq IN order_detail.odseq%TYPE
+)  
+IS
+    v_oseq number;
+    v_cnt number;
+BEGIN
+    -- 해당 odseq값을 가진 주문상세의 oseq를 구함
+    select oseq into v_oseq from order_detail where odseq=p_odseq;
+    
+    -- 해당 odseq의 주문상세와 추가메뉴를 삭제
+    delete from order_detail where odseq=p_odseq;
+    delete from subproduct_order where odseq=p_odseq;
+    
+    -- 구했던 oseq의 값으로 해당 oseq값을 가진 odseq가 남았는지 구함
+    select count(*) into v_cnt from order_detail where oseq=v_oseq;
+    
+    -- 구한 갯수가 0이면 해당 주문은 주문 상세가 더 없으므로 주문을 삭제한다.
+    if v_cnt = 0 then
+        delete from orders where oseq=v_oseq;
+    end if;
+end;

@@ -161,4 +161,3 @@ IS
 BEGIN
     select result into p_rc from order_detail where odseq = p_odseq;
 end; 
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov

@@ -423,42 +423,57 @@ public class AdminController {
 		} catch (IOException e) {		e.printStackTrace();	}
 		return "redirect:/adminEventList.do";
 	  }
-	/*
+	
 	@RequestMapping(value = "/adminMemberUpdateForm")
 	public String adminMemberUpdateForm(@RequestParam("mseq") int mseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("loginAdmin") == null) {
 			return "admin/adminLogin";
 		} else {
-			MemberVO mvo = ms.getMember_mseq(mseq);
-			model.addAttribute("memberVO", mvo);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("mseq", mseq);
+			paramMap.put("ref_cursor", null);
+			ms.b_getMember2(paramMap);
+			
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			model.addAttribute("memberVO", list.get(0));
 
 			return "admin/member/memberUpdate";
 		}
 	}
 
 	@RequestMapping(value = "/adminMemberUpdate", method = RequestMethod.POST)
-	public String adminMemberUpdateForm(@ModelAttribute("memberVO") @Valid MemberVO mvo, BindingResult result,
-			HttpServletRequest request, Model model,
+	public String adminMemberUpdateForm(HttpServletRequest request, Model model,
 			@RequestParam(value = "pwd_chk", required = false) String pwd_chk) {
-		if (result.getFieldError("pwd") != null) {
+		String id = request.getParameter("id");
+		String name = request.getParameter("name");
+		String pwd = request.getParameter("pwd");
+		String phone = request.getParameter("phone");
+		
+		if(pwd.equals(null)) {
 			model.addAttribute("message", "암호를 입력하세요");
 			return "admin/member/memberUpdate";
-		} else if (result.getFieldError("name") != null) {
+		} else if (name.equals("")) {
 			model.addAttribute("message", "이름을 입력하세요");
 			return "admin/member/memberUpdate";
-		} else if (pwd_chk == null || (pwd_chk != null && !pwd_chk.equals(mvo.getPwd()))) {
+		} else if (pwd_chk == null || (pwd_chk != null && !pwd_chk.equals(pwd))) {
 			model.addAttribute("message", "비밀번호 확인이 일치하지 않습니다.");
 			return "admin/member/memberUpdate";
 		}
-		if (result.getFieldError("phone") != null) {
+		if (phone.equals("")) {
 			model.addAttribute("message", "전화번호를 입력하세요");
 			return "admin/member/memberUpdate";
 		} else {
+			HashMap<String, Object> mvo = new HashMap<String, Object>();
+			mvo.put("id",id);
+			mvo.put("pwd",pwd);
+			mvo.put("name",name);
+			mvo.put("phone",phone);
 			ms.updateMember(mvo);
-			return "redirect:/adminMemberList";
+			return "redirect:/adminMemberList.do";
 		}
 	}
+	/*
 //qna
 	@RequestMapping(value = "/adminQnaList")
 	public String adminQnaList(HttpServletRequest request, Model model) {

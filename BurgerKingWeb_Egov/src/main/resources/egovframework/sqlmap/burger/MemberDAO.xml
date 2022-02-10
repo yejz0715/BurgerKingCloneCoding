@@ -77,6 +77,7 @@
 			)
 		}
 	</select>
+	
 
 	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
@@ -102,4 +103,13 @@
 			)
 		}
 	</update>
+	
+	<select id="b_getMember2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getMember2(
+				#{mseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

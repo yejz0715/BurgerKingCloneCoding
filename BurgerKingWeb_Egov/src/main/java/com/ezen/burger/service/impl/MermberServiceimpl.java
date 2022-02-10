@@ -87,4 +87,11 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 		mdao.b_updatePwd(paramMap);
 		
 	}
+
+	@Override
+	public void b_getMember2(HashMap<String, Object> paramMap) {
+		mdao.b_getMember2(paramMap);
+		
+	}
+
 }

@@ -182,3 +182,31 @@ begin
         ) where rn >= p_startNum
         ) where rn <= p_endNum;
 end;
+
+
+create or replace procedure b_deleteEvent(
+   p_eseq in event.eseq%type 
+)
+is
+begin
+   delete from event where eseq = p_eseq;
+   commit;
+end;
+
+
+create or replace procedure b_updateEvent(
+   p_eseq in event.eseq%type,
+   p_subject in event.subject%type,
+   p_content in event.content%type,
+   p_enddate in event.enddate%type,
+   p_image in event.image%type,
+   p_state in event.state%type,
+   p_thumbnail in event.thumbnail%type  
+)
+is
+
+begin
+    update event set subject=p_subject, content=p_content, image=p_image, enddate=to_Date(p_enddate,'yyyy-MM-dd'), state=p_state, 
+    thumbnail=p_thumbnail where eseq=p_eseq;
+    commit;
+end;

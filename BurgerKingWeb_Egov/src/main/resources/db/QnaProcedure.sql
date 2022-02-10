@@ -37,3 +37,25 @@ BEGIN
     OPEN p_rc FOR
         select * from Qna where qseq=p_qseq;
 END;
+
+
+-- qna view
+create or replace procedure b_getQna(
+    p_qseq in QNA.QSEQ%type,
+    p_rc out SYS_REFCURSOR    
+)
+is
+begin
+    open p_rc for
+      select * FROM QNA where qseq=p_qseq;
+end;
+
+
+--  qna 게시글삭제
+create or replace procedure b_deleteQna(
+    p_qseq in QNA.QSEQ%type  
+)
+is
+begin
+    delete from QNA where qseq=p_qseq;
+end;

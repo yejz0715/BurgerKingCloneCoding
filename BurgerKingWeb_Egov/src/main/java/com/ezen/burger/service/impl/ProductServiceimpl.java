@@ -24,18 +24,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 		return pdao.getDeliveryDetail(pseq);
 	}
 
-	public subProductVO getSubProduct2(int spseq) {
-		return pdao.getSubProduct2(spseq);
-	}
-
-	public void insertSubProductOrder(int cseq, subProductVO subProductVO, int mseq) {
-		pdao.insertSubProductOrder(cseq, mseq, subProductVO);
-	}
-
-	public void insertSubProductOrderByGseq(int cseq, subProductVO subProductVO, int gseq) {
-		pdao.insertSubProductOrderByGseq(cseq, gseq, subProductVO);
-	}
-
 	public ArrayList<subproductOrderVO> selectSubProductOrder3(int mseq) {
 		return pdao.selectSubProductOrder3(mseq);
 	}
@@ -93,5 +81,20 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	@Override
 	public void getSubProduct(HashMap<String, Object> paramMap) {
 		pdao.b_getSubProduct(paramMap);
+	}
+
+	@Override
+	public void getSubProduct2(HashMap<String, Object> paramMap) {
+		pdao.b_getSubProduct2(paramMap);
+	}
+
+	@Override
+	public void insertSubProductOrder(HashMap<String, Object> spvo) {
+		pdao.b_insertSubProductOrder(spvo);
+	}
+
+	@Override
+	public void insertSubProductOrderByGseq(HashMap<String, Object> spvo) {
+		pdao.b_insertSubProductOrderByGseq(spvo);
 	}
 }

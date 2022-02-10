@@ -145,46 +145,47 @@ public class QnaController {
 			}
 		}
 		
-		/*
-		
-		
-
-		// 고객센터 qna pass검사
-			@RequestMapping(value="/passChk", method=RequestMethod.POST)
-			public ModelAndView passChk (HttpServletRequest request , Model model) {
-				ModelAndView mav = new ModelAndView();
-				HttpSession session = request.getSession();
-				if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
-					mav.setViewName("redirect:/loginForm");
-				}else {
-					String pass = request.getParameter("pass");
-					int qseq = Integer.parseInt(request.getParameter("qseq"));
-					QnaVO qvo = qs.getpassChk(qseq); 
-					if(!qvo.getPass().equals(pass)) {	// 비밀번호 불일치
-						mav.addObject("message", "비밀번호가 일치하지 않습니다"); 
-						mav.setViewName("redirect:/passCheckForm?qseq=" + qseq);
-					}else {	// 비밀번호 일치
-						mav.addObject("qseq", qseq);
-						mav.setViewName("redirect:/qnaView");
-					}
-				}
-				return mav;
-			}
-			
 		
 		// 고객센터 문의내용
-		@RequestMapping(value="/qnaView")
-		public ModelAndView qna_view(Model model, HttpServletRequest request) {
-			ModelAndView mav = new ModelAndView();
-			int qseq = Integer.parseInt(request.getParameter("qseq"));
-			mav.addObject("qnaVO", qs.getQna(qseq));	//qseq로 해당게시물 보기
-			mav.setViewName("ServiceCenter/qnaView");
-			return mav;
+		@RequestMapping(value="/qnaView.do")
+		public String qna_view(Model model, HttpServletRequest request,
+				@RequestParam("qseq") int qseq) {
+			HttpSession session = request.getSession();
+			HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
+			if( loginUser == null ) {
+				return "redirect:/loginForm.do";
+			}else {
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("qseq", qseq );
+				paramMap.put("ref_curser", null);
+				qs.b_getQna( paramMap );
+				
+				ArrayList<HashMap<String, Object>> list 
+				= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+				model.addAttribute("qnaVO", list.get(0) );			
+			}
+			
+			
+			return "ServiceCenter/qnaView";
 		}
-		 
 		
+		
+		// QNA 삭제
+		@RequestMapping(value="/qnaDelete.do")
+		public String boardDelete( HttpServletRequest request, Model model,
+				@RequestParam("delete") int [] qseqArr ) {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			for( int qseq : qseqArr) {
+			paramMap.put("qseq", qseq );
+			qs.b_deleteQna(paramMap);
+			}		
+			return "redirect:/qnaForm.do";
+		}
+		
+		
+		/*
 		// 고객센터 qna 삭제
-		@RequestMapping(value="qnaDelete" )
+		@RequestMapping(value="qnaDelete.do" )
 		public String qnaDelete( @RequestParam("delete") int [] qseqArr ) {
 			for( int qseq : qseqArr)
 				qs.deleteQna(qseq);

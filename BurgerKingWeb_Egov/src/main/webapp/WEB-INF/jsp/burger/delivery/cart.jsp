@@ -58,7 +58,9 @@
 					</div>
 				</div>
 				<button type="button" name="submit" class="btn_del02" onclick="go_cart_delete('${cartList.CSEQ}')"><span>Delete menu</span></button>
-			</div>
+			</div><br><br><br>
+		</li>
+		<li style="top: -30px;">
 			<c:choose>
 				<c:when test="${empty spseqAm}">
 					
@@ -80,7 +82,7 @@
 					</ul>
 				</c:otherwise>
 			</c:choose>
-		</li> 
+		</li>
 		</c:forEach>
 		</ul>
 		<div class="sumWrap">

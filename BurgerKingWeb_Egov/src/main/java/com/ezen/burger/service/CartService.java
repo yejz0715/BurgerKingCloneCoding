@@ -18,4 +18,6 @@ public interface CartService {
 
 	void plusQuantity(HashMap<String, Object> paramMap);
 
+	void deleteCart(HashMap<String, Object> paramMap);
+
 }

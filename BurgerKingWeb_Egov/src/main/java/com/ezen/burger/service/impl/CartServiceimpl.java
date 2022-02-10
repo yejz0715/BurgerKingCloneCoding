@@ -16,12 +16,6 @@ import egovframework.rte.fdl.cmmn.EgovAbstractServiceImpl;
 public class CartServiceimpl extends EgovAbstractServiceImpl implements CartService{
 	@Resource(name="CartDAO")
 	CartDAO cdao;
-/*
-
-	public void deleteCart(int cseq) {
-		cdao.deleteCart(cseq);
-	}
-*/
 
 	@Override
 	public void selectCart(HashMap<String, Object> paramMap3) {
@@ -56,5 +50,10 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	@Override
 	public void plusQuantity(HashMap<String, Object> paramMap) {
 		cdao.b_plusQuantity(paramMap);
+	}
+
+	@Override
+	public void deleteCart(HashMap<String, Object> paramMap) {
+		cdao.b_deleteCart(paramMap);
 	}
 }

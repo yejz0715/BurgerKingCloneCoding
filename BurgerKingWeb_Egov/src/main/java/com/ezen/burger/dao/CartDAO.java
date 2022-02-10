@@ -29,4 +29,6 @@ public interface CartDAO {
 	void b_minusQuantity(HashMap<String, Object> paramMap);
 
 	void b_plusQuantity(HashMap<String, Object> paramMap);
+
+	void b_deleteCart(HashMap<String, Object> paramMap);
 }

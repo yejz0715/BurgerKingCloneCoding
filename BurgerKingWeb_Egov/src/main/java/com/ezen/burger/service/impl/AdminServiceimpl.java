@@ -29,47 +29,90 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	OrderDAO odao;
 
 	@Override
-	public void adminCheck(HashMap<String, Object> paramMap) {
-		adao.adminCheck(paramMap);
+	public void b_adminCheck(HashMap<String, Object> paramMap) {
+		adao.b_adminCheck(paramMap);
 	}
 
 	@Override
-	public void getAllCountMem(HashMap<String, Object> paramMap) {
-		adao.getAllCountMem(paramMap);
+	public void b_getAllCountMem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountMem(paramMap);
 		
 	}
 
 	@Override
-	public void listMember(HashMap<String, Object> paramMap) {
-		adao.listMember(paramMap);
+	public void b_listMember(HashMap<String, Object> paramMap) {
+		adao.b_listMember(paramMap);
 		
 	}
 
 	@Override
-	public void deleteMember(HashMap<String, Object> paramMap1) {
-		adao.deleteMember(paramMap1);
+	public void b_deleteMember(HashMap<String, Object> paramMap1) {
+		adao.b_deleteMember(paramMap1);
 		
 	}
 
 	@Override
-	public void getAllCountEvent(HashMap<String, Object> paramMap) {
-		adao.getAllCountEvent(paramMap);
+	public void b_getAllCountEvent(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountEvent(paramMap);
 		
 	}
 
 	@Override
-	public void listEvent(HashMap<String, Object> paramMap) {
-		adao.listEvent(paramMap);
+	public void b_listEvent(HashMap<String, Object> paramMap) {
+		adao.b_listEvent(paramMap);
+		
+	}
+
+	@Override
+	public void b_getShortProductAllCount(HashMap<String, Object> paramMap) {
+		adao.b_getShortProductAllCount(paramMap);
+		
+	}
+
+	@Override
+	public void b_listShortProduct(HashMap<String, Object> paramMap) {
+		adao.b_listShortProduct(paramMap);
+	}
+	
+	@Override
+	public void b_insertEvent(HashMap<String, Object> paramMap) {
+		adao.b_insertEvent(paramMap);
+
+		
+	}
+
+	@Override
+
+	public void b_updateEvent(HashMap<String, Object> paramMap) {
+		adao.b_updateEvent(paramMap);
+	}
+	
+	public void b_getProductAllCount(HashMap<String, Object> paramMap) {
+		adao.b_getProductAllCount(paramMap);
+		
+	}
+
+	@Override
+	public void b_listProduct(HashMap<String, Object> paramMap) {
+		adao.b_listProduct(paramMap);
+		
+	}
+
+	@Override
+	public void b_deleteProduct(HashMap<String, Object> paramMap) {
+		adao.b_deleteProduct(paramMap);
+		
+	}
+
+	@Override
+	public void b_productDetail(HashMap<String, Object> paramMap) {
+		adao.b_productDetail(paramMap);
 		
 	}
 
 	
 	
 	/*
-
-	public ArrayList<MemberVO> listMember(Paging paging, String key) {
-		return adao.listMember(paging, key);
-	}
 
 	public void deleteMember(int mseq) {
 		// 해당 mseq의 회원 정보를 불러온다.

@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Add Meterial</title>
-<link rel="stylesheet" href="<c:url value='/css/event.css'/> "/>
+<link rel="stylesheet" href="<c:url value='/css/burger.css'/> "/>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="<c:url value='/script/burger.js'/>" type="text/javascript"></script>
 <script src="<c:url value='/script/index.js'/>" type="text/javascript"></script>

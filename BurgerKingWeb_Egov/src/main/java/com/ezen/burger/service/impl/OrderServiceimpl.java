@@ -21,9 +21,6 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	@Resource(name="CartDAO")
 	CartDAO cdao;
 /*
-	public ArrayList<orderVO> getOrderList(String id) {
-		return odao.getOrderList(id);
-	}
 
 	public void insertOrder(ArrayList<CartVO> list, String id) {
 		// orders에 주문번호 하나 추가
@@ -71,11 +68,6 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 			odao.insertseq(list.get(i).getCseq(), oseq, odseq);
 		}
 	}
-
-	public ArrayList<orderVO> getOrderListByGuest(String id) {
-		return odao.getOrderListByGuest(id);
-	}
-
 	public ArrayList<orderVO> getOrderByOseq(int oseq) {
 		return odao.getOrderByOseq(oseq);
 	}
@@ -126,8 +118,13 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	}
 
 	@Override
-	public void getOrderListResult2(HashMap<String, Object> paramMap) {
+	public void b_getOrderListResult2(HashMap<String, Object> paramMap) {
 		odao.getOrderListResult2(paramMap);
 		
+	}
+
+	@Override
+	public void getOrderListByGuest(HashMap<String, Object> paramMap2) {
+		odao.b_getOrderListByGuest(paramMap2);
 	}
 }

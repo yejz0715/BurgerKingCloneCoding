@@ -24,25 +24,48 @@ public class ProductController {
 	@Resource(name="CartService")
 	CartService cs;
 	
-	/*
-	@RequestMapping(value="menuListForm")
+	
+	@RequestMapping(value="menuListForm.do")
 	public String menuListForm(Model model, @RequestParam("kind1") String kind1) {
-		ArrayList<ProductVO> list = ps.getProduct(kind1);
+		
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("kind1", kind1);
+		paramMap.put("ref_cursor", null);
+		
+		ps.b_getProduct(paramMap);
+		ArrayList<HashMap<String, Object>> list
+		= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
 		model.addAttribute("kind1", kind1);
 		model.addAttribute("productList",list);
 		return "product/menuList";
 	}
 	
-	@RequestMapping(value="menudetailForm")
+	
+	@RequestMapping(value="menudetailForm.do")
 	public String menudetailForm(Model model, @RequestParam("pseq") int pseq) {
-		ArrayList<ProductVO> list = ps.getProductdetail(pseq);
-		ProductVO pvo = list.get(0);		
-		ArrayList<ProductVO> list2 = ps.getProductkind(pvo.getKind1(), pvo.getKind2());
-		model.addAttribute("pvo",pvo);
-		model.addAttribute("list2",list2);
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("pseq", pseq);
+		paramMap.put("ref_cursor", null);
+		
+		ps.getDeliverydetail(paramMap);
+		ArrayList<HashMap<String, Object>> list 
+		= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		HashMap<String, Object> resultMap = list.get(0);
+		
+		HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+		// 불러온 목록들을 전송
+		paramMap2.put("kind1", list.get(0).get("KIND1"));
+		paramMap2.put("kind2", list.get(0).get("KIND2"));
+		ps.getProductkind(paramMap2);
+		ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
+		
+		model.addAttribute("productVO", list.get(0));
+		model.addAttribute("list2", list2);
+		
 		return "product/productDetail";
 	}
-	*/
+	
 	@RequestMapping(value="/deliveryDetail.do")
 	public String deliveryDetail(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
@@ -73,24 +96,27 @@ public class ProductController {
 		model.addAttribute("productVO", pvo.get(0));
 		return "delivery/deliveryDetail";
 	}
-	/*
+	
 	@RequestMapping(value="/deliveryAddMaterial")
-	public ModelAndView deliveryAddMaterial(HttpServletRequest request,
+	public String deliveryAddMaterial(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("loginUser") == null) {
-			mav.setViewName("redirect:/loginForm");
-			return mav;
+			return "redirect:/loginForm.do";
 		}
 		
 		// 추가할 재료 목록
-		ArrayList<subProductVO> list = ps.getSubProduct();
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ref_cursor", null);
 		
-		mav.addObject("subProductVO", list);
-		mav.addObject("pseq", pseq);
-		mav.setViewName("delivery/addMeterial");
-		return mav;
-	}*/
+		ps.getSubProduct(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
+		
+		model.addAttribute("subProductVO", list);
+		model.addAttribute("pseq", pseq);
+		return "delivery/addMeterial";
+	}
 }

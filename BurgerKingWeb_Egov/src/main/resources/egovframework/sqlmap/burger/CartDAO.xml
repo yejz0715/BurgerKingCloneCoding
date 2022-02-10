@@ -29,4 +29,46 @@
 			)
 		}
 	</select>
+	
+	<select id="b_getPseqCart" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getPseqCart(
+				#{PSEQ},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_getQuantity" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getQuantity(
+				#{cseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<update id="b_minusQuantity" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_minusQuantity(
+				#{cseq}
+			)
+		}
+	</update>
+	
+	<update id="b_plusQuantity" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_plusQuantity(
+				#{cseq}
+			)
+		}
+	</update>
+	
+	<delete id="b_deleteCart" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteCart(
+				#{cseq}
+			)
+		}
+	</delete>
 </mapper>

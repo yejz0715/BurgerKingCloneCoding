@@ -13,10 +13,19 @@
 		}
 	</select>
 	
-	<select id="getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_getOrderListResult2(
 				#{id}, #{result},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_getOrderListByGuest" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getOrderListByGuest(
+				#{id},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
 		}

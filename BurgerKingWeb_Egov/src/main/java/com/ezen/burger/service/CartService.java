@@ -10,4 +10,14 @@ public interface CartService {
 
 	void getCseq(HashMap<String, Object> paramMap2);
 
+	void getPseqCart(HashMap<String, Object> paramMap2);
+
+	void getQuantity(HashMap<String, Object> paramMap);
+
+	void minusQuantity(HashMap<String, Object> paramMap);
+
+	void plusQuantity(HashMap<String, Object> paramMap);
+
+	void deleteCart(HashMap<String, Object> paramMap);
+
 }

@@ -26,7 +26,25 @@
 	
 	<select id="b_selectSubProductOrder2" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
-			CALL b_selectSubProductOrder(
+			CALL b_selectSubProductOrder2(
+				#{gseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_selectSubProductOrder3" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder3(
+				#{mseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_selectSubProductOrder4" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder4(
 				#{gseq},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
@@ -59,4 +77,57 @@
 			)
 		}
 	</select>
+	
+	<select id="b_getSubProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getSubProduct(
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_getSubProduct2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getSubProduct2(
+				#{spseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<insert id="b_insertSubProductOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_insertSubProductOrder(
+				#{CSEQ}, #{MSEQ}, #{SPSEQ}, #{SNAME}, #{ADDPRICE}
+			)
+		}
+	</insert>
+	
+	<insert id="b_insertSubProductOrderByGseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_insertSubProductOrderByGseq(
+				#{CSEQ}, #{GSEQ}, #{SPSEQ}, #{SNAME}, #{ADDPRICE}
+			)
+		}
+	</insert>
+
+	<select id="b_getProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getProduct(
+				#{kind1},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	<select id="b_getResult">
+		 statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getResult(
+				#{odseq},
+				#{ref_cursor, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+
 </mapper>

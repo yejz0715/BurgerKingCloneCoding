@@ -17,16 +17,6 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 	@Resource(name="EventDAO")
 	EventDAO edao;
 	
-/*
-//admin event
-	public EventVO getEvent(int eseq) {
-		return edao.getEvent(eseq);
-	}
-
-	public void deleteEvent(int eseq) {
-		edao.deleteEvent(eseq);	
-	}
-*/
 
 	@Override
 	public void b_getAllEvents(HashMap<String, Object> paramMap) {
@@ -46,8 +36,13 @@ public class EventServiceimpl extends EgovAbstractServiceImpl implements EventSe
 		
 	}
 	@Override
-	public void getEvent(HashMap<String, Object> paramMap) {
+	public void b_getEvent(HashMap<String, Object> paramMap) {
 		edao.b_getEvent(paramMap);
+		
+	}
+	@Override
+	public void b_deleteEvent(HashMap<String, Object> paramMap) {
+		edao.b_deleteEvent(paramMap);
 		
 	}
 	

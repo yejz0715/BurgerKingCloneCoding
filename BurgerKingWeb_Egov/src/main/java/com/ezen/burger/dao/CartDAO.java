@@ -21,4 +21,14 @@ public interface CartDAO {
 	void b_insertCart(HashMap<String, Object> paramMap2);
 
 	void b_getCseq(HashMap<String, Object> paramMap2);
+
+	void b_getPseqCart(HashMap<String, Object> paramMap2);
+
+	void b_getQuantity(HashMap<String, Object> paramMap);
+
+	void b_minusQuantity(HashMap<String, Object> paramMap);
+
+	void b_plusQuantity(HashMap<String, Object> paramMap);
+
+	void b_deleteCart(HashMap<String, Object> paramMap);
 }

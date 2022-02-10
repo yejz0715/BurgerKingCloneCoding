@@ -115,7 +115,7 @@
 	</select>
 	
 	<insert id="b_insertProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL b_selectProduct2(#{kind1}, #{kind2}, #{kind3}, #{pname}, #{price1}, #{price2}, #{price3}, #{content}, #{image}, #{useyn} ) }
+	{CALL b_insertProduct(#{kind1}, #{kind2}, #{kind3}, #{pname}, #{price1}, #{price2}, #{price3}, #{content}, #{image}, #{useyn} ) }
 	</insert>
 	
 </mapper>

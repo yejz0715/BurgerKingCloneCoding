@@ -29,4 +29,6 @@ public interface MemberService {
 	void b_updatePwd(HashMap<String, Object> paramMap);
 
 	void b_getMember2(HashMap<String, Object> paramMap);
+
+	void b_adminUpdateMember(HashMap<String, Object> mvo);
 }

@@ -116,8 +116,6 @@ BEGIN
 		 p_addprice, p_gseq);
 end; 
 
-
-
 -- header product
 create or replace procedure b_getProduct(
 	p_kind1 in product.kind1%type,
@@ -161,4 +159,3 @@ IS
 BEGIN
     select result into p_rc from order_detail where odseq = p_odseq;
 end; 
-

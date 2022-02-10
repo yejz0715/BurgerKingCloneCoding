@@ -472,7 +472,7 @@ public class AdminController {
 			mvo.put("phone",phone);
 			
 			System.out.println(mvo);
-			ms.updateMember(mvo);
+			ms.b_adminUpdateMember(mvo);
 			return "redirect:/adminMemberList.do";
 		}
 	}

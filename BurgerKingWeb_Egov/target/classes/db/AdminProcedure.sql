@@ -1,3 +1,4 @@
+-- admin 로그인 체크 프로시저
 create or replace procedure b_adminCheck(
    p_id in member.id%type,
    p_rc out SYS_REFCURSOR  
@@ -10,7 +11,7 @@ begin
 end;
 
 
-
+-- 페이징을 위한 getAllCount 프로시저(****미사용****)
 create or replace PROCEDURE b_getAllCount(
     p_count out number,  -- 매개변수
     p_tablename in varchar2,
@@ -26,6 +27,8 @@ begin
     p_count := vs_count;
 end;
 
+
+-- member용 getAllCount 프로시저
 create or replace PROCEDURE b_getAllCountMem(
     p_count out number  -- 매개변수
 )
@@ -37,6 +40,7 @@ begin
 end;
 
 
+-- mseq 이용, member불러오는 프로시저
 create or replace PROCEDURE b_listMember(
     p_startNum NUMBER,
     p_endNum NUMBER,
@@ -54,7 +58,7 @@ end;
 
 
 
-
+-- 배달이 진행중인 상품이 있을 경우 삭제가 되지 않게 하는 프로시저
 create or replace procedure b_getOrderListResult2(
    p_id in orders.id%type,
    p_result in number,
@@ -68,6 +72,7 @@ begin
 end;
 
 
+-- 멤버삭제 프로시저
 create or replace procedure b_deleteMember(
    p_mseq in member.mseq%type 
 )
@@ -78,7 +83,7 @@ begin
    commit;
 end;
 
-
+-- event항목의 페이징을 위한 getAllCount
 create or replace PROCEDURE b_getAllCountEvent(
     p_count out number  -- 매개변수
 )
@@ -89,6 +94,7 @@ begin
     p_count := vs_count;
 end;
 
+-- eseq이용, 이벤트 리스트를 불러오는 프로시저
 create or replace PROCEDURE b_listEvent(
     p_startNum NUMBER,
     p_endNum NUMBER,
@@ -104,7 +110,7 @@ begin
         ) where rn <= p_endNum;
 end;
 
-
+-- 이벤트 상세보기 프로시저
 create or replace PROCEDURE b_getEvent(
     p_eseq event.eseq%TYPE,
     p_rc OUT SYS_REFCURSOR)
@@ -115,7 +121,7 @@ begin
 end;
 
 
-
+-- 이벤트 입력 프로시저
 create or replace procedure b_insertEvent(
    p_subject in event.subject%type,
    p_content in event.content%type,
@@ -183,7 +189,7 @@ begin
         ) where rn <= p_endNum;
 end;
 
-
+-- 이벤트 삭제 프로시저
 create or replace procedure b_deleteEvent(
    p_eseq in event.eseq%type 
 )
@@ -193,7 +199,7 @@ begin
    commit;
 end;
 
-
+--이벤트 업데이트 프로시저
 create or replace procedure b_updateEvent(
    p_eseq in event.eseq%type,
    p_subject in event.subject%type,
@@ -210,6 +216,7 @@ begin
     thumbnail=p_thumbnail where eseq=p_eseq;
     commit;
 end;
+
 
 create or replace procedure b_deleteProduct(
    p_pseq in product.pseq%type 

@@ -160,17 +160,23 @@ public class MemberController {
 		}
 		return "member/sendPwdForm";
 	}
-	/*
+	
 	// 비밀번호 찾기, 정보 일치 후 비밀번호 재설정
-	@RequestMapping(value="updatePwd")
-	public ModelAndView updatePwd(@RequestParam("pwd") String pwd,
-			@RequestParam("mseq") String mseq) {
-		ModelAndView mav = new ModelAndView();
-		ms.updatePwd(mseq, pwd);
-		mav.setViewName("redirect:/loginForm");
-		return mav;
+	@RequestMapping(value="updatePwd.do")
+	public String updatePwd(Model model, HttpServletRequest request) {
+	String pwd=request.getParameter("pwd");
+	String mseq=request.getParameter("mseq");
+	
+	HashMap<String,Object> paramMap=new HashMap<String,Object>();
+	paramMap.put("pwd",pwd);
+	paramMap.put("mseq",mseq);	
+	ms.b_updatePwd(paramMap);
+
+	model.addAttribute("paramMap", paramMap);
+		return "redirect:/loginForm.do";
 	}
-	*/
+	
+	
 	// 비회원 로그인 정보 입력화면 이동
 	@RequestMapping(value="/guestLoginForm")
 	public String guestLoginForm() {

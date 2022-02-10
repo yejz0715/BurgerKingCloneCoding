@@ -153,12 +153,18 @@ end;
 -- 아직 배달 종료되지 않은 주문들의 상태만 가져오는 프로시져 
 create or replace PROCEDURE b_getResult(        
     p_odseq IN subproduct_order.odseq%TYPE,    
-    p_rc OUT number
+    p_rc OUT SYS_REFCURSOR
 )  
 IS
 BEGIN
+<<<<<<< HEAD
     select result into p_rc from order_detail where odseq = p_odseq;
 end; 
+=======
+    open p_rc for
+        select result from order_detail where odseq = p_odseq;
+end;
+>>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov.git
 
 -- 상품 추가시 맞는 종류가 선택되었는지 확인하는 프로시저
 create or replace PROCEDURE b_selectProduct1(        

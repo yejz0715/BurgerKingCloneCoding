@@ -692,7 +692,7 @@ public class AdminController {
 			return "admin/product/productWrite";
 		}
 	}
-	/*
+	
 	@RequestMapping("/adminShortProductWriteForm.do")
 	public String adminShortProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -705,7 +705,7 @@ public class AdminController {
 			return "admin/product/shortproductWrite";
 		}
 	}
-	
+	/*
 	@RequestMapping(value = "adminProductWrite.do", method = RequestMethod.POST)
 	public String adminProductWrite(Model model, HttpServletRequest request,HttpServletResponse response){
 		HashMap<String, Object>paramMap=new HashMap<String, Object>();
@@ -720,10 +720,11 @@ public class AdminController {
 			String k1 = multi.getParameter("kind1");
 			String k2 = multi.getParameter("kind2");
 			String k3 = multi.getParameter("kind3");
-			
+			paramMap.put("kind1",k1);
+			paramMap.put("kind2",k3);
+			paramMap.put("kind1",k1);
 			int result = as.checkShortProductYN(k1, k2, k3);
-			
-			if(result == 2) {
+				if(result == 2) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 종류분류 값이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
@@ -733,7 +734,7 @@ public class AdminController {
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 분류번호의 상품 썸네일이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
-			}else if(result == 4) {
+			}else if(result == 4) {kind123
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('입력할 수 없는 세부 값입니다.'); location.href='adminProductWriteForm.do';</script>");
@@ -757,6 +758,7 @@ public class AdminController {
 		} catch (IOException e) {e.printStackTrace();	}
 		return "redirect:/adminProductList.do";
 	}
+	
 	/*
 	@RequestMapping(value = "adminShortProductWrite.do", method = RequestMethod.POST)
 	public String adminShortProductWrite(Model model, HttpServletRequest request,
@@ -825,7 +827,7 @@ public class AdminController {
 			return "admin/product/productDetail";
 		}
 	}
-	/*
+	
 	  	@RequestMapping("adminShortProductDetail.do")
 	public String shortProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -844,11 +846,11 @@ public class AdminController {
 			HashMap<String,Object>resultMap=list.get(0);
 			// 카테고리 별 타이틀을 배열에 저장 
 			String kindList1[] = {"0", "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
-			int index = Integer.parseInt(resultMap.get("Kind1").toString());
+			int index = Integer.parseInt(resultMap.get("KIND1").toString());
 			String kindList3[] = {"0", "Single", "Set", "LargeSet", "Menu list"};
-			int index2 = Integer.parseInt(resultMap.get("Kind1").toString());
+			int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 			String useynList[] = {"0", "사용", "미사용"};
-			int index3 = Integer.parseInt(resultMap.get("useyn").toString());
+			int index3 = Integer.parseInt(resultMap.get("USEYN").toString());
 			// 추출한 kind 번호로 배열에서 해당 타이틀 추출 & 리퀘스트에 저장 
 			model.addAttribute("kind1", kindList1[index]);
 			model.addAttribute("kind3", kindList3[index2]);

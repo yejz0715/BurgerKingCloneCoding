@@ -116,8 +116,6 @@ BEGIN
 		 p_addprice, p_gseq);
 end; 
 
-<<<<<<< HEAD
-
 -- header product
 create or replace procedure b_getProduct(
 	p_kind1 in product.kind1%type,
@@ -129,7 +127,7 @@ begin
 	open p_rc for
 		select * from product where kind1 = p_kind1;
 end;
-=======
+
 -- 회원 주문 목록의 추가 재료만 가져오는 프로시져
 create or replace PROCEDURE b_selectSubProductOrder3(        
     p_mseq IN member.mseq%TYPE,    
@@ -161,4 +159,3 @@ IS
 BEGIN
     select result into p_rc from order_detail where odseq = p_odseq;
 end; 
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov

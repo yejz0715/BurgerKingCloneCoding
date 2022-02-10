@@ -138,7 +138,7 @@ begin
    commit;
 end;
 
---product
+--shortPro_페이징
 create or replace PROCEDURE b_getShortProductAllCount(
     p_count out number  
 )
@@ -149,6 +149,7 @@ begin
     p_count := vs_count;
 end;
 
+--shortPro_리스트
 create or replace PROCEDURE b_listShortProduct(
     p_startNum NUMBER,
     p_endNum NUMBER,
@@ -164,6 +165,7 @@ begin
         ) where rn <= p_endNum;
 end;
 
+--Pro_페이징
 create or replace PROCEDURE b_getProductAllCount(
     p_count out number  
 )
@@ -174,6 +176,7 @@ begin
     p_count := vs_count;
 end;
 
+--Pro_리스트
 create or replace PROCEDURE b_listProduct(
     p_startNum NUMBER,
     p_endNum NUMBER,
@@ -217,7 +220,7 @@ begin
     commit;
 end;
 
-
+--pro_삭제
 create or replace procedure b_deleteProduct(
    p_pseq in product.pseq%type 
 )
@@ -227,6 +230,8 @@ begin
    delete from product where pseq=p_pseq;
    commit;
 end;
+
+--pro_상세보기
 create or replace procedure b_productDetail(
    p_pseq in product.PSEQ%type,
    p_rc out SYS_REFCURSOR  

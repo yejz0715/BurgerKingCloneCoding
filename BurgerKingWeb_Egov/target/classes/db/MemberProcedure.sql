@@ -154,3 +154,28 @@ is
 begin
 	update member set pwd=p_pwd where mseq=p_mseq;
 end;
+
+-- mesq 이용, getMember
+create or replace PROCEDURE b_getMember2
+(   p_mseq IN member.id%TYPE,
+    p_rc    OUT SYS_REFCURSOR)
+IS
+
+BEGIN
+    OPEN p_rc FOR
+        SELECT * FROM MEMBER WHERE mseq=p_mseq;
+END;
+
+-- admin에서 memberUpdate
+create or replace procedure b_adminUpdateMember(
+	p_id in member.id%type,
+    p_pwd in member.pwd%type,
+    p_name in member.name%type,
+    p_phone in member.phone%type
+)
+is
+
+begin
+	update member set pwd=p_pwd, name=p_name, phone=p_phone where id=p_id;
+    commit;
+end;

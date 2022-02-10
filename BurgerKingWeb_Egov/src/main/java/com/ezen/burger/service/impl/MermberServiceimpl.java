@@ -94,4 +94,10 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 		
 	}
 
+	@Override
+	public void b_adminUpdateMember(HashMap<String, Object> mvo) {
+		mdao.b_adminUpdateMember(mvo);
+		
+	}
+
 }

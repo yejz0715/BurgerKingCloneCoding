@@ -87,7 +87,7 @@ public class QnaController {
 							paramMap.put("content", content);
 							paramMap.put("pass", pass);
 							qs.b_insertQna( paramMap );	
-								return "ServiceCenter/qnaList";
+								return "redirect:/qnaForm.do";
 						}else if(memberKind == 2 ) {
 								model.addAttribute("message", "Qna문의를 하려면 로그인을 하셔야합니다.");
 								return "member/loginForm";	
@@ -106,14 +106,10 @@ public class QnaController {
 				 @RequestParam(value="message", required = false)String message,
 				 HttpServletRequest request, Model model) {
 			HttpSession session = request.getSession();
-			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
-				return "redirect:/loginForm";
+				return "redirect:/loginForm.do";
 			}else {
-				if(message != null) {
-					model.addAttribute("message", "비밀번호를 확인하세요");	// qna 게시물의 pass가 틀린경우 passChk의 message를 출력 
-				}
-				paramMap.put("qseq", qseq);
+				model.addAttribute("qseq",qseq);
 				return "ServiceCenter/passChk";
 			}
 		 }
@@ -121,33 +117,33 @@ public class QnaController {
 		
 	
 		// 고객센터 qna pass검사
-					@RequestMapping(value="/passChk", method=RequestMethod.POST)
-					public String passChk (HttpServletRequest request , Model model) {
-						HttpSession session = request.getSession();
-						HashMap<String, Object> paramMap = new HashMap<String, Object>();
-						String pass = request.getParameter("pass");
-						int qseq = Integer.parseInt(request.getParameter("qseq"));
-						paramMap.put("qseq", qseq);
-						paramMap.put("ref_cursor", null);
-						
-						//qs.b_getpassChk(paramMap); 
-						ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
-						HashMap<String, Object> mvo = list.get(0);
-						
-						if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
-							return "redirect:/loginForm";
-						}else {
-							
-							if(!mvo.get("pass").equals(pass)) {	// 비밀번호 불일치
-								model.addAttribute("message", "비밀번호를 확인하세요");
-								return "redirect:/passCheckForm?qseq=" + qseq;
-							}else {	// 비밀번호 일치
-								paramMap.put("qseq", qseq);
-								return "redirect:/qnaView";
-							}
-						}
-					}
-		
+		@RequestMapping(value="/passChk.do", method=RequestMethod.POST)
+		public String passChk (HttpServletRequest request , Model model) {
+			HttpSession session = request.getSession();
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			String pass = request.getParameter("pass");
+			int qseq = Integer.parseInt(request.getParameter("qseq"));
+			paramMap.put("qseq", qseq);
+			paramMap.put("ref_cursor", null);
+			
+			qs.b_getpassChk(paramMap); 
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+			HashMap<String, Object> mvo = list.get(0);
+				
+			if(session.getAttribute("loginUser") == null) {	// 비로그인 상태
+				return "redirect:/loginForm.do";
+			}else {
+				
+				if(!mvo.get("PASS").toString().equals(pass)) {	// 비밀번호 불일치
+					model.addAttribute("message", "비밀번호를 확인하세요");
+					model.addAttribute("qseq", qseq);
+					return "ServiceCenter/passChk";
+				}else {	// 비밀번호 일치
+					model.addAttribute("qseq",qseq);
+					return "redirect:/qnaView.do";
+				}
+			}
+		}
 		
 		/*
 		

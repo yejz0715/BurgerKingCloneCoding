@@ -1,5 +1,6 @@
 package com.ezen.burger.web;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -22,6 +23,8 @@ import com.ezen.burger.service.MemberService;
 import com.ezen.burger.service.OrderService;
 import com.ezen.burger.service.ProductService;
 import com.ezen.burger.service.QnaService;
+import com.oreilly.servlet.MultipartRequest;
+import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
 
 
@@ -263,48 +266,62 @@ public class AdminController {
 
 		return "admin/event/eventWrite";
 	}
-	/*
+	
 //이벤트등록
 	@RequestMapping(value = "/adminEventWrite", method = RequestMethod.POST) 
 	public String adminEventWrite(Model model, HttpServletRequest request) {
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
 		String savePath = context.getRealPath("image/main/event");
 		System.out.println(savePath);
-
+		
+		
+		String image = "";
+		String thumbnail = "";
+		
 		try {
 			MultipartRequest multi = new MultipartRequest(request, savePath, 5 * 1024 * 1024, "UTF-8",
 					new DefaultFileRenamePolicy());
-			EventVO evo = new EventVO();
-			evo.setSubject(multi.getParameter("subject"));
-			evo.setContent(multi.getParameter("content"));
-			evo.setEnddate(multi.getParameter("enddate"));
-			evo.setImage(multi.getFilesystemName("image"));
-			evo.setThumbnail(multi.getFilesystemName("thumbnail"));
+			String subject = multi.getParameter("subject");
+			String content = multi.getParameter("content");
+			String enddate = multi.getParameter("enddate");
+			image = multi.getFilesystemName("image");
+			thumbnail = multi.getFilesystemName("thumbnail");
+			
+			paramMap.put("subject", subject);
+			paramMap.put("content", content);
+			paramMap.put("enddate", enddate);
+			paramMap.put("image", image);
+			paramMap.put("thumbnail", thumbnail);
+			paramMap.put("state", '1');
+			
 			if (multi.getParameter("subject") == null) {
 				System.out.println("이벤트명을 입력하세요");
-				model.addAttribute("evo", evo);
 				return "admin/event/eventWrite.jsp";
 			}
-			as.insertEvent(evo);
+			System.out.println(paramMap);
+			as.b_insertEvent(paramMap);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "redirect:/adminEventList";
+		return "redirect:/adminEventList.do";
 	}
 	
-	
+	/*	
 //이벤트삭제
 	@RequestMapping(value = "/adminEventDelete")
 	public String adminEventDelete(@RequestParam("delete") int[] eseqArr, HttpServletRequest request) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			for (int eseq : eseqArr)
-				es.deleteEvent(eseq);
+				es.b_deleteEvent(eseq);
 			return "redirect:/adminEventList";
 		}
 	}
-
+	
 	@RequestMapping(value = "/adminEventUpdateForm")
 	public String adminEventUpdateForm(HttpServletRequest request, Model model, @RequestParam("eseq")int eseq) {
 		HttpSession session = request.getSession();

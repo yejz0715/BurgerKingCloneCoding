@@ -20,6 +20,7 @@ public interface AdminService {
 
 	void b_listShortProduct(HashMap<String, Object> paramMap);
 
-	
+	void b_insertEvent(HashMap<String, Object> paramMap);
+
 
 }

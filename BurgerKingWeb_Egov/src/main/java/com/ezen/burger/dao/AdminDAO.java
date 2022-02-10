@@ -39,9 +39,11 @@ public interface AdminDAO {
 
 	void b_productDetail(HashMap<String, Object> paramMap);
 
-	/*
-	 * ArrayList<QnaVO> listQna(Paging paging, String key);
-	 * 
+	void b_getAllCountQna(HashMap<String, Object> paramMap);
+
+	void b_adminListQna(HashMap<String, Object> paramMap);
+
+	/* 
 	 * void deleteQna(int qseq);
 	 * 
 	 * ArrayList<ProductVO> listShortProduct(Paging paging, String key);
@@ -51,10 +53,6 @@ public interface AdminDAO {
 	 * void deleteProduct(int pseq);
 	 * 
 	 * void insertProduct(ProductVO pvo);
-	 * 
-	 * void insertEvent(EventVO evo);
-	 * 
-	 * void updateEvent(EventVO evo);
 	 * 
 	 * ArrayList<ProductVO> selectProduct1(String k1);
 	 * 

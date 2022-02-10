@@ -18,13 +18,12 @@ public interface QnaDAO {
 
 	void b_deleteQna(HashMap<String, Object> paramMap);
 
+	void b_updateQna(HashMap<String, Object> paramMap);
+
 //	void insertQna(QnaVO qnavo);
 //
 //	ArrayList<QnaVO> listQna(String id);
 //
-//	QnaVO getQna(int qseq);
-//
-//	void deleteQna(int qseq);
 //
 //	QnaVO getpassChk(int qseq);
 //

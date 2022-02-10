@@ -32,6 +32,10 @@ public interface AdminService {
 
 	void b_productDetail(HashMap<String, Object> paramMap);
 
+	void b_getAllCountQna(HashMap<String, Object> paramMap);
+
+	void b_adminListQna(HashMap<String, Object> paramMap);
+
 
 
 

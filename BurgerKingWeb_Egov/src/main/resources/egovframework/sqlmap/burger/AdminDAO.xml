@@ -74,5 +74,13 @@
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
+	<select id="b_getAllCountQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_getAllCountQna(
+		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
+	</select>
 	
+	<select id="b_adminListQna" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_adminListQna(#{startNum}, #{endNum}, #{key} ,
+		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
+	</select>
 </mapper>

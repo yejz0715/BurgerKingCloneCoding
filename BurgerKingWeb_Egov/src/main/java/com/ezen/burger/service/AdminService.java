@@ -30,5 +30,9 @@ public interface AdminService {
 
 	void b_deleteProduct(HashMap<String, Object> paramMap);
 
+	void b_productDetail(HashMap<String, Object> paramMap);
+
+
+
 
 }

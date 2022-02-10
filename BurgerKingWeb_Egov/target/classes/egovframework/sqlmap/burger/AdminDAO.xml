@@ -64,8 +64,15 @@
 	{CALL b_listProduct(#{startNum}, #{endNum}, #{key} ,
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
+	
 	<delete id="b_deleteProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_deleteProduct(#{pseq}) }
-	
 	</delete>
+	
+	<select id="b_productDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_productDetail(#{pseq},
+		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
+	</select>
+	
+	
 </mapper>

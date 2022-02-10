@@ -37,6 +37,8 @@ public interface AdminDAO {
 
 	void b_deleteProduct(HashMap<String, Object> paramMap);
 
+	void b_productDetail(HashMap<String, Object> paramMap);
+
 	/*
 	 * ArrayList<QnaVO> listQna(Paging paging, String key);
 	 * 

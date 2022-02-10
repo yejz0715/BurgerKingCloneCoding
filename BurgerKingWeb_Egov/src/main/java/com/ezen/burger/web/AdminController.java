@@ -64,7 +64,7 @@ public class AdminController {
 		paramMap.put("id", id);
 		paramMap.put("ref_cursor", null);
 		
-		as.adminCheck(paramMap);
+		as.b_adminCheck(paramMap);
 		
 		ArrayList< HashMap<String,Object> > list 
 		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
@@ -468,10 +468,12 @@ public class AdminController {
 		}
 
 	}
+	
 // shortproduct는 썸네일을 위한 작업
-	@RequestMapping("adminShortProductList")
+	@RequestMapping("adminShortProductList.do")
 	public String adminShortProductList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
+		
 		if (session.getAttribute("loginAdmin") == null) {
 			return "admin/adminLogin";
 		} else {
@@ -498,21 +500,26 @@ public class AdminController {
 			}
 
 			Paging paging = new Paging();
-			paging.setPage(page);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+			paramMap.put("key", key);
 
 			int count = as.getShortProductAllCount(key);
 			paging.setTotalCount(count);
 			paging.paging();
+			
+			as.listShortProduct(paramMap);
+			ArrayList<HashMap<String, Object>> list 
+			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			
 
-			ArrayList<ProductVO> shortproductList = as.listShortProduct(paging, key);
-
-			model.addAttribute("shortproductList", shortproductList);
+			model.addAttribute("shortproductList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
 		}
 		return "admin/product/shortproductList";
 	}
-
+/*
 	@RequestMapping("adminProductList")
 	public String adminProductList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public interface AdminService {
 
-	void adminCheck(HashMap<String, Object> paramMap);
+	void b_adminCheck(HashMap<String, Object> paramMap);
 
 	void getAllCountMem(HashMap<String, Object> paramMap);
 
@@ -15,5 +15,7 @@ public interface AdminService {
 	void getAllCountEvent(HashMap<String, Object> paramMap);
 
 	void listEvent(HashMap<String, Object> paramMap);
+
+	
 
 }

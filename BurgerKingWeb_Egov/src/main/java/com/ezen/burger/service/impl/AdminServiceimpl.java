@@ -29,8 +29,8 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	OrderDAO odao;
 
 	@Override
-	public void adminCheck(HashMap<String, Object> paramMap) {
-		adao.adminCheck(paramMap);
+	public void b_adminCheck(HashMap<String, Object> paramMap) {
+		adao.b_adminCheck(paramMap);
 	}
 
 	@Override

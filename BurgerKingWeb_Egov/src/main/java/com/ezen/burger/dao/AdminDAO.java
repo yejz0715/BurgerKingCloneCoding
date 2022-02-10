@@ -11,7 +11,7 @@ import com.ezen.burger.dto.Paging;
 @Mapper(value="AdminDAO")
 public interface AdminDAO {
 
-	void adminCheck(HashMap<String, Object> paramMap);
+	void b_adminCheck(HashMap<String, Object> paramMap);
 
 	void getAllCountMem(HashMap<String, Object> paramMap);
 

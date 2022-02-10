@@ -4,8 +4,8 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.burger.dao.AdminDAO">
-	<select id="adminCheck" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL adminCheck(#{ id } , 
+	<select id="b_adminCheck" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_adminCheck(#{ id } , 
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	

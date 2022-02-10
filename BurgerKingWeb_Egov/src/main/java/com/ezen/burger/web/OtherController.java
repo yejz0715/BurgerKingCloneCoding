@@ -150,6 +150,14 @@ public class OtherController {
 	public String popup3() {
 		return "product/popup3";
 	}
+	
+	
+	// 모바일메인페이지로 이동
+		@RequestMapping(value="/start.do")
+		public String start(HttpServletRequest request, Model model) { 
+			return "start";
+		}
+		
 }
 
 

@@ -129,7 +129,7 @@ public class OrderCotroller {
 				
 				// 해당 접속 회원의 추가 재료의 목록을 가져오기
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
-				paramMap.put("mseq", gvo.get("GSEQ").toString());
+				paramMap.put("gseq", gvo.get("GSEQ").toString());
 				paramMap.put("ref_cursor", null);
 				
 				ps.selectSubProductOrder4(paramMap);
@@ -296,7 +296,7 @@ public class OrderCotroller {
 					for(int j = 0; j < list.size(); j++) {
 						for(int i = 0; i < spovo.size(); i++) {
 							if(Integer.parseInt(list.get(j).get("CSEQ").toString()) == Integer.parseInt(spovo.get(i).get("CSEQ").toString())) {
-								totalPrice += Integer.parseInt(spovo.get(i).get("ADDRESS").toString());
+								totalPrice += Integer.parseInt(spovo.get(i).get("ADDPRICE").toString());
 							}
 						}
 					}
@@ -319,7 +319,6 @@ public class OrderCotroller {
 						paramMap2.put("quantity", Integer.parseInt(cvo.get("QUANTITY").toString()));
 						paramMap2.put("cseq", cvo.get("CSEQ"));
 						os.insertOrderDetail(paramMap2);
-						cs.deleteCart(paramMap2);
 					}
 					
 					// 비회원의 카트세션을 초기화한다.

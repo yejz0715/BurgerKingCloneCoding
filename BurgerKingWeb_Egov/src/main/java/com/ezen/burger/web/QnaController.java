@@ -175,10 +175,10 @@ public class QnaController {
 		public String boardDelete( HttpServletRequest request, Model model,
 				@RequestParam("delete") int [] qseqArr ) {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			for( int qseq : qseqArr)
+			for( int qseq : qseqArr) {
 			paramMap.put("qseq", qseq );
 			qs.b_deleteQna(paramMap);
-					
+			}		
 			return "redirect:/qnaForm.do";
 		}
 		

@@ -22,6 +22,12 @@ public interface ProductDAO {
 
 	void b_getSubProduct(HashMap<String, Object> paramMap);
 
+	void b_getSubProduct2(HashMap<String, Object> paramMap);
+
+	void b_insertSubProductOrder(HashMap<String, Object> spvo);
+
+	void b_insertSubProductOrderByGseq(HashMap<String, Object> spvo);
+
 //	public ArrayList<ProductVO> getProduct(String kind1);
 //
 //	public ProductVO getDeliveryDetail(int pseq);

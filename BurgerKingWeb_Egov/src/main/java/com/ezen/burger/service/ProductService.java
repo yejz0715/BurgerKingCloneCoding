@@ -18,4 +18,10 @@ public interface ProductService {
 
 	void getSubProduct(HashMap<String, Object> paramMap);
 
+	void getSubProduct2(HashMap<String, Object> sublist);
+
+	void insertSubProductOrder(HashMap<String, Object> spvo);
+
+	void insertSubProductOrderByGseq(HashMap<String, Object> spvo);
+
 }

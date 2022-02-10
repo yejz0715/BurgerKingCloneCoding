@@ -33,10 +33,7 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	public void plusQuantity(int cseq) {
 		cdao.plusQuantity(cseq);
 	}
-
-	public ArrayList<CartVO> getPseqCart(int pseq) {
-		return cdao.getPseqCart(pseq);
-	}*/
+*/
 
 	@Override
 	public void selectCart(HashMap<String, Object> paramMap3) {
@@ -51,5 +48,10 @@ public class CartServiceimpl extends EgovAbstractServiceImpl implements CartServ
 	@Override
 	public void getCseq(HashMap<String, Object> paramMap2) {
 		cdao.b_getCseq(paramMap2);
+	}
+
+	@Override
+	public void getPseqCart(HashMap<String, Object> paramMap2) {
+		cdao.b_getPseqCart(paramMap2);
 	}
 }

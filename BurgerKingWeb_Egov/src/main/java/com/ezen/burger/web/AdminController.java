@@ -469,6 +469,8 @@ public class AdminController {
 			mvo.put("pwd",pwd);
 			mvo.put("name",name);
 			mvo.put("phone",phone);
+			
+			System.out.println(mvo);
 			ms.updateMember(mvo);
 			return "redirect:/adminMemberList.do";
 		}

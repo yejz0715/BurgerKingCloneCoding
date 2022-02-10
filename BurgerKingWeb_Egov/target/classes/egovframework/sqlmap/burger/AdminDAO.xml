@@ -4,31 +4,31 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.ezen.burger.dao.AdminDAO">
-	<select id="adminCheck" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL adminCheck(#{ id } , 
+	<select id="b_adminCheck" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_adminCheck(#{ id } , 
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
-	<select id="getAllCountMem" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_getAllCountMem" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_getAllCountMem(
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	
-	<select id="listMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_listMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_listMember(#{startNum}, #{endNum}, #{key} ,
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
-	<delete id="deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<delete id="b_deleteMember" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_deleteMember(#{mseq}) }
 	</delete>
 	
-	<select id="getAllCountEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_getAllCountEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_getAllCountEvent(
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	
-	<select id="listEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_listEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_listEvent(#{startNum}, #{endNum}, #{key} ,
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>

@@ -64,7 +64,7 @@ public class AdminController {
 		paramMap.put("id", id);
 		paramMap.put("ref_cursor", null);
 		
-		as.adminCheck(paramMap);
+		as.b_adminCheck(paramMap);
 		
 		ArrayList< HashMap<String,Object> > list 
 		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
@@ -128,7 +128,7 @@ public class AdminController {
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
 			
-			as.getAllCountMem(paramMap);
+			as.b_getAllCountMem(paramMap);
 			System.out.println(paramMap);
 			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
 			paging.setTotalCount( cnt );
@@ -136,7 +136,7 @@ public class AdminController {
 			paramMap.put("startNum" , paging.getStartNum() );
 			paramMap.put("endNum", paging.getEndNum() );
 			paramMap.put("ref_cursor", null);
-			as.listMember(paramMap);
+			as.b_listMember(paramMap);
 
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
@@ -161,7 +161,7 @@ public class AdminController {
 		paramMap.put("id" , id);
 		paramMap.put("result" , null);
 		System.out.println(id);
-		os.getOrderListResult2(paramMap);
+		os.b_getOrderListResult2(paramMap);
 
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		// 해당 리스트가 1개라도 있으면 주문 처리중인 주문이 하나 이상 있는 것이므로
@@ -175,7 +175,7 @@ public class AdminController {
 		HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
 		for (int mseq : mseqArr)
 			paramMap.put("mseq", mseq);
-			as.deleteMember(paramMap1);
+			as.b_deleteMember(paramMap1);
 		
 		return "redirect:/adminMemberList.do";
 		 
@@ -185,7 +185,8 @@ public class AdminController {
 	@RequestMapping("/adminEventList")
 	public String adminEventList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			int page = 1;
@@ -215,7 +216,7 @@ public class AdminController {
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
 			
-			as.getAllCountEvent(paramMap);
+			as.b_getAllCountEvent(paramMap);
 			System.out.println(paramMap);
 			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
 			paging.setTotalCount( cnt );
@@ -223,7 +224,7 @@ public class AdminController {
 			paramMap.put("startNum" , paging.getStartNum() );
 			paramMap.put("endNum", paging.getEndNum() );
 			paramMap.put("ref_cursor", null);
-			as.listEvent(paramMap);
+			as.b_listEvent(paramMap);
 
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 
@@ -245,7 +246,7 @@ public class AdminController {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("eseq", eseq);
 			paramMap.put("ref_cursor", null);
-			es.getEvent(paramMap);
+			es.b_getEvent(paramMap);
 			
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			model.addAttribute("eventVO", list.get(0));
@@ -256,7 +257,8 @@ public class AdminController {
 	@RequestMapping("/adminEventWriteForm")
 	public String adminEventWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null)
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null)
 			return "admin/adminLogin";
 
 		return "admin/event/eventWrite";
@@ -288,6 +290,8 @@ public class AdminController {
 		}
 		return "redirect:/adminEventList";
 	}
+	
+	
 //이벤트삭제
 	@RequestMapping(value = "/adminEventDelete")
 	public String adminEventDelete(@RequestParam("delete") int[] eseqArr, HttpServletRequest request) {

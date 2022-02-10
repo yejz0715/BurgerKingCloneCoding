@@ -88,7 +88,7 @@
 						</strong>
 					</dd>
 				</dl>
-				</div>
+				</div><br><br><br>
 			</li>
 			<c:choose>
 				<c:when test="${empty spseqAm}">

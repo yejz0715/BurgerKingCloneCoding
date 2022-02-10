@@ -24,14 +24,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 		return pdao.getDeliveryDetail(pseq);
 	}
 
-	public ArrayList<subproductOrderVO> selectSubProductOrder3(int mseq) {
-		return pdao.selectSubProductOrder3(mseq);
-	}
-
-	public ArrayList<subproductOrderVO> selectSubProductOrder4(int gseq) {
-		return pdao.selectSubProductOrder4(gseq);
-	}
-
 	public ArrayList<subproductOrderVO> selectSubProductOrder5(int oseq) {
 		return pdao.selectSubProductOrder5(oseq);
 	}
@@ -43,10 +35,7 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	public void deleteSpo(String sposeq) {
 		pdao.deleteSpo(sposeq);
 	}
-
-	public int getResult(int odseq) {
-		return pdao.getResult(odseq);
-	}*/
+*/
 
 	@Override
 	public void getProductList(HashMap<String, Object> paramMap4) {
@@ -96,5 +85,20 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	@Override
 	public void insertSubProductOrderByGseq(HashMap<String, Object> spvo) {
 		pdao.b_insertSubProductOrderByGseq(spvo);
+	}
+
+	@Override
+	public void selectSubProductOrder3(HashMap<String, Object> paramMap) {
+		pdao.b_selectSubProductOrder3(paramMap);
+	}
+
+	@Override
+	public void getResult(HashMap<String, Object> temp) {
+		pdao.b_getResult(temp);
+	}
+
+	@Override
+	public void selectSubProductOrder4(HashMap<String, Object> paramMap) {
+		pdao.b_selectSubProductOrder4(paramMap);
 	}
 }

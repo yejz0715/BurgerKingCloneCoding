@@ -131,3 +131,54 @@ begin
 		values(eseq.nextVal, p_subject, p_content, sysdate, to_Date(p_enddate,'yyyy-MM-dd'), p_image, p_state , p_thumbnail);
    commit;
 end;
+
+--product
+create or replace PROCEDURE b_getShortProductAllCount(
+    p_count out number  
+)
+IS
+    vs_count number;    
+begin
+    select count(*) as cnt into vs_count from product;
+    p_count := vs_count;
+end;
+
+create or replace PROCEDURE b_listShortProduct(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key product.pname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' order by pseq desc) p)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;
+
+create or replace PROCEDURE b_getProductAllCount(
+    p_count out number  
+)
+IS
+    vs_count number;    
+begin
+    select count(*) as cnt into vs_count from product;
+    p_count := vs_count;
+end;
+
+create or replace PROCEDURE b_listProduct(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key product.pname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' order by pseq desc) p)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;

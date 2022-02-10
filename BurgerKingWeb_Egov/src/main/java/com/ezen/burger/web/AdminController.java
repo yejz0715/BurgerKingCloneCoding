@@ -492,10 +492,65 @@ public class AdminController {
 	*/
 // shortproduct는 썸네일을 위한 작업
 	@RequestMapping("adminShortProductList.do")
-	public String adminShortProductList(HttpServletRequest request, Model model) {
+	public String adminShortProductList(HttpServletRequest request, Model model) {		
+			HttpSession session = request.getSession();
+			
+			HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+			if (loginAdmin == null) {
+				return "admin/adminLogin";
+			} else {
+				int page = 1;
+				if (request.getParameter("page") != null) {
+					page = Integer.parseInt(request.getParameter("page"));
+					session.setAttribute("page", page);
+				} else if (session.getAttribute("page") != null) {
+					page = (int) session.getAttribute("page");
+				} else {
+					page = 1;
+					session.removeAttribute("page");
+				}
+
+				String key = "";
+				if (request.getParameter("key") != null) {
+					key = request.getParameter("key");
+					session.setAttribute("key", key);
+				} else if (session.getAttribute("key") != null) {
+					key = (String) session.getAttribute("key");
+				} else {
+					session.removeAttribute("key");
+					key = "";
+				}
+
+				Paging paging = new Paging();
+				HashMap<String, Object> paramMap = new HashMap<String, Object>();
+				paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+				paramMap.put("key", key);
+				
+				as.b_getShortProductAllCount(paramMap);
+				System.out.println(paramMap);
+				int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+				paging.setTotalCount( cnt );
+				
+				paramMap.put("startNum" , paging.getStartNum() );
+				paramMap.put("endNum", paging.getEndNum() );
+				paramMap.put("ref_cursor", null);
+				as.b_listShortProduct(paramMap);
+
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+
+				model.addAttribute("shortproductList", list);
+				model.addAttribute("paging", paging);
+				model.addAttribute("key", key);
+		}
+		return "admin/product/shortproductList";
+	}
+
+	@RequestMapping("adminProductList.do")
+	public String adminProductList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
 			int page = 1;
@@ -519,84 +574,38 @@ public class AdminController {
 				session.removeAttribute("key");
 				key = "";
 			}
-			
+
 			Paging paging = new Paging();
-			paging.setPage(page);
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
 			
-			as.b_getShortProductAllCount(paramMap);
+			as.b_getProductAllCount(paramMap);
 			System.out.println(paramMap);
-			int cnt = Integer.parseInt(paramMap.get("cnt").toString() );
-			paging.setTotalCount(cnt);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
 			
-			paramMap.put("StartNum",paging.getStartNum());
-			paramMap.put("endNum", paging.getEndNum());
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
 			paramMap.put("ref_cursor", null);
-			as.b_listShortProduct(paramMap);
-			
-			ArrayList<HashMap<String, Object>> list 
-			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-			
-			model.addAttribute("shortproductList", list);
+			as.b_listProduct(paramMap);
+
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+
+			model.addAttribute("productList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
-		}
-		return "admin/product/shortproductList";
-	}
-/*
-	@RequestMapping("adminProductList")
-	public String adminProductList(HttpServletRequest request, Model model) {
-		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			return "admin/adminLogin";
-		} else {
-			int page = 1;
-			if (request.getParameter("page") != null) {
-				page = Integer.parseInt(request.getParameter("page"));
-				session.setAttribute("page", page);
-			} else if (session.getAttribute("page") != null) {
-				page = (int) session.getAttribute("page");
-			} else {
-				page = 1;
-				session.removeAttribute("page");
-			}
-
-			String key = "";
-			if (request.getParameter("key") != null) {
-				key = request.getParameter("key");
-				session.setAttribute("key", key);
-			} else if (session.getAttribute("key") != null) {
-				key = (String) session.getAttribute("key");
-			} else {
-				session.removeAttribute("key");
-				key = "";
-			}
-
-			Paging paging = new Paging();
-			paging.setPage(page);
-
-			int count = as.getProductAllCount(key);
-			paging.setTotalCount(count);
-			paging.paging();
-
-			ArrayList<ProductVO> productList = as.listProduct(paging, key);
-
-			model.addAttribute("productList", productList);
-			model.addAttribute("paging", paging);
-			model.addAttribute("key", key);
-		}
+		}	
 		return "admin/product/productList";
 	}
-
-	@RequestMapping(value = "/adminProductDelete", method = RequestMethod.POST)
+	/*
+	@RequestMapping(value = "/adminProductDelete.do", method = RequestMethod.POST)
 	public String adminProductDelete(@RequestParam("delete") int[] pseqArr) {
 		for (int pseq : pseqArr)
 			as.deleteProduct(pseq);
 		return "redirect:/adminShortProductList";
 	}
-
+	
 	@RequestMapping("/adminProductWriteForm")
 	public String adminProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

@@ -10,6 +10,10 @@ public interface QnaService {
 
 	void b_getpassChk(HashMap<String, Object> paramMap);
 
+	void b_getQna(HashMap<String, Object> paramMap);
+
+	void b_deleteQna(HashMap<String, Object> paramMap);
+
 	
 
 }

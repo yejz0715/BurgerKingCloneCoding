@@ -23,7 +23,13 @@ public interface AdminDAO {
 
 	void b_listEvent(HashMap<String, Object> paramMap);
 
+	void b_getShortProductAllCount(HashMap<String, Object> paramMap);
+
+	void b_listShortProduct(HashMap<String, Object> paramMap);
+
 	void b_insertEvent(HashMap<String, Object> paramMap);
+
+	void b_updateEvent(HashMap<String, Object> paramMap);
 
 	/*
 	 * 

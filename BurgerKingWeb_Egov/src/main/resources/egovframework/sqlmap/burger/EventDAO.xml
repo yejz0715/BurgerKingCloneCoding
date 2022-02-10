@@ -36,7 +36,6 @@
 	</select>
 	
 	<delete id="b_deleteEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL b_deleteEvent(#{eseq}}
-	)}
+	{CALL b_deleteEvent(#{eseq})}
 	</delete>
 </mapper>

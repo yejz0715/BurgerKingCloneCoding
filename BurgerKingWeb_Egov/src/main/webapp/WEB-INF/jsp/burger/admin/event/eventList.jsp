@@ -28,8 +28,8 @@
 					<td style="text-align: left; padding-left: 50px;">
 						<a href="#" onClick="go_event_detail('${eventVO.ESEQ}')">${eventVO.SUBJECT}</a>
 					</td>
-					<td>${eventVO.startdate.substring(0,10)}</td>
-					<td>${eventVO.enddate.substring(0,10)}</td>
+					<td>${eventVO.STARTDATE}</td>
+					<td>${eventVO.ENDDATE}</td>
 					<td>
 						<c:choose>
 							<c:when test='${eventVO.STATE=="0" }'>종료</c:when>
@@ -37,7 +37,7 @@
 						</c:choose>
 					</td>
 					<td>
-						<input type="checkbox" name="delete" value="${eventVO.eseq}">
+						<input type="checkbox" name="delete" value="${eventVO.ESEQ}">
 					</td>
 				</tr>
 			</c:forEach>

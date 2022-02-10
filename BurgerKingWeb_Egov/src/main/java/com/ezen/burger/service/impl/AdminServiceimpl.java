@@ -64,8 +64,26 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	}
 
 	@Override
+	public void b_getShortProductAllCount(HashMap<String, Object> paramMap) {
+		adao.b_getShortProductAllCount(paramMap);
+		
+	}
+
+	@Override
+	public void b_listShortProduct(HashMap<String, Object> paramMap) {
+		adao.b_listShortProduct(paramMap);
+	}
+	
+	@Override
 	public void b_insertEvent(HashMap<String, Object> paramMap) {
 		adao.b_insertEvent(paramMap);
+
+		
+	}
+
+	@Override
+	public void b_updateEvent(HashMap<String, Object> paramMap) {
+		adao.b_updateEvent(paramMap);
 		
 	}
 

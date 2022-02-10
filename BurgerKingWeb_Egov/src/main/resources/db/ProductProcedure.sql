@@ -86,7 +86,7 @@ BEGIN
         select * from sub_product where spseq = p_spseq;
 end;
 
--- 추가메뉴 주문을 생성하는 프로시져
+-- 회원 추가메뉴 주문을 생성하는 프로시져
 create or replace PROCEDURE b_insertSubProductOrder(        
     p_cseq in cart.cseq%type,
     p_mseq in member.mseq%type,
@@ -100,3 +100,18 @@ BEGIN
 		values(sposeq.nextVal ,p_cseq, p_spseq, p_sname,
 		 p_addprice, p_mseq);
 end;    
+
+-- 비회원 추가메뉴 주문을 생성하는 프로시져
+create or replace PROCEDURE b_insertSubProductOrderByGseq(        
+    p_cseq in cart.cseq%type,
+    p_gseq in guest.gseq%type,
+    p_spseq in subproduct_order.spseq%type,
+    p_sname in subproduct_order.sname%type,
+    p_addprice in subproduct_order.addprice%type
+)  
+IS
+BEGIN
+    insert into subproduct_order(sposeq, cseq, spseq, sname, addprice, gseq)
+		values(sposeq.nextVal ,p_cseq, p_spseq, p_sname,
+		 p_addprice, p_gseq);
+end; 

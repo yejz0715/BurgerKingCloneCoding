@@ -1,6 +1,7 @@
 package com.ezen.burger.web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -674,7 +675,7 @@ public class AdminController {
 			return "admin/product/productWrite";
 		}
 	}
-	
+	/*
 	@RequestMapping("/adminShortProductWriteForm.do")
 	public String adminShortProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
@@ -687,10 +688,11 @@ public class AdminController {
 			return "admin/product/shortproductWrite";
 		}
 	}
-	/*
+	
 	@RequestMapping(value = "adminProductWrite.do", method = RequestMethod.POST)
-	public String adminProductWrite(Model model, HttpServletRequest request,
-			HttpServletResponse response) {
+	public String adminProductWrite(Model model, HttpServletRequest request,HttpServletResponse response){
+		HashMap<String, Object>paramMap=new HashMap<String, Object>();
+		
 		String savePath = context.getRealPath("/image/menu/product");
 		System.out.println(savePath);
 
@@ -707,21 +709,19 @@ public class AdminController {
 			if(result == 2) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('해당하는 종류분류 값이 없습니다.'); location.href='adminProductWriteForm';</script>");
+				writer.println("<script>alert('해당하는 종류분류 값이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
 			}else if(result == 3) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('해당하는 분류번호의 상품 썸네일이 없습니다.'); location.href='adminProductWriteForm';</script>");
+				writer.println("<script>alert('해당하는 분류번호의 상품 썸네일이 없습니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
 			}else if(result == 4) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
-				writer.println("<script>alert('입력할 수 없는 세부 값입니다.'); location.href='adminProductWriteForm';</script>");
+				writer.println("<script>alert('입력할 수 없는 세부 값입니다.'); location.href='adminProductWriteForm.do';</script>");
 				writer.close();
 			}else {
-				ProductVO pvo = new ProductVO();
-				
 				pvo.setKind1(multi.getParameter("kind1"));
 				pvo.setKind2(multi.getParameter("kind2"));
 				pvo.setKind3(multi.getParameter("kind3"));
@@ -740,7 +740,7 @@ public class AdminController {
 		} catch (IOException e) {e.printStackTrace();	}
 		return "redirect:/adminProductList.do";
 	}
-	
+	/*
 	@RequestMapping(value = "adminShortProductWrite.do", method = RequestMethod.POST)
 	public String adminShortProductWrite(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
@@ -808,8 +808,8 @@ public class AdminController {
 			return "admin/product/productDetail";
 		}
 	}
-	
-	@RequestMapping("adminShortProductDetail.do")
+	/*
+	  	@RequestMapping("adminShortProductDetail.do")
 	public String shortProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");

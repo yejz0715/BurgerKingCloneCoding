@@ -210,3 +210,22 @@ begin
     thumbnail=p_thumbnail where eseq=p_eseq;
     commit;
 end;
+
+create or replace procedure b_deleteProduct(
+   p_pseq in product.pseq%type 
+)
+is
+
+begin
+   delete from product where pseq=p_pseq;
+   commit;
+end;
+create or replace procedure b_productDetail(
+   p_pseq in product.PSEQ%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from product where PSEQ=p_pseq;
+  end;  

@@ -12,7 +12,7 @@ public interface EventService {
 
 	void b_getDetailEvent(HashMap<String, Object> paramMap);
 
-	void getEvent(HashMap<String, Object> paramMap);
+	void b_getEvent(HashMap<String, Object> paramMap);
 
 
 }

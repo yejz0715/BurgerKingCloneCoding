@@ -13,7 +13,7 @@
 		}
 	</select>
 	
-	<select id="getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
+	<select id="b_getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_getOrderListResult2(
 				#{id}, #{result},

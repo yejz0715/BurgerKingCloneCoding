@@ -34,32 +34,32 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 	}
 
 	@Override
-	public void getAllCountMem(HashMap<String, Object> paramMap) {
-		adao.getAllCountMem(paramMap);
+	public void b_getAllCountMem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountMem(paramMap);
 		
 	}
 
 	@Override
-	public void listMember(HashMap<String, Object> paramMap) {
-		adao.listMember(paramMap);
+	public void b_listMember(HashMap<String, Object> paramMap) {
+		adao.b_listMember(paramMap);
 		
 	}
 
 	@Override
-	public void deleteMember(HashMap<String, Object> paramMap1) {
-		adao.deleteMember(paramMap1);
+	public void b_deleteMember(HashMap<String, Object> paramMap1) {
+		adao.b_deleteMember(paramMap1);
 		
 	}
 
 	@Override
-	public void getAllCountEvent(HashMap<String, Object> paramMap) {
-		adao.getAllCountEvent(paramMap);
+	public void b_getAllCountEvent(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountEvent(paramMap);
 		
 	}
 
 	@Override
-	public void listEvent(HashMap<String, Object> paramMap) {
-		adao.listEvent(paramMap);
+	public void b_listEvent(HashMap<String, Object> paramMap) {
+		adao.b_listEvent(paramMap);
 		
 	}
 

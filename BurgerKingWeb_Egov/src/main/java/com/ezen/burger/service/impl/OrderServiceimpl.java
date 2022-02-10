@@ -126,7 +126,7 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	}
 
 	@Override
-	public void getOrderListResult2(HashMap<String, Object> paramMap) {
+	public void b_getOrderListResult2(HashMap<String, Object> paramMap) {
 		odao.getOrderListResult2(paramMap);
 		
 	}

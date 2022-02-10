@@ -6,15 +6,15 @@ public interface AdminService {
 
 	void b_adminCheck(HashMap<String, Object> paramMap);
 
-	void getAllCountMem(HashMap<String, Object> paramMap);
+	void b_getAllCountMem(HashMap<String, Object> paramMap);
 
-	void listMember(HashMap<String, Object> paramMap);
+	void b_listMember(HashMap<String, Object> paramMap);
 
-	void deleteMember(HashMap<String, Object> paramMap1);
+	void b_deleteMember(HashMap<String, Object> paramMap1);
 
-	void getAllCountEvent(HashMap<String, Object> paramMap);
+	void b_getAllCountEvent(HashMap<String, Object> paramMap);
 
-	void listEvent(HashMap<String, Object> paramMap);
+	void b_listEvent(HashMap<String, Object> paramMap);
 
 	
 

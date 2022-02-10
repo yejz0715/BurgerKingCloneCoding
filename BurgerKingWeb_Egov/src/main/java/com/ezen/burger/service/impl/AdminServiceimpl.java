@@ -63,6 +63,12 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_insertEvent(HashMap<String, Object> paramMap) {
+		adao.b_insertEvent(paramMap);
+		
+	}
+
 	
 	
 	/*

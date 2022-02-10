@@ -23,6 +23,8 @@ public interface AdminDAO {
 
 	void b_listEvent(HashMap<String, Object> paramMap);
 
+	void b_insertEvent(HashMap<String, Object> paramMap);
+
 	/*
 	 * 
 	 * ArrayList<EventVO> listEvent(Paging paging, String key);

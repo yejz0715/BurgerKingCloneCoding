@@ -33,4 +33,9 @@
 		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
 	</select>
 	
+	<insert id="b_insertEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_insertEvent
+	( #{subject}, #{content}, to_Date(#{enddate},'yyyy-MM-dd'), #{image}, #{state} , #{thumbnail}) }
+	</insert>
+	
 </mapper>

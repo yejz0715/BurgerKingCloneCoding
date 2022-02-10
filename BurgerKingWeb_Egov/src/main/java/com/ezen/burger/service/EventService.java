@@ -14,5 +14,4 @@ public interface EventService {
 
 	void b_getEvent(HashMap<String, Object> paramMap);
 
-
 }

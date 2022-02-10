@@ -115,3 +115,16 @@ BEGIN
 		values(sposeq.nextVal ,p_cseq, p_spseq, p_sname,
 		 p_addprice, p_gseq);
 end; 
+
+
+-- header product
+create or replace procedure b_getProduct(
+	p_kind1 in product.kind1%type,
+	p_rc out SYS_REFCURSOR  
+)
+is
+
+begin
+	open p_rc for
+		select * from product where kind1 = p_kind1;
+end;

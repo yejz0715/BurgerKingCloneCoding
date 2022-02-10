@@ -97,4 +97,10 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	public void insertSubProductOrderByGseq(HashMap<String, Object> spvo) {
 		pdao.b_insertSubProductOrderByGseq(spvo);
 	}
+
+	@Override
+	public void b_getProduct(HashMap<String, Object> paramMap) {
+		pdao.b_getProduct(paramMap);
+	}
+
 }

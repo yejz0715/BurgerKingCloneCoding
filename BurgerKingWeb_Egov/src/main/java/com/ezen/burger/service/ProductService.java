@@ -24,4 +24,7 @@ public interface ProductService {
 
 	void insertSubProductOrderByGseq(HashMap<String, Object> spvo);
 
+	void b_getProduct(HashMap<String, Object> paramMap);
+
+
 }

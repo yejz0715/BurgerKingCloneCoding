@@ -92,4 +92,15 @@
 			)
 		}
 	</insert>
+	
+	<select id="b_getProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getProduct(
+				#{kind1},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	
 </mapper>

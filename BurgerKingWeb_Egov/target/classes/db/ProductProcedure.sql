@@ -116,7 +116,7 @@ BEGIN
 		 p_addprice, p_gseq);
 end; 
 
-<<<<<<< HEAD
+
 
 -- header product
 create or replace procedure b_getProduct(
@@ -129,7 +129,7 @@ begin
 	open p_rc for
 		select * from product where kind1 = p_kind1;
 end;
-=======
+
 -- 회원 주문 목록의 추가 재료만 가져오는 프로시져
 create or replace PROCEDURE b_selectSubProductOrder3(        
     p_mseq IN member.mseq%TYPE,    

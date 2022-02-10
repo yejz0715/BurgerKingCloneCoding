@@ -17,21 +17,6 @@ public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaServic
 	@Resource(name="QnaDAO")
 	QnaDAO qdao;
 /*
-	public ArrayList<QnaVO>  listQna(String id) {
-		return qdao.listQna(id);
-	}
-	
-	public void insertQna( QnaVO qnavo) {
-		qdao.insertQna(qnavo);
-	}
-
-	public QnaVO  getQna(int qseq) {
-		return qdao.getQna(qseq);
-	}
-
-	public void deleteQna(int qseq) {
-		qdao.deleteQna(qseq);
-	}
 
 	public QnaVO getpassChk(int qseq) {
 		return qdao.getpassChk(qseq);
@@ -65,6 +50,12 @@ public class QnaServiceimpl extends EgovAbstractServiceImpl implements QnaServic
 	@Override
 	public void b_deleteQna(HashMap<String, Object> paramMap) {
 		qdao.b_deleteQna(paramMap);
+	}
+
+	@Override
+	public void b_updateQna(HashMap<String, Object> paramMap) {
+		qdao.b_updateQna(paramMap);
+		
 	}
 
 

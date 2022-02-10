@@ -14,6 +14,6 @@ public interface QnaService {
 
 	void b_deleteQna(HashMap<String, Object> paramMap);
 
-	
+	void b_updateQna(HashMap<String, Object> paramMap);
 
 }

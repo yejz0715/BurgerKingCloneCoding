@@ -179,10 +179,10 @@ public class AdminController {
 		
 		
 		HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
-		for (int mseq : mseqArr)
+		for (int mseq : mseqArr) {
 			paramMap.put("mseq", mseq);
 			as.b_deleteMember(paramMap1);
-		
+		}
 		return "redirect:/adminMemberList.do";
 		 
 	}
@@ -476,7 +476,7 @@ public class AdminController {
 			return "redirect:/adminMemberList.do";
 		}
 	}
-	/*
+	
 //qna
 	@RequestMapping(value = "/adminQnaList")
 	public String adminQnaList(HttpServletRequest request, Model model) {
@@ -508,53 +508,83 @@ public class AdminController {
 
 			Paging paging = new Paging();
 			paging.setPage(page);
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+			paramMap.put("key", key);
+			
+			as.b_getAllCountQna(paramMap);
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
+			
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put("ref_cursor", null);
+			as.b_adminListQna(paramMap);
 
-			int count = as.getAllCount("qna", "id", key);
-			paging.setTotalCount(count);
-			paging.paging();
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 
-			ArrayList<QnaVO> qnaList = as.listQna(paging, key);
-
-			model.addAttribute("qnaList", qnaList);
+			model.addAttribute("qnaList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
 		}
 		return "admin/qna/qnaList";
 	}
-
+	
 	@RequestMapping(value = "/adminQnaDelete", method = RequestMethod.POST)
-	public String adminQnaDelete(@RequestParam("delete") int[] qseqArr) {
-		for (int qseq : qseqArr)
-			as.deleteQna(qseq);
-		return "redirect:/adminQnaList";
+	public String adminQnaDelete(@RequestParam("delete") int[] qseqArr, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			for (int qseq : qseqArr) {
+				paramMap.put("qseq", qseq);
+				qs.b_deleteQna(paramMap);
+			}				
+			return "redirect:/adminQnaList.do";
+		}
 	}
-
+	
 	@RequestMapping("/adminQnaDetail")
 	public String adminQnaDetail(@RequestParam("qseq") int qseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			QnaVO qvo = qs.getQna(qseq);
-			model.addAttribute("qnaVO", qvo);
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("qseq", qseq);
+			paramMap.put("ref_cursor", null);
+			qs.b_getQna(paramMap);
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			model.addAttribute("qnaVO", list.get(0));
 			return "admin/qna/qnaDetail";
 		}
 
 	}
+	
 // QnA 답글달기
 	@RequestMapping("/adminQnaRepsave")
 	public String adminQnaRepsave(HttpServletRequest request, Model model, @RequestParam("qseq") int qseq,
 			@RequestParam("reply") String reply) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
-			qs.updateQna(qseq, reply);
-			return "redirect:/adminQnaDetail?qseq=" + qseq;
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("qseq", qseq);
+			paramMap.put("reply", reply);
+			paramMap.put("ref_cursor", null);
+			qs.b_updateQna(paramMap);
+			return "redirect:/adminQnaDetail.do?qseq=" + qseq;
 		}
 
 	}
-	*/
+	
 // shortproduct는 썸네일을 위한 작업
 	@RequestMapping("adminShortProductList.do")
 	public String adminShortProductList(HttpServletRequest request, Model model) {		
@@ -985,17 +1015,16 @@ public class AdminController {
 		as.updateProduct(pvo);
 		return "redirect:/adminProductDetail?pseq="+pseq;
 	}
-	
+	*/
+
 	// 관리자 주문 리스트
 	@RequestMapping(value="/adminOrderList")
-	public ModelAndView adminOrderList(HttpServletRequest request,
-			@RequestParam("kind")String kind) {
+	public String adminOrderList(HttpServletRequest request, @RequestParam("kind")String kind, Model model) {
 		// 위의 param kind는 회원:1, 비회원:2의 값을 가지고 들어온다.
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		
-		if (session.getAttribute("loginAdmin") == null) {
-			mav.setViewName("redirect:/admin");
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
 		} else {
 			int page = 1;
 			if (request.getParameter("page") != null) {
@@ -1021,30 +1050,63 @@ public class AdminController {
 
 			Paging paging = new Paging();
 			paging.setPage(page);
-			int count = 0;
 			
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);
+			paramMap.put("key", key);
 			// kind값으로 회원 혹은 비회원의 count값을 구하여 paging을 설정한다.
 			if(kind.equals("1")) {
-				count = as.getAllCount("order_view", "mname", key);
+				as.b_getAllCountOrderMem(paramMap); //order_view1
 			}else {
-				count = count + as.getAllCount("order_view2", "mname", key);
+				as.b_getAllCountOrderNonmem(paramMap); //order_view2
 			}
-			paging.setTotalCount(count);
-			paging.paging();
+
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
 
 			// kind값의 해당하는 order_view의 리스트를 불러온다.
-			ArrayList<orderVO> orderList = as.listOrder(paging, key, kind);
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put("ref_cursor", null);
+			System.out.println(paramMap);
+			if(kind.equals("1")) {
+				as.b_adminListOrder(paramMap); //order_view1
+			}else {
+				as.b_adminListOrder2(paramMap); //order_view2
+			}
 			
-			mav.addObject("kind", kind);
-			mav.addObject("orderList", orderList);
-			mav.addObject("paging", paging);
-			mav.addObject("key", key);
+
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
-			mav.setViewName("admin/order/orderList");
+			/*Paging paging = new Paging();
+			paging.setPage(page);
+			
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
+			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
+			paramMap.put("key", key);
+			
+			as.b_getAllCountMem(paramMap);
+			System.out.println(paramMap);
+			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
+			paging.setTotalCount( cnt );
+			
+			paramMap.put("startNum" , paging.getStartNum() );
+			paramMap.put("endNum", paging.getEndNum() );
+			paramMap.put("ref_cursor", null);
+			as.b_listMember(paramMap);
+
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+			*/
+			model.addAttribute("kind", kind);
+			model.addAttribute("orderList", list);
+			model.addAttribute("paging", paging);
+			model.addAttribute("key", key);
 		}
-		return mav;
+		return "admin/order/orderList";
 	}
-	
+	/*
 	// 주문 상태 처리 (1, 2, 3)
 	@RequestMapping(value="/adminOrderSave")
 	public ModelAndView adminOrderSave(HttpServletRequest request,

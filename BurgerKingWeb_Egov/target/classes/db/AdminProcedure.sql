@@ -236,3 +236,86 @@ begin
    open p_rc for
       select * from product where PSEQ=p_pseq;
   end;  
+
+  
+  -- qna 페이징을 위한 프로시저
+create or replace PROCEDURE b_getAllCountQna(
+    p_count out number  -- 매개변수
+)
+IS
+    vs_count number;    -- 프로시저 내에 선언안 지역 변수
+begin
+    select count(*) as cnt into vs_count from qna;
+    p_count := vs_count;
+end;
+
+-- 페이징이 적용된 listQna
+create or replace PROCEDURE b_adminListQna(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key qna.subject%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, q. * from ((select*from qna where id like '%'||p_key||'%' order by qseq desc) q)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;
+
+-- 회원 orderList 페이징을 위한 프로시저
+create or replace PROCEDURE b_getAllCountOrderMem(
+    p_count out number  -- 매개변수
+)
+IS
+    vs_count number;    -- 프로시저 내에 선언안 지역 변수
+begin
+    select count(*) as cnt into vs_count from order_view;
+    p_count := vs_count;
+end;
+
+-- 비회원 orderList 페이징을 위한 프로시저
+create or replace PROCEDURE b_getAllCountOrderNonmem(
+    p_count out number  -- 매개변수
+)
+IS
+    vs_count number;    -- 프로시저 내에 선언안 지역 변수
+begin
+    select count(*) as cnt into vs_count from order_view2;
+    p_count := vs_count;
+end;
+
+-- 회원 orderlist를 위한 프로시저
+create or replace PROCEDURE b_adminListOrder(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key order_view.mname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, o. * from ((select*from order_view where mname like '%'||p_key||'%' order by result, odseq desc) o)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;
+
+
+-- 비회원 orderlist를 위한 프로시저
+create or replace PROCEDURE b_adminListOrder2(
+    p_startNum NUMBER,
+    p_endNum NUMBER,
+    p_key order_view2.mname%TYPE,
+    p_rc OUT SYS_REFCURSOR)
+IS
+begin
+    OPEN p_rc For
+        select * from (
+        select * from (
+        select rownum as rn, o. * from ((select*from order_view2 where mname like '%'||p_key||'%' order by result, odseq desc) o)
+        ) where rn >= p_startNum
+        ) where rn <= p_endNum;
+end;

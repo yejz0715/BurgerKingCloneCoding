@@ -110,6 +110,41 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_getAllCountQna(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountQna(paramMap);
+		
+	}
+
+	@Override
+	public void b_adminListQna(HashMap<String, Object> paramMap) {
+		adao.b_adminListQna(paramMap);
+		
+	}
+
+	@Override
+	public void b_getAllCountOrderMem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderMem(paramMap);
+	}
+
+	@Override
+	public void b_getAllCountOrderNonmem(HashMap<String, Object> paramMap) {
+		adao.b_getAllCountOrderNonmem(paramMap);
+	}
+
+	@Override
+	public void b_adminListOrder(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder(paramMap);
+
+	}
+
+	@Override
+	public void b_adminListOrder2(HashMap<String, Object> paramMap) {
+		adao.b_adminListOrder2(paramMap);
+		
+	}
+
+
 	
 	
 	/*
@@ -143,15 +178,6 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
-	public ArrayList<EventVO> listEvent(Paging paging, String key) {
-		return adao.listEvent(paging, key);
-		
-	}
-
-	public void deleteEvent(int eseq) {
-		adao.deleteEvent(eseq);
-		
-	}
 
 	public ArrayList<ProductVO> listShortProduct(Paging paging, String key) {
 		return adao.listShortProduct(paging, key);

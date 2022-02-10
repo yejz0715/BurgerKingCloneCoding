@@ -59,3 +59,16 @@ is
 begin
     delete from QNA where qseq=p_qseq;
 end;
+
+
+
+--  qna 댓글업데이트
+create or replace procedure b_deleteQna(
+    p_qseq in QNA.QSEQ%type,  
+    p_reply in QNA.reply%type
+)
+is
+begin
+    update qna set reply=p_reply, rep='2' where qseq=p_qseq;
+    commit;
+end;

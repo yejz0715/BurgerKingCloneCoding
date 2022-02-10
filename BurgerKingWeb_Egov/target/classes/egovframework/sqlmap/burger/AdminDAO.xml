@@ -48,6 +48,13 @@
 	( #{subject}, #{content}, to_Date(#{enddate},'yyyy-MM-dd'), #{image}, #{state} , #{thumbnail}) }
 	</insert>
 	
+	<update id="b_updateEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{
+	CALL b_updateEvent
+		(#{eseq}, #{subject}, #{content}, to_Date(#{enddate},'yyyy-MM-dd'), #{image}, #{state} , #{thumbnail})
+	}
+	</update>
+	
 	<select id="b_getProductAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{CALL b_getProductAllCount(
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }

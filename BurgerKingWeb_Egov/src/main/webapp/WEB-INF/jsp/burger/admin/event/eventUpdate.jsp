@@ -16,7 +16,7 @@
 				</td>
 				<th>종료일</th>
 				<td>
-					<input type="text" name="enddate" size="80" value="${eventVO.ENDDATE.substring(0,10)}">
+					<input type="text" name="enddate" size="80" value="${eventVO.ENDDATE}">
 				</td>
 			</tr>
 			<tr>

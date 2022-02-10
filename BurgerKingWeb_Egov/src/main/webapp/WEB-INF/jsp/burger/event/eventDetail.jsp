@@ -22,7 +22,7 @@
 	<div class="detailTit">
 	<input type="hidden" name="eseq" value="${EventVO.ESEQ}" />
 	<h2>${EventVO.SUBJECT}</h2>
-	<p>${EventVO.STARTDATE} ~ <!--substring(0,10):문자열 자르기(0부터 10까지)  -->
+	<p>"${EventVO.STARTDATE} ~ <!--substring(0,10):문자열 자르기(0부터 10까지)  -->
 	${EventVO.ENDDATE}
 	</p>
 	</div>

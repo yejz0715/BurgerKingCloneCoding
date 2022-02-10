@@ -25,6 +25,8 @@ public interface EventDAO {
 
 	void b_getEvent(HashMap<String, Object> paramMap);
 
+	void b_deleteEvent(HashMap<String, Object> paramMap);
+
 
 
 	

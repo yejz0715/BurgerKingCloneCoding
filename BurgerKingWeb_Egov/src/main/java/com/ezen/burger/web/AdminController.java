@@ -307,21 +307,24 @@ public class AdminController {
 		return "redirect:/adminEventList.do";
 	}
 	
-	/*	
+	
 //이벤트삭제
 	@RequestMapping(value = "/adminEventDelete")
 	public String adminEventDelete(@RequestParam("delete") int[] eseqArr, HttpServletRequest request) {
+		
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
 		if (loginAdmin == null) {
 			return "admin/adminLogin";
 		} else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			for (int eseq : eseqArr)
-				es.b_deleteEvent(eseq);
-			return "redirect:/adminEventList";
+				paramMap.put("eseq", eseq);
+				es.b_deleteEvent(paramMap);
+			return "redirect:/adminEventList.do";
 		}
 	}
-	
+	/*		
 	@RequestMapping(value = "/adminEventUpdateForm")
 	public String adminEventUpdateForm(HttpServletRequest request, Model model, @RequestParam("eseq")int eseq) {
 		HttpSession session = request.getSession();

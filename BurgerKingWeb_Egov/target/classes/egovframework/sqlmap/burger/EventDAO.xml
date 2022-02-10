@@ -34,4 +34,9 @@
 	#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO }
 	)}
 	</select>
+	
+	<delete id="b_deleteEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_deleteEvent(#{eseq}}
+	)}
+	</delete>
 </mapper>

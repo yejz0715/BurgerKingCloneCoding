@@ -115,3 +115,50 @@ BEGIN
 		values(sposeq.nextVal ,p_cseq, p_spseq, p_sname,
 		 p_addprice, p_gseq);
 end; 
+
+<<<<<<< HEAD
+
+-- header product
+create or replace procedure b_getProduct(
+	p_kind1 in product.kind1%type,
+	p_rc out SYS_REFCURSOR  
+)
+is
+
+begin
+	open p_rc for
+		select * from product where kind1 = p_kind1;
+end;
+=======
+-- 회원 주문 목록의 추가 재료만 가져오는 프로시져
+create or replace PROCEDURE b_selectSubProductOrder3(        
+    p_mseq IN member.mseq%TYPE,    
+    p_rc OUT SYS_REFCURSOR
+)  
+IS
+BEGIN
+    OPEN p_rc FOR
+        select * from subproduct_order where mseq = p_mseq and oseq != 0 order by oseq;
+end; 
+
+-- 비회원 주문 목록의 추가 재료만 가져오는 프로시져
+create or replace PROCEDURE b_selectSubProductOrder4(        
+    p_gseq IN guest.gseq%TYPE,    
+    p_rc OUT SYS_REFCURSOR
+)  
+IS
+BEGIN
+    OPEN p_rc FOR
+        select * from subproduct_order where gseq = p_gseq and oseq != 0 order by cseq;
+end;
+
+-- 아직 배달 종료되지 않은 주문들의 상태만 가져오는 프로시져 
+create or replace PROCEDURE b_getResult(        
+    p_odseq IN subproduct_order.odseq%TYPE,    
+    p_rc OUT number
+)  
+IS
+BEGIN
+    select result into p_rc from order_detail where odseq = p_odseq;
+end; 
+>>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov

@@ -11,8 +11,6 @@ public interface OrderDAO {
 	void b_getOrderList(HashMap<String, Object> paramMap2);
 	
 	void getOrderListResult2(HashMap<String, Object> paramMap);
-//	public ArrayList<orderVO> getOrderList(String id);
-//
 //	public void insertOrder(String id);
 //
 //	public void insertOrderDetail(CartVO list, int oseq);
@@ -22,8 +20,6 @@ public interface OrderDAO {
 //	public int selectOdseq(int oseq);
 //
 //	public void insertseq(int cseq, int oseq, int odseq);
-//
-//	public ArrayList<orderVO> getOrderListByGuest(String id);
 //
 //	public ArrayList<orderVO> getOrderByOseq(int oseq);
 //
@@ -44,7 +40,8 @@ public interface OrderDAO {
 //	public String getOrderDetail(String odseq);
 //
 //	public int[] getOseqs(String id);
-//
+
+	void b_getOrderListByGuest(HashMap<String, Object> paramMap2);
 
 	
 }

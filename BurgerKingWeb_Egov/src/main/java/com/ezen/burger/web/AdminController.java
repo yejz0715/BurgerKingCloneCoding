@@ -232,7 +232,7 @@ public class AdminController {
 			as.b_listEvent(paramMap);
 
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-			paramMap.get("startdate".substring(0,10)) ;
+			
 			model.addAttribute("eventList", list);
 			model.addAttribute("paging", paging);
 			model.addAttribute("key", key);
@@ -320,9 +320,10 @@ public class AdminController {
 			return "admin/adminLogin";
 		} else {
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			for (String eseq : eseqArr)
+			for (String eseq : eseqArr) {
 				paramMap.put("eseq", eseq);
 				es.b_deleteEvent(paramMap);
+			}				
 			return "redirect:/adminEventList.do";
 		}
 	}
@@ -396,7 +397,7 @@ public class AdminController {
 			
 			as.b_updateEvent(paramMap);
 		} catch (IOException e) {		e.printStackTrace();	}
-		return "redirect:/adminEventList";
+		return "redirect:/adminEventList.do";
 	  }
 	/*
 	@RequestMapping(value = "/adminMemberUpdateForm")

@@ -50,7 +50,7 @@
 	
 	<update id="b_updateEvent" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{
-	CALL b_insertEvent
+	CALL b_updateEvent
 		(#{eseq}, #{subject}, #{content}, to_Date(#{enddate},'yyyy-MM-dd'), #{image}, #{state} , #{thumbnail})
 	}
 	</update>

@@ -598,14 +598,23 @@ public class AdminController {
 		}	
 		return "admin/product/productList";
 	}
-	/*
-	@RequestMapping(value = "/adminProductDelete.do", method = RequestMethod.POST)
-	public String adminProductDelete(@RequestParam("delete") int[] pseqArr) {
-		for (int pseq : pseqArr)
-			as.deleteProduct(pseq);
-		return "redirect:/adminShortProductList";
-	}
 	
+	@RequestMapping(value = "/adminProductDelete.do", method = RequestMethod.POST)
+	public String adminProductDelete(HttpServletRequest request, @RequestParam("delete") int[] pseqArr, Model model) {
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {		
+			HashMap<String, Object> paramMap = new HashMap<String, Object>();		
+			for (int pseq : pseqArr) {
+				paramMap.put("pseq", pseq);
+				as.b_deleteProduct(paramMap);
+		}		
+		return "redirect:/adminShortProductList.do";
+	}
+	}
+	/*
 	@RequestMapping("/adminProductWriteForm")
 	public String adminProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();

@@ -26,5 +26,7 @@ public interface AdminService {
 
 	void b_listProduct(HashMap<String, Object> paramMap);
 
+	void b_deleteProduct(HashMap<String, Object> paramMap);
+
 
 }

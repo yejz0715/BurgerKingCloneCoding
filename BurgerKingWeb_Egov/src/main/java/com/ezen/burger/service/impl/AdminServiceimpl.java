@@ -93,6 +93,12 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_deleteProduct(HashMap<String, Object> paramMap) {
+		adao.b_deleteProduct(paramMap);
+		
+	}
+
 	
 	
 	/*

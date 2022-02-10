@@ -113,3 +113,21 @@ begin
     OPEN p_rc For
         select * from event where eseq=p_eseq;
 end;
+
+
+
+create or replace procedure b_insertEvent(
+   p_subject in event.subject%type,
+   p_content in event.content%type,
+   p_enddate in event.enddate%type,
+   p_image in event.image%type,
+   p_state in event.state%type,
+   p_thumbnail in event.thumbnail%type  
+)
+is
+
+begin
+   insert into event(eseq, subject, content, startdate, enddate, image, state, thumbnail)
+		values(eseq.nextVal, p_subject, p_content, sysdate, to_Date(p_enddate,'yyyy-MM-dd'), p_image, p_state , p_thumbnail);
+   commit;
+end;

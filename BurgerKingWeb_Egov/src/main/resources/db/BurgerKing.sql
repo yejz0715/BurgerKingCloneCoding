@@ -54,7 +54,7 @@ create sequence cseq increment by 1 start with 1;
 create sequence oseq increment by 1 start with 1;
 create sequence pseq increment by 1 start with 1;
 create sequence spseq increment by 1 start with 1;
-create sequence eseq increment by 1 start with 1;
+create sequence eseq increment by 1 start with 24;
 create sequence odseq increment by 1 start with 1;
 create sequence sposeq increment by 1 start with 1;
 

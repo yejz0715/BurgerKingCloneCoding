@@ -64,3 +64,13 @@ BEGIN
     OPEN p_rc FOR
        select * from product where pseq = p_pseq;
 end;
+
+-- sub_product의 추가 메뉴들을 조회하는 프로시져
+create or replace PROCEDURE b_getSubProduct(        
+    p_rc OUT SYS_REFCURSOR
+)  
+IS
+BEGIN
+    OPEN p_rc FOR
+        select * from sub_product order by kind2 desc;
+end;

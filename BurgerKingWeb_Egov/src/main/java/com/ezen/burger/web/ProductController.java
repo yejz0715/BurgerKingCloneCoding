@@ -73,24 +73,27 @@ public class ProductController {
 		model.addAttribute("productVO", pvo.get(0));
 		return "delivery/deliveryDetail";
 	}
-	/*
+	
 	@RequestMapping(value="/deliveryAddMaterial")
-	public ModelAndView deliveryAddMaterial(HttpServletRequest request,
+	public String deliveryAddMaterial(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("loginUser") == null) {
-			mav.setViewName("redirect:/loginForm");
-			return mav;
+			return "redirect:/loginForm.do";
 		}
 		
 		// 추가할 재료 목록
-		ArrayList<subProductVO> list = ps.getSubProduct();
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("ref_cursor", null);
 		
-		mav.addObject("subProductVO", list);
-		mav.addObject("pseq", pseq);
-		mav.setViewName("delivery/addMeterial");
-		return mav;
-	}*/
+		ps.getSubProduct(paramMap);
+		
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
+		
+		
+		model.addAttribute("subProductVO", list);
+		model.addAttribute("pseq", pseq);
+		return "delivery/addMeterial";
+	}
 }

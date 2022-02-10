@@ -20,11 +20,11 @@ public interface ProductDAO {
 
 	void b_getProducts(HashMap<String, Object> paramMap);
 
+	void b_getSubProduct(HashMap<String, Object> paramMap);
+
 //	public ArrayList<ProductVO> getProduct(String kind1);
 //
 //	public ProductVO getDeliveryDetail(int pseq);
-//
-//	public ArrayList<subProductVO> getSubProduct();
 //
 //	public subProductVO getSubProduct2(int spseq);
 //

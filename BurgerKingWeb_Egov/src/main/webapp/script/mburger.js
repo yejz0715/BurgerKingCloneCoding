@@ -9,7 +9,7 @@ function login_chk(){
 		return false;
 	}
 	return true;
-}	
+}
 
 
 function check_input1(){

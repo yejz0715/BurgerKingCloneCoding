@@ -79,10 +79,7 @@
 				<th>상품이미지</th>
 				<td colspan="9">
 					<img src="<c:url value='image/menu/product/${productVO.IMAGE}'/>" width="200px"><br>
-					<div id="imageName" style="float:left; font-size:120%;margin-right:20px;font-weight:bold"></div>
-					<input type="button" class="btn" value="이미지선택" onClick="selectFile();"
-					style="width:30%">
-      				<input type="hidden" name="imgfilename" >* 주의 : 이미지를 수정할때에만 선택해주세요
+      				<input type="file" name="image"  >
 				</td>
 			</tr>
 		</table>

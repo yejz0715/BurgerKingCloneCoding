@@ -819,14 +819,12 @@ public class AdminController {
 					new DefaultFileRenamePolicy());
 			String k1 = multi.getParameter("kind1");
 			String k2 = multi.getParameter("kind2");
-			System.out.println(1);
 			HashMap<String, Object>paramMap=new HashMap<String, Object>();
 			paramMap.put("kind1", k1);
 			paramMap.put("kind2", k2);
 			paramMap.put("ref_cursor", null);
-			System.out.println(2);
 			as.b_selectProduct2(paramMap);
-			System.out.println(3);
+
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
 			if(list.size()!=0) {
@@ -834,7 +832,7 @@ public class AdminController {
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 분류번호 값이 이미 있습니다.'); location.href='adminShortProductWriteForm';</script>");
 				writer.close();
-				System.out.println(4);
+			
 			}else {
 				HashMap<String, Object>pvo=new HashMap<String, Object>();
 				pvo.put("kind1", multi.getParameter("kind1"));
@@ -847,9 +845,8 @@ public class AdminController {
 				pvo.put("content", " ");
 				pvo.put("image", multi.getFilesystemName("image"));
 				pvo.put("useyn", multi.getParameter("useyn"));
-				System.out.println(5);
+			
 			    as.b_insertProduct(pvo);
-			    System.out.println(6);
 			}
 			
 		} catch (IOException e) {e.printStackTrace();	}
@@ -940,16 +937,17 @@ public class AdminController {
 		int index = Integer.parseInt(resultMap.get("KIND1").toString());
 		int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 		
-		model.addAttribute("productVO",paramMap);
+		model.addAttribute("productVO",resultMap);
 		model.addAttribute("kind", kindList1[index-1]);
 		model.addAttribute("kind3", kindList3[index2-1]);
 		return "admin/product/productUpdate";
 	}
    }
 	
-	@RequestMapping(value="adminShortProductUpdateForm", method = RequestMethod.POST)
-	public String adminShortProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
+	@RequestMapping(value="adminShortProductUpdateForm.do", method = RequestMethod.POST)
+	public String adminShortProductUpdateForm(HttpServletRequest request, Model model) {
 		HashMap<String, Object> paramMap=new HashMap<String, Object>();
+		int pseq = Integer.parseInt(request.getParameter("pseq"));
 		
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
@@ -973,35 +971,9 @@ public class AdminController {
 		return "admin/product/shortproductUpdate";
 	}
 	}	
-/*	
-	@RequestMapping("/selectimg")
-	public String selectimg(HttpServletRequest request) {
-		String k1 = request.getParameter("k1");
-		request.setAttribute("k1", k1);
-		return "admin/product/selectimg";
-	}
-	
-	@RequestMapping(value="/fileupload", method = RequestMethod.POST)
-	public String fileupload(Model model, HttpServletRequest request, @ModelAttribute("ProductVO")
-		ProductVO p ,@RequestParam("k1") String k1) {
-		String path = context.getRealPath("/image/menu/product");
-		
-		try {
-			MultipartRequest multi = new MultipartRequest(
-					request, path, 5*1024*1024, "UTF-8", new DefaultFileRenamePolicy()
-			);
-			
-			// 전송된 파일은 업로드 되고, 파일 이름은 모델에 저장합니다.
-			model.addAttribute("image", multi.getFilesystemName("image"));
-			model.addAttribute("originalFilename", multi.getFilesystemName("image"));
-		} catch (IOException e) {e.printStackTrace();
-		}
-		model.addAttribute("k1", k1);
-		return "admin/product/completupload";
-	}
-	*/
+
 	@RequestMapping(value="/adminShortProductUpdate.do", method = RequestMethod.POST)
-	public String adminShortProductUpdate(HttpServletRequest request, Model model, @RequestParam("k1") String k1) {				
+	public String adminShortProductUpdate(HttpServletRequest request, Model model) {				
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		int pseq=0;
 		String savePath = context.getRealPath("/image/menu/product");
@@ -1010,7 +982,7 @@ public class AdminController {
 			MultipartRequest multi = new MultipartRequest(
 					request, savePath , 5*1024*1024,  "UTF-8", new DefaultFileRenamePolicy() );
 			paramMap.put("pseq",Integer.parseInt(multi.getParameter("pseq")));
-			//pseq=Integer.parseInt(multi.getParameter("pseq"));
+			pseq=Integer.parseInt(multi.getParameter("pseq"));
 			paramMap.put("kind1", multi.getParameter("kind1"));
 			paramMap.put("kind2", multi.getParameter("kind2"));
 			paramMap.put("kind3", multi.getParameter("kind3"));
@@ -1018,58 +990,57 @@ public class AdminController {
 			paramMap.put("price1",0);
 			paramMap.put("price2",0);
 			paramMap.put("price3",0);
-			//pvo.setPrice3(0);
 			paramMap.put("content", " ");
 			System.out.println(multi.getParameter("useyn") + "//////");
-			if(request.getParameter("useyn") == null) {
-				paramMap.put("useyn","2");
-			}else {
-				paramMap.put("useyn","2");
-			}
-			if(request.getParameter("image") == null)
-			 paramMap.put("image", request.getParameter("oldimage"));
-			else
-				paramMap.put("image", request.getParameter("image"));
-		} catch (IOException e) {e.printStackTrace();}
-		as.b_updateProduct(paramMap);
-		return "redirect:/adminShortProductDetail.do?pseq="+request.getParameter("pseq");
-	}	
-	/*
-	@RequestMapping(value="/adminProductUpdate.do", method = RequestMethod.POST)
-	public String adminProductUpdate(HttpServletRequest request, @ModelAttribute("ProductVO")
-			ProductVO p, Model model) {				
-		ProductVO pvo = new ProductVO();
-		int pseq=0;
-		String savePath = context.getRealPath("/image/menu/product");
-		MultipartRequest multi;
-		try {
-			multi = new MultipartRequest(
-					request, savePath , 5*1024*1024,  "UTF-8", new DefaultFileRenamePolicy() );
-			pvo.setPseq(Integer.parseInt(multi.getParameter("pseq")));
-			pseq=Integer.parseInt(multi.getParameter("pseq"));
-			pvo.setKind1(multi.getParameter("kind1"));
-			pvo.setKind2(multi.getParameter("kind2"));
-			pvo.setKind3(multi.getParameter("kind3"));
-			pvo.setPname(multi.getParameter("pname"));
-			pvo.setPrice1(Integer.parseInt(multi.getParameter("price1")));
-			pvo.setPrice2(Integer.parseInt(multi.getParameter("price2")));
-			pvo.setPrice3(Integer.parseInt(multi.getParameter("price3")));
-			pvo.setContent(multi.getParameter("content"));
-			System.out.println(multi.getParameter("useyn") + "//////");
 			if(multi.getParameter("useyn") == null) {
-				pvo.setUseyn("2");
+				paramMap.put("useyn","2");
 			}else {
-				pvo.setUseyn("1");
+				paramMap.put("useyn","1");
 			}
 			if(multi.getFilesystemName("image") == null)
-				pvo.setImage(multi.getParameter("oldImage"));
+			 paramMap.put("image", multi.getParameter("oldImage"));
 			else
-				pvo.setImage(multi.getFilesystemName("image"));
-		} catch (IOException e) {e.printStackTrace();	}
-		as.updateProduct(pvo);
+				paramMap.put("image", multi.getFilesystemName("image"));
+		} catch (IOException e) {e.printStackTrace();}
+		as.b_updateProduct(paramMap);
+		return "redirect:/adminShortProductDetail.do?pseq="+pseq;
+	}	
+	
+	@RequestMapping(value="/adminProductUpdate.do", method = RequestMethod.POST)
+	public String adminProductUpdate(HttpServletRequest request, Model model) {				
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		
+		String savePath = context.getRealPath("/image/menu/product");
+		System.out.println(savePath);
+		int pseq=0;
+		try {
+			MultipartRequest multi= new MultipartRequest(
+					request, savePath , 5*1024*1024,  "UTF-8", new DefaultFileRenamePolicy() );
+			paramMap.put("pseq",Integer.parseInt(multi.getParameter("pseq")));
+			pseq=Integer.parseInt(multi.getParameter("pseq"));
+			paramMap.put("kind1", multi.getParameter("kind1"));
+			paramMap.put("kind2", multi.getParameter("kind2"));
+			paramMap.put("kind3", multi.getParameter("kind3"));
+			paramMap.put("pname", multi.getParameter("pname"));
+			paramMap.put("price1", Integer.parseInt(multi.getParameter("price1")));
+			paramMap.put("price2", Integer.parseInt(multi.getParameter("price2")));
+			paramMap.put("price3", Integer.parseInt(multi.getParameter("price3")));
+			paramMap.put("content",multi.getParameter("content"));
+			System.out.println(multi.getParameter("useyn") + "//////");
+			if(multi.getParameter("useyn") == null) {
+				paramMap.put("useyn",2);
+			}else {
+				paramMap.put("useyn",1);
+			}
+			if(multi.getFilesystemName("image") == null)
+			 paramMap.put("image", multi.getParameter("oldImage"));
+			else
+				paramMap.put("image", multi.getFilesystemName("image").toString());
+			as.b_updateProduct(paramMap);
+		} catch (IOException e) {e.printStackTrace();}
 		return "redirect:/adminProductDetail.do?pseq="+pseq;
 	}
-	*/
+	
 
 	// 관리자 주문 리스트
 	@RequestMapping(value="/adminOrderList")

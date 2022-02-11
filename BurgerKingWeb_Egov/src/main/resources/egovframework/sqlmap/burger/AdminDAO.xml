@@ -120,8 +120,9 @@
 	
 	<update id="b_updateProduct" statementType="CALLABLE" parameterType="java.util.HashMap">
 	{
-	CALL b_updateProduct
-		(#{kind1},  #{kind2}, #{kind3},#{pname}, #{price1}, #{price2}, #{price3}, #{content}, #{useyn}, #{image})}
+	CALL b_updateProduct 
+		(#{pseq}, #{kind1}, #{kind2}, #{kind3}, #{pname}, #{price1}, #{price2}, #{price3}, #{content}, #{useyn}, 
+		#{image})}
 	</update>
 	
 	<select id="b_adminGetResult" statementType="CALLABLE" parameterType="java.util.HashMap">

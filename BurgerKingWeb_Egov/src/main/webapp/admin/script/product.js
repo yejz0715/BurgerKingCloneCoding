@@ -12,7 +12,7 @@ function go_mov(){
 	location.href="adminProductList.do";
 }
 function go_mov2(){
-	location.href="adminShortProductList.do";
+	document.frm.submit();
 }
 
 function del_product(){
@@ -138,7 +138,7 @@ function go_mod_save2(k1){
 		document.frm.kind2.focus();
 	}else{
 		if(confirm('수정하시겠습니까?')){
-			document.frm.action = "adminShortProductUpdate.do?k1="+k1;
+			document.frm.action = "adminShortProductUpdate.do";
 			document.frm.submit();
 		}
 	}

@@ -18,4 +18,6 @@ public interface OrderService {
 
 	void deleteOrder2(HashMap<String, Object> paramMap);
 
+	void getOrderByOseq(HashMap<String, Object> paramMap);
+
 }

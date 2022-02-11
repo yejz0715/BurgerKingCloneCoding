@@ -18,10 +18,10 @@
 						<c:forEach items="${kindList1}" var="kind1" varStatus="status">
 							<c:choose>
 								<c:when test="${productVO.KIND1==status.count}">
-									<option value="${status.COUNT}" selected="selected">${kind1}</option>
+									<option value="${status.count}" selected="selected">${kind1}</option>
 								</c:when>
 								<c:otherwise>
-									<option value="${status.COUNT}">${kind1}</option>
+									<option value="${status.count}">${kind1}</option>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -36,11 +36,11 @@
 					<select name="kind3">
 						<c:forEach items="${kindList3}" var="kind3" varStatus="status">
 							<c:choose>
-								<c:when test="${productVO.KIND3==status.COUNT}">
-									<option value="${status.COUNT}" selected="selected">${kind3}</option>
+								<c:when test="${productVO.KIND3==status.count}">
+									<option value="${status.count}" selected="selected">${kind3}</option>
 								</c:when>
 								<c:otherwise>
-									<option value="${status.COUNT}">${kind3}</option>
+									<option value="${status.count}">${kind3}</option>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>

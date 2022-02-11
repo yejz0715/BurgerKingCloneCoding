@@ -20,8 +20,6 @@ public interface OrderDAO {
 //
 //	public void insertseq(int cseq, int oseq, int odseq);
 //
-//	public ArrayList<orderVO> getOrderByOseq(int oseq);
-//
 //	public int getOseq(String odseq);
 //
 //	public void deleteOrderDetail(String odseq);
@@ -49,6 +47,8 @@ public interface OrderDAO {
 	void b_getOrderDetail(HashMap<String, Object> paramMap);
 
 	void b_deleteOrder2(HashMap<String, Object> paramMap);
+
+	void b_getOrderByOseq(HashMap<String, Object> paramMap);
 
 	
 }

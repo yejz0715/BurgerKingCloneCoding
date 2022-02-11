@@ -20,10 +20,6 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 		return pdao.getDeliveryDetail(pseq);
 	}
 
-	public ArrayList<subproductOrderVO> selectSubProductOrder5(int oseq) {
-		return pdao.selectSubProductOrder5(oseq);
-	}
-
 	public ArrayList<subproductOrderVO> selectSubProductOrder6(String odseq) {
 		return pdao.selectSubProductOrder6(odseq);
 	}
@@ -100,5 +96,10 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	@Override
 	public void selectSubProductOrder4(HashMap<String, Object> paramMap) {
 		pdao.b_selectSubProductOrder4(paramMap);
+	}
+
+	@Override
+	public void selectSubProductOrder5(HashMap<String, Object> paramMap1) {
+		pdao.b_selectSubProductOrder5(paramMap1);
 	}
 }

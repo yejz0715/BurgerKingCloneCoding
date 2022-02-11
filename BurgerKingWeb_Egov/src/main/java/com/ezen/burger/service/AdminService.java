@@ -50,4 +50,6 @@ public interface AdminService {
 
 	void b_insertProduct(HashMap<String, Object> pvo);
 
+	void b_updateProduct(HashMap<String, Object> paramMap);
+
 }

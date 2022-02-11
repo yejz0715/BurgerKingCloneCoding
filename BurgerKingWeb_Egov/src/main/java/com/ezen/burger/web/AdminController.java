@@ -589,7 +589,7 @@ public class AdminController {
 	}
 	
 // shortproduct는 썸네일을 위한 작업
-	@RequestMapping("adminShortProductList.do")
+	@RequestMapping(value="/adminShortProductList.do")
 	public String adminShortProductList(HttpServletRequest request, Model model) {		
 			HttpSession session = request.getSession();
 			
@@ -645,7 +645,7 @@ public class AdminController {
 		return "admin/product/shortproductList";
 	}
 
-	@RequestMapping("adminProductList.do")
+	@RequestMapping(value="/adminProductList.do")
 	public String adminProductList(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		
@@ -717,7 +717,7 @@ public class AdminController {
 	}
 	}
 	
-	@RequestMapping("/adminProductWriteForm.do")
+	@RequestMapping(value="/adminProductWriteForm.do")
 	public String adminProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
@@ -730,7 +730,7 @@ public class AdminController {
 		}
 	}
 	
-	@RequestMapping("/adminShortProductWriteForm.do")
+	@RequestMapping(value="/adminShortProductWriteForm.do")
 	public String adminShortProductWriteForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
@@ -745,16 +745,12 @@ public class AdminController {
 	
 	@RequestMapping(value = "adminProductWrite.do", method = RequestMethod.POST)
 	public String adminProductWrite(Model model, HttpServletRequest request,HttpServletResponse response){
-		
-		
-		
 		String savePath = context.getRealPath("/image/menu/product");
 		System.out.println(savePath);
-
+		
 		try {
 			MultipartRequest multi = new MultipartRequest(request, savePath, 5 * 1024 * 1024, "UTF-8",
 					new DefaultFileRenamePolicy());
-			
 			String k1 = multi.getParameter("kind1");
 			String k2 = multi.getParameter("kind2");
 			String k3 = multi.getParameter("kind3");
@@ -811,8 +807,8 @@ public class AdminController {
 		} catch (IOException e) {e.printStackTrace();	}
 		return "redirect:/adminProductList.do";
 	}
-	/*
-	@RequestMapping(value = "adminShortProductWrite.do", method = RequestMethod.POST)
+	
+	@RequestMapping(value = "/adminShortProductWrite.do", method = RequestMethod.POST)
 	public String adminShortProductWrite(Model model, HttpServletRequest request,
 			HttpServletResponse response) {
 		String savePath = context.getRealPath("/image/menu/product");
@@ -821,38 +817,46 @@ public class AdminController {
 		try {
 			MultipartRequest multi = new MultipartRequest(request, savePath, 5 * 1024 * 1024, "UTF-8",
 					new DefaultFileRenamePolicy());
-			
 			String k1 = multi.getParameter("kind1");
 			String k2 = multi.getParameter("kind2");
+			System.out.println(1);
+			HashMap<String, Object>paramMap=new HashMap<String, Object>();
+			paramMap.put("kind1", k1);
+			paramMap.put("kind2", k2);
+			paramMap.put("ref_cursor", null);
+			System.out.println(2);
+			as.b_selectProduct2(paramMap);
+			System.out.println(3);
+			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
-			int result = as.checkShortProductYN2(k1, k2);
-			
-			if(result == 2) {
+			if(list.size()!=0) {
 				response.setContentType("text/html; charset=UTF-8");
 				PrintWriter writer = response.getWriter();
 				writer.println("<script>alert('해당하는 분류번호 값이 이미 있습니다.'); location.href='adminShortProductWriteForm';</script>");
 				writer.close();
+				System.out.println(4);
 			}else {
-				ProductVO pvo = new ProductVO();
-				pvo.setKind1(multi.getParameter("kind1"));
-				pvo.setKind2(multi.getParameter("kind2"));
-				pvo.setKind3("4");
-			    pvo.setPname(multi.getParameter("pname"));
-			    pvo.setPrice1(Integer.parseInt(multi.getParameter("price1")));
-			    pvo.setPrice2(0);
-			    pvo.setPrice3(0);
-			    pvo.setContent("");
-			    pvo.setImage(multi.getFilesystemName("image"));
-			    pvo.setUseyn(multi.getParameter("useyn"));
-			    
-			    as.insertProduct(pvo);
+				HashMap<String, Object>pvo=new HashMap<String, Object>();
+				pvo.put("kind1", multi.getParameter("kind1"));
+				pvo.put("kind2", multi.getParameter("kind2"));
+				pvo.put("kind3", "4" );
+				pvo.put("pname", multi.getParameter("pname"));
+				pvo.put("price1", Integer.parseInt(multi.getParameter("price1")));
+			    pvo.put("price2", Integer.parseInt("0"));
+				pvo.put("price3", Integer.parseInt("0"));
+				pvo.put("content", " ");
+				pvo.put("image", multi.getFilesystemName("image"));
+				pvo.put("useyn", multi.getParameter("useyn"));
+				System.out.println(5);
+			    as.b_insertProduct(pvo);
+			    System.out.println(6);
 			}
 			
 		} catch (IOException e) {e.printStackTrace();	}
 		return "redirect:/adminShortProductList.do";
 	}
-	*/
-	@RequestMapping("adminProductDetail.do")
+	
+	@RequestMapping(value="/adminProductDetail.do")
 	public String productDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
@@ -879,8 +883,8 @@ public class AdminController {
 			return "admin/product/productDetail";
 		}
 	}
-	/*
-	  	@RequestMapping("adminShortProductDetail.do")
+	
+	  	@RequestMapping(value="/adminShortProductDetail.do")
 	public String shortProductDetail(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
@@ -898,11 +902,11 @@ public class AdminController {
 			HashMap<String,Object>resultMap=list.get(0);
 			// 카테고리 별 타이틀을 배열에 저장 
 			String kindList1[] = {"0", "스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
-			int index = Integer.parseInt(resultMap.get("Kind1").toString());
+			int index = Integer.parseInt(resultMap.get("KIND1").toString());
 			String kindList3[] = {"0", "Single", "Set", "LargeSet", "Menu list"};
-			int index2 = Integer.parseInt(resultMap.get("Kind1").toString());
+			int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 			String useynList[] = {"0", "사용", "미사용"};
-			int index3 = Integer.parseInt(resultMap.get("useyn").toString());
+			int index3 = Integer.parseInt(resultMap.get("USEYN").toString());
 			// 추출한 kind 번호로 배열에서 해당 타이틀 추출 & 리퀘스트에 저장 
 			model.addAttribute("kind1", kindList1[index]);
 			model.addAttribute("kind3", kindList3[index2]);
@@ -913,37 +917,63 @@ public class AdminController {
 			return "admin/product/shortproductDetail";
 		}
 	}
-	/*
-	@RequestMapping("adminProductUpdateForm")
+	
+	@RequestMapping(value="/adminProductUpdateForm.do")
 	public String adminProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
-		ProductVO pvo = as.productDetail(pseq);
-		model.addAttribute("productVO",pvo);
+		HashMap<String, Object> paramMap=new HashMap<String, Object>();
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
+		paramMap.put("pseq",pseq); 
+		paramMap.put("ref_cursor",null);
+		as.b_productDetail(paramMap);
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		HashMap<String,Object>resultMap=list.get(0);
+		
 		String kindList1[] = {"스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
 		String kindList3[] = {"Single", "Set", "LargeSet"};
+		model.addAttribute("kindList1", kindList1);
+		model.addAttribute("kindList3", kindList3);
+		int index = Integer.parseInt(resultMap.get("KIND1").toString());
+		int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 		
-		request.setAttribute("kindList1", kindList1);
-		request.setAttribute("kindList3", kindList3);
-		int index = Integer.parseInt(pvo.getKind1());
-		int index2 = Integer.parseInt(pvo.getKind3());
-		request.setAttribute("kind", kindList1[index-1]);
-		request.setAttribute("kind3", kindList3[index2-1]);
+		model.addAttribute("productVO",paramMap);
+		model.addAttribute("kind", kindList1[index-1]);
+		model.addAttribute("kind3", kindList3[index2-1]);
 		return "admin/product/productUpdate";
 	}
+   }
 	
 	@RequestMapping(value="adminShortProductUpdateForm", method = RequestMethod.POST)
-	public String adminShortProductUpdateForm(@RequestParam("pseq") int pseq,
-			HttpServletRequest request, Model model) {
-		ProductVO pvo = as.productDetail(pseq);
-		model.addAttribute("productVO",pvo);
+	public String adminShortProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
+		HashMap<String, Object> paramMap=new HashMap<String, Object>();
+		
+		HttpSession session = request.getSession();
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
+		paramMap.put("pseq",pseq); 
+		paramMap.put("ref_cursor",null);	
+		as.b_productDetail(paramMap);
+		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
+		HashMap<String,Object>resultMap=list.get(0);
+		
 		String k1 = request.getParameter("k1");
 		String kindList1[] = {"스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
-		int index = Integer.parseInt(pvo.getKind1());
-		request.setAttribute("kindList1", kindList1);
-		request.setAttribute("kind", kindList1[index-1]);
-		request.setAttribute("k1", k1);
+		int index = Integer.parseInt(resultMap.get("KIND1").toString());
+		
+		model.addAttribute("productVO", resultMap);
+		model.addAttribute("kindList1", kindList1);
+		model.addAttribute("kind", kindList1[index-1]);
+		model.addAttribute("k1", k1);
 		return "admin/product/shortproductUpdate";
 	}
-	
+	}	
+/*	
 	@RequestMapping("/selectimg")
 	public String selectimg(HttpServletRequest request) {
 		String k1 = request.getParameter("k1");
@@ -969,43 +999,43 @@ public class AdminController {
 		model.addAttribute("k1", k1);
 		return "admin/product/completupload";
 	}
-	
-	@RequestMapping(value="/adminShortProductUpdate", method = RequestMethod.POST)
-	public String adminShortProductUpdate(HttpServletRequest request, @ModelAttribute("ProductVO")
-			ProductVO p, Model model, @RequestParam("k1") String k1) {				
-		ProductVO pvo = new ProductVO();
+	*/
+	@RequestMapping(value="/adminShortProductUpdate.do", method = RequestMethod.POST)
+	public String adminShortProductUpdate(HttpServletRequest request, Model model, @RequestParam("k1") String k1) {				
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		int pseq=0;
 		String savePath = context.getRealPath("/image/menu/product");
-		MultipartRequest multi;
+		System.out.println(savePath);
 		try {
-			multi = new MultipartRequest(
+			MultipartRequest multi = new MultipartRequest(
 					request, savePath , 5*1024*1024,  "UTF-8", new DefaultFileRenamePolicy() );
-			pvo.setPseq(Integer.parseInt(multi.getParameter("pseq")));
-			pseq=Integer.parseInt(multi.getParameter("pseq"));
-			pvo.setKind1(multi.getParameter("kind1"));
-			pvo.setKind2(multi.getParameter("kind2"));
-			pvo.setKind3(multi.getParameter("kind3"));
-			pvo.setPname(multi.getParameter("pname"));
-			pvo.setPrice1(0);
-			pvo.setPrice2(0);
-			pvo.setPrice3(0);
-			pvo.setContent("");
+			paramMap.put("pseq",Integer.parseInt(multi.getParameter("pseq")));
+			//pseq=Integer.parseInt(multi.getParameter("pseq"));
+			paramMap.put("kind1", multi.getParameter("kind1"));
+			paramMap.put("kind2", multi.getParameter("kind2"));
+			paramMap.put("kind3", multi.getParameter("kind3"));
+			paramMap.put("pname", multi.getParameter("pname"));
+			paramMap.put("price1",0);
+			paramMap.put("price2",0);
+			paramMap.put("price3",0);
+			//pvo.setPrice3(0);
+			paramMap.put("content", " ");
 			System.out.println(multi.getParameter("useyn") + "//////");
-			if(multi.getParameter("useyn") == null) {
-				pvo.setUseyn("2");
+			if(request.getParameter("useyn") == null) {
+				paramMap.put("useyn","2");
 			}else {
-				pvo.setUseyn("1");
+				paramMap.put("useyn","2");
 			}
-			if(multi.getFilesystemName("image") == null)
-				pvo.setImage(multi.getParameter("oldImage"));
+			if(request.getParameter("image") == null)
+			 paramMap.put("image", request.getParameter("oldimage"));
 			else
-				pvo.setImage(multi.getFilesystemName("image"));
+				paramMap.put("image", request.getParameter("image"));
 		} catch (IOException e) {e.printStackTrace();}
-		as.updateProduct(pvo);
-		return "redirect:/adminShortProductDetail?pseq="+pseq;
+		as.b_updateProduct(paramMap);
+		return "redirect:/adminShortProductDetail.do?pseq="+request.getParameter("pseq");
 	}	
-	
-	@RequestMapping(value="/adminProductUpdate", method = RequestMethod.POST)
+	/*
+	@RequestMapping(value="/adminProductUpdate.do", method = RequestMethod.POST)
 	public String adminProductUpdate(HttpServletRequest request, @ModelAttribute("ProductVO")
 			ProductVO p, Model model) {				
 		ProductVO pvo = new ProductVO();
@@ -1037,7 +1067,7 @@ public class AdminController {
 				pvo.setImage(multi.getFilesystemName("image"));
 		} catch (IOException e) {e.printStackTrace();	}
 		as.updateProduct(pvo);
-		return "redirect:/adminProductDetail?pseq="+pseq;
+		return "redirect:/adminProductDetail.do?pseq="+pseq;
 	}
 	*/
 

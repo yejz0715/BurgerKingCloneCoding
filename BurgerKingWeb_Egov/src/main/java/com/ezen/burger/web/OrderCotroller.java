@@ -333,56 +333,76 @@ public class OrderCotroller {
 			return "redirect:/loginForm.do";
 		}
 	}
-	/*
+	
 	// 비회원 주문 내역창 불러오기
 	@RequestMapping(value="/nonOrderList")
-	public ModelAndView nonOrderList(HttpServletRequest request){
-		ModelAndView mav = new ModelAndView();
+	public String nonOrderList(HttpServletRequest request, Model model){
 		int oseq = Integer.parseInt(request.getParameter("oseq"));
 		int pwd = Integer.parseInt(request.getParameter("pwd2"));
 		
 		if(request.getParameter("oseq")==null || request.getParameter("pwd2")==null) {
-			mav.setViewName("redirect:/loginForm");
-			return mav;
+			model.addAttribute("message2", "조회하기 위한 정보를 정확하게 입력해주세요.");
+			return "redirect:/loginForm.do";
 		}		
 		// 입력받은 주문번호의 내역을 가져오기
-		ArrayList<orderVO> ovo = os.getOrderByOseq(oseq);
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("oseq", oseq);
+		paramMap.put("ref_cursor", null);
+		
+		os.getOrderByOseq(paramMap);
+		
+		ArrayList<HashMap<String, Object>> ovo = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		
 		// 해당 주문이 없거나, 비번이 없을 때,
 		if(ovo.size() == 0) {
-			mav.addObject("message2", "해당 주문이 없습니다.");
-			mav.setViewName("member/loginForm");
-		}else if(Integer.parseInt(ovo.get(0).getPwd()) != pwd) {
-			mav.addObject("message2", "비밀번호가 다릅니다.");
-			mav.setViewName("member/loginForm");
-		}else if(Integer.parseInt(ovo.get(0).getPwd()) == pwd) {
+			model.addAttribute("message2", "해당 주문이 없습니다.");
+			return "member/loginForm";
+		}else if(Integer.parseInt(ovo.get(0).get("PWD").toString()) != pwd) {
+			model.addAttribute("message2", "비밀번호가 다릅니다.");
+			return "member/loginForm";
+		}else if(Integer.parseInt(ovo.get(0).get("PWD").toString()) == pwd) {
 			int totalPrice = 0; 
-			for(orderVO order : ovo) totalPrice += order.getPrice1() * order.getQuantity();
-			
+			for(HashMap<String, Object> order : ovo) {
+				totalPrice += Integer.parseInt(order.get("PRICE1").toString()) * 
+						Integer.parseInt(order.get("QUANTITY").toString());
+			}
 			// 해당 접속 회원의 추가 재료의 목록을 가져오기
-			ArrayList<subproductOrderVO> spovo = ps.selectSubProductOrder5(oseq);
+			HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+			paramMap1.put("oseq", oseq);
+			paramMap1.put("ref_cursor", null);
+			
+			ps.selectSubProductOrder5(paramMap1);
+			
+			ArrayList<HashMap<String, Object>> spovo = (ArrayList<HashMap<String, Object>>)paramMap1.get("ref_cursor"); 
 			
 			for(int i = 0; i < spovo.size(); i++) {
-				int result = ps.getResult(spovo.get(i).getOdseq());
-				if(result == 1 || result == 2 || result == 3) {
-					totalPrice += spovo.get(i).getAddprice();
+				HashMap<String, Object> temp = new HashMap<String, Object>();
+				temp.put("odseq", spovo.get(i).get("ODSEQ"));
+				temp.put("ref_cursor", null);
+				ps.getResult(temp);
+				ArrayList<HashMap<String, Object>> results = (ArrayList<HashMap<String, Object>>)temp.get("ref_cursor");
+				for(HashMap<String, Object> result : results ) {
+					if(Integer.parseInt(result.get("RESULT").toString()) == 1 || 
+						Integer.parseInt(result.get("RESULT").toString()) == 2 || 
+						Integer.parseInt(result.get("RESULT").toString()) == 3) {
+						totalPrice += Integer.parseInt(spovo.get(i).get("ADDPRICE").toString());
+					}
 				}
 			}
 			
-			mav.addObject("totalPrice", totalPrice);
-			mav.addObject("spseqAm", spovo);
-			mav.addObject("address", ovo.get(0).getAddress());
-			mav.addObject("userPhone", ovo.get(0).getPhone());
-			mav.addObject("result", ovo.get(0).getResult());
-			mav.addObject("ovo", ovo);
-			mav.setViewName("delivery/guestOrderList");
+			model.addAttribute("totalPrice", totalPrice);
+			model.addAttribute("spseqAm", spovo);
+			model.addAttribute("address", ovo.get(0).get("ADDRESS"));
+			model.addAttribute("userPhone", ovo.get(0).get("PHONE"));
+			model.addAttribute("result", ovo.get(0).get("RESULT"));
+			model.addAttribute("ovo", ovo);
+			return "delivery/guestOrderList";
 		}else {
-			mav.addObject("message2", "기타 오류로 조회가 불가능합니다. 관리자에게 문의하세요.");
-			mav.setViewName("member/loginForm");
+			model.addAttribute("message2", "기타 오류로 조회가 불가능합니다. 관리자에게 문의하세요.");
+			return "member/loginForm";
 		}
-		return mav;
 	}
-	*/
+	
 	// 주문 삭제
 	@RequestMapping(value="/orderDelete.do")
 	public String orderDelete(HttpServletRequest request, Model model,

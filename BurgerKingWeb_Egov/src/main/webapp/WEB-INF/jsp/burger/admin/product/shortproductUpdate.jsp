@@ -58,18 +58,9 @@
 					<img src="<c:url value='image/menu/product/${productVO.IMAGE}'/>" width="200px"><br>
       				<input type="file" name="image" >
 				</td>
-			
-				<%-- <th>상품이미지</th>
-				<td colspan="9">
-					<img src="<c:url value='image/menu/product/${productVO.IMAGE}'/>" width="200px"><br>
-					<div id="imageName" style="float:left; font-size:120%;margin-right:20px;font-weight:bold"></div>
-					<input type="button" class="btn" value="이미지선택" onClick="selectFile(${k1});"
-					style="width:30%">
-      				<input type="hidden" name="image" value="">* 주의 : 이미지를 수정할때에만 선택해주세요
-				</td> --%>
 			</tr>
 		</table>
-		<input type="button" class="btn" value="수정" onclick="go_mod_save2()">
+		<input type="button" class="btn" value="수정" onclick="go_mod_save2(${k1})">
 		<input type="button" class="btn" value="취소" onclick=
 		"location.href='adminProductDetail.do?pseq=${productVO.PSEQ}'">
 	</form>

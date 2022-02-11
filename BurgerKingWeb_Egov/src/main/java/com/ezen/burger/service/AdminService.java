@@ -52,4 +52,5 @@ public interface AdminService {
 
 	void b_updateProduct(HashMap<String, Object> paramMap);
 
+
 }

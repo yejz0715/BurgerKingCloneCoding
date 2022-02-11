@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
-<%@ include file="../include/header.jsp"%>
+<%@ include file="../mobile/include/header.jsp"%>
 <!-- 
 <article>
 	<h1> 모바일 페이지입니다. 반가워요</h1>
@@ -13,9 +13,9 @@
  <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/buger.css'/>" >
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/mobile.css'/>" >
 
-<script type="text/javascript" src="<c:url value='static/script/buger.js'/>"></script>
+<script type="text/javascript" src="<c:url value='static/script/mbuger.js'/>"></script>
 </head>
 <body>
 
@@ -102,7 +102,7 @@
 	
 	
 	         <div class="web_container3">
-	            <div class="cont2">
+	            <div class="cont2" >
 	              <h2 class="tit1">집에서 만나는 버거킹</h2>
                   <p class="WEB1">딜리버리 전화주문 안내 10:00–22:00 / 연중무휴 (매장별로 상이할 수
                      있습니다.)</p>

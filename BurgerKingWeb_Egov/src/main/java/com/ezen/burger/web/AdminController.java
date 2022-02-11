@@ -940,7 +940,7 @@ public class AdminController {
 		int index = Integer.parseInt(resultMap.get("KIND1").toString());
 		int index2 = Integer.parseInt(resultMap.get("KIND3").toString());
 		
-		model.addAttribute("productVO",paramMap);
+		model.addAttribute("productVO",resultMap);
 		model.addAttribute("kind", kindList1[index-1]);
 		model.addAttribute("kind3", kindList3[index2-1]);
 		return "admin/product/productUpdate";
@@ -967,7 +967,7 @@ public class AdminController {
 		String kindList1[] = {"스페셜&할인팩", "프리미엄", "와퍼", "주니어&버거", "올데이킹&치킨버거", "사이드", "음료&디저트", "독퍼"};
 		int index = Integer.parseInt(resultMap.get("KIND1").toString());
 		
-		model.addAttribute("productVO",paramMap);
+		model.addAttribute("productVO", resultMap);
 		model.addAttribute("kindList1", kindList1);
 		model.addAttribute("kind", kindList1[index-1]);
 		model.addAttribute("k1", k1);
@@ -1033,7 +1033,7 @@ public class AdminController {
 				paramMap.put("image", request.getParameter("image"));
 		} catch (IOException e) {e.printStackTrace();}
 		as.b_updateProduct(paramMap);
-		return "redirect:/adminShortProductDetail.do?pseq="+request.getParameter("pseq");
+		return "redirect:/adminShortProductDetail.do?pseq="+pseq;
 	}	
 	/*
 	@RequestMapping(value="/adminProductUpdate.do", method = RequestMethod.POST)

@@ -126,7 +126,7 @@ function go_mod_save(){
 		}
 	}
 }
-function go_mod_save2(k1){
+function go_mod_save2(){
 	if(document.frm.kind1.value==""){
 		alert("상품분류를 선택하세요.");
 		document.frm.kind1.focus();
@@ -138,7 +138,7 @@ function go_mod_save2(k1){
 		document.frm.kind2.focus();
 	}else{
 		if(confirm('수정하시겠습니까?')){
-			document.frm.action = "adminShortProductUpdate.do?k1="+k1;
+			document.frm.action = "adminShortProductUpdate.do?";
 			document.frm.submit();
 		}
 	}

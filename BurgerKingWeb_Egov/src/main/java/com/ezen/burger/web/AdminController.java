@@ -1100,29 +1100,9 @@ public class AdminController {
 			}else {
 				as.b_adminListOrder2(paramMap); //order_view2
 			}
-			
 
 			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 			
-			/*Paging paging = new Paging();
-			paging.setPage(page);
-			
-			HashMap<String, Object> paramMap = new HashMap<String, Object>();
-			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
-			paramMap.put("key", key);
-			
-			as.b_getAllCountMem(paramMap);
-			System.out.println(paramMap);
-			int cnt = Integer.parseInt( paramMap.get("cnt").toString() );
-			paging.setTotalCount( cnt );
-			
-			paramMap.put("startNum" , paging.getStartNum() );
-			paramMap.put("endNum", paging.getEndNum() );
-			paramMap.put("ref_cursor", null);
-			as.b_listMember(paramMap);
-
-			ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
-			*/
 			model.addAttribute("kind", kind);
 			model.addAttribute("orderList", list);
 			model.addAttribute("paging", paging);

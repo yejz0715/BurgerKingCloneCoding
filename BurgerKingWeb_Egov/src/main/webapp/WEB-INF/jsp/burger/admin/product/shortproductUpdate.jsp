@@ -15,11 +15,11 @@
 					<select name="kind1">
 						<c:forEach items="${kindList1}" var="kind1" varStatus="status">
 							<c:choose>
-								<c:when test="${productVO.KIND1==status.COUNT}">
-									<option value="${status.COUNT}" selected="selected">${kind1}</option>
+								<c:when test="${productVO.KIND1==status.count}">
+									<option value="${status.count}" selected="selected">${kind1}</option>
 								</c:when>
 								<c:otherwise>
-									<option value="${status.COUNT}">${kind1}</option>
+									<option value="${status.count}">${kind1}</option>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
@@ -55,7 +55,7 @@
 			<tr>
 				<th>상품이미지</th>
 				<td colspan="9">
-					<img src="<c:url value='image/menu/product/${productVO.image}'/>" width="200px"><br>
+					<img src="<c:url value='image/menu/product/${productVO.IMAGE}'/>" width="200px"><br>
 					<div id="imageName" style="float:left; font-size:120%;margin-right:20px;font-weight:bold"></div>
 					<input type="button" class="btn" value="이미지선택" onClick="selectFile(${k1});"
 					style="width:30%">

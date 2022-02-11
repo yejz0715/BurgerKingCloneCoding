@@ -161,7 +161,7 @@ BEGIN
         select result from order_detail where odseq = p_odseq;
 end;
 
--- 상품 추가시 맞는 종류가 선택되었는지 확인하는 프로시저
+-- admin_pro 상품 추가시 맞는 종류가 선택되었는지 확인하는 프로시저
 create or replace PROCEDURE b_selectProduct1(        
     p_kind1 IN product.kind1%TYPE,    
     p_rc OUT SYS_REFCURSOR
@@ -172,7 +172,7 @@ BEGIN
         select * from product where kind1 = p_kind1;
 end;
 
--- 상품 추가시 썸네일이 있는 상품인지 확인하는 프로시저
+-- admin_pro 상품 추가시 썸네일이 있는 상품인지 확인하는 프로시저
 create or replace PROCEDURE b_selectProduct2(        
     p_kind1 IN product.kind1%TYPE,    
     p_kind2 IN product.kind2%TYPE,    
@@ -184,7 +184,7 @@ BEGIN
         select * from product where kind1 = p_kind1 and kind2 = p_kind2;
 end;
 
--- 상품 추가 프로시저
+--admin_pro  상품 추가 프로시저
 create or replace PROCEDURE b_insertProduct(        
     p_kind1 in product.kind1%type,
     p_kind2 in product.kind2%type,
@@ -203,4 +203,25 @@ BEGIN
 		image, useyn) values(pseq.nextVal, p_kind1, p_kind2, p_kind3, p_pname, p_price1, p_price2, p_price3, 
 		p_content, p_image, p_useyn);
     commit;
-end;    
+end; 
+--admin_pro 수정
+create or replace PROCEDURE updateProduct
+(    p_kind1 IN product.kind1%TYPE,
+     p_kind2 IN product.kind2%TYPE,
+     p_kind3 IN product.kind3%TYPE,
+     p_pname IN product.pname%TYPE,
+     p_price1 IN product.price1%TYPE,
+     p_price2 IN product.price2%TYPE,
+     p_price3 IN product.price3%TYPE,
+     p_content IN product.content%TYPE,
+     p_useyn IN product.useyn%TYPE,
+     p_image IN product.image%TYPE,
+      p_pseq IN product.pseq%TYPE
+)
+IS
+BEGIN
+    update product set kind1=p_kind1, kind2=p_kind2, kind3=p_kind3, pname=p_pname, price1=p_price1, 
+    price2=p_price2, price3=p_price3, content=p_content, useyn=p_useyn, image=p_image where pseq=p_pseq;
+    commit;
+END;
+

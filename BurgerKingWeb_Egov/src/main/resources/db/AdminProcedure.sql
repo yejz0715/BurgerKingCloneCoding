@@ -140,12 +140,13 @@ end;
 
 --admin_shortPro_페이징
 create or replace PROCEDURE b_getShortProductAllCount(
-    p_count out number  
+    p_key in number,
+	p_count out number  
 )
 IS
     vs_count number;    
 begin
-    select count(*) as cnt into vs_count from product;
+    select count(*) as cnt into vs_count from product where pname like '%'||p_key||'%' and kind='4';
     p_count := vs_count;
 end;
 
@@ -167,12 +168,13 @@ end;
 
 --adminPro_페이징
 create or replace PROCEDURE b_getProductAllCount(
-    p_count out number  
+   p_key in number, 
+	p_count out number  
 )
 IS
     vs_count number;    
 begin
-    select count(*) as cnt into vs_count from product;
+    select count(*) as cnt into vs_count from product where  pname like '%'||p_key||'%' and kind3 in ('1','2','3');
     p_count := vs_count;
 end;
 

@@ -9,7 +9,6 @@ html, body {
 body {
 	background-color: #fff;
 	margin-top: 120px;
-	min-width: 1000px;
     min-height: 100%;
     color: #000;
     word-wrap: normal;
@@ -1408,7 +1407,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 .web_container2 {
 	position: relative;
 	width: 1440px;
-	height: 480px;
+/* 	height: 480px; */
 	margin: 0 auto;
 	right: -6px;
 	text-align: center;
@@ -1490,7 +1489,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 .cs_call {
-	right: 100px;
+/* 	right: 100px; */
 	font-size: 4rem;
 	font-weight: bold;
 }

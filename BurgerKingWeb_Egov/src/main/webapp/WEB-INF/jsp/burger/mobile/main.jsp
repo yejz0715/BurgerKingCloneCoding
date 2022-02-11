@@ -22,10 +22,10 @@
 
 
 <div class="clear"></div>
-<div class="mainWrap" style="background-color: #f2ebe6;" id="top";>
+<div class="mainWrap" style="background-color: #f2ebe6;" id="top">
 	   <div class="banner">
-	      <div class="slide" id="slide">
-	         <ul class="cnt" id="cnt">
+	      <div class="slide" id="slide" style="width: 100%;"> 
+	         <ul class="cnt" id="cnt" style="width: 100%;">
 	            <li><a href="eventDetailForm.do?eseq=4"><img
 	                  src="<c:url value='image/main/banner/banner_3.png'/>"></a></li>
 	            <li><a href="eventDetailForm.do?eseq=2"><img
@@ -55,18 +55,17 @@
 	      </div>
 	      </div>
 	      <div class="test" id="test">
-	         <div id="utube">
-	            <iframe width="1440" height="580"
+	         <div id="utube" style="width: 100%;">
+	            <iframe width="100%" height="580"
 	               src="https://www.youtube.com/embed/AeDPdqHbF3w"
 	               title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 	            </iframe>
 	         </div>
 	         <div class="home_snsWrap">
-	            <div class="web_container9">
-	               <ul class="list">
+	            <div class="web_container9" style="width: 100%;">
+	               <ul class="list" style="width: 100%;">
 	                  <li class="youtube"><div class="cont1">
-	                        <a
-	                           href="https://www.youtube.com/channel/UCEKRI0fipK4LEgV98nI2CQA/featured"
+	                        <a href="https://www.youtube.com/channel/UCEKRI0fipK4LEgV98nI2CQA/featured"
 	                           target="_blank"><span><img
 	                              src="<c:url value='image/main/mainyoutube.png'/>"></span></a>
 	                     </div></li>
@@ -84,7 +83,7 @@
 	            </div>
 	         </div>
 	         <div class="home_guide">
-	            <div class="web_container2">
+	            <div class="web_container2" style="width: 100%;"	>
 	               <div class="guide">
 	                  <div id="app">
 	                     <a href="appGuideForm.do"> <img 
@@ -93,7 +92,6 @@
 	                  <div id="delivery77">
 	                     <a href="deliveryUseForm.do"> 
 	                     	<img src="<c:url value='image/main/deliveryimg.png'/>">
-	                     	<img src="<c:url value='image/main/deliveryimg.png' />">
 	                     </a>
 	                  </div>
 	               </div>
@@ -101,11 +99,11 @@
 	         </div>
 	
 	
-	         <div class="web_container3">
-	            <div class="cont2" >
-	              <h2 class="tit1">집에서 만나는 버거킹</h2>
-                  <p class="WEB1">딜리버리 전화주문 안내 10:00–22:00 / 연중무휴 (매장별로 상이할 수
-                     있습니다.)</p>
+	         <div class="web_container3" style="width: 100%; padding: 0;">
+	            <div class="cont2" style="padding:  60px 150px 0 0;">
+	              <h2 class="tit1" style="width: 70%;">집에서 만나는 버거킹</h2>
+                  <p class="tit1" style="color: red; width: 70%;">딜리버리 전화주문 안내 10:00–22:00 / 연중무휴<br>
+                   (매장별로 상이할 수 있습니다.)</p>
                   <p class="cs_call">
                      <strong>1599-0505</strong>
                   </p>
@@ -118,6 +116,4 @@
 
 
    <div class="clear"></div>
-
-<%@ include file="../include/undermenu.jsp" %>
 <%@ include file="../include/footer.jsp" %>

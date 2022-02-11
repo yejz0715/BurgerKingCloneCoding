@@ -67,6 +67,15 @@
                            <li><a href="brandStroyForm.do"><span>버거킹스토리</span></a></li>
                         </ul>
                      </li>
+                     
+                     <li class="menu_item">
+						<span>고객센터</span>
+						<ul class="header_submenu">
+							<li><a href="faqListForm.do?fnum=1"><span>FAQ</span></a></li>
+							<li><a href="qnaForm.do"><span>문의</span></a></li>
+							<li><a href="appGuideForm.do"><span>버거킹 앱 이용안내</span></a></li>
+						</ul>
+					</li>
                   </ul>
                </div>
                

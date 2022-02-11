@@ -114,10 +114,10 @@
       </div>
 
       </div>
-      <a href="#top" class="btn_top" style="display: inline; opacity: 1;">Top</a>
+      <!-- <a href="#top" class="btn_top" style="display: inline; opacity: 1;">Top</a -->
 
 
    <div class="clear"></div>
 
-<%@ include file="../include/undermenu.jsp" %>
+<%-- <%@ include file="../include/undermenu.jsp" %> --%>
 <%@ include file="../include/footer.jsp" %>

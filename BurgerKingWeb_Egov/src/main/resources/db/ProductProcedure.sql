@@ -204,9 +204,11 @@ BEGIN
 		p_content, p_image, p_useyn);
     commit;
 end; 
+
 --admin_pro 수정
-create or replace PROCEDURE updateProduct
-(    p_kind1 IN product.kind1%TYPE,
+create or replace PROCEDURE b_updateProduct
+(     p_pseq IN product.pseq%TYPE,
+      p_kind1 IN product.kind1%TYPE,
      p_kind2 IN product.kind2%TYPE,
      p_kind3 IN product.kind3%TYPE,
      p_pname IN product.pname%TYPE,
@@ -215,8 +217,8 @@ create or replace PROCEDURE updateProduct
      p_price3 IN product.price3%TYPE,
      p_content IN product.content%TYPE,
      p_useyn IN product.useyn%TYPE,
-     p_image IN product.image%TYPE,
-      p_pseq IN product.pseq%TYPE
+     p_image IN product.image%TYPE
+    
 )
 IS
 BEGIN

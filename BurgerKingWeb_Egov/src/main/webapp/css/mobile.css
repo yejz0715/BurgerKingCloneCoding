@@ -22,7 +22,7 @@ body {
 /* footer-------------------------------------------------------------------------------------------------------------------------------- */
 footer {
 	position: absolute;
-	width: 100%;
+	width: 148%;
 	height: 272px;
 	font-size: .875rem;
 	color: #6a6a6a;
@@ -1168,7 +1168,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 	position: absolute;
 	width: 580px; height: 300px;
 	text-align: center;
-	left: 50.15%;
+	/* left: 50.15%; */
 }
 #nonmember_Text{
 	text-align:center;
@@ -1465,7 +1465,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 
 .web_container3 {
 	position: relative;
-	width: 100%;
+	width: 144%;
 	height: 200px;
 	margin: 0 auto;
 	right: -6px;

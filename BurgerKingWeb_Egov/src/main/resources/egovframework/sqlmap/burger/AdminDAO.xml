@@ -124,4 +124,13 @@
 		(#{pseq}, #{kind1}, #{kind2}, #{kind3}, #{pname}, #{price1}, #{price2}, #{price3}, #{content}, #{useyn}, 
 		#{image})}
 	</update>
+	
+	<select id="b_adminGetResult" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_adminGetResult(#{odseq},
+		#{ref_cursor , mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO } ) }
+	</select>
+	
+	<update id="b_updateOrderResult" statementType="CALLABLE" parameterType="java.util.HashMap">
+	{CALL b_updateOrderResult	(#{result},  #{odseq})}
+	</update>
 </mapper>

@@ -102,4 +102,16 @@ public class ProductServiceimpl extends EgovAbstractServiceImpl implements Produ
 	public void selectSubProductOrder5(HashMap<String, Object> paramMap1) {
 		pdao.b_selectSubProductOrder5(paramMap1);
 	}
+
+	@Override
+	public void b_selectSubProductOrder6(HashMap<String, Object> paramMap1) {
+		pdao.b_selectSubProductOrder6(paramMap1);
+		
+	}
+
+	@Override
+	public void b_deleteSpo(HashMap<String, Object> paramMap) {
+		pdao.b_deleteSpo(paramMap);
+		
+	}
 }

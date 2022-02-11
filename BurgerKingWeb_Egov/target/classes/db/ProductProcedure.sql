@@ -235,3 +235,25 @@ BEGIN
     OPEN p_rc FOR
         select * from subproduct_order where oseq = p_oseq order by odseq;
 end; 
+
+-- subproduct odseq로 검색하는 프로시저
+create or replace procedure b_selectSubProductOrder6(
+   p_odseq in subproduct_order.odseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from subproduct_order where odseq = p_odseq order by odseq;
+end;
+
+
+-- sposeq 이용 관리자 페이지에서 추가재료 삭제하는 프로시저
+create or replace procedure b_deleteSpo(
+   p_sposeq in subproduct_order.sposeq%type 
+)
+is
+begin
+   delete from subproduct_order where sposeq = p_sposeq;
+   commit;
+end;

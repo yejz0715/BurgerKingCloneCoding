@@ -34,4 +34,8 @@ public interface ProductService {
 
 	void selectSubProductOrder5(HashMap<String, Object> paramMap1);
 
+	void b_selectSubProductOrder6(HashMap<String, Object> paramMap1);
+
+	void b_deleteSpo(HashMap<String, Object> paramMap);
+
 }

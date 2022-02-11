@@ -37,8 +37,11 @@ public interface ProductDAO {
 	void b_selectSubProductOrder4(HashMap<String, Object> paramMap);
 
 	void b_selectSubProductOrder5(HashMap<String, Object> paramMap1);
-//	public ArrayList<subproductOrderVO> selectSubProductOrder6(String odseq);
 //
 //	public void deleteSpo(String sposeq);
+
+	void b_selectSubProductOrder6(HashMap<String, Object> paramMap1);
+
+	void b_deleteSpo(HashMap<String, Object> paramMap);
 
 }

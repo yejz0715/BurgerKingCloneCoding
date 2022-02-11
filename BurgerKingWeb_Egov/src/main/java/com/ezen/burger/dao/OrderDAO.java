@@ -50,5 +50,19 @@ public interface OrderDAO {
 
 	void b_getOrderByOseq(HashMap<String, Object> paramMap);
 
+	void b_getOseq(HashMap<String, Object> paramMap1);
+
+	void b_deleteOrderDetail(HashMap<String, Object> paramMap1);
+
+	void b_deleteSpo(HashMap<String, Object> paramMap1);
+
+	void b_getOrderDetailByOseq(HashMap<String, Object> paramMap2);
+
+	void b_deleteOrders(HashMap<String, Object> paramMap2);
+
+	void b_getOrder_view(HashMap<String, Object> paramMap1);
+
+	void b_getOrder_view2(HashMap<String, Object> paramMap1);
+
 	
 }

@@ -137,5 +137,22 @@
 			)
 		}
 	</select>
-
+	
+	<select id="b_selectSubProductOrder6" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder6(
+				#{odseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
+	
+	<delete id="b_deleteSpo" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteSpo(
+				#{sposeq}
+			)
+		}
+	</delete>
 </mapper>

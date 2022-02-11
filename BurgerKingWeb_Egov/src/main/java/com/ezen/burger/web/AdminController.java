@@ -1179,94 +1179,128 @@ public class AdminController {
 		}
 		return "redirect:/adminOrderList.do?kind="+kind;
 	}
-	/*
+	
 	// 관리자 주문 리스트 삭제
 	@RequestMapping(value="/adminOrderDelete")
-	public ModelAndView adminOrderDelete(HttpServletRequest request,
-			@RequestParam("kind")String kind) {
-		ModelAndView mav = new ModelAndView();
+	public String adminOrderDelete(HttpServletRequest request, @RequestParam("kind")String kind, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			mav.setViewName("redirect:/admin");
-		}else {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
 			String[] oseqArr = request.getParameterValues("delete");
 			
 			for(String odseq : oseqArr) { 
 				// odseq 값으로 해당 번호 값을 가진 주문의 oseq 값 추출
-				int oseq = os.getOseq(odseq);
+				HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+				paramMap1.put("odseq", odseq);
+				paramMap1.put("ref_cursor", null);
+				os.b_getOseq(paramMap1);
 				
-				// 제거하려했던 odseq 값과 추출한 oseq 값을 이용해 orders와 order_detail에서 데이터 제거
-				// 자세한 설명은 해당 메소드 참조.
-				os.deleteOrder(odseq, oseq);
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
+				HashMap<String, Object>resultMap1 = list.get(0);// oseq값 = resultMap1
+				System.out.println("resultMap1 :" + resultMap1);
+				// odseq 값을 담은 paramMap1을 이용하여 orderDetail 삭제
+				os.b_deleteOrderDetail(paramMap1);
+				// 같은 값의 추가메뉴도 삭제
+				os.b_deleteSpo(paramMap1);
+				
+				// oseq 값을 기반으로 남은 odseq 즉 주문상세가 남아있는지 확인을 한다.
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("oseq", resultMap1.get("OSEQ"));
+				paramMap2.put("ref_cursor", null);
+				System.out.println(paramMap2);
+				os.b_getOrderDetailByOseq(paramMap2);
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>) paramMap2.get("ref_cursor");				
+				
+				// 해당 oseq값에 해당하는 detail이 없으면 orders 테이블의 데이터도 삭제
+				if(list2.size() == 0) {
+					os.b_deleteOrders(paramMap2);
+				}
 			}
-			
-			mav.setViewName("redirect:/adminOrderList?kind="+kind);
 		}
-		return mav;
+		return "redirect:/adminOrderList.do?kind="+kind;
 	}
 	
 	// 관리자 주문 상세페이지
 	@RequestMapping(value="/adminOrderDetailForm")
-	public ModelAndView adminOrderDetailForm(HttpServletRequest request,
-			@RequestParam("kind")String kind, @RequestParam("seq")String odseq) {
-		ModelAndView mav = new ModelAndView();
+	public String adminOrderDetailForm(HttpServletRequest request,
+			@RequestParam("kind")String kind, @RequestParam("seq")String odseq, Model model) {
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			mav.setViewName("redirect:/admin");
-		}else {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
 			// kind 값에 따라 order_view1,2에서 odseq값을 가진 orderVO를 조회한다.
 			if(kind.equals("1")) {
-				orderVO ovo = os.getOrder_view(odseq);
-				int totalPrice = ovo.getPrice1() * ovo.getQuantity();
+				HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+				paramMap1.put("odseq", odseq);
+				paramMap1.put("ref_cursor", null);
+				os.b_getOrder_view(paramMap1);
 				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
+				HashMap<String, Object>resultMap1 = list1.get(0);
+				System.out.println("resultMap1 :" + resultMap1);
+				int totalPrice = Integer.parseInt( resultMap1.get("PRICE1").toString()) * Integer.parseInt( resultMap1.get("QUANTITY").toString());
 				// odseq값을 가진 추가메뉴를 조회한다.
-				ArrayList<subproductOrderVO> list = ps.selectSubProductOrder6(odseq);
+				ps.b_selectSubProductOrder6(paramMap1);
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
 				
-				for(subproductOrderVO sovo : list) {
-					totalPrice += sovo.getAddprice();
+				
+				for(HashMap<String, Object>sovo : list2) {
+					totalPrice += Integer.parseInt( sovo.get("ADDPRICE").toString());
 				}
 				
 				// 조회한 값들을 전송한다.
-				mav.addObject("totalPrice", totalPrice);
-				mav.addObject("kind", kind);
-				mav.addObject("ovo", ovo);
-				mav.addObject("spseqAm", list);
+				model.addAttribute("totalPrice", totalPrice);
+				model.addAttribute("kind", kind);
+				model.addAttribute("ovo", resultMap1);
+				model.addAttribute("spseqAm", list2);
 			}else if(kind.equals("2")) {
-				orderVO ovo = os.getOrder_view2(odseq);
-				int totalPrice = ovo.getPrice1() * ovo.getQuantity();
+				HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+				paramMap1.put("odseq", odseq);
+				paramMap1.put("ref_cursor", null);
+				os.b_getOrder_view2(paramMap1);
 				
+				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
+				HashMap<String, Object>resultMap1 = list1.get(0);
+				System.out.println("resultMap1 :" + resultMap1);
+				int totalPrice = Integer.parseInt( resultMap1.get("PRICE1").toString()) * Integer.parseInt( resultMap1.get("QUANTITY").toString());
 				// odseq값을 가진 추가메뉴를 조회한다.
-				ArrayList<subproductOrderVO> list = ps.selectSubProductOrder6(odseq);
+				ps.b_selectSubProductOrder6(paramMap1);
+				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
 				
-				for(subproductOrderVO sovo : list) {
-					totalPrice += sovo.getAddprice();
+				
+				for(HashMap<String, Object>sovo : list2) {
+					totalPrice += Integer.parseInt( sovo.get("ADDPRICE").toString());
 				}
 				
 				// 조회한 값들을 전송한다.
-				mav.addObject("totalPrice", totalPrice);
-				mav.addObject("ovo", ovo);
-				mav.addObject("kind", kind);
-				mav.addObject("spseqAm", list);
+				model.addAttribute("totalPrice", totalPrice);
+				model.addAttribute("kind", kind);
+				model.addAttribute("ovo", resultMap1);
+				model.addAttribute("spseqAm", list2);
 			}
-			
-			mav.setViewName("admin/order/orderDetail");
 		}
-		return mav;
+		return "admin/order/orderDetail";
 	}
 	
 	// 관리자 페이지에서 주문의 추가 쟤료 삭제
 	@RequestMapping(value="/adminOrderMDelete")
-	public ModelAndView adminOrderMDelete(HttpServletRequest request,
+	public String adminOrderMDelete(HttpServletRequest request,
 			@RequestParam("kind")String kind, @RequestParam("sposeq")String sposeq,
 			@RequestParam("odseq")String odseq) {
-		ModelAndView mav = new ModelAndView();
+
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			mav.setViewName("redirect:/admin");
-		}else {
-			ps.deleteSpo(sposeq);
-			mav.setViewName("redirect:/adminOrderDetailForm?kind="+kind+"&seq="+odseq);
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
+			HashMap<String, Object> paramMap = new HashMap<String, Object>(); 
+			paramMap.put("sposeq", sposeq);
+			ps.b_deleteSpo(paramMap);
+			
 		}
-		return mav;
-	}*/
+		return "redirect:/adminOrderDetailForm.do?kind="+kind+"&seq="+odseq;
+	}
 }

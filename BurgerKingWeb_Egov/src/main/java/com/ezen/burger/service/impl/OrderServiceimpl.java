@@ -101,4 +101,46 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	public void getOrderByOseq(HashMap<String, Object> paramMap) {
 		odao.b_getOrderByOseq(paramMap);
 	}
+
+	@Override
+	public void b_getOseq(HashMap<String, Object> paramMap1) {
+		odao.b_getOseq(paramMap1);
+		
+	}
+
+	@Override
+	public void b_deleteOrderDetail(HashMap<String, Object> paramMap1) {
+		odao.b_deleteOrderDetail(paramMap1);
+		
+	}
+
+	@Override
+	public void b_deleteSpo(HashMap<String, Object> paramMap1) {
+		odao.b_deleteSpo(paramMap1);
+		
+	}
+
+	@Override
+	public void b_getOrderDetailByOseq(HashMap<String, Object> paramMap2) {
+		odao.b_getOrderDetailByOseq(paramMap2);
+		
+	}
+
+	@Override
+	public void b_deleteOrders(HashMap<String, Object> paramMap2) {
+		odao.b_deleteOrders(paramMap2);
+		
+	}
+
+	@Override
+	public void b_getOrder_view(HashMap<String, Object> paramMap1) {
+		odao.b_getOrder_view(paramMap1);
+		
+	}
+
+	@Override
+	public void b_getOrder_view2(HashMap<String, Object> paramMap1) {
+		odao.b_getOrder_view2(paramMap1);
+		
+	}
 }

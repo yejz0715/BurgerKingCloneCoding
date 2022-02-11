@@ -81,7 +81,7 @@
 						</tr>
 						<tr>
 							<th>추가 가격</th>
-							<td colspan="4">${spseqAm.addprice}원</td>
+							<td colspan="4">${spseqAm.ADDPRICE}원</td>
 							<td>
 								<button onclick="deleteSpo('${spseqAm.SPOSEQ}', '${ovo.RESULT}',
 								 '${kind}', '${spseqAm.ODSEQ}');">

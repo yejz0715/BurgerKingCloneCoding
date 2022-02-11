@@ -260,20 +260,6 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
-	public ArrayList<orderVO> listOrder(Paging paging, String key, String kind) {
-		ArrayList<orderVO> ovo = new ArrayList<orderVO>();
-		if(kind.equals("1")) {
-			ovo = adao.listOrder(paging, key);
-		}else {
-			ovo = adao.listOrder2(paging, key);
-		}
-		return ovo;
-	}
-
-	public void updateOrderResult(String odseq, String step) {
-		adao.updateOrderResult(Integer.parseInt(odseq), step);
-	}
-
 	public String getResult(String odseq) {
 		String result = adao.getResult(odseq);
 		result = String.valueOf(Integer.parseInt(result) + 1);

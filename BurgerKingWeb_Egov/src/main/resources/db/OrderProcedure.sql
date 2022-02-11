@@ -97,3 +97,67 @@ begin
    open p_rc for
       select * from order_view2 where oseq = p_oseq and result in ('1', '2', '3');
 end;
+
+-- orderDetail의 삭제
+create or replace procedure b_deleteOrderDetail(
+   p_odseq in order_detail.odseq%type 
+)
+is
+begin
+   delete from order_detail where odseq = p_odseq;
+   commit;
+end;
+
+-- 추가재료의 삭제
+create or replace procedure b_deleteSpo(
+   p_odseq in order_detail.odseq%type 
+)
+is
+begin
+   delete from order_detail where odseq = p_odseq;
+   commit;
+end;
+
+-- oseq 이용, order detail이 남아있는지 확인
+create or replace procedure b_getOrderDetailByOseq(
+   p_oseq in order_detail.oseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from order_detail where oseq = p_oseq;
+end;
+
+-- orders 테이블의 내용 삭제
+create or replace procedure b_deleteOrders(
+   p_oseq in orders.oseq%type 
+)
+is
+begin
+   delete from orders where oseq = p_oseq;
+   commit;
+end;
+
+
+-- orderView 검색 프로시저(회원)
+create or replace procedure b_getOrder_view(
+   p_odseq in order_view.odseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from order_view where odseq = p_odseq;
+end;
+
+-- orderView2 검색 프로시저(비회원)
+create or replace procedure b_getOrder_view2(
+   p_odseq in order_view2.odseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from order_view2 where odseq = p_odseq;
+end;

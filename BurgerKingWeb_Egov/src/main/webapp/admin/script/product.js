@@ -12,7 +12,7 @@ function go_mov(){
 	location.href="adminProductList.do";
 }
 function go_mov2(){
-	location.href="adminShortProductList.do";
+	document.frm.submit();
 }
 
 function del_product(){

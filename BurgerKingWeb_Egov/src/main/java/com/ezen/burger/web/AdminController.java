@@ -947,9 +947,10 @@ public class AdminController {
 	}
    }
 	
-	@RequestMapping(value="adminShortProductUpdateForm", method = RequestMethod.POST)
-	public String adminShortProductUpdateForm(@RequestParam("pseq") int pseq, HttpServletRequest request, Model model) {
+	@RequestMapping(value="adminShortProductUpdateForm.do", method = RequestMethod.POST)
+	public String adminShortProductUpdateForm(HttpServletRequest request, Model model) {
 		HashMap<String, Object> paramMap=new HashMap<String, Object>();
+		int pseq = Integer.parseInt(request.getParameter("pseq"));
 		
 		HttpSession session = request.getSession();
 		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");

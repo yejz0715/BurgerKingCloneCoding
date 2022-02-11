@@ -324,3 +324,25 @@ begin
         ) where rn >= p_startNum
         ) where rn <= p_endNum;
 end;
+
+
+-- odseq 값으로 result값 가져오는 프로시저
+create or replace PROCEDURE b_adminGetResult(
+    p_odseq order_detail.odseq%TYPE,
+    p_rc OUT SYS_REFCURSOR
+    )
+IS
+begin
+    OPEN p_rc For
+        select result from order_detail where odseq = p_odseq;
+end;
+
+-- 불러온 odseq값으로 result값에 +1을 추가하는 프로시저
+create or replace PROCEDURE b_updateOrderResult(
+    p_result order_detail.result%TYPE,
+    p_odseq order_detail.odseq%TYPE
+    )
+IS
+begin
+    update order_detail set result = p_result where odseq = p_odseq;
+end;

@@ -168,6 +168,18 @@ public class AdminServiceimpl extends EgovAbstractServiceImpl implements AdminSe
 		
 	}
 
+	@Override
+	public void b_adminGetResult(HashMap<String, Object> paramMap1) {
+		adao.b_adminGetResult(paramMap1);
+		
+	}
+
+	@Override
+	public void b_updateOrderResult(HashMap<String, Object> paramMap2) {
+		adao.b_updateOrderResult(paramMap2);
+		
+	}
+
 
 	
 	

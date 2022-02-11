@@ -59,6 +59,10 @@ public interface AdminDAO {
 
 	void b_updateProduct(HashMap<String, Object> paramMap);
 
+	void b_adminGetResult(HashMap<String, Object> paramMap1);
+
+	void b_updateOrderResult(HashMap<String, Object> paramMap2);
+
 	/* 
 	 * void deleteQna(int qseq);
 	 * 

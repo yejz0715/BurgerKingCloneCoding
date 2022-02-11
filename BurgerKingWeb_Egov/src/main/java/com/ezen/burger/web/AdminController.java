@@ -1140,29 +1140,46 @@ public class AdminController {
 		}
 		return "admin/order/orderList";
 	}
-	/*
+	
 	// 주문 상태 처리 (1, 2, 3)
 	@RequestMapping(value="/adminOrderSave")
-	public ModelAndView adminOrderSave(HttpServletRequest request,
-			@RequestParam("kind")String kind) {
-		ModelAndView mav = new ModelAndView();
+	public String adminOrderSave(HttpServletRequest request, @RequestParam("kind")String kind, Model model) {
+		
+		
 		HttpSession session = request.getSession();
-		if (session.getAttribute("loginAdmin") == null) {
-			mav.setViewName("redirect:/admin");
-		}else {
+		HashMap<String, Object> loginAdmin = (HashMap<String, Object>)session.getAttribute("loginAdmin");
+		if (loginAdmin == null) {
+			return "admin/adminLogin";
+		} else {
 			// 체크된 데이터들의 odseq값을 가져온다.
+			
 			String[] result = request.getParameterValues("result");
+			
 			for(int i = 0; i < result.length; i++) {
-				// odseq값을 이용해 해당 주문상세의 result+1값을 가져온다.
-				String step = as.getResult(result[i]);
-				// result값을 변경한다.
-				as.updateOrderResult(result[i], step); 
+				// odseq값을 이용해 해당 주문상세의 result값을 가져온다.
+				HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
+
+				paramMap1.put("odseq", result[i]);
+				paramMap1.put("ref_cursor", null);
+				
+				as.b_adminGetResult(paramMap1);
+				
+				// result값을 list에 저장
+				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap1.get("ref_cursor");
+				HashMap<String, Object>resultMap = list.get(0);
+				
+				// result값을 +1하여 변경한다.
+				HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
+				paramMap2.put("odseq", result[i]);
+				paramMap2.put("result", Integer.parseInt( resultMap.get("RESULT").toString()) + 1);
+				System.out.println(paramMap2);
+				as.b_updateOrderResult(paramMap2); 
 			}
-			mav.setViewName("redirect:/adminOrderList?kind="+kind);
+			
 		}
-		return mav;
+		return "redirect:/adminOrderList.do?kind="+kind;
 	}
-	
+	/*
 	// 관리자 주문 리스트 삭제
 	@RequestMapping(value="/adminOrderDelete")
 	public ModelAndView adminOrderDelete(HttpServletRequest request,

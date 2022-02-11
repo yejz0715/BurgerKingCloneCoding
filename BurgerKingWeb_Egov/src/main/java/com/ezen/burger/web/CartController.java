@@ -33,7 +33,6 @@ public class CartController {
 	@RequestMapping(value="/deliveryCartForm.do")
 	public String deliveryCartForm(HttpServletRequest request, Model model) {
 		String message = request.getParameter("message");
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
 		
 		if(session.getAttribute("memberkind") != null) {
@@ -96,7 +95,6 @@ public class CartController {
 				
 				ArrayList<HashMap<String, Object>> list1 = (ArrayList<HashMap<String, Object>>)paramMap2.get("ref_cursor");
 				ArrayList<HashMap<String, Object>> list2 = (ArrayList<HashMap<String, Object>>)session.getAttribute("guestCartList");
-				
 				// 가져온 카트 목록에서 가격 총합 계산 
 				int totalPrice = 0; 
 				for(HashMap<String, Object> cvo : list2) { 
@@ -125,10 +123,10 @@ public class CartController {
 						model.addAttribute("message", message);
 					}
 				}
-				mav.addObject("totalPrice", totalPrice);
-				mav.addObject("spseqAm", spovo);
-				mav.addObject("ovo", list1);
-				mav.addObject("cvo", list2);
+				model.addAttribute("totalPrice", totalPrice);
+				model.addAttribute("spseqAm", spovo);
+				model.addAttribute("ovo", list1);
+				model.addAttribute("cvo", list2);
 				return "delivery/cart";
 			}else {
 				return "redirect:/loginForm.do";
@@ -440,7 +438,7 @@ public class CartController {
 						}
 						
 						HashMap<String, Object> paramMap = new HashMap<String, Object>();
-						paramMap.put("PSEQ", Integer.parseInt(m[0]));
+						paramMap.put("pseq", Integer.parseInt(m[0]));
 						paramMap.put("ref_cursor", null);
 						
 						ps.getProducts(paramMap);
@@ -478,7 +476,7 @@ public class CartController {
 						
 						HashMap<String, Object> spvo = new HashMap<String, Object>();
 						spvo.put("CSEQ", Integer.parseInt(cvo.get("CSEQ").toString()));
-						spvo.put("MSEQ", Integer.parseInt(gvo.get("GSEQ").toString()));
+						spvo.put("GSEQ", Integer.parseInt(gvo.get("GSEQ").toString()));
 						for(int i = 0; i < list.size(); i++) {
 							spvo.put("SPSEQ", Integer.parseInt(list.get(i).get("SPSEQ").toString()));
 							spvo.put("SNAME", list.get(i).get("SNAME").toString());

@@ -30,4 +30,39 @@
 			)
 		}
 	</select>
+	
+	<insert id="b_insertOrder" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_insertOrder(
+				#{id}, #{memberkind},
+				#{oseq, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</insert>
+	
+	<insert id="b_insertOrderDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_insertOrderDetail(
+				#{oseq}, #{pseq}, #{quantity}, #{cseq}
+			)
+		}
+	</insert>
+	
+	<select id="b_getOrderDetail" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getOrderDetail(
+				#{odseq},
+				#{result, mode=OUT, jdbcType=INTEGER}
+			)
+		}
+	</select>
+	
+	<delete id="b_deleteOrder2" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteOrder2(
+				#{odseq}
+			)
+		}
+	</delete>
+	
 </mapper>

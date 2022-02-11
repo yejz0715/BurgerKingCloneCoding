@@ -1,6 +1,5 @@
 package com.ezen.burger.dao;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import egovframework.rte.psl.dataaccess.mapper.Mapper;
@@ -42,6 +41,14 @@ public interface OrderDAO {
 //	public int[] getOseqs(String id);
 
 	void b_getOrderListByGuest(HashMap<String, Object> paramMap2);
+
+	void b_insertOrder(HashMap<String, Object> paramMap2);
+
+	void b_insertOrderDetail(HashMap<String, Object> paramMap2);
+
+	void b_getOrderDetail(HashMap<String, Object> paramMap);
+
+	void b_deleteOrder2(HashMap<String, Object> paramMap);
 
 	
 }

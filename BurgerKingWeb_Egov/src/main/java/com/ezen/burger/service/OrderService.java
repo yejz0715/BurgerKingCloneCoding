@@ -10,4 +10,12 @@ public interface OrderService {
 
 	void getOrderListByGuest(HashMap<String, Object> paramMap2);
 
+	void insertOrder(HashMap<String, Object> paramMap2);
+
+	void insertOrderDetail(HashMap<String, Object> paramMap2);
+
+	void getOrderDetail(HashMap<String, Object> paramMap);
+
+	void deleteOrder2(HashMap<String, Object> paramMap);
+
 }

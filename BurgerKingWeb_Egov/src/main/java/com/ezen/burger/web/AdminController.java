@@ -219,6 +219,8 @@ public class AdminController {
 			}
 
 			Paging paging = new Paging();
+			paging.setPage(page);
+			
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);
@@ -618,6 +620,8 @@ public class AdminController {
 				}
 
 				Paging paging = new Paging();
+				paging.setPage(page);
+				
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 				paramMap.put("key", key);
@@ -672,6 +676,8 @@ public class AdminController {
 			}
 
 			Paging paging = new Paging();
+			paging.setPage(page);
+			
 			HashMap<String, Object> paramMap = new HashMap<String, Object>();
 			paramMap.put("cnt", 0);	//게시물의 갯수를 담아올 공간 생성
 			paramMap.put("key", key);

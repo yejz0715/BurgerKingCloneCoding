@@ -54,7 +54,7 @@
 		<jsp:param name="endPage" value="${paging.endPage}"/>
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
-		<jsp:param name="command" value="adminShortProductList.do"/>
+		<jsp:param name="command" value="adminShortProductList"/>
 	</jsp:include>
 	
 </article>

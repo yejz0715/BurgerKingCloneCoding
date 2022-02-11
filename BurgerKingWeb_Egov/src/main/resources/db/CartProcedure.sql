@@ -22,12 +22,11 @@ end;
 
 -- 게스트 cart 추가를 위한 cseq.nextVal 조회 프로시져
 create or replace PROCEDURE b_getCseq(        
-    p_rc OUT SYS_REFCURSOR
+    p_rc OUT number
 )  
 IS
 BEGIN
-    OPEN p_rc FOR
-       select cseq.nextVal from dual;
+       select cseq.nextVal into p_rc from dual;
 end;
 
 -- 해당 pseq값을 가지고 있는 카트를 최근 등록순으로 조회하는 프로시져 

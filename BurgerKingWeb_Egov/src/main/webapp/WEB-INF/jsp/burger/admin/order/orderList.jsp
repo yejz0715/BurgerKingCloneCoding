@@ -81,7 +81,7 @@
 		<jsp:param name="prev" value="${paging.prev}"/>
 		<jsp:param name="next" value="${paging.next}"/>
 		<jsp:param name="kind" value="${kind}"/>
-		<jsp:param name="command" value="adminOrderList.do"/>
+		<jsp:param name="command" value="adminOrderList"/>
 	</jsp:include>
 </article>
 

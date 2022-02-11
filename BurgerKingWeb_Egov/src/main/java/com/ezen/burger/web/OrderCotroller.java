@@ -129,7 +129,7 @@ public class OrderCotroller {
 				
 				// 해당 접속 회원의 추가 재료의 목록을 가져오기
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
-				paramMap.put("mseq", gvo.get("GSEQ").toString());
+				paramMap.put("gseq", gvo.get("GSEQ").toString());
 				paramMap.put("ref_cursor", null);
 				
 				ps.selectSubProductOrder4(paramMap);
@@ -296,7 +296,7 @@ public class OrderCotroller {
 					for(int j = 0; j < list.size(); j++) {
 						for(int i = 0; i < spovo.size(); i++) {
 							if(Integer.parseInt(list.get(j).get("CSEQ").toString()) == Integer.parseInt(spovo.get(i).get("CSEQ").toString())) {
-								totalPrice += Integer.parseInt(spovo.get(i).get("ADDRESS").toString());
+								totalPrice += Integer.parseInt(spovo.get(i).get("ADDPRICE").toString());
 							}
 						}
 					}
@@ -319,7 +319,6 @@ public class OrderCotroller {
 						paramMap2.put("quantity", Integer.parseInt(cvo.get("QUANTITY").toString()));
 						paramMap2.put("cseq", cvo.get("CSEQ"));
 						os.insertOrderDetail(paramMap2);
-						cs.deleteCart(paramMap2);
 					}
 					
 					// 비회원의 카트세션을 초기화한다.
@@ -383,25 +382,27 @@ public class OrderCotroller {
 		}
 		return mav;
 	}
-	
+	*/
 	// 주문 삭제
-	@RequestMapping(value="/orderDelete")
-	public ModelAndView orderDelete(HttpServletRequest request,
+	@RequestMapping(value="/orderDelete.do")
+	public String orderDelete(HttpServletRequest request, Model model,
 			@RequestParam("odseq") String odseq) {
-		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
-		String result = os.getOrderDetail(odseq);
-		if(result.equals("3")) {
-			mav.addObject("message", "배달이 진행중이라 취소가 불가능합니다.");
-			mav.setViewName("redirect:/deliveryOrderList");
-			return mav;
+		HashMap<String, Object> paramMap = new HashMap<String, Object>();
+		paramMap.put("odseq", odseq);
+		paramMap.put("result", 0);
+		
+		os.getOrderDetail(paramMap);
+		
+		if(Integer.parseInt(paramMap.get("result").toString()) > 3) {
+			model.addAttribute("message", "삭제하려는 주문 중 진행중인 배달이 있습니다.");
+			return "redirect:/deliveryOrderList.do";
 		}
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
-			os.deleteOrder2(odseq);
-			mav.setViewName("redirect:/deliveryOrderList");
+			os.deleteOrder2(paramMap);
+			return "redirect:/deliveryOrderList.do";
 		}else {
-			mav.setViewName("redirect:/loginForm");
+			return "redirect:/loginForm.do";
 		}
-		return mav;
-	}*/
+	}
 }

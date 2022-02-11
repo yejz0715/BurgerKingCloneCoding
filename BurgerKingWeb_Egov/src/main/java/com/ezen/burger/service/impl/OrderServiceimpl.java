@@ -109,4 +109,14 @@ public class OrderServiceimpl extends EgovAbstractServiceImpl implements OrderSe
 	public void insertOrderDetail(HashMap<String, Object> paramMap2) {
 		odao.b_insertOrderDetail(paramMap2);
 	}
+
+	@Override
+	public void getOrderDetail(HashMap<String, Object> paramMap) {
+		odao.b_getOrderDetail(paramMap);
+	}
+
+	@Override
+	public void deleteOrder2(HashMap<String, Object> paramMap) {
+		odao.b_deleteOrder2(paramMap);
+	}
 }

@@ -51,6 +51,15 @@
 		}
 	</select>
 	
+	<select id="b_selectSubProductOrder5" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_selectSubProductOrder5(
+				#{oseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
+	
 	<select id="b_getDeliverydetail" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_getDeliverydetail(

@@ -32,4 +32,6 @@ public interface ProductService {
 
 	void selectSubProductOrder4(HashMap<String, Object> paramMap);
 
+	void selectSubProductOrder5(HashMap<String, Object> paramMap1);
+
 }

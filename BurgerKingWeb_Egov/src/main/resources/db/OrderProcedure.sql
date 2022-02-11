@@ -86,3 +86,14 @@ BEGIN
         delete from orders where oseq=v_oseq;
     end if;
 end;
+
+-- 비회원의 처리단계에 있는 주문을 가져오는 프로시져
+create or replace procedure b_getOrderByOseq(
+   p_oseq in orders.oseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select * from order_view2 where oseq = p_oseq and result in ('1', '2', '3');
+end;

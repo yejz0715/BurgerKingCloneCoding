@@ -65,4 +65,12 @@
 		}
 	</delete>
 	
+	<select id="b_getOrderByOseq" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_getOrderByOseq(
+				#{oseq},
+				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
+			)
+		}
+	</select>
 </mapper>

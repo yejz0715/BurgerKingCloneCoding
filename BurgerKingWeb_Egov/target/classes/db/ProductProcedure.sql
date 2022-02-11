@@ -225,3 +225,13 @@ BEGIN
     commit;
 END;
 
+-- oseq를 기준으로 추가메뉴주문 목록을 불러오는 프로시져
+create or replace PROCEDURE b_selectSubProductOrder5(        
+    p_oseq IN orders.oseq%TYPE,    
+    p_rc OUT SYS_REFCURSOR
+)  
+IS
+BEGIN
+    OPEN p_rc FOR
+        select * from subproduct_order where oseq = p_oseq order by odseq;
+end; 

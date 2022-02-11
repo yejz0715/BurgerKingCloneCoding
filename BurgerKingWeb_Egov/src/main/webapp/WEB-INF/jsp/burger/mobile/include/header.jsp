@@ -19,27 +19,44 @@
          function sizeup(){
             var ul1 = document.getElementById('ul1');
             var con = ul1.parentNode.parentNode.parentNode;
-            con.style.height = '442px';
+            con.style.height = '700px';//442
+            document.getElementById('h_c').style.visibility = 'visible';
          }
    
          function sizedown(){
             var ul1 = document.getElementById('ul1');
             var con = ul1.parentNode.parentNode.parentNode;
-            con.style.height = '120px';
+            con.style.height = '300px';//120
+            document.getElementById('h_c').style.visibility = 'hidden';
          }
       </script>
    </head>
    <body>
       <div class="header_container">
-         <header>
+         <header style="height: 300px;">
             <div id="web_container">
-
-               <a id="logo" href="index.do"> 
-
+				<a id="logo" href="start.do"> 
                <img src="<c:url value='image/main/burgerkinglogo.png' />" style="vertical-align: middle; width:83; height:82;">
                </a>
-      
-               <div class="top_menu">
+               
+				<div class="menu_item" style="margin-left: 10%;">
+					<span id="h_c" style="visibility: hidden;" onclick="sizedown()">메뉴 창 닫기</span>
+				</div>
+               
+               <c:choose>
+                  <c:when test="${empty loginUser}">
+                     <a id="order_btn" href="loginForm.do"> 
+                        <img src="<c:url value='image/main/delivery1.png '/>" width="160" height="50" style="margin-left: 50%; transform: translateX(-50%);">
+                     </a>
+                  </c:when>
+                  <c:otherwise>
+                     <a id="order_btn" href="deliveryForm.do?kind1=1"> 
+                        <img src="<c:url value='image/main/delivery1.png ' />" width="160" height="50" style="margin-left: 50%; transform: translateX(-50%);">
+                     </a>
+                  </c:otherwise>
+               </c:choose>
+            </div> 
+            <div class="top_menu">
                   <ul onmouseover="sizeup()" onmouseleave="sizedown()" id="ul1">
                      <li class="menu_item"><span>메뉴소개</span>
                       <ul class="header_submenu">
@@ -76,21 +93,8 @@
 							<li><a href="appGuideForm.do"><span>버거킹 앱 이용안내</span></a></li>
 						</ul>
 					</li>
+
                   </ul>
-               </div>
-               
-               <c:choose>
-                  <c:when test="${empty loginUser}">
-                     <a id="order_btn" href="loginForm.do"> 
-                        <img src="<c:url value='image/main/delivery1.png '/>" width="160" height="50" >
-                     </a>
-                  </c:when>
-                  <c:otherwise>
-                     <a id="order_btn" href="deliveryForm.do?kind1=1"> 
-                        <img src="<c:url value='image/main/delivery1.png ' />" width="160" height="50" >
-                     </a>
-                  </c:otherwise>
-               </c:choose>
-            </div>   
+               </div>  
          </header>
       </div>

@@ -252,14 +252,17 @@ ul {
 
 #web_container {
 	max-width: 1184px;
-	height: 120px;
+	height: 160px;
 	position: relative;
 	margin: 0 auto;
 }
 
 #logo {
 	position: absolute;
+	margin-left:50%;
+	transform: translateX(-50%);
 	vertical-align: middle;
+	text-align: center;
 }
 
 #top_menu {
@@ -296,8 +299,9 @@ ul {
 
 #order_btn {
 	position: absolute;
-	right: 0;
-	top: 20px;
+	left:50%;
+	transform: translateX(-50%);
+	top: 120px;
 }
 
 /*menuList.jsp------------------------------------------------------------------------------------------*/
@@ -500,16 +504,19 @@ ul {
 
 #logo {
 	line-height: 120px;
+	width: 100%;
 }
 
 .top_menu {
 	position: relative;
-	margin-left: 15%;
+	width: 768px;
+	height: 120px;
+	margin-left: 50%; transform: translateX(-50%);
 }
 
 .top_menu ul {
 	float: left;
-	width: 94%;
+	width: 100%;
 	max-width: 768px;
 	margin-left: 96px;
 }

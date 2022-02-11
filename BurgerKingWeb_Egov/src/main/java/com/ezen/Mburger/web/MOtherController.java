@@ -1,4 +1,4 @@
-package com.ezen.burger.web;
+package com.ezen.Mburger.web;
 
 import javax.annotation.Resource;
 

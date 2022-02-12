@@ -51,7 +51,7 @@
 			</div>
 			<div id="header_menubar">
 					<ul id="ul1">
-						<li class="menu_item"><span>메뉴소개</span>
+						<li class="h_menu_item"><span>메뉴소개</span>
 							<ul class="header_submenu">
 								<li><a href="menuListForm.do?kind1=1"><span>스페셜&amp;할인팩</span></a></li>
 								<li><a href="menuListForm.do?kind1=2"><span>프리미엄</span></a></li>
@@ -63,18 +63,18 @@
 								<li><a href="menuListForm.do?kind1=8"><span>독퍼</span></a></li>
 							</ul> 
 						</li>
-						<li class="menu_item"><span>이벤트</span>
+						<li class="h_menu_item"><span>이벤트</span>
 							<ul class="header_submenu">
 								<li><a href="eventListForm.do"><span>이벤트</span></a></li>
 							</ul>
 						</li>
-						<li class="menu_item">
+						<li class="h_menu_item">
 							<span>브랜드스토리</span>
 							<ul class="header_submenu">
 								<li><a href="brandStroyForm.do"><span>버거킹스토리</span></a></li>
 							</ul>
 						</li>
-						<li class="menu_item">
+						<li class="h_menu_item">
 							<span>고객센터</span>
 							<ul class="header_submenu">
 								<li><a href="faqListForm.do?fnum=1"><span>FAQ</span></a></li>

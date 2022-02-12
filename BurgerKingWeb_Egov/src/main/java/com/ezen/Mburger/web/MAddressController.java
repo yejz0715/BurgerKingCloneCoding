@@ -99,9 +99,9 @@ public class MAddressController {
 		}
 	}
 	
-	/*
+	
 	// 회원 주소지 페이지로 이동
-	@RequestMapping(value="/myAddressForm.do")
+	@RequestMapping(value="/MmyAddressForm.do")
 	public String myAddressForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
@@ -115,7 +115,7 @@ public class MAddressController {
 				
 				ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 				if(list.size() == 0) {
-					return "delivery/addressSet";
+					return "mobile/delivery/MaddressSet";
 				}else {
 					HashMap<String, Object> mavo = list.get(0);
 					String addr = mavo.get("ADDRESS").toString();
@@ -148,20 +148,20 @@ public class MAddressController {
 					model.addAttribute("addr1", addr1);
 					model.addAttribute("addr2", addr2);
 					model.addAttribute("zip_num", mavo.get("ZIP_NUM").toString());
-					return "delivery/myaddress";
+					return "mobile/delivery/Mmyaddress";
 				}
 			}else if(Integer.parseInt(session.getAttribute("memberkind").toString()) == 2) {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
 	
 	// 회원 주소지  변경
-	@RequestMapping(value="/updateAddress")
+	@RequestMapping(value="/MupdateAddress")
 	public String updateAddress(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null && session.getAttribute("loginUser") != null) {
@@ -172,7 +172,7 @@ public class MAddressController {
 			if(memberKind == 1) {
 				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					return "redirect:/loginForm.do";
+					return "redirect:/MloginForm.do";
 				}else {
 					HashMap<String, Object> paramMap = new HashMap<String, Object>();
 					paramMap.put("zip_num", zip_num);
@@ -182,15 +182,15 @@ public class MAddressController {
 					as.updateUserAddress(paramMap);
 					
 					model.addAttribute("kind1", 1);
-					return "redirect:/deliveryMypageForm.do";
+					return "redirect:/MdeliveryMypageForm.do";
 				}
 			} else{
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
 	
-	*/
+	
 }

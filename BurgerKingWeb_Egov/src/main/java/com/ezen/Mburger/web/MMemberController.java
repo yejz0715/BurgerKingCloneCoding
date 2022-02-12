@@ -38,9 +38,9 @@ public class MMemberController {
 		return "mobile/member/MloginForm";
 	}
 	
-	/*
+	
 	// 로그인
-	@RequestMapping(value="login.do", method = RequestMethod.POST)
+	@RequestMapping(value="Mlogin.do", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", request.getParameter("id"));
@@ -54,16 +54,16 @@ public class MMemberController {
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		if(list.size() == 0) { // 해당 ID를 가진 회원이 없을경우
 			model.addAttribute("message", "ID가 없습니다.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}
 		HashMap<String, Object> mvo = list.get(0);
 		
 		if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
 			model.addAttribute("message", "관리자에게 문의하세요.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}else if(!mvo.get("PWD").equals(pwd)) { // 입력한 패스워드가 일치하지 않을 경우
 			model.addAttribute("message", "비밀번호가 맞지 않습니다..");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}else if(mvo.get("PWD").equals(pwd)){ // 정상 로그인
 			HttpSession session = request.getSession();
 			// 회원 로그인시 세션에 비회원카트정보가 있다면 제거
@@ -78,13 +78,14 @@ public class MMemberController {
 			
 			session.setAttribute("loginUser", mvo);
 			session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
-			return "redirect:/index.do";
+			return "redirect:/start.do";
 		}else { // 기타 원인을 알 수 없는 오류
 			model.addAttribute("message", "알수없는 이유로 로그인 실패.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}
 	}
-	
+	 
+	/*
 	// 로그아웃
 	@RequestMapping(value="/logout")
 	public String logout(HttpServletRequest request) {

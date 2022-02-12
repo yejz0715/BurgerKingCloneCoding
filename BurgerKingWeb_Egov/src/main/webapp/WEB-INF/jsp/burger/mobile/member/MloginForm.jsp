@@ -6,7 +6,7 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="Mmain.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
 			<li><a href="MloginForm.do">로그인</a></li>
 		</ul>
 	</div>

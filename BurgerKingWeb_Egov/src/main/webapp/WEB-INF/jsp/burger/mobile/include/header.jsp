@@ -34,7 +34,7 @@
          <header>
             <div id="web_container">
 
-               <a id="logo" href="index.do"> 
+               <a id="logo" href="start.do"> 
 
                <img src="<c:url value='image/main/burgerkinglogo.png' />" style="vertical-align: middle; width:83; height:82;">
                </a>
@@ -57,14 +57,14 @@
                      </li>
                      <li class="menu_item"><span>이벤트</span>
                         <ul class="header_submenu">
-                           <li><a href="eventListForm.do"><span>이벤트</span></a></li>
+                           <li><a href="MeventListForm.do"><span>이벤트</span></a></li>
                         </ul>
                      </li>
                      
                      <li class="menu_item">
                         <span>브랜드스토리</span>
                         <ul class="header_submenu">
-                           <li><a href="brandStroyForm.do"><span>버거킹스토리</span></a></li>
+                           <li><a href="MbrandStroyForm.do"><span>버거킹스토리</span></a></li>
                         </ul>
                      </li>
                   </ul>
@@ -77,7 +77,7 @@
                      </a>
                   </c:when>
                   <c:otherwise>
-                     <a id="order_btn" href="deliveryForm.do?kind1=1"> 
+                     <a id="order_btn" href="MdeliveryForm.do?kind1=1"> 
                         <img src="<c:url value='image/main/delivery1.png ' />" width="160" height="50" >
                      </a>
                   </c:otherwise>

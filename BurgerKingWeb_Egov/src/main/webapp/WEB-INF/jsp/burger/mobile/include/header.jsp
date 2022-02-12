@@ -57,7 +57,7 @@
                      </li>
                      <li class="menu_item"><span>이벤트</span>
                         <ul class="header_submenu">
-                           <li><a href="eventListForm.do"><span>이벤트</span></a></li>
+                           <li><a href="MeventListForm.do"><span>이벤트</span></a></li>
                         </ul>
                      </li>
                      

@@ -108,17 +108,17 @@ function deliveryDetail(pseq){
 function add_or_cart(kind1, pseq){
 	var url="";
 	if(kind1 == "1" || kind1 == "6" || kind1 == "7" || kind1 == "8"){
-		url="noMeterialCart.do?pseq="+pseq;
+		url="MnoMeterialCart.do?pseq="+pseq;
 		opener.location.href = url;
 		self.close();
 	}else{
-		url="deliveryAddMaterial.do?pseq="+pseq;
+		url="MdeliveryAddMaterial.do?pseq="+pseq;
 		window.location.href = url;
 	}
 }
 
 function go_cart(pseq){
-	opener.window.location.href="noMeterialCart.do?pseq=" + pseq;
+	opener.window.location.href="MnoMeterialCart.do?pseq=" + pseq;
 	self.close();
 }
 
@@ -135,19 +135,19 @@ function go_add_Meterial(pseq){
 	if(cb.length == 1){
 		alert("추가 메뉴를 선택해주세요.");
 	}else{
-		opener.location.href="insertAddMeterial.do?addM=" + cb;
+		opener.location.href="MinsertAddMeterial.do?addM=" + cb;
 		self.close();
 	}
 }
 
 function go_cart02(){
-	document.cartForm.action="deliveryCartForm.do";
+	document.cartForm.action="MdeliveryCartForm.do";
 	document.cartForm.submit();
 }
 
 
 function go_cart_delete(cseq){
-	var url="cartDelete.do?cseq="+cseq;
+	var url="McartDelete.do?cseq="+cseq;
 	window.location.replace(url);
 }
 
@@ -158,11 +158,11 @@ function menu_plus(){
 }
 
 function go_order_insert(){
-	location.href="deliveryCartOrder.do";
+	location.href="MdeliveryCartOrder.do";
 }
 
 function go_order_select(){
-	location.href="deliveryOrderList.do";	
+	location.href="MdeliveryOrderList.do";	
 }
 
 function del_qna(){
@@ -314,7 +314,7 @@ function check_Term(){
 }
 
 function go_order_delete(odseq){
-	var url="orderDelete.do?odseq="+odseq;
+	var url="MorderDelete.do?odseq="+odseq;
 	window.location.replace(url);
 }
 

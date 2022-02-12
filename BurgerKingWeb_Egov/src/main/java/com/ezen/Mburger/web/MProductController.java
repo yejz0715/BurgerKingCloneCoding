@@ -97,7 +97,7 @@ public class MProductController {
 		return "mobile/delivery/MdeliveryDetail";
 	}
 	
-	@RequestMapping(value="/MdeliveryAddMaterial")
+	@RequestMapping(value="/MdeliveryAddMaterial.do")
 	public String MdeliveryAddMaterial(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
 		HttpSession session = request.getSession();

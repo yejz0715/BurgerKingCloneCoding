@@ -146,11 +146,6 @@ public class MOtherController {
 		}
 	}
 		
-	// 원산지표시 팝업
-	@RequestMapping(value="/popup3.do")
-	public String popup3() {
-		return "product/popup3";
-	}
 		*/
 	
 	

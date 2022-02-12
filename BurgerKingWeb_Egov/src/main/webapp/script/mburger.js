@@ -180,7 +180,7 @@ function del_qna(){
 	if( count == 0 ){
 		alert("삭제할 항목을 선택해주세요");
 	} else{
-		document.frm.action = "qnaDelete.do";
+		document.frm.action="MqnaDelete.do";
 	    document.frm.submit();
 	}
 }
@@ -222,7 +222,7 @@ function qna_write_chk(){
 }
 
 function input_pass(qseq){
-	var url = "passCheckForm.do?qseq=" + qseq;
+	var url = "MpassCheckForm.do?qseq=" + qseq;
 	document.frm.action = url;
 	document.frm.submit();
 }

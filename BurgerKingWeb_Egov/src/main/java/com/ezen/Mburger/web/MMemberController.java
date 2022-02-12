@@ -180,16 +180,17 @@ public class MMemberController {
 		return "redirect:/loginForm.do";
 	}
 	
+	*/
 	
 	// 비회원 로그인 정보 입력화면 이동
-	@RequestMapping(value="/guestLoginForm")
-	public String guestLoginForm() {
-		return "member/guestLoginForm";
+	@RequestMapping(value="/MguestLoginForm.do")
+	public String MguestLoginForm() {
+		return "mobile/member/MguestLoginForm";
 	}
-	
+		
 	// 비회원 로그인
-	@RequestMapping(value="/guestLogin")
-	public String guestLogin(HttpServletRequest request, Model model) {
+	@RequestMapping(value="/MguestLogin.do")
+	public String MguestLogin(HttpServletRequest request, Model model) {
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String pwd = request.getParameter("pwd");
@@ -228,10 +229,10 @@ public class MMemberController {
 		session.setAttribute("loginUser", gvo);
 		session.setAttribute("memberkind", gvo.get("MEMBERKIND").toString());
 		session.setAttribute("guestCartList", guestCartList);
-		return "redirect:/index.do";
+		return "redirect:/start.do";
 	}
 	
-	*/
+	
 	
 	
 	// 로그인 이후 딜리버리 페이지로 이동
@@ -305,7 +306,7 @@ public class MMemberController {
 					return "redirect:/loginForm.do";
 				}else {
 					if(gvo.get("ADDRESS") == null) {
-						return "delivery/addressSet";
+						return "mobile/delivery/MaddressSet";
 					}else {
 						HashMap<String, Object> paramMap = new HashMap<String, Object>();
 						paramMap.put("kind1", kind1);
@@ -316,7 +317,7 @@ public class MMemberController {
 						
 						model.addAttribute("productList", list);
 						model.addAttribute("kind1", kind1);
-						return "delivery/delivery";
+						return "mobile/delivery/Mdelivery";
 					}
 				}
 			}else {

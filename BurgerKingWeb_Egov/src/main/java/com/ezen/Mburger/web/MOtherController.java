@@ -79,11 +79,7 @@ public class MOtherController {
 		
 	/*	
 		
-	@RequestMapping(value="/brandStroyForm.do")
-	public String brandStroyForm() {
-		return "brand/brandStory";
-	}
-
+	
 	@RequestMapping(value="/terms.do")
 	public String terms() {
 		return "footer/terms";
@@ -103,13 +99,14 @@ public class MOtherController {
 	public String legal() {
 		return "footer/legal";
 	} 
-		
-	@RequestMapping(value="/deliveryUseForm.do")
-	public String deliveryUseForm() {
-		return "ServiceCenter/deliveryuse";
+	*/	
+	
+	@RequestMapping(value="/MdeliveryUseForm.do")
+	public String MdeliveryUseForm() {
+		return "mobile/ServiceCenter/Mdeliveryuse";
 	}
 		
-	*/
+	
 	
 	// 회원 마이페이지로 이동
 	@RequestMapping(value="/MdeliveryMypageForm.do")

@@ -30,7 +30,7 @@ public class MEventController {
 		ArrayList< HashMap<String,Object> > list 
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		model.addAttribute("eventList", list);
-		return "mobile/mevent/MeventList";
+		return "mobile/event/MeventList";
 	   }
 	
 	//진행중인 이벤트목록
@@ -43,7 +43,7 @@ public class MEventController {
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		
 		model.addAttribute("eventList", list);
-	      return "mobile/mevent/MeventTab2";
+	      return "mobile/event/MeventTab2";
 	   }
 	
 	//종료된 이벤트목록
@@ -56,7 +56,7 @@ public class MEventController {
 			= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		
 		model.addAttribute("eventList", list);
-	      return "mobile/mevent/MeventTab3";
+	      return "mobile/event/MeventTab3";
 	   }
 	
 	//이벤트 상세보기
@@ -70,7 +70,7 @@ public class MEventController {
 		= (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
 		HashMap<String, Object> resultMap = list.get(0);
 		model.addAttribute("EventVO" , resultMap);
-	      return "mobile/mevent/MeventDetail";
+	      return "mobile/event/MeventDetail";
 	   }
 	
 }

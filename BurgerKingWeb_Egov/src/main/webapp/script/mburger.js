@@ -99,7 +99,7 @@ function updatepwdChk(){
 }
 
 function deliveryDetail(pseq){
-	var url = "deliveryDetail.do?pseq="+pseq;
+	var url = "MdeliveryDetail.do?pseq="+pseq;
 	var opt = "toolbar=no,menubar=no,scrollbars=yes,resizable=no,height=800,width=580,top=300, left=300";
 	window.open(url, "delivery", opt);
 }
@@ -153,7 +153,7 @@ function go_cart_delete(cseq){
 
 
 function menu_plus(){
-	var url="deliveryForm.do&kind1=1";
+	var url="MdeliveryForm.do&kind1=1";
 	window.location.replace(url);
 }
 

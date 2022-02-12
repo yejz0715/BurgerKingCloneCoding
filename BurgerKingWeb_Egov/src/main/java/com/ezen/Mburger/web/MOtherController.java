@@ -109,8 +109,10 @@ public class MOtherController {
 		return "ServiceCenter/deliveryuse";
 	}
 		
+	*/
+	
 	// 회원 마이페이지로 이동
-	@RequestMapping(value="/deliveryMypageForm.do")
+	@RequestMapping(value="/MdeliveryMypageForm.do")
 	public String deliveryMypageForm(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
@@ -133,23 +135,21 @@ public class MOtherController {
 				model.addAttribute("ovo", list1);
 				model.addAttribute("cvo", list2);
 				model.addAttribute("MemberVO", mvo);
-				return "delivery/myPage";
+				return "mobile/delivery/MmyPage";
 			}else if(memberKind == 2){
 				// 비회원일 경우에는 마이 페이지로 이동하지 않는다.
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
-		
-		*/
 	
 	
-	
+}		
+
 	
 
-}

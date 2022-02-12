@@ -327,10 +327,10 @@ public class MMemberController {
 		}
 	}
 	
-	/*
+	
 	
 	// 회원 정보 변경 페이지로 이동
-	@RequestMapping(value="/memberUpdateForm.do")
+	@RequestMapping(value="/MmemberUpdateForm.do")
 	public String memberUpdateForm(HttpServletRequest request, Model model) {
 		String message = request.getParameter("message");
 		HttpSession session = request.getSession();
@@ -361,20 +361,22 @@ public class MMemberController {
 				model.addAttribute("ovo", list1);
 				model.addAttribute("cvo", list2);
 				model.addAttribute("MemberVO", mvo);
-				return "member/updateForm";
+				return "mobile/member/MupdateForm";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
-	}
+	} 
+	
+	
 	
 	// 회원정보 수정
-	@RequestMapping(value="/updateMember")
+	@RequestMapping(value="/MupdateMember.do")
 	public String updateMember(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
@@ -390,20 +392,22 @@ public class MMemberController {
 				
 				session.setAttribute("loginUser", mvo);
 				session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
-				return "redirect:/deliveryMypageForm.do";
+				return "redirect:/MdeliveryMypageForm.do";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
 	
+	
+	
 	// 회원정보 삭제
-	@RequestMapping(value="/memberDelete.do")
+	@RequestMapping(value="/MmemberDelete.do")
 	public String memberDelete(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
@@ -420,7 +424,7 @@ public class MMemberController {
 				// 진행중인 주문이 있으면 회원탈퇴 거절
 				if(list.size() > 0) {
 					model.addAttribute("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
-					return "redirect:/memberUpdateForm.do";
+					return "redirect:/MmemberUpdateForm.do";
 				}
 				
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -428,18 +432,18 @@ public class MMemberController {
 				ms.deleteMember(paramMap);
 				
 				session.invalidate();
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
-	*/
+	
 	
 	// 회원가입 페이지로 이동
 	@RequestMapping(value="/MjoinForm.do")

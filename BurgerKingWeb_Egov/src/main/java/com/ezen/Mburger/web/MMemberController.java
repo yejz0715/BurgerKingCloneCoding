@@ -85,14 +85,16 @@ public class MMemberController {
 		}
 	}
 	 
-	/*
+	
 	// 로그아웃
-	@RequestMapping(value="/logout")
+	@RequestMapping(value="/Mlogout.do")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "redirect:/index.do";
+		return "redirect:/start.do";
 	}
+	
+	/*
 	
 	// 아이디 찾기 페이지 이동
 	@RequestMapping(value="/findIdForm.do")
@@ -229,8 +231,11 @@ public class MMemberController {
 		return "redirect:/index.do";
 	}
 	
+	*/
+	
+	
 	// 로그인 이후 딜리버리 페이지로 이동
-	@RequestMapping(value="/deliveryForm")
+	@RequestMapping(value="/MdeliveryForm.do")
 	public String deliveryForm(HttpServletRequest request, Model model) {
 		String kind1 = request.getParameter("kind1");
 		HttpSession session = request.getSession();
@@ -241,7 +246,7 @@ public class MMemberController {
 			if(memberKind == 1) {
 				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					return "redirect:/loginForm.do";
+					return "redirect:/MloginForm.do";
 				}else {
 					// 로그인한 회원의 주소지를 확인 후 없으면 주소 초기설정 페이지로 이동
 					HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -267,7 +272,7 @@ public class MMemberController {
 						
 						model.addAttribute("ovo", list1);
 						model.addAttribute("cvo", list2);
-						return "delivery/addressSet";
+						return "mobile/delivery/MaddressSet";
 					}else {
 						// 주소지가 있다면 주문 상품목록과 회원의 카트, 주문의 리스트를 가지고 딜리버리페이지로 이동
 						HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
@@ -291,7 +296,7 @@ public class MMemberController {
 						model.addAttribute("cvo", list2);
 						model.addAttribute("productList", list3);
 						model.addAttribute("kind1", kind1);
-						return "delivery/delivery";
+						return "mobile/delivery/Mdelivery";
 					}
 				}
 			}else if(memberKind == 2){
@@ -321,6 +326,8 @@ public class MMemberController {
 			return "redirect:/loginForm.do";
 		}
 	}
+	
+	/*
 	
 	// 회원 정보 변경 페이지로 이동
 	@RequestMapping(value="/memberUpdateForm.do")

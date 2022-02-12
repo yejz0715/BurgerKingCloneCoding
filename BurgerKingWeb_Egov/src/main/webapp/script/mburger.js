@@ -236,7 +236,7 @@ function resign(){
 }
 
 function post_zip(){    
-	var url = "findZipNum.do";
+	var url = "MfindZipNum.do";
 	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=550,";
 	opt = opt + " height=300, top=300, left=300";
 	window.open( url, "우편번호 찾기", opt );

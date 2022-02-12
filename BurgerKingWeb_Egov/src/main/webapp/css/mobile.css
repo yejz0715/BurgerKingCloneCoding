@@ -281,12 +281,10 @@ ul {
 
 .menu_item {
 	position: relative;
-	float: left;
 	width: 25%;
 	z-index: 11;
 	font-weight: 700;
-	font-size: 1.375rem;
-	text-align: left;
+	font-size: 3rem;
 	line-height: 120px;
 	cursor: default;
 }
@@ -500,7 +498,7 @@ ul {
 
 .h_menu_open{
 	position:absolute;
-	height: 100%;
+	height: 80%;
 	margin-left: 3%;
 	top: 50%;
 	transform: translateY(-50%);
@@ -520,24 +518,18 @@ ul {
 	width: 100px; height: 100%;
 }
 
-.top_menu {
+.h_menu_item {
 	position: relative;
-	width: 768px;
-	height: 120px;
-	margin-left: 50%; transform: translateX(-50%);
+	width: 25%;
+	z-index: 11;
+	font-weight: 700;
+	font-size: 3rem;
+	line-height: 120px;
+	cursor: default;
 }
 
-.top_menu ul {
-	float: left;
+#header_menubar ul{
 	width: 100%;
-	max-width: 768px;
-	margin-left: 96px;
-}
-
-.top_menu:hover .header_submenu {
-	height: 322px;
-	z-index: 101;
-	margin-left: 0px;
 }
 
 d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
@@ -545,36 +537,24 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	padding: 0;
 }
 
-.menu_item {
-	position: relative;
-	float: left;
-	width: 25%;
-	z-index: 11;
-	font-weight: 700;
-	font-size: 1.5rem;
-	text-align: left;
-	cursor: default;
-}
-
 .header_submenu {
-	position: absolute;
+	position: relative;
 	left: 0;
 	top: 100%;
 	min-width: 100%;
-	height: 0;
-	overflow: hidden;
 	z-index: 100;
 	list-style: none;
 }
 
-.header_submenu li {
+.header_submenu>li {
 	margin-bottom: 5px;
+	height: 50px;
 	line-height: 0px;
+	margin-left: 50px;
 }
 
 .header_submenu a {
 	height: 125px;
-	font-size: .875rem;
 	line-height: 25px;
 }
 
@@ -586,7 +566,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .header_submenu li a {
-	font-size: 14px;
+	font-size: 1.1rem;
 	text-decoration: none;
 	color: #292929;
 	font-family: 'Noto Sans KR', sans-serif;
@@ -600,16 +580,21 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 
 #header_menubar{
 	position: absolute;
-	width: 50%; height: 100%;
+	width: 80%; height: 800%;
 	background-color: #fff;
 	z-index: 10;
 	display:none;
 	border-top: 5px solid gray;
+	overflow: scroll;
 }
 .header_deli_img{
 	position:relative;
 	width:160px; height:50px;
 	top: 50%; transform: translateY(-50%);
+}
+
+#ul1>li{
+	margin: 0 auto;
 }
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {

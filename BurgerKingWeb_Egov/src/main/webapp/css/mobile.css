@@ -8,8 +8,7 @@ html, body {
 
 body {
 	background-color: #fff;
-	margin-top: 120px;
-	min-width: 1000px;
+	margin-top: 150px;
     min-height: 100%;
     color: #000;
     word-wrap: normal;
@@ -22,7 +21,7 @@ body {
 /* footer-------------------------------------------------------------------------------------------------------------------------------- */
 footer {
 	position: absolute;
-	width: 148%;
+	width: 100%;
 	height: 272px;
 	font-size: .875rem;
 	color: #6a6a6a;
@@ -253,14 +252,17 @@ ul {
 
 #web_container {
 	max-width: 1184px;
-	height: 120px;
+	height: 150px;
 	position: relative;
 	margin: 0 auto;
 }
 
 #logo {
 	position: absolute;
+	margin-left:50%;
+	transform: translateX(-50%);
 	vertical-align: middle;
+	text-align: center;
 }
 
 #top_menu {
@@ -297,8 +299,10 @@ ul {
 
 #order_btn {
 	position: absolute;
-	right: 0;
-	top: 20px;
+	right: 3%;
+	/* left:50%;
+	transform: translateX(-50%); */
+	height: 100%;
 }
 
 /*menuList.jsp------------------------------------------------------------------------------------------*/
@@ -490,27 +494,42 @@ ul {
 
 /* header------------------------------------------------------------------------------------*/
 .header_container {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.h_menu_open{
+	position:absolute;
+	height: 100%;
+	margin-left: 3%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#h_header{
 	position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
 	z-index: 50;
-	background-color: #fff;
+	height: 150px;
 }
-
 
 #logo {
 	line-height: 120px;
+	width: 100px; height: 100%;
 }
 
 .top_menu {
 	position: relative;
-	margin-left: 15%;
+	width: 768px;
+	height: 120px;
+	margin-left: 50%; transform: translateX(-50%);
 }
 
 .top_menu ul {
 	float: left;
-	width: 94%;
+	width: 100%;
 	max-width: 768px;
 	margin-left: 96px;
 }
@@ -535,10 +554,6 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	font-size: 1.5rem;
 	text-align: left;
 	cursor: default;
-}
-
-#order_btn {
-	right: 0;
 }
 
 .header_submenu {
@@ -583,6 +598,19 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	vertical-align: middle;
 }
 
+#header_menubar{
+	position: absolute;
+	width: 50%; height: 100%;
+	background-color: #fff;
+	z-index: 10;
+	display:none;
+	border-top: 5px solid gray;
+}
+.header_deli_img{
+	position:relative;
+	width:160px; height:50px;
+	top: 50%; transform: translateY(-50%);
+}
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {
 	margin-bottom: 15px;
@@ -1168,7 +1196,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 	position: absolute;
 	width: 580px; height: 300px;
 	text-align: center;
-	/* left: 50.15%; */
+	left: 50.15%;
 }
 #nonmember_Text{
 	text-align:center;
@@ -1258,8 +1286,8 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide {
 	position: relative;
 	overflow: hidden;
-	width: 1440px;
-	height: 480px;
+	width: 100%;
+	height: 329px;
 	margin: 0 auto;
 	left: 6px;
 }
@@ -1267,11 +1295,16 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide .cnt>li {
 	position: absolute;
 	top: 0px;
-	left: 1440px;
-	width: 1440px;
+	left: 100%;
+	width: 100%;
 	text-align: center;
 	font-size: 30px;
 	line-height: 580px;
+	overflow: hidden;
+}
+#slide .cnt>li>a>img {
+	width: 100%;
+	height: 329px;
 }
 
 #slide .cnt>li:nth-child(1) {
@@ -1408,7 +1441,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 .web_container2 {
 	position: relative;
 	width: 1440px;
-	height: 480px;
+/* 	height: 480px; */
 	margin: 0 auto;
 	right: -6px;
 	text-align: center;
@@ -1465,7 +1498,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 
 .web_container3 {
 	position: relative;
-	width: 144%;
+	width: 100%;
 	height: 200px;
 	margin: 0 auto;
 	right: -6px;
@@ -1490,7 +1523,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 .cs_call {
-	right: 100px;
+/* 	right: 100px; */
 	font-size: 4rem;
 	font-weight: bold;
 }
@@ -4394,53 +4427,3 @@ input[type=checkbox]+:before {
 address, em {
     font-style: normal;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

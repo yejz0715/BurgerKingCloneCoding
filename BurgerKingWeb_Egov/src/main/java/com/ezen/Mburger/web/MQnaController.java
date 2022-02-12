@@ -1,4 +1,4 @@
-package com.ezen.burger.web;
+package com.ezen.Mburger.web;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +17,7 @@ import com.ezen.burger.service.MemberService;
 import com.ezen.burger.service.QnaService;
 
 @Controller
-public class QnaController {
+public class MQnaController {
 	@Resource(name="QnaService")
 	QnaService qs;
 	
@@ -27,36 +27,35 @@ public class QnaController {
 	
 	
 	// 고객센터 문의
-			@RequestMapping(value="/qnaForm.do")
+			@RequestMapping(value="/MqnaForm.do")
 			public String qna_list(Model model, HttpServletRequest request) {
 				HttpSession session = request.getSession();
 				HashMap<String, Object> loginUser = (HashMap<String, Object>)session.getAttribute("loginUser");
 				if( loginUser == null ) {
-						return "ServiceCenter/qnaList";
+						return "mobile/ServiceCenter/MqnaList";
 					}else {
 						HashMap<String, Object> paramMap = new HashMap<String, Object>();
 						paramMap.put("id", loginUser.get("ID").toString() );
 						paramMap.put("ref_curser", null);
 						if(session.getAttribute("memberkind") != null) {
 							int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
-							/* int memberKind = (int)session.getAttribute("memberkind"); */
 							// 회원 종류 검사 (1:회원, 2:비회원)
 							if(memberKind == 1) {	// 회원
 									qs.listQna( paramMap );
 									ArrayList<HashMap<String, Object>> list 
 									= (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 									model.addAttribute("qnaList", list);	
-									return "ServiceCenter/qnaList";
+									return "mobile/ServiceCenter/MqnaList";
 							}else if(memberKind == 2 ) {
 									model.addAttribute("message", "Qna문의를 하려면 로그인을 하셔야합니다.");
-									return "member/loginForm";	
+									return "mobile/member/MloginForm";	
 								}
 						}
 				}
-				return " ServiceCenter/qnaList";
+				return "mobile/ServiceCenter/MqnaList";
 			}
 	
-	
+	/*
 		// 고객센터 문의작성
 		@RequestMapping(value="qnaWriteForm.do")
 		public String qnaWriteForm(Model model, HttpServletRequest request) {
@@ -79,7 +78,6 @@ public class QnaController {
 					paramMap.put("ref_curser", null);
 					if(session.getAttribute("memberkind") != null) {
 						int memberKind = Integer.parseInt(session.getAttribute("memberkind").toString());
-						/* int memberKind = (int)session.getAttribute("memberkind"); */
 						// 회원 종류 검사 (1:회원, 2:비회원)
 						if(memberKind == 1) {	// 회원
 							paramMap.put("id", loginUser.get("ID").toString() );
@@ -182,7 +180,7 @@ public class QnaController {
 			return "redirect:/qnaForm.do";
 		}
 		
-		
-		
+		*/
+
 	
 }

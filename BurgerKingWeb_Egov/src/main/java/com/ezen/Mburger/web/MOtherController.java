@@ -32,5 +32,10 @@ public class MOtherController {
 	public String mobilemain() { 
 		return "mobile/main";
 	}
+	//브랜드스토리
+	@RequestMapping(value="/MbrandStroyForm.do")
+	public String MbrandStroyForm() {
+		return "mobile/brand/MbrandStory";
+	}
 
 }

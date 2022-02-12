@@ -34,7 +34,7 @@
 				<c:choose>
 					<c:when test="${empty loginUser}">
 						<div class="WEB utilWrap">
-							<a href="start.do"><span>브랜드홈</span></a>
+							<a href="mobilemain.do"><span>브랜드홈</span></a>
 							<a style="display: none;"><span>로그아웃</span></a>
 							<a style="display: none;"><span>MY킹</span></a>
 							<a href="MloginForm.do"><span>로그인</span></a>

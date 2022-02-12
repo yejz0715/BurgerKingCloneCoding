@@ -146,7 +146,7 @@ create or replace PROCEDURE b_getShortProductAllCount(
 IS
     vs_count number;    
 begin
-    select count(*) as cnt into vs_count from product where pname like '%'||p_key||'%' and kind='4';
+    select count(*) as cnt into vs_count from product where pname like '%'||p_key||'%' and kind3='4';
     p_count := vs_count;
 end;
 
@@ -189,7 +189,7 @@ begin
     OPEN p_rc For
         select * from (
         select * from (
-        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' and kind3<'4' order by pseq desc) p)
+        select rownum as rn, p. * from ((select*from product where pname like '%'||p_key||'%' and kind3 in ('1','2','3') order by pseq desc) p)
         ) where rn >= p_startNum
         ) where rn <= p_endNum;
 end;

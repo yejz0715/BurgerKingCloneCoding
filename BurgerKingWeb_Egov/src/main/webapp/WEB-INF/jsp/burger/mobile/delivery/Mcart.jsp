@@ -8,7 +8,7 @@
 <div class="location">
 <div class="web_container1">
 	<ul>
-		<li><a href="deliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+		<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
 		<li>메뉴</li>
 	</ul>
 </div>
@@ -51,10 +51,10 @@
 				<div class="quantity"><strong class="tit">수량</strong>
 					<div class="num_set">
 						<button type="button" class="btn_minus"
-						 onclick="location.href='minusQuantity.do?cseq=${cartList.CSEQ}'"><span>-</span></button>
+						 onclick="location.href='MminusQuantity.do?cseq=${cartList.CSEQ}'"><span>-</span></button>
 						<div class="result">${cartList.QUANTITY}</div>
 						<button type="button" class="btn_plus"
-						 onclick="location.href='plusQuantity.do?cseq=${cartList.CSEQ}'"><span>+</span></button>
+						 onclick="location.href='MplusQuantity.do?cseq=${cartList.CSEQ}'"><span>+</span></button>
 					</div>
 				</div>
 				<button type="button" name="submit" class="btn_del02" onclick="go_cart_delete('${cartList.CSEQ}')"><span>Delete menu</span></button>
@@ -100,7 +100,7 @@
 		<div class="cartinfo">
 			<div class="c_btn item2">
 				<c:if test="${!empty loginUser}">
-					<button type="button" class="btn01 m ico add" onclick="location.href='deliveryForm.do?kind1=1'">
+					<button type="button" class="btn01 m ico add" onclick="location.href='MdeliveryForm.do?kind1=1'">
 						<span>메뉴 추가</span>
 					</button>
 				</c:if>

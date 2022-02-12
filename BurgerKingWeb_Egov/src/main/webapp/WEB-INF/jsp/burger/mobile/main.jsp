@@ -15,7 +15,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mobile.css'/>" >
 
-<script type="text/javascript" src="<c:url value='static/script/mbuger.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/script/mbuger.js'/>"></script>
 </head>
 <body>
 
@@ -24,8 +24,8 @@
 <div class="clear"></div>
 <div class="mainWrap" style="background-color: #f2ebe6;" id="top">
 	   <div class="banner">
-	      <div class="slide" id="slide" style="width: 100%;"> 
-	         <ul class="cnt" id="cnt" style="width: 100%;">
+	      <div class="slide" id="slide"> 
+	         <ul class="cnt" id="cnt">
 	            <li><a href="eventDetailForm.do?eseq=4"><img
 	                  src="<c:url value='image/main/banner/banner_3.png'/>"></a></li>
 	            <li><a href="eventDetailForm.do?eseq=2"><img

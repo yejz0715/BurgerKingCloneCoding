@@ -8,7 +8,7 @@ html, body {
 
 body {
 	background-color: #fff;
-	margin-top: 120px;
+	margin-top: 150px;
     min-height: 100%;
     color: #000;
     word-wrap: normal;
@@ -252,7 +252,7 @@ ul {
 
 #web_container {
 	max-width: 1184px;
-	height: 160px;
+	height: 150px;
 	position: relative;
 	margin: 0 auto;
 }
@@ -299,9 +299,10 @@ ul {
 
 #order_btn {
 	position: absolute;
-	left:50%;
-	transform: translateX(-50%);
-	top: 120px;
+	right: 3%;
+	/* left:50%;
+	transform: translateX(-50%); */
+	height: 100%;
 }
 
 /*menuList.jsp------------------------------------------------------------------------------------------*/
@@ -493,18 +494,30 @@ ul {
 
 /* header------------------------------------------------------------------------------------*/
 .header_container {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.h_menu_open{
+	position:absolute;
+	height: 100%;
+	margin-left: 3%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#h_header{
 	position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
 	z-index: 50;
-	background-color: #fff;
+	height: 150px;
 }
-
 
 #logo {
 	line-height: 120px;
-	width: 100%;
+	width: 100px; height: 100%;
 }
 
 .top_menu {
@@ -541,10 +554,6 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	font-size: 1.5rem;
 	text-align: left;
 	cursor: default;
-}
-
-#order_btn {
-	right: 0;
 }
 
 .header_submenu {
@@ -589,6 +598,19 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	vertical-align: middle;
 }
 
+#header_menubar{
+	position: absolute;
+	width: 50%; height: 100%;
+	background-color: #fff;
+	z-index: 10;
+	display:none;
+	border-top: 5px solid gray;
+}
+.header_deli_img{
+	position:relative;
+	width:160px; height:50px;
+	top: 50%; transform: translateY(-50%);
+}
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {
 	margin-bottom: 15px;
@@ -1264,8 +1286,8 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide {
 	position: relative;
 	overflow: hidden;
-	width: 1440px;
-	height: 480px;
+	width: 100%;
+	height: 329px;
 	margin: 0 auto;
 	left: 6px;
 }
@@ -1273,11 +1295,16 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide .cnt>li {
 	position: absolute;
 	top: 0px;
-	left: 1440px;
-	width: 1440px;
+	left: 100%;
+	width: 100%;
 	text-align: center;
 	font-size: 30px;
 	line-height: 580px;
+	overflow: hidden;
+}
+#slide .cnt>li>a>img {
+	width: 100%;
+	height: 329px;
 }
 
 #slide .cnt>li:nth-child(1) {

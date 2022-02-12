@@ -67,7 +67,7 @@ public class MProductController {
 	}
 	
 	@RequestMapping(value="/MdeliveryDetail.do")
-	public String deliveryDetail(HttpServletRequest request, Model model,
+	public String MdeliveryDetail(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
 		ModelAndView mav = new ModelAndView();
 		HttpSession session = request.getSession();
@@ -98,7 +98,7 @@ public class MProductController {
 	}
 	
 	@RequestMapping(value="/MdeliveryAddMaterial")
-	public String deliveryAddMaterial(HttpServletRequest request, Model model,
+	public String MdeliveryAddMaterial(HttpServletRequest request, Model model,
 			@RequestParam("pseq") int pseq) {
 		HttpSession session = request.getSession();
 		
@@ -117,7 +117,7 @@ public class MProductController {
 		
 		model.addAttribute("subProductVO", list);
 		model.addAttribute("pseq", pseq);
-		return "delivery/MaddMeterial";
+		return "mobile/delivery/MaddMeterial";
 	}
 	
 	// 원산지표시 팝업

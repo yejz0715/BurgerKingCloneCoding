@@ -416,6 +416,7 @@ public class MemberController {
 				
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put("mseq", Integer.parseInt(request.getParameter("mseq").toString()));
+				ms.b_deleteAddress(paramMap);
 				ms.deleteMember(paramMap);
 				
 				session.invalidate();

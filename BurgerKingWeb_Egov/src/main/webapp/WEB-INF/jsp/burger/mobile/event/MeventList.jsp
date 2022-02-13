@@ -44,5 +44,5 @@
 	</div>
 </article>
 
-<%@ include file="../include/undermenu.jsp" %>
+
 <%@ include file="../include/footer.jsp"%>

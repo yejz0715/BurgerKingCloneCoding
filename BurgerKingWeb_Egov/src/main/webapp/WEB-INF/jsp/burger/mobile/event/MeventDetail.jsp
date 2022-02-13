@@ -54,6 +54,4 @@
 		<input type="button" class="btn01 m" onclick="location.href='MeventListForm.do'" value="목록으로"/>
 	</div>
 	</article>
-	
-
 <%@ include file="../include/footer.jsp"%>

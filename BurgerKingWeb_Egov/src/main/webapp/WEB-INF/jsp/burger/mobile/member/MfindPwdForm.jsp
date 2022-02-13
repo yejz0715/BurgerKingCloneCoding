@@ -60,7 +60,8 @@ function find_pwd(){
 				</ul>
 			</div>
 			<div class="c_btn item2 findidalign">
-				<input type="button" class="btn01 m" value="비밀번호 찾기" onClick="find_pwd()"/>
+				<input type="button" class="btn01 m red" value="비밀번호 찾기" onClick="find_pwd()"/>
+				<input type="button" class="btn01 m" value="돌아가기" onClick="location.href='MloginForm.do'"/>
 			</div>
 		</form>
 	</div>

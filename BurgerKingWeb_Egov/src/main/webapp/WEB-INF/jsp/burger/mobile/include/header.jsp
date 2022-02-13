@@ -43,7 +43,7 @@
 						</c:when>
 						<c:otherwise>
 							<a id="order_btn" href="MdeliveryForm.do?kind1=1"> 
-								<img src="<c:url value='image/main/delivery1.png ' />" width="160" height="50" style="margin-left: 50%; transform: translateX(-50%);">
+								<img src="<c:url value='image/main/delivery1.png ' />" class="header_deli_img">
 							</a>
 						</c:otherwise>
 					</c:choose>

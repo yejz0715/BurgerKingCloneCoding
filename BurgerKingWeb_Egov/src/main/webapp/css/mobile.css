@@ -1606,11 +1606,6 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
    line-height: 167%;
 }
 
-.findidalign {
-   position: absolute;
-   left: 50%;
-   margin-left: -108px;
-}
 
 /*------------------------ productdetail-------------------------- */
 .prd_intro {

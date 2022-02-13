@@ -348,9 +348,8 @@ ul {
 }
 
 .menuarea ul li {
-   width: 220px;
+   width: 33%;
    height: 300px;
-   margin: 0 40px;
    float: left;
 }
 

@@ -3,15 +3,7 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a></li>
-		</ul>
-	</div>
-	</div>
-
+	
 	<div class="web_container1">
 		<h2 class="page_tit02 bg_w">
 			<em>WHERE TASTE IS KING</em><span>어서오세요! 버거킹입니다.</span>

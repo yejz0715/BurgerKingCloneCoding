@@ -12,14 +12,6 @@ $(function(){
 </script>
 <article>
 	
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li>메뉴소개</li>
-		</ul>
-		</div>
-	</div>
 	<div class="subtitWrap">
 		<h3 class="page_tit">메뉴소개</h3>
 		<div class="tab01" >
@@ -64,6 +56,5 @@ $(function(){
 	<!-- DB구조 변동에 따라 위 코드는 변경가능성 존재 -->
 	
 </article>
-
 
 <%@ include file="../include/footer.jsp" %>

@@ -6,17 +6,7 @@
 
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="MjoinForm.do">회원가입</a></li>
-		</ul>
-	</div>
-	</div>
-
-
+	
 	<div class="web_container">
 		<div class="welcomeBox bg_w">
 			<h3 class="page_tit02">환영합니다!</h3>
@@ -52,5 +42,5 @@
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 </article>
-<%@ include file="../include/undermenu.jsp" %>
+
 <%@ include file="../include/footer.jsp" %>

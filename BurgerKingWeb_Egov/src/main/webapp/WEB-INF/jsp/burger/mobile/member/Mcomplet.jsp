@@ -3,20 +3,7 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="Mjoin.do">회원가입</a></li>
-		</ul>
-	</div>
-	</div>
-
-
-
-
-
+	
 	<div class="contentsBox01 join_welcome">
 		<div class="web_container1">
 			<h2 class="logo"></h2>
@@ -37,5 +24,4 @@
 
 </article>
 
-<%@ include file="../include/undermenu.jsp" %>
 <%@ include file="../include/footer.jsp" %>

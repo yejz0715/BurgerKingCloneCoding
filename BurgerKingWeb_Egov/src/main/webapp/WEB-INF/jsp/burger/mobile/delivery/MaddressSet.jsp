@@ -6,16 +6,7 @@
 <div class="clear"></div>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="MdeliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
-			<li>MY배달지</li>
-		</ul>
-	</div>
-	</div>
-
+	
 	<div class="webAddress">
 		<h1>주소지를 설정해주세요. <b>주소를 설정하셔야 주문이 가능합니다.</b></h1>
 		<form method="post" name="address" action="MmyAddress.do">

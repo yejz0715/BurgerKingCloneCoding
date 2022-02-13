@@ -23,10 +23,10 @@ function find_id(){
 			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 				<li>
 					<span>
-						<a href="MfindIdForm.do" style="color: red; text-decoration: underline; font-size: 1.45em;">아이디 찾기</a>
+						<a href="MfindIdForm.do" style="color: red; text-decoration: underline; font-size: 2em;">아이디 찾기</a>
 					</span>
 				</li>
-				<li><span><a href="MfindPwdForm.do" style="font-size: 1.45em;">비밀번호 찾기</a></span></li>
+				<li><span><a href="MfindPwdForm.do" style="font-size: 2em;">비밀번호 찾기</a></span></li>
 			</ul>
 			<div class="btnarea" style="text-align: center; margin-top: 80px;">
 				<c:if test="${empty message}">

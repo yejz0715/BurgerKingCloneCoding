@@ -24,7 +24,7 @@
 			<input type="hidden" name="id" value="${id}">
 			<fieldset style="border: 0px; background-color: #f2ebe6;">
 				<label>제목</label><br>
-				<input type="text" name="subject" size="100"><br>
+				<input type="text" name="subject" size="50"><br>
 				<label>질문내용</label>
 				<textarea rows="10" cols="120" name="content"></textarea>
 				<label>비밀번호</label>

@@ -2,14 +2,7 @@
 <%@ include file="../include/header.jsp"%>
 
 <article style="background-color: #f2ebe6;">
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain">HOME</a>&nbsp;>&nbsp;</li>
-			<li>이용약관 및 정책</li>
-		</ul>
-	</div>
-	</div>
+	
 	<div class="wrap">
 		<ul id="terms_wrap_ul">
 			<li>

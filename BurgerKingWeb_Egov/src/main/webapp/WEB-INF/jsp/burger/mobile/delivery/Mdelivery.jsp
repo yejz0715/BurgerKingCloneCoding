@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../include/Delivery/deli_header.jsp"%>
+<%@ include file="../../mobile/include/Delivery/deli_header.jsp"%>
 <div class="clear"></div>
 
 <script>
@@ -90,4 +90,4 @@ function popup3() {
 </div>
 </article>
 
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../../mobile/include/footer.jsp" %>

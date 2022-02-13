@@ -14,19 +14,20 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 	</head> 
-	<body> 
+	<body>
+	<header id=h_header> 
 		<div id="header_container" style="background-color: #e22219;">
 			<div class="web_container">
-			
+			 
 				<c:choose>
 					<c:when test="${empty loginUser}">
-						<h1 class="WEB_logo" onclick="location.href='MloginForm.do'">
-							<span>버거킹</span>
+						<h1 class="WEB_logo" onclick="location.href='mobilemain.do'">
+							<span>버거킹</span> 
 						</h1> 
 					</c:when>
-					<c:otherwise>
+					<c:otherwise> 
 						<h1 class="WEB_logo" onclick="location.href='MdeliveryForm.do?kind1=1'">
-							<span>버거킹</span>
+							<span>딜리버리</span>
 						</h1>
 					</c:otherwise>
 				</c:choose>
@@ -39,7 +40,7 @@
 							<a style="display: none;"><span>MY킹</span></a>
 							<a href="MloginForm.do"><span>로그인</span></a>
 							<a href="MfaqListForm.do?fnum=1"><span>고객센터</span></a>
-						</div>
+						</div> 
 					</c:when>
 					<c:when test="${memberkind == 2}">
 						<div class="WEB utilWrap">
@@ -65,14 +66,9 @@
 						</div>
 					</c:otherwise>
 				</c:choose>
-				
-				<c:if test="${empty loginUser}">
-					<a id="delivery_Signup_btn" href="MjoinForm.do"> 
-						<img src="<c:url value='image/main/deliverysignup.PNG'/>" width="160" height="50" />
-					</a>
-				</c:if>
 			</div>
 		</div>
+		</header>
 		<c:if test="${!empty loginUser && memberkind == 1}">
 			<%@ include file="../../include/Delivery/deli_orderCart.jsp"%>		
 		</c:if>

@@ -10,6 +10,7 @@ $(function(){
 	});
 });
 </script>
+<div class="outproduct">
 <article>
 	
 	<div class="subtitWrap">
@@ -56,5 +57,5 @@ $(function(){
 	<!-- DB구조 변동에 따라 위 코드는 변경가능성 존재 -->
 	
 </article>
-
+</div>
 <%@ include file="../include/footer.jsp" %>

@@ -37,8 +37,8 @@
 						 <dd>카트에 담은 상품이 없습니다.</dd>
 						 </dl>
 					 </c:when>
-					 <c:otherwise>
-						 <dl>
+					 <c:otherwise> 
+						 <dl> 
 							<dt><strong>카트</strong>
 							<em class="count">
 							<span>${cvo.size()}</span>

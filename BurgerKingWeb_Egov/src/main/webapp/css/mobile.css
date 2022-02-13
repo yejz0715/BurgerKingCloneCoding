@@ -59,9 +59,9 @@ footer #copy ul li {
 }
 
 footer #copy a {
+	position: relative;
    color: #6a6a6a;
    text-decoration: none;
-   font-size:50px;
 }
 
 footer #text_container p{
@@ -390,7 +390,7 @@ ul {
 }
 
 .utilWrap {
-   position: absolute;
+   position: relative;
    right: 20px;
    top: 0;
    overflow: hidden;
@@ -569,7 +569,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 .footer_a {
    color: #000;
    cursor: pointer;
-   font-size: 16px;
+   font-size: 50px;
    text-decoration: none;
 }
 

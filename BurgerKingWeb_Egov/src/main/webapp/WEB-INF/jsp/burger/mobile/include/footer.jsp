@@ -5,9 +5,9 @@
 				<img src="<c:url value='/image/main/bottom_logo.png'/> "/><br><br>
 				
 				<ul>
-					<li style="border-right:1px solid gray"><span><a class="footer_a" href="terms.do">이용약관</a></span></li>
-					<li style="border-right:1px solid gray"><span><a class="footer_a" href="privacy.do">개인정보취급방침</a></span></li>
-					<li><span><a class="footer_a" href="legal">법적고지</a></span></li>
+					<li style="border-right:1px solid gray"><span><a class="footer_a" href="Mterms.do">이용약관</a></span></li>
+					<li style="border-right:1px solid gray"><span><a class="footer_a" href="Mprivacy.do">개인정보취급방침</a></span></li>
+					<li><span><a class="footer_a" href="Mlegal.do">법적고지</a></span></li>
 				</ul>
 				
 				<div id="text_container">

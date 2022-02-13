@@ -118,6 +118,7 @@ footer #text_container p{
 }
 /* ------------------------------------------------------------------------------------------------------------------------------------------ */
 .wrap {
+		height: 1300px;
    width: 60%;
    margin: 0 auto;
    background-color: #f2ebe6;
@@ -125,7 +126,8 @@ footer #text_container p{
 
 #terms_wrap_ul {
    position: absolute;
-   right: 400px;
+   left: 680px;
+   /* right: 400px; */
    list-style: none;
    margin: 0px;
    padding: 0px;
@@ -152,7 +154,8 @@ footer #text_container p{
 .textarea {
    position: relative;
    padding: 40px;
-   height: 600px;
+   		height: 1000px;
+   /* height: 600px; */
    background-color: #fff;
    overflow: scroll;
 }
@@ -2235,6 +2238,7 @@ strong {
    margin-top: 20px;
    text-align: center;
    margin-bottom: 20px;
+	 min-width: auto;
 }
 
 .qna_btn01 {
@@ -2823,7 +2827,7 @@ input[type=text] {
 	margin: 0;
 	padding: 3px 10px 3px 4px;
 	font-weight: 400;
-	font-size: 1.375rem;
+	/* font-size: 1.375rem; */
 	font-family: HGG, Malgun Gothic, "\B9D1\C740 \ACE0\B515", dotum,
 		"\B3CB\C6C0", sans-serif;
 	vertical-align: middle;

@@ -3,7 +3,6 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article>
-	
 	<div class="web_container1">
 		<h2 class="page_tit02 bg_w">
 			<em>WHERE TASTE IS KING</em><span>어서오세요! 버거킹입니다.</span>

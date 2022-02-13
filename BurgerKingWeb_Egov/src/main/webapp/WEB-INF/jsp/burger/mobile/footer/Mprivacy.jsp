@@ -32,5 +32,5 @@
 	
 </article>
 <div class="clear"></div>
-<%@ include file="../include/undermenu.jsp" %>
+
 <%@ include file="../include/footer.jsp" %>

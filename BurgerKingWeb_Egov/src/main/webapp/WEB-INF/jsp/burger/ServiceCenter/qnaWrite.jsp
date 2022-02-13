@@ -2,7 +2,15 @@
 <%@ include file="../include/header.jsp"%>
 
 <article>
-	
+	<div class="location">
+	<div class="web_container1">
+		<ul>
+			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li>고객센터 &nbsp;>&nbsp;</li>
+			<li>문의</li>
+		</ul>
+	</div>
+	</div>
 	
 	<div class="subtitWrap">
 		<h3 class="page_tit">고객센터</h3>
@@ -23,7 +31,7 @@
 		<form name="frm" method="post" action="qnaWrite.do">
 			<input type="hidden" name="command" value="qnaWrite.do">
 			<input type="hidden" name="id" value="${id}">
-			<fieldset style="width:50px; border: 0px; background-color: #f2ebe6;">
+			<fieldset style="border: 0px; background-color: #f2ebe6;">
 				<label>제목</label><br>
 				<input type="text" name="subject" size="100"><br>
 				<label>질문내용</label>

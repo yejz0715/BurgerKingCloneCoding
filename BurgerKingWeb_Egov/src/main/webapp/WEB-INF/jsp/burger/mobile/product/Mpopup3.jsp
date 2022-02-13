@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value='css/mobile.css'/> "/> 
+<link href="<c:url value='css/mobile.css' />" rel="stylesheet">
 <script type="text/javascript">
 	
 </script>

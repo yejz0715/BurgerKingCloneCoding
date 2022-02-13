@@ -23,10 +23,10 @@
 		});
 	</script>
 	</head>
-	<body>
-		<header id=h_header>
+	<body> 
+		<header id=h_header> 
 			<div class="header_container" style="width: 100%;">
-				<div id="web_container">
+				<div id="web_container"> 
 					<a class="h_menu_open">
 						<img src="<c:url value='image/main/HeaderMenu_icon.png'/>">
 					</a>

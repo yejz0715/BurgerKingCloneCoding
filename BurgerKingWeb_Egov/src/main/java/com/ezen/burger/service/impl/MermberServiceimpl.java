@@ -100,4 +100,10 @@ public class MermberServiceimpl extends EgovAbstractServiceImpl implements Membe
 		
 	}
 
+	@Override
+	public void b_deleteAddress(HashMap<String, Object> paramMap) {
+		mdao.b_deleteAddress(paramMap);
+		
+	}
+
 }

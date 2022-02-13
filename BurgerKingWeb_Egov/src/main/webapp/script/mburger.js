@@ -99,7 +99,7 @@ function updatepwdChk(){
 }
 
 function deliveryDetail(pseq){
-	var url = "deliveryDetail.do?pseq="+pseq;
+	var url = "MdeliveryDetail.do?pseq="+pseq;
 	var opt = "toolbar=no,menubar=no,scrollbars=yes,resizable=no,height=800,width=580,top=300, left=300";
 	window.open(url, "delivery", opt);
 }
@@ -108,17 +108,17 @@ function deliveryDetail(pseq){
 function add_or_cart(kind1, pseq){
 	var url="";
 	if(kind1 == "1" || kind1 == "6" || kind1 == "7" || kind1 == "8"){
-		url="noMeterialCart.do?pseq="+pseq;
+		url="MnoMeterialCart.do?pseq="+pseq;
 		opener.location.href = url;
 		self.close();
 	}else{
-		url="deliveryAddMaterial.do?pseq="+pseq;
+		url="MdeliveryAddMaterial.do?pseq="+pseq;
 		window.location.href = url;
 	}
 }
 
 function go_cart(pseq){
-	opener.window.location.href="noMeterialCart.do?pseq=" + pseq;
+	opener.window.location.href="MnoMeterialCart.do?pseq=" + pseq;
 	self.close();
 }
 
@@ -135,34 +135,34 @@ function go_add_Meterial(pseq){
 	if(cb.length == 1){
 		alert("추가 메뉴를 선택해주세요.");
 	}else{
-		opener.location.href="insertAddMeterial.do?addM=" + cb;
+		opener.location.href="MinsertAddMeterial.do?addM=" + cb;
 		self.close();
 	}
 }
 
 function go_cart02(){
-	document.cartForm.action="deliveryCartForm.do";
+	document.cartForm.action="MdeliveryCartForm.do";
 	document.cartForm.submit();
 }
 
 
 function go_cart_delete(cseq){
-	var url="cartDelete.do?cseq="+cseq;
+	var url="McartDelete.do?cseq="+cseq;
 	window.location.replace(url);
 }
 
 
 function menu_plus(){
-	var url="deliveryForm.do&kind1=1";
+	var url="MdeliveryForm.do&kind1=1";
 	window.location.replace(url);
 }
 
 function go_order_insert(){
-	location.href="deliveryCartOrder.do";
+	location.href="MdeliveryCartOrder.do";
 }
 
 function go_order_select(){
-	location.href="deliveryOrderList.do";	
+	location.href="MdeliveryOrderList.do";	
 }
 
 function del_qna(){
@@ -180,7 +180,7 @@ function del_qna(){
 	if( count == 0 ){
 		alert("삭제할 항목을 선택해주세요");
 	} else{
-		document.frm.action = "qnaDelete.do";
+		document.frm.action="MqnaDelete.do";
 	    document.frm.submit();
 	}
 }
@@ -222,7 +222,7 @@ function qna_write_chk(){
 }
 
 function input_pass(qseq){
-	var url = "passCheckForm.do?qseq=" + qseq;
+	var url = "MpassCheckForm.do?qseq=" + qseq;
 	document.frm.action = url;
 	document.frm.submit();
 }
@@ -236,7 +236,7 @@ function resign(){
 }
 
 function post_zip(){    
-	var url = "findZipNum.do";
+	var url = "MfindZipNum.do";
 	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=550,";
 	opt = opt + " height=300, top=300, left=300";
 	window.open( url, "우편번호 찾기", opt );
@@ -314,7 +314,7 @@ function check_Term(){
 }
 
 function go_order_delete(odseq){
-	var url="orderDelete.do?odseq="+odseq;
+	var url="MorderDelete.do?odseq="+odseq;
 	window.location.replace(url);
 }
 

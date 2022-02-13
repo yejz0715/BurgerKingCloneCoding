@@ -38,9 +38,9 @@ public class MMemberController {
 		return "mobile/member/MloginForm";
 	}
 	
-	/*
+	
 	// 로그인
-	@RequestMapping(value="login.do", method = RequestMethod.POST)
+	@RequestMapping(value="Mlogin.do", method = RequestMethod.POST)
 	public String login(Model model, HttpServletRequest request) {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("id", request.getParameter("id"));
@@ -54,16 +54,16 @@ public class MMemberController {
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		if(list.size() == 0) { // 해당 ID를 가진 회원이 없을경우
 			model.addAttribute("message", "ID가 없습니다.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}
 		HashMap<String, Object> mvo = list.get(0);
 		
 		if(mvo.get("PWD") == null) { // 회원은 있지만 비밀번호에 문제가 있을 경우
 			model.addAttribute("message", "관리자에게 문의하세요.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}else if(!mvo.get("PWD").equals(pwd)) { // 입력한 패스워드가 일치하지 않을 경우
 			model.addAttribute("message", "비밀번호가 맞지 않습니다..");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}else if(mvo.get("PWD").equals(pwd)){ // 정상 로그인
 			HttpSession session = request.getSession();
 			// 회원 로그인시 세션에 비회원카트정보가 있다면 제거
@@ -78,29 +78,33 @@ public class MMemberController {
 			
 			session.setAttribute("loginUser", mvo);
 			session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
-			return "redirect:/index.do";
+			return "redirect:/mobilemain.do";
 		}else { // 기타 원인을 알 수 없는 오류
 			model.addAttribute("message", "알수없는 이유로 로그인 실패.");
-			return "member/loginForm";
+			return "mobile/member/MloginForm";
 		}
 	}
+	 
 	
 	// 로그아웃
-	@RequestMapping(value="/logout")
+	@RequestMapping(value="/Mlogout.do")
 	public String logout(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		session.invalidate();
-		return "redirect:/index.do";
+		return "redirect:/mobilemain.do";
 	}
 	
+	
+	
 	// 아이디 찾기 페이지 이동
-	@RequestMapping(value="/findIdForm.do")
-	public String findIdForm() {
-		return "member/findIdForm";
+	@RequestMapping(value="/MfindIdForm.do")
+	public String MfindIdForm() {
+		return "mobile/member/MfindIdForm";
 	}
+	
 	//아이디 찾기
-	@RequestMapping(value="/findId.do", method = RequestMethod.POST)
-	public String findId(Model model, HttpServletRequest request) {
+	@RequestMapping(value="/MfindId.do", method = RequestMethod.POST)
+	public String MfindId(Model model, HttpServletRequest request) {
 		String name=request.getParameter("name");
 		String phone=request.getParameter("phone");
 		
@@ -115,14 +119,14 @@ public class MMemberController {
 				(ArrayList<HashMap<String, Object>>)paramMap.get("ref_cursor");
 		if(list.size() == 0) {
 			model.addAttribute("message", "해당 정보를 가진 회원이 없습니다.");
-			return "member/findIdForm";
+			return "mobile/member/MfindIdForm";
 		}else{
 			model.addAttribute("memberVO", list.get(0));
 		}
-		return "member/showIdForm";
+		return "mobile/member/MshowIdForm";
 	}
 	
-	@RequestMapping(value="/findPwdForm.do")
+	@RequestMapping(value="/MfindPwdForm.do")
 	public String findPwdForm(Model model,HttpServletRequest request) {
 		String name=request.getParameter("name");
 		String id=request.getParameter("id");
@@ -130,11 +134,11 @@ public class MMemberController {
 		model.addAttribute("name", name);
 		model.addAttribute("id", id);
 		
-		return "member/findPwdForm";
+		return "mobile/member/MfindPwdForm";
 	}
 	
 	// 비밀번호 찾기
-	@RequestMapping(value="/findPwd.do" , method = RequestMethod.POST)
+	@RequestMapping(value="/MfindPwd.do" , method = RequestMethod.POST)
 	public String findPwd(Model model, HttpServletRequest request) {
 		String name=request.getParameter("name");
 		String id=request.getParameter("id");
@@ -153,17 +157,17 @@ public class MMemberController {
 			
 			model.addAttribute("message", "해당 정보를 가진 회원이 없습니다.");
 			
-			return "member/findPwdForm";
+			return "mobile/member/MfindPwdForm";
 		}else{
 			
 			model.addAttribute("memberVO", list.get(0));
 			
 		}
-		return "member/sendPwdForm";
+		return "mobile/member/MsendPwdForm";
 	}
 	
 	// 비밀번호 찾기, 정보 일치 후 비밀번호 재설정
-	@RequestMapping(value="updatePwd.do")
+	@RequestMapping(value="MupdatePwd.do")
 	public String updatePwd(Model model, HttpServletRequest request) {
 	String pwd=request.getParameter("pwd");
 	String mseq=request.getParameter("mseq");
@@ -174,19 +178,18 @@ public class MMemberController {
 	ms.b_updatePwd(paramMap);
 
 	model.addAttribute("paramMap", paramMap);
-		return "redirect:/loginForm.do";
+		return "redirect:/MloginForm.do";
 	}
-	
-	
+
 	// 비회원 로그인 정보 입력화면 이동
-	@RequestMapping(value="/guestLoginForm")
-	public String guestLoginForm() {
-		return "member/guestLoginForm";
+	@RequestMapping(value="/MguestLoginForm.do")
+	public String MguestLoginForm() {
+		return "mobile/member/MguestLoginForm";
 	}
-	
+		
 	// 비회원 로그인
-	@RequestMapping(value="/guestLogin")
-	public String guestLogin(HttpServletRequest request, Model model) {
+	@RequestMapping(value="/MguestLogin.do")
+	public String MguestLogin(HttpServletRequest request, Model model) {
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String pwd = request.getParameter("pwd");
@@ -225,11 +228,11 @@ public class MMemberController {
 		session.setAttribute("loginUser", gvo);
 		session.setAttribute("memberkind", gvo.get("MEMBERKIND").toString());
 		session.setAttribute("guestCartList", guestCartList);
-		return "redirect:/index.do";
+		return "redirect:/start.do";
 	}
-	
+
 	// 로그인 이후 딜리버리 페이지로 이동
-	@RequestMapping(value="/deliveryForm")
+	@RequestMapping(value="/MdeliveryForm.do")
 	public String deliveryForm(HttpServletRequest request, Model model) {
 		String kind1 = request.getParameter("kind1");
 		HttpSession session = request.getSession();
@@ -240,7 +243,7 @@ public class MMemberController {
 			if(memberKind == 1) {
 				HashMap<String, Object> mvo = (HashMap<String, Object>) session.getAttribute("loginUser");
 				if(mvo == null) {
-					return "redirect:/loginForm.do";
+					return "redirect:/MloginForm.do";
 				}else {
 					// 로그인한 회원의 주소지를 확인 후 없으면 주소 초기설정 페이지로 이동
 					HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -266,7 +269,7 @@ public class MMemberController {
 						
 						model.addAttribute("ovo", list1);
 						model.addAttribute("cvo", list2);
-						return "delivery/addressSet";
+						return "mobile/delivery/MaddressSet";
 					}else {
 						// 주소지가 있다면 주문 상품목록과 회원의 카트, 주문의 리스트를 가지고 딜리버리페이지로 이동
 						HashMap<String, Object> paramMap2 = new HashMap<String, Object>();
@@ -290,7 +293,7 @@ public class MMemberController {
 						model.addAttribute("cvo", list2);
 						model.addAttribute("productList", list3);
 						model.addAttribute("kind1", kind1);
-						return "delivery/delivery";
+						return "mobile/delivery/Mdelivery";
 					}
 				}
 			}else if(memberKind == 2){
@@ -299,7 +302,7 @@ public class MMemberController {
 					return "redirect:/loginForm.do";
 				}else {
 					if(gvo.get("ADDRESS") == null) {
-						return "delivery/addressSet";
+						return "mobile/delivery/MaddressSet";
 					}else {
 						HashMap<String, Object> paramMap = new HashMap<String, Object>();
 						paramMap.put("kind1", kind1);
@@ -310,7 +313,7 @@ public class MMemberController {
 						
 						model.addAttribute("productList", list);
 						model.addAttribute("kind1", kind1);
-						return "delivery/delivery";
+						return "mobile/delivery/Mdelivery";
 					}
 				}
 			}else {
@@ -321,8 +324,10 @@ public class MMemberController {
 		}
 	}
 	
+	
+	
 	// 회원 정보 변경 페이지로 이동
-	@RequestMapping(value="/memberUpdateForm.do")
+	@RequestMapping(value="/MmemberUpdateForm.do")
 	public String memberUpdateForm(HttpServletRequest request, Model model) {
 		String message = request.getParameter("message");
 		HttpSession session = request.getSession();
@@ -353,20 +358,22 @@ public class MMemberController {
 				model.addAttribute("ovo", list1);
 				model.addAttribute("cvo", list2);
 				model.addAttribute("MemberVO", mvo);
-				return "member/updateForm";
+				return "mobile/member/MupdateForm";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
-	}
+	} 
+	
+	
 	
 	// 회원정보 수정
-	@RequestMapping(value="/updateMember")
+	@RequestMapping(value="/MupdateMember.do")
 	public String updateMember(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
@@ -382,20 +389,22 @@ public class MMemberController {
 				
 				session.setAttribute("loginUser", mvo);
 				session.setAttribute("memberkind", mvo.get("MEMBERKIND").toString());
-				return "redirect:/deliveryMypageForm.do";
+				return "redirect:/MdeliveryMypageForm.do";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
 	
+	
+	
 	// 회원정보 삭제
-	@RequestMapping(value="/memberDelete.do")
+	@RequestMapping(value="/MmemberDelete.do")
 	public String memberDelete(HttpServletRequest request, Model model) {
 		HttpSession session = request.getSession();
 		if(session.getAttribute("memberkind") != null) {
@@ -412,7 +421,7 @@ public class MMemberController {
 				// 진행중인 주문이 있으면 회원탈퇴 거절
 				if(list.size() > 0) {
 					model.addAttribute("message", "진행중인 주문이 있어서 회원탈퇴가 불가능합니다.");
-					return "redirect:/memberUpdateForm.do";
+					return "redirect:/MmemberUpdateForm.do";
 				}
 				
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
@@ -420,18 +429,18 @@ public class MMemberController {
 				ms.deleteMember(paramMap);
 				
 				session.invalidate();
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}else if(memberKind == 2){
 				model.addAttribute("kind1", 1);
-				return "redirect:/deliveryForm.do";
+				return "redirect:/MdeliveryForm.do";
 			}else {
-				return "redirect:/loginForm.do";
+				return "redirect:/MloginForm.do";
 			}
 		}else {
-			return "redirect:/loginForm.do";
+			return "redirect:/MloginForm.do";
 		}
 	}
-	*/
+	
 	
 	// 회원가입 페이지로 이동
 	@RequestMapping(value="/MjoinForm.do")

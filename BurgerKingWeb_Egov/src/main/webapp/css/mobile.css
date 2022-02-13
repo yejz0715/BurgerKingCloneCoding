@@ -8,8 +8,6 @@ html, body {
 
 body {
 	background-color: #fff;
-	margin-top: 120px;
-	min-width: 1000px;
     min-height: 100%;
     color: #000;
     word-wrap: normal;
@@ -22,7 +20,7 @@ body {
 /* footer-------------------------------------------------------------------------------------------------------------------------------- */
 footer {
 	position: absolute;
-	width: 148%;
+	width: 100%;
 	height: 272px;
 	font-size: .875rem;
 	color: #6a6a6a;
@@ -65,10 +63,11 @@ footer #copy a {
 /* location------------------------------------------------------------------------------------------------------------------------------------------ */
 .location {
 	width: 100%;
-	height: 60px;
+	height: 100px;
 	background-color: #000;
-	line-height: 60px;
+	line-height: 100px;
 	margin-bottom: 50px;
+	font-size:140%;
 }
 
 .location ul {
@@ -243,7 +242,7 @@ ul {
 }
 
 #header_container {
-	position: fixed;
+	position: relative;
 	left: 0;
 	top: 0;
 	right: 0;
@@ -252,15 +251,18 @@ ul {
 }
 
 #web_container {
-	max-width: 1184px;
-	height: 120px;
+	max-width: 100%;
+	height: 150px;
 	position: relative;
 	margin: 0 auto;
 }
 
 #logo {
 	position: absolute;
+	margin-left:50%;
+	transform: translateX(-50%);
 	vertical-align: middle;
+	text-align: center;
 }
 
 #top_menu {
@@ -279,12 +281,10 @@ ul {
 
 .menu_item {
 	position: relative;
-	float: left;
 	width: 25%;
 	z-index: 11;
 	font-weight: 700;
-	font-size: 1.375rem;
-	text-align: left;
+	font-size: 3rem;
 	line-height: 120px;
 	cursor: default;
 }
@@ -297,8 +297,10 @@ ul {
 
 #order_btn {
 	position: absolute;
-	right: 0;
-	top: 20px;
+	right: 3%;
+	/* left:50%;
+	transform: translateX(-50%); */
+	height: 100%;
 }
 
 /*menuList.jsp------------------------------------------------------------------------------------------*/
@@ -490,35 +492,44 @@ ul {
 
 /* header------------------------------------------------------------------------------------*/
 .header_container {
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.h_menu_open{
+	position:absolute;
+	height: 80%;
+	margin-left: 3%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#h_header{
 	position: fixed;
 	left: 0;
 	top: 0;
 	right: 0;
 	z-index: 50;
-	background-color: #fff;
+	height: 150px;
 }
-
 
 #logo {
 	line-height: 120px;
+	width: 100px; height: 100%;
 }
 
-.top_menu {
+.h_menu_item {
 	position: relative;
-	margin-left: 15%;
+	width: 25%;
+	z-index: 11;
+	font-weight: 700;
+	font-size: 3rem;
+	line-height: 120px;
+	cursor: default;
 }
 
-.top_menu ul {
-	float: left;
-	width: 94%;
-	max-width: 768px;
-	margin-left: 96px;
-}
-
-.top_menu:hover .header_submenu {
-	height: 322px;
-	z-index: 101;
-	margin-left: 0px;
+#header_menubar ul{
+	width: 100%;
 }
 
 d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
@@ -526,40 +537,24 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	padding: 0;
 }
 
-.menu_item {
-	position: relative;
-	float: left;
-	width: 25%;
-	z-index: 11;
-	font-weight: 700;
-	font-size: 1.5rem;
-	text-align: left;
-	cursor: default;
-}
-
-#order_btn {
-	right: 0;
-}
-
 .header_submenu {
-	position: absolute;
+	position: relative;
 	left: 0;
 	top: 100%;
 	min-width: 100%;
-	height: 0;
-	overflow: hidden;
 	z-index: 100;
 	list-style: none;
 }
 
-.header_submenu li {
+.header_submenu>li {
 	margin-bottom: 5px;
+	height: 50px;
 	line-height: 0px;
+	margin-left: 50px;
 }
 
 .header_submenu a {
 	height: 125px;
-	font-size: .875rem;
 	line-height: 25px;
 }
 
@@ -571,7 +566,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .header_submenu li a {
-	font-size: 14px;
+	font-size: 1.1rem;
 	text-decoration: none;
 	color: #292929;
 	font-family: 'Noto Sans KR', sans-serif;
@@ -583,6 +578,24 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 	vertical-align: middle;
 }
 
+#header_menubar{
+	position: absolute;
+	width: 80%; height: 800%;
+	background-color: #fff;
+	z-index: 10;
+	display:none;
+	border-top: 5px solid gray;
+	overflow: scroll;
+}
+.header_deli_img{
+	position:relative;
+	width:160px; height:50px;
+	top: 50%; transform: translateY(-50%);
+}
+
+#ul1>li{
+	margin: 0 auto;
+}
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {
 	margin-bottom: 15px;
@@ -598,9 +611,8 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .web_container1 {
-	max-width: 1184px;
+	width:100%;
 	margin: 0 auto;
-	padding: 0 20px;
 }
 
 .sc_table_thead {
@@ -944,16 +956,15 @@ address, em {
 
 .weblogin_ui {
 	min-height: 560px;
-	padding: 45px 0 70px;
+	padding: 45px 70px 70px 70px;
 	overflow: hidden;
 }
 
 .weblogin_ui .login {
-	width: 50%;
+	width: 100%;
 	min-width: 530px;
 	padding-right: 5.23%;
 	border: 0px;
-	border-right: 1px solid #e5e5e5;
 	float: left;
 }
 
@@ -1145,8 +1156,8 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 	text-align:center;
 	position: realtive;
 	overflow: hidden;
-	width: 49%;
-    min-width: 530px;
+	width: 100%;
+    min-width: 300px;
     border: 0px;
     float: left;
 }
@@ -1165,15 +1176,14 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 .nonmember_Textarea{
-	position: absolute;
-	width: 580px; height: 300px;
+	position: relative;
+	width: 100%; height: 300px;
 	text-align: center;
-	/* left: 50.15%; */
 }
 #nonmember_Text{
 	text-align:center;
 	margin: 0 auto;
-	width: 540px; height: 100px;
+	width: 100%; height: 100px;
 	line-height: 100px;
 	font-size: 150%;
 	background-color: #fff;
@@ -1181,14 +1191,14 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #nonmember_Text2{
 	text-align:center;
 	margin: 0 auto;
-	width: 540px; height: 200px;
+	width: 100%; height: 200px;
 	line-height: 30px;
 	font-size: 150%;
 	background-color: #fff;
 }
 #nonmember_Text2 .inpbox{
 	margin: 0 auto;
-	width: 300px; text-align: center;
+	width: 100%; text-align: center;
 }
 
 #non_Btn1{
@@ -1211,10 +1221,10 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 #nonmenuBar_ul{
-	width:50%; height: 80px;
+	width:30%; height: 80px;
 	list-style: none;
     padding: 0px;
-    padding-left: 50%;	
+	margin: 0 auto;	
 }
 #nonmenuBar_ul li{
 	text-align:center;
@@ -1258,8 +1268,8 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide {
 	position: relative;
 	overflow: hidden;
-	width: 1440px;
-	height: 480px;
+	width: 100%;
+	height: 329px;
 	margin: 0 auto;
 	left: 6px;
 }
@@ -1267,11 +1277,16 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 #slide .cnt>li {
 	position: absolute;
 	top: 0px;
-	left: 1440px;
-	width: 1440px;
+	left: 100%;
+	width: 100%;
 	text-align: center;
 	font-size: 30px;
 	line-height: 580px;
+	overflow: hidden;
+}
+#slide .cnt>li>a>img {
+	width: 100%;
+	height: 329px;
 }
 
 #slide .cnt>li:nth-child(1) {
@@ -1408,7 +1423,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 .web_container2 {
 	position: relative;
 	width: 1440px;
-	height: 480px;
+/* 	height: 480px; */
 	margin: 0 auto;
 	right: -6px;
 	text-align: center;
@@ -1465,7 +1480,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 
 .web_container3 {
 	position: relative;
-	width: 144%;
+	width: 100%;
 	height: 200px;
 	margin: 0 auto;
 	right: -6px;
@@ -1490,7 +1505,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 .cs_call {
-	right: 100px;
+/* 	right: 100px; */
 	font-size: 4rem;
 	font-weight: bold;
 }
@@ -1712,6 +1727,7 @@ button{
 .bg_w {
 	background: #fff;
 	padding: 50px 0 45px;
+	text-align: center;
 }
 
 .prd_submenu {
@@ -4394,53 +4410,3 @@ input[type=checkbox]+:before {
 address, em {
     font-style: normal;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

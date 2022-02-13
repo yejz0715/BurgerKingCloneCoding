@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-		
+		<div class="clear"></div>
 		<footer>
 			<div id="copy">
 				<img src="<c:url value='/image/main/bottom_logo.png'/> "/><br><br>

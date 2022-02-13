@@ -152,11 +152,7 @@ public class OtherController {
 	}
 	
 	
-	// 모바일메인페이지로 이동
-		@RequestMapping(value="/start.do")
-		public String start(HttpServletRequest request, Model model) { 
-			return "start";
-		}
+	
 		
 }
 

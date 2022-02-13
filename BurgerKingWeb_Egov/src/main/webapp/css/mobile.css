@@ -338,7 +338,7 @@ ul {
 /*menuList.jsp------------------------------------------------------------------------------------------*/
 .menuarea {
    position: relative;
-   width: 1200px;
+   width: 100%;
    margin: 0 auto;
 }
 
@@ -1858,7 +1858,7 @@ strong {
 }
 
 .subtitWrap .tab01 {
-   position: absolute;
+   position: relative;
    right: 0;
    top: 50%;
    margin: -17.5px 0 0;
@@ -1894,6 +1894,8 @@ strong {
    padding: 0 14px;
    vertical-align: top;
    white-space: nowrap;
+   float: left;
+   width: 33%;
 }
 /*showId/Pwd---------------------------------------------------------------------------------------------*/
 .showid_text {

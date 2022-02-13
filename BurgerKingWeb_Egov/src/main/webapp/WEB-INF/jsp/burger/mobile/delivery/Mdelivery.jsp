@@ -23,12 +23,10 @@ function popup3() {
 <article>
 	<div class="location">
 		<div class="web_container1">
-			<div class="web_container1">
-				<ul>
-					<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-					<li>카트</li>
-				</ul>
-			</div>
+			<ul>
+				<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
+				<li>카트</li>
+			</ul>
 		</div>
 	</div>
 <div class="bg_w">

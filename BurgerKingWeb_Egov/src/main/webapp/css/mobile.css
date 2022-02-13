@@ -3914,7 +3914,7 @@ input[readonly=readonly] {
 	padding: 50px 0 45px;
 	max-width: 776px;
     margin: 0 auto;
-    padding: 0 8px;	
+   /*  padding: 0 8px;	 */
 }
 
 .web_profileUpdate .subTit{
@@ -4448,4 +4448,12 @@ input[type=checkbox]+:before {
 }
 address, em {
     font-style: normal;
+}
+
+.outerpasschk{
+	height:70%;
+}
+
+.outproduct{
+	height:1440px;
 }

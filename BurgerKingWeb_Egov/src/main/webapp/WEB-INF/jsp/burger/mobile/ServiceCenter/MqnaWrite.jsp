@@ -2,15 +2,6 @@
 <%@ include file="../include/header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li>고객센터 &nbsp;>&nbsp;</li>
-			<li>문의</li>
-		</ul>
-	</div>
-	</div>
 	
 	<div class="subtitWrap">
 		<h3 class="page_tit">고객센터</h3>
@@ -33,7 +24,7 @@
 			<input type="hidden" name="id" value="${id}">
 			<fieldset style="border: 0px; background-color: #f2ebe6;">
 				<label>제목</label><br>
-				<input type="text" name="subject" size="100"><br>
+				<input type="text" name="subject" size="50"><br>
 				<label>질문내용</label>
 				<textarea rows="10" cols="120" name="content"></textarea>
 				<label>비밀번호</label>

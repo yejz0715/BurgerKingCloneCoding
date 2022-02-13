@@ -2,16 +2,7 @@
 <%@ include file="../include/header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="modiblemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li>고객센터 &nbsp;>&nbsp;</li>
-			<li>FAQ</li>
-		</ul>
-	</div>
-	</div>
-
+	
 	<div class="subtitWrap">
 		<h3 class="page_tit">고객센터</h3>
 		<ul id="terms_wrap_ul" style="right: 0; top:0">

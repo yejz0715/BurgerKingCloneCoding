@@ -6,17 +6,7 @@
 
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="MjoinForm.do">회원가입</a>&nbsp;>&nbsp;</li>
-			<li><a href="Mcontract.do">약관동의 및 본인인증</a>&nbsp;>&nbsp;</li>
-		</ul>
-	</div>
-	</div>
-
+	
 	<script type="text/javascript">
 	/* 팝업창 */
 		function Mgo_pop1() {
@@ -153,5 +143,4 @@
 	</form>
 </article>
 
-<%@ include file="../include/undermenu.jsp" %>
 <%@ include file="../include/footer.jsp" %>

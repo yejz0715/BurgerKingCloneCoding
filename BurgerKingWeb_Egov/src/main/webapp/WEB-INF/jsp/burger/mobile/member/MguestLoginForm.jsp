@@ -2,15 +2,6 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article style="background: #f2ebe6;">
-	<div class="location">
-		<div class="web_container1">
-			<ul>
-				<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-				<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-				<li><a href="MguestLoginForm.do">비회원 주문</a></li>
-			</ul>
-		</div>
-	</div>
 	
 	<div class="web_container02">
 		<h2 class="page_tit02 bg_w" style="background: #f2ebe6;">비회원 주문</h2>

@@ -17,15 +17,6 @@ function find_pwd(){
 </script> 
 
 <article style="background-color: #f2ebe6;">
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="MfindPwdForm.do">아이디/비밀번호 찾기</a></li>
-		</ul>
-	</div>
-	</div>
 	
 	<div class="web_container02">
 		<form name="frm" action="MfindPwd.do" method="post">

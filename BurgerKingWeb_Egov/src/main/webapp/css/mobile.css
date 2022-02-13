@@ -48,14 +48,35 @@ footer #copy ul {
    right: 0px;
    list-style: none;
    margin: 0 auto;
+   overflow: hidden;
 }
 
 footer #copy ul li {
    list-style: none;
    display: list-item;
    float: left;
-   padding: 0 30px;
    text-align : center;
+   width: 25%;
+}
+
+footer #copy ul li:nth-child(2) {
+    width: 50%;
+    text-align: center;
+}
+
+footer #copy ul li:last-child a {
+	padding-right: 0;
+}
+
+footer #copy ul li a:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 12px;
+    margin-top: -6px;
+    background: hsla(0,0%,100%,.1);
 }
 
 footer #copy a {

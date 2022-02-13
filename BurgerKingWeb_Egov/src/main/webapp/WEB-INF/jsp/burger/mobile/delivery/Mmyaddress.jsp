@@ -6,15 +6,6 @@
 <div class="clear"></div>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="MdeliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
-			<li>MY배달지</li>
-		</ul>
-	</div>
-	</div>
 
 	<div class="webAddress">
 		<form method="post" name="address" action="MupdateAddress.do">

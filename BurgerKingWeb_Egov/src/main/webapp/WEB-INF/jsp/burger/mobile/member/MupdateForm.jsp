@@ -7,15 +7,7 @@
 <div class="clear"></div>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li><a href="MdeliveryMypageForm.do">MY킹</a>&nbsp;>&nbsp;</li>
-			<li>회원정보변경</li>
-		</ul>
-	</div>
-	</div>
+	
 	<div class="web_profileUpdate">
 		<h1 class="subTit">회원정보변경</h1>
 		<h2 style="color: red; font-weight: bold;">${message}</h2>

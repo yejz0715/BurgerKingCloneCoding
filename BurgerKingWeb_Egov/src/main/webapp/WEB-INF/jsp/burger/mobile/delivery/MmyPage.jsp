@@ -4,14 +4,7 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li>MY킹</li>
-		</ul>
-	</div>
-	</div>
+	
 	<div class="web_myPageContainer">
 	<div class="subTit_myPage">
 	<h1 class="pageTit">MY킹</h1>

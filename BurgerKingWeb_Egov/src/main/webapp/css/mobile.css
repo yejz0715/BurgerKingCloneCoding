@@ -338,12 +338,12 @@ ul {
 /*menuList.jsp------------------------------------------------------------------------------------------*/
 .menuarea {
    position: relative;
-   width: 1200px;
+   width: 950px;
    margin: 0 auto;
 }
 
 .menuarea ul {
-   width: 1200px;
+   width: 950px;
    list-style: none;
 }
 

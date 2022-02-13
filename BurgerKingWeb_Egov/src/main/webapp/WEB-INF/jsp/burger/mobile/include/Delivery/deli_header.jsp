@@ -13,8 +13,8 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR&display=swap" rel="stylesheet">
-	</head>
-	<body> 
+	</head> 
+	<body>
 		<div id="header_container" style="background-color: #e22219;">
 			<div class="web_container">
 			

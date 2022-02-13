@@ -1732,6 +1732,7 @@ button{
 
 .bg_w {
    background: #fff;
+   font-size:80px;
    padding: 50px 0 45px;
    text-align: center;
 }

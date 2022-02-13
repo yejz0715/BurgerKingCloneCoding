@@ -343,7 +343,7 @@ ul {
 }
 
 .menuarea ul {
-   width: 1200px;
+   width: 100%;
    list-style: none;
 }
 
@@ -393,7 +393,7 @@ ul {
     display: inline-block;
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 110px;
     font-weight: 700;
     font-size: 3.5rem;
     color: #fff;
@@ -628,6 +628,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
    margin-bottom: 15px;
    font-size: 2.5rem;
    line-height: 100%;
+   text-align: center
 }
 
 .subtitWrap {
@@ -1861,8 +1862,8 @@ strong {
    position: relative;
    right: 0;
    top: 50%;
-   margin: -17.5px 0 0;
    overflow: auto;
+   text-align: center
 }
 
 .tab01 ul {

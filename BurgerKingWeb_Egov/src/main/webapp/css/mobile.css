@@ -21,7 +21,7 @@ body {
 /* footer-------------------------------------------------------------------------------------------------------------------------------- */
 footer {
 	position: absolute;
-	width: 100%;
+	width: 122%;
 	height: 272px;
 	font-size: .875rem;
 	color: #6a6a6a;
@@ -63,7 +63,7 @@ footer #copy a {
 }
 /* location------------------------------------------------------------------------------------------------------------------------------------------ */
 .location {
-	width: 100%;
+	width: 122%;
 	height: 60px;
 	background-color: #000;
 	line-height: 60px;
@@ -958,7 +958,7 @@ address, em {
 .weblogin_ui {
 	height:auto;
 	/* min-height: 560px; */
-	/* padding: 45px 0 70px; */
+	padding: 45px 0 70px;
 	overflow: hidden;
 }
 

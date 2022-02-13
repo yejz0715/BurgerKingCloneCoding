@@ -7,7 +7,7 @@
 		<meta charset="UTF-8">
 		<title>딜리버리</title>
 		<link href="<c:url value='css/mobile.css'/>" rel="stylesheet">
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="http://code.jquery.com/jquery-latest.js"></script> 
 		<script src="<c:url value='script/mburger.js'/>" type="text/javascript"></script>
 		<link rel="icon" href="<c:url value='image/main/favicon.ico'/>">
 		<link rel="preconnect" href="https://fonts.googleapis.com">

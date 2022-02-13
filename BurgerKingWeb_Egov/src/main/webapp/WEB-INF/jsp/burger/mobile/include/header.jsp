@@ -72,7 +72,7 @@
                
                <c:choose>
                   <c:when test="${empty loginUser}">
-                     <a id="order_btn" href="loginForm.do"> 
+                     <a id="order_btn" href="MloginForm.do"> 
                         <img src="<c:url value='image/main/delivery1.png '/>" width="160" height="50" >
                      </a>
                   </c:when>

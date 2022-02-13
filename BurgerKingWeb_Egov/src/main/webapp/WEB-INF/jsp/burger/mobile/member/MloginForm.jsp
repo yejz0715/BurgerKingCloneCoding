@@ -6,8 +6,8 @@
 	<div class="location">
 	<div class="web_container1">
 		<ul>
-			<li><a href="main.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="loginForm.do">로그인</a></li>
+			<li><a href="Mmain.do">HOME</a>&nbsp;>&nbsp;</li>
+			<li><a href="MloginForm.do">로그인</a></li>
 		</ul>
 	</div>
 	</div>
@@ -39,11 +39,11 @@
 					<lable style="color: red;">${message}</lable>
 					<div class="c_btn item2">
 						<input type="submit" class="btn01 m red" value="로그인" onclick="return login_chk()"/> 
-						<input type="button" class="btn01 m" onclick="location.href='joinForm.do'" value="회원가입" />
+						<input type="button" class="btn01 m" onclick="location.href='MjoinForm.do'" value="회원가입" />
 					</div>
 					<div class="login_menu">
-						<a href="findIdForm.do"><span>아이디 찾기</span></a> 
-						<a href="findPwdForm.do"><span>비밀번호 찾기</span></a>
+						<a href="MfindIdForm.do"><span>아이디 찾기</span></a> 
+						<a href="MfindPwdForm.do"><span>비밀번호 찾기</span></a>
 					</div>
 				</div>
 			</form>
@@ -60,13 +60,13 @@
 					<div id="nonmember_Text">회원가입 없이 비회원으로 주문이 가능합니다.</div>
 					<br><br><br><br>
 					<c:if test="${empty memberkind}">
-						<input type="button" class="btn01 m" value="비회원 주문" onclick="location.href='guestLoginForm.do'">
+						<input type="button" class="btn01 m" value="비회원 주문" onclick="location.href='MguestLoginForm.do'">
 					</c:if>
 				</div>
 				<!-- non_Btn2 showing view -->
 				<div class="nonmember_Textarea" id="nonArea2">
 					<div id="nonmember_Text2">
-						<form action="nonOrderList.do" method="post" name="frm2" style="padding-top: 20px;">
+						<form action="MnonOrderList.do" method="post" name="frm2" style="padding-top: 20px;">
 							<div class="inpbox">
 								<label> 
 									<span>주문번호</span>

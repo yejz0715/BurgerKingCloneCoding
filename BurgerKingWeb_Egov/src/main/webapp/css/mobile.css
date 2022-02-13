@@ -338,12 +338,12 @@ ul {
 /*menuList.jsp------------------------------------------------------------------------------------------*/
 .menuarea {
    position: relative;
-   width: 950px;
+   width: 100%;
    margin: 0 auto;
 }
 
 .menuarea ul {
-   width: 950px;
+   width: 100%;
    list-style: none;
 }
 
@@ -393,7 +393,7 @@ ul {
     display: inline-block;
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 110px;
     font-weight: 700;
     font-size: 3.5rem;
     color: #fff;
@@ -628,6 +628,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
    margin-bottom: 15px;
    font-size: 2.5rem;
    line-height: 100%;
+   text-align: center
 }
 
 .subtitWrap {
@@ -1858,11 +1859,11 @@ strong {
 }
 
 .subtitWrap .tab01 {
-   position: absolute;
+   position: relative;
    right: 0;
    top: 50%;
-   margin: -17.5px 0 0;
    overflow: auto;
+   text-align: center;
 }
 
 .tab01 ul {
@@ -1870,8 +1871,6 @@ strong {
 }
 
 .subtitWrap .tab01 button {
-   height: 35px;
-   font-size: 1.125rem;
    border-width: 3px 0;
 }
 
@@ -1879,7 +1878,7 @@ strong {
    display: inline-block;
    padding: 10px 1px;
    font-weight: 700;
-   font-size: 1.375rem;
+   font-size: 1.5rem;
    color: #b8b8b8;
    border-width: 4px 0;
 }
@@ -1894,6 +1893,8 @@ strong {
    padding: 0 14px;
    vertical-align: top;
    white-space: nowrap;
+   float: left;
+   width: 33%;
 }
 /*showId/Pwd---------------------------------------------------------------------------------------------*/
 .showid_text {

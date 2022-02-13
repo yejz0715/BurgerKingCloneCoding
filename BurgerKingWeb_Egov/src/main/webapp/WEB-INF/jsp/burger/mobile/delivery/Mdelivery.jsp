@@ -56,7 +56,7 @@ function popup3() {
 							<a onclick="deliveryDetail('${productVO.PSEQ}')">
 							<div class="menuImgdiv">
 								<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> ">					
-							</div>
+							</div> 
 							<div class="menuContdiv">
 								<p>${productVO.PNAME}</p>
 								<p style="font-size:90%;color:#8d8d8d">${productVO.CONTENT}</p>

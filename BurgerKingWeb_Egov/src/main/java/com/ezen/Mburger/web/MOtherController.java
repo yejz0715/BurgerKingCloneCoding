@@ -77,29 +77,29 @@ public class MOtherController {
 		return "mobile/ServiceCenter/MappGuide";
 	}
 		
-	/*	
+		
 		
 	
-	@RequestMapping(value="/terms.do")
-	public String terms() {
-		return "footer/terms";
+	@RequestMapping(value="/Mterms.do")
+	public String Mterms() {
+		return "mobile/footer/Mterms";
 	}
 		
-	@RequestMapping(value="/privacy.do")
-	public String privacy() {
-		return "footer/privacy";
+	@RequestMapping(value="/Mprivacy.do")
+	public String Mprivacy() {
+		return "mobile/footer/Mprivacy";
 	}
 		
-	@RequestMapping(value="/videoPolicy.do")
-	public String videoPolicy() {
-		return "footer/videoPolicy";
+	@RequestMapping(value="/MvideoPolicy.do")
+	public String MvideoPolicy() {
+		return "mobile/footer/MvideoPolicy";
 	}
 		
-	@RequestMapping(value="/legal.do")
-	public String legal() {
-		return "footer/legal";
+	@RequestMapping(value="/Mlegal.do")
+	public String Mlegal() {
+		return "mobile/footer/Mlegal";
 	} 
-	*/	
+	
 	
 	@RequestMapping(value="/MdeliveryUseForm.do")
 	public String MdeliveryUseForm() {

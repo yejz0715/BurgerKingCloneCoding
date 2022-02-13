@@ -956,8 +956,9 @@ address, em {
 }
 
 .weblogin_ui {
-	min-height: 560px;
-	padding: 45px 0 70px;
+	height:auto;
+	/* min-height: 560px; */
+	/* padding: 45px 0 70px; */
 	overflow: hidden;
 }
 

@@ -3556,8 +3556,8 @@ input[type=checkbox]+:before {
 }
 .cart_list01 .quantity {
     position: relative;
-    left: 64px;
     padding: 40px 0;
+    width: 100%;
 }
 .quantity, .quantity>* {
     display: inline-block;
@@ -3591,7 +3591,7 @@ input[type=checkbox]+:before {
 .num_set button {
     position: absolute;
     top: 0;
-    width: 39px;
+    width: 60px;
     height: 100%;
     text-indent: -9999em;
     background-color: #d9d9d9!important;

@@ -460,11 +460,11 @@ ul {
 }
 
 .deliveryOrder{
-   display:flex;
-   flex-direction: row;
-   color:#fff;
-   padding-right: 80px;
-   border-right: 2px solid #fff;
+  	display: flex;
+    flex-direction: row;
+    color: #fff;
+    padding-right: 100px;
+    border-right: 2px solid #fff;
 }
 
 .deliveryOrder dl{
@@ -480,7 +480,7 @@ ul {
    display:flex;
    flex-direction: row;
    left:20px;
-   margin: 0 75px 0 75px;
+   margin: 0 90px 0 0;
    color:#fff;
 }
 

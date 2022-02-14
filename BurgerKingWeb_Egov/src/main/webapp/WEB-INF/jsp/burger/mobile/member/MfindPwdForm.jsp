@@ -15,12 +15,12 @@ function find_pwd(){
 	}
   }
 </script> 
-
+<div class="outmobile">
 <article style="background-color: #f2ebe6;">
 	
 	<div class="web_container02">
 		<form name="frm" action="MfindPwd.do" method="post">
-			<h1 class="big_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
+			<h1 class="fbig_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
 			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 				<li>
 					<span>
@@ -66,5 +66,5 @@ function find_pwd(){
 		</form>
 	</div>
 </article>
-
+</div>
 <%@ include file="../include/footer.jsp" %>

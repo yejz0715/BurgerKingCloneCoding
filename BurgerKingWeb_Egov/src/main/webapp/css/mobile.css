@@ -556,7 +556,8 @@ ul {
 }
 
 #header_menubar ul{
-   width: 100%;
+	background-color: #f5ebdc;
+   	width: 100%;
 }
 
 d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
@@ -568,21 +569,23 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
    position: relative;
    left: 0;
    top: 100%;
-   min-width: 100%;
    z-index: 100;
    list-style: none;
+   width: 100%;
+   height: 400px;
+   margin: 0 auto;
+   background-color: #f5ebdc;
 }
 
 .header_submenu>li {
-   margin-bottom: 5px;
-   height: 50px;
-   line-height: 0px;
-   margin-left: 50px;
-}
-
-.header_submenu a {
-   height: 125px;
-   line-height: 25px;
+	position:relative;
+	margin: 10px 5px 5px 5px;
+   	height: 100px;
+   	line-height: 100px;
+   	float: left;
+	width: 32%;
+   	border: 1px solid black;
+	background-color: #2b0200;
 }
 
 .footer_a {
@@ -593,9 +596,9 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .header_submenu li a {
-   font-size: 1.1rem;
+   font-size: 1.7rem;
    text-decoration: none;
-   color: #292929;
+   color: #bba391;
    font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -621,14 +624,16 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 #ul1>li{
-   margin: 0 auto;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
 }
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {
    margin-bottom: 15px;
    font-size: 80px;
    line-height: 100%;
-   text-align: center
+   text-align: center;
 }
 
 .subtitWrap {

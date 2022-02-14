@@ -191,3 +191,14 @@ begin
 	delete from myaddress where mseq = p_mseq;
     commit;
 end;
+
+--멤버삭제
+create or replace procedure b_deleteMember(
+   p_mseq in member.mseq%type 
+)
+is
+
+begin
+   delete from member where mseq=p_mseq;
+   commit;
+end;

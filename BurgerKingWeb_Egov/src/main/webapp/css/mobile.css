@@ -2565,7 +2565,6 @@ li {
 }
 
 .txtlist01 li:before {
-<<<<<<< HEAD
 	content: "";
 	position: absolute;
 	left: 0;
@@ -2962,6 +2961,7 @@ input[type="password" i] {
 .subTit_myPage{
 position: relative;
     margin-bottom: 26px;
+        margin-top: 50px;
     }
     
     .pageTit{
@@ -4446,13 +4446,9 @@ address, em {
 }
 
 .outerpasschk{
-	height:70%;
+	height:75%;
 }
 
-.outproduct{
-	height:1440px;
-}
-
-.outqnalist{
-	height:900px;
+.outmobile{
+	height: 1270px;
 }

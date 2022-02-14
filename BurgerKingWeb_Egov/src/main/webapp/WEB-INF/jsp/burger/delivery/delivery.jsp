@@ -12,7 +12,7 @@ $(function(){
 
 
 function popup3() {
-	window.open("popup3", "a",
+	window.open("popup3.do", "a",
 			"width=620, height=900, resizable=no");}
  
 </script>

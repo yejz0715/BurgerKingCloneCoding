@@ -2,15 +2,7 @@
 <%@ include file="../include/header.jsp"%>
 
 <article>
-	<div class="location">
-		<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li>브랜드스토리 &nbsp;>&nbsp;</li>
-			<li>버거킹스토리</li>
-		</ul>
-		</div>
-	</div>
+	
 	<div class="contentWarp">
 		<div class="web_container1">
 			<div class="subtitWrap"><h3 class="page_tit">브랜드스토리</h3></div>
@@ -131,5 +123,4 @@
 	</div>
 </article>
 
-<%@ include file="../include/undermenu.jsp" %>
 <%@ include file="../include/footer.jsp" %>

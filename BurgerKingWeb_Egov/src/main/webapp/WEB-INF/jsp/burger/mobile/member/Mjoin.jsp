@@ -3,21 +3,12 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 
-
+<div class="outmjoin">
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="MjoinForm.do">회원가입</a></li>
-		</ul>
-	</div>
-	</div>
-
-
+	
 	<div class="web_container">
+	<div></div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<div class="welcomeBox bg_w">
 			<h3 class="page_tit02">환영합니다!</h3>
 			<div class="txt_welcome">
@@ -52,5 +43,6 @@
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 </article>
-<%@ include file="../include/undermenu.jsp" %>
+</div>
+
 <%@ include file="../include/footer.jsp" %>

@@ -9,19 +9,11 @@ function popup3() {
  
 </script>
 
-
+<div class="outmobile">
+<article>
 <div class="clear"></div>
 <div class="contentsWrap">
 	
-		<div class="location" style="margin-bottom: 0px;">
-		<div class="web_container1">	
-			<ul>
-				<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-				<li><a href="MmenuListForm.do?kind1=${productVO.KIND1}">메뉴소개</a>&nbsp;>&nbsp;</li>
-				<li><a>${productVO.PNAME}</a></li>
-			</ul>
-		</div>
-	</div>
 	<div class="prd_intro">
 		<div class="web_container4">
 			<div class="intro_txt"><strong class="tit"><span>${productVO.PNAME}</span></strong>
@@ -52,5 +44,6 @@ function popup3() {
 		</div>
 	</div>
 </div>
-<%@ include file="../include/undermenu.jsp" %>
+</article>
+</div>
 <%@ include file="../include/footer.jsp" %>

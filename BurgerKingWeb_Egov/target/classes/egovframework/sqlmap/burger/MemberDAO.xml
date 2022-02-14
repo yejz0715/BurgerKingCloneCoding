@@ -120,4 +120,12 @@
 			)
 		}
 	</update>
+	
+	<delete id="b_deleteAddress" statementType="CALLABLE" parameterType="java.util.HashMap">
+		{
+			CALL b_deleteAddress(
+				#{mseq}
+			)
+		}
+	</delete>
 </mapper>

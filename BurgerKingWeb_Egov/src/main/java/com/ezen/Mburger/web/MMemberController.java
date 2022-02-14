@@ -228,7 +228,7 @@ public class MMemberController {
 		session.setAttribute("loginUser", gvo);
 		session.setAttribute("memberkind", gvo.get("MEMBERKIND").toString());
 		session.setAttribute("guestCartList", guestCartList);
-		return "redirect:/start.do";
+		return "redirect:/mobilemain.do";
 	}
 
 	// 로그인 이후 딜리버리 페이지로 이동
@@ -426,6 +426,7 @@ public class MMemberController {
 				
 				HashMap<String, Object> paramMap = new HashMap<String, Object>();
 				paramMap.put("mseq", Integer.parseInt(request.getParameter("mseq").toString()));
+				ms.b_deleteAddress(paramMap);
 				ms.deleteMember(paramMap);
 				
 				session.invalidate();

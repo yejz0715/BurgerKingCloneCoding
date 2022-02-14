@@ -31,7 +31,7 @@ function popup3() {
 	</div>
 	<div class="menu_subinfoWrap">
 		<div class="web_container4">
-			<a class="btn_back" href="menuListForm?kind1=${productVO.KIND1}"><span>메뉴 목록으로 돌아가기</span></a>
+			<a class="btn_back" href="menuListForm.do?kind1=${productVO.KIND1}"><span>메뉴 목록으로 돌아가기</span></a>
 			<div class="nutrition_info"><button type="button" class="btn_nutrition" onClick="popup3();">
 			<span>영양분석표, 알레르기 유발성분</span></button></div>
 		</div>

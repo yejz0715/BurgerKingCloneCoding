@@ -5,14 +5,7 @@
 <form name="cartForm" method="post" style="background: #f2ebe6;">
 <input type="hidden" name="cseq" value="">
 <article>
-<div class="location">
-<div class="web_container1">
-	<ul>
-		<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-		<li>메뉴</li>
-	</ul>
-</div>
-</div>
+
 <div class="contentsBox01">
 <div class="web_container1">
 	<div class="subtitWrap">

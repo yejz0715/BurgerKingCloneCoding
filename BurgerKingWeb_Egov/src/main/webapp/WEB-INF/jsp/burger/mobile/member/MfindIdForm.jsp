@@ -15,27 +15,19 @@ function find_id(){
 	}
   }
 </script>   
+<div class="outmobile">
 <article style="background-color: #f2ebe6;">
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MloginForm.do">로그인</a>&nbsp;>&nbsp;</li>
-			<li><a href="MfindIdForm.do">아이디/비밀번호 찾기</a></li>
-		</ul>
-	</div>
-	</div>
-
+	
 	<div class="web_container02">
 		<form name="frm" action="MfindId.do" method="post">
-			<h1 class="big_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
+			<h1 class="fbig_h1" style="margin-bottom: 30px; ">아이디/비밀번호 찾기</h1>
 			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 				<li>
 					<span>
-						<a href="MfindIdForm.do" style="color: red; text-decoration: underline; font-size: 1.45em;">아이디 찾기</a>
+						<a href="MfindIdForm.do" style="color: red; text-decoration: underline; font-size: 2em;">아이디 찾기</a>
 					</span>
 				</li>
-				<li><span><a href="MfindPwdForm.do" style="font-size: 1.45em;">비밀번호 찾기</a></span></li>
+				<li><span><a href="MfindPwdForm.do" style="font-size: 2em;">비밀번호 찾기</a></span></li>
 			</ul>
 			<div class="btnarea" style="text-align: center; margin-top: 80px;">
 				<c:if test="${empty message}">
@@ -69,10 +61,11 @@ function find_id(){
 				</ul>
 			</div>
 			<div class="c_btn item2 findidalign">
-				<input type="button" class="btn01 m" value="아이디 찾기" onClick="find_id()"/>
+				<input type="button" class="btn01 m red" value="아이디 찾기" onClick="find_id()"/>
+				<input type="button" class="btn01 m" value="돌아가기" onClick="location.href='MloginForm.do'"/>
 			</div>
 		</form>
 	</div>
 </article>
-
+</div>
 <%@ include file="../include/footer.jsp" %>

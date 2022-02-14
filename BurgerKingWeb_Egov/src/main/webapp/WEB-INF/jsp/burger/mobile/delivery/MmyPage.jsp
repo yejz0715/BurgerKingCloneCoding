@@ -4,24 +4,15 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-			<li>MY킹</li>
-		</ul>
-	</div>
-	</div>
+	
 	<div class="web_myPageContainer">
 	<div class="subTit_myPage">
 	<h1 class="pageTit">MY킹</h1>
 	</div>
 	<div class="contentBox">
 	<p class="user"><strong>${MemberVO.NAME}님!&nbsp;</strong>반갑습니다.</p>
-	<div class="pageMove">
-	<a href="MmemberUpdateForm.do"><span>정보변경&nbsp;</span></a>
-	<a href="MmyAddressForm.do"><span>MY배달지</span></a>
-	</div>
+	<p class="user"><a href="memberUpdateForm.do"><strong>정보변경&nbsp;</strong></a></p>
+	<p class="user"><a href="myAddressForm.do"><strong>MY배달지</strong></a></p>
 	</div>
 
 		

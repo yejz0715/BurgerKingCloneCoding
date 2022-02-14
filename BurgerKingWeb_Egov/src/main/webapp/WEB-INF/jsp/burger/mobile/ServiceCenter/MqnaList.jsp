@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
+<div class="outmobile">
+
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li>고객센터 &nbsp;>&nbsp;</li>
-			<li>문의</li>
-		</ul>
-	</div>
-	</div>
 	
 	<div class="subtitWrap">
 		<h3 class="page_tit">고객센터</h3>
@@ -92,6 +85,6 @@
 	</div>
 	
 </article>
+</div>
 
-<%@ include file="../include/undermenu.jsp" %>
 <%@ include file="../include/footer.jsp" %>

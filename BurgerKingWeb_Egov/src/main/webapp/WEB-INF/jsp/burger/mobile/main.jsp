@@ -117,4 +117,4 @@
 
    <div class="clear"></div>
    
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../mobile/include/footer.jsp" %>

@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../include/Delivery/deli_header.jsp"%>
+<%@ include file="../../mobile/include/Delivery/deli_header.jsp"%>
 <div class="clear"></div>
 
 <script>
@@ -12,7 +12,7 @@ $(function(){
 
 
 function popup3() {
-	window.open("popup3", "a",
+	window.open("Mpopup3.do", "a",
 			"width=620, height=900, resizable=no");}
  
 </script>
@@ -21,16 +21,7 @@ function popup3() {
 
 
 <article>
-	<div class="location">
-		<div class="web_container1">
-			<div class="web_container1">
-				<ul>
-					<li><a href="MdeliveryForm.do?kind1=1">딜리버리</a>&nbsp;>&nbsp;</li>
-					<li>카트</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	
 <div class="bg_w">
 	<div class="web_container1">
 		<div class="subtitWrap">
@@ -65,7 +56,7 @@ function popup3() {
 							<a onclick="deliveryDetail('${productVO.PSEQ}')">
 							<div class="menuImgdiv">
 								<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> ">					
-							</div>
+							</div> 
 							<div class="menuContdiv">
 								<p>${productVO.PNAME}</p>
 								<p style="font-size:90%;color:#8d8d8d">${productVO.CONTENT}</p>
@@ -99,4 +90,4 @@ function popup3() {
 </div>
 </article>
 
-<%@ include file="../include/footer.jsp" %>
+<%@ include file="../../mobile/include/footer.jsp" %>

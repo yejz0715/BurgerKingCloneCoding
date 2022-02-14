@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
-
+<div class="outmobile">
 <article>
 	<div class="qna_webcon">
 		<h2>1:1 고객 게시판</h2>
@@ -36,6 +36,5 @@
 		</form>
 	</div>
 </article>
-
-<%@ include file="../include/undermenu.jsp" %>
+</div>
 <%@ include file="../include/footer.jsp" %>

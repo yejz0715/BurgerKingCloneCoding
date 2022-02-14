@@ -3,15 +3,7 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/event.css'/> "/>
 
 <article>
-	<div class="location">
-	<div class="web_container1">
-		<ul>
-			<li><a href="mobilemain.do">HOME</a>&nbsp;>&nbsp;</li>
-			<li><a href="MeventListForm.do">이벤트</a>&nbsp;>&nbsp;</li>
-			<li>전체</li>
-		</ul>
-	</div>
-	</div>
+	
 	<div class="event_web_container">
 		<div class="subtit">
 			<h1 class="event_tit">이벤트</h1>
@@ -44,5 +36,5 @@
 	</div>
 </article>
 
-<%@ include file="../include/undermenu.jsp" %>
+
 <%@ include file="../include/footer.jsp"%>

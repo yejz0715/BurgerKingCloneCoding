@@ -1,9 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../include/header.jsp"%>
 
-<div class="outmobile">
 <article style="background-color: #f2ebe6;">
-	
 	<div class="wrap">
 		<ul id="terms_wrap_ul">
 			<li><span><a href="Mterms.do">이용약관</a></span></li>
@@ -15,9 +13,7 @@
 		<div class="textarea">
 			<%@ include file="text3.jsp" %>
 		</div>
-	</div>
-	
+	</div> 
 </article>
-</div>
 
 <%@ include file="../include/footer.jsp" %>

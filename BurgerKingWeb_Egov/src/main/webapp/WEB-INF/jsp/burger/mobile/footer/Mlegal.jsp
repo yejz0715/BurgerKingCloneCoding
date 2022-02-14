@@ -10,7 +10,7 @@
 			<li><span><a href="Mprivacy.do">개인정보취급방침</a></span></li>
 			<li><span><a href="Mlegal.do" style="color: red; text-decoration: underline;">법적고지</a></span></li>
 		</ul>
-		<h1 class="big_h1">이용약관 및 정책</h1>
+		<h1 class="sbig_h1">이용약관 및 정책</h1>
 		<div class="btnarea">	</div>
 		<div class="textarea">
 			<%@ include file="text3.jsp" %>

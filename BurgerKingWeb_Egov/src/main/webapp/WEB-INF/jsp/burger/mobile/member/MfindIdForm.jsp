@@ -19,7 +19,7 @@ function find_id(){
 	
 	<div class="web_container02">
 		<form name="frm" action="MfindId.do" method="post">
-			<h1 class="big_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
+			<h1 class="big_h1" style="margin-bottom: 30px; ">아이디/비밀번호 찾기</h1>
 			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 				<li>
 					<span>

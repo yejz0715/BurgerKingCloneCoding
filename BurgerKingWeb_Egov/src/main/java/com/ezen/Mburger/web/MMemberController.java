@@ -228,7 +228,7 @@ public class MMemberController {
 		session.setAttribute("loginUser", gvo);
 		session.setAttribute("memberkind", gvo.get("MEMBERKIND").toString());
 		session.setAttribute("guestCartList", guestCartList);
-		return "redirect:/start.do";
+		return "redirect:/mobilemain.do";
 	}
 
 	// 로그인 이후 딜리버리 페이지로 이동

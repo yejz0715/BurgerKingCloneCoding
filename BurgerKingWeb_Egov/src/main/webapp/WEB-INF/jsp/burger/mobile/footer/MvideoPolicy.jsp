@@ -12,10 +12,13 @@
 		<h1 class="sbig_h1">이용약관 및 정책</h1>
 		
 		<div class="btnarea">
-				<span><input class="btn_c1" type="button" style="width: 185px;" 
-				onclick="location.href='Mprivacy.do'" value="개인정보처리방침"></span>
-				<span><input class="btn_c1" type="button" style="background-color: #292929; width: 292px;"  
-				onclick="location.href='MvideoPolicy.do'" value="영상정보처리기기운영관리방침"></span>
+			<div class="newbtn">
+				<input class="btn_c1" type="button" onclick="location.href='Mprivacy.do'" value="개인정보처리방침">
+			</div>
+			<div class="newbtn">
+				<input class="btn_c1" type="button" style="background-color: #292929;"  
+				onclick="location.href='MvideoPolicy.do'" value="영상정보처리기기운영관리방침">
+			</div>
 		</div>
 		
 		<div class="textarea">

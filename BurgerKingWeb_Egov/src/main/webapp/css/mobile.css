@@ -118,18 +118,18 @@ footer #text_container p{
 }
 /* ------------------------------------------------------------------------------------------------------------------------------------------ */
 .wrap {
-		height: 1300px;
-   width: 60%;
+   width: 90%;
    margin: 0 auto;
    background-color: #f2ebe6;
 }
 
 #terms_wrap_ul {
-   position: absolute;
-    left: 680px; 
+   position: relative;
    list-style: none;
    margin: 0px;
    padding: 70px 0px;
+   float:right;
+   font-size: 35px;
 }
 
 #terms_wrap_ul li {
@@ -153,10 +153,10 @@ footer #text_container p{
 .textarea {
    position: relative;
    padding: 40px;
-   		height: 1000px;
-   /* height: 600px; */
+   height: 1000px;
    background-color: #fff;
    overflow: scroll;
+   font-size: 30px;
 }
 
 .textarea h1 {
@@ -178,17 +178,22 @@ footer #text_container p{
 
 .btnarea .btn_c1 {
    position: relative;
-   height: 50px;
-   margin: 0;
-   padding: 5px 20px;
-   border: 0px;
-   border-radius: 5px;
-   vertical-align: middle;
-   margin-left: 50px;
-   color: #fff;
-   background-color: #8d8d8d;
-   font-size: 1em;
-   font-family: 'Do Hyeon', sans-serif;
+    height: 50px;
+    margin: 0;
+    padding: 5px 20px;
+    border: 0px;
+    border-radius: 5px;
+    vertical-align: middle;
+    margin-left: 50px;
+    color: #fff;
+    background-color: #8d8d8d;
+    font-size: 1em;
+    font-family: 'Do Hyeon', sans-serif;
+    float: left;
+}
+
+.newbtn{
+	display: table-cell;
 }
 
 ul {
@@ -4498,8 +4503,8 @@ address, em {
 }
 
 .sbig_h1 {
-   margin-top: 0px;
-   font-family: 'Do Hyeon', sans-serif;
-   font-size: 2.6em;
-   padding: 40px 0px;
+    margin-top: 0px;
+    font-family: 'Do Hyeon', sans-serif;
+    font-size: 55px;
+    padding: 40px 0px;
 }

@@ -10,7 +10,7 @@ $(function(){
 	});
 });
 </script>
-<div class="outproduct">
+<div class="outmobile">
 <article>
 	
 	<div class="subtitWrap">

@@ -11,8 +11,8 @@
 	</div>
 	<div class="contentBox">
 	<p class="user"><strong>${MemberVO.NAME}님!&nbsp;</strong>반갑습니다.</p>
-	<p class="user"><a href="memberUpdateForm.do"><strong>정보변경&nbsp;</strong></a></p>
-	<p class="user"><a href="myAddressForm.do"><strong>MY배달지</strong></a></p>
+	<p class="user"><a href="MmemberUpdateForm.do"><strong>정보변경&nbsp;</strong></a></p>
+	<p class="user"><a href="MmyAddressForm.do"><strong>MY배달지</strong></a></p>
 	</div>
 
 		

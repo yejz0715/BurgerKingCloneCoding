@@ -17,7 +17,7 @@
 		</div>
 		<c:choose>
 		<c:when test="${empty ovo}">
-			<div class="tab_cont">
+			<div class="tab_cont1">
 				<div class="nodata"><p>주문내역이 없습니다.</p></div>
 			</div>
 		</c:when>

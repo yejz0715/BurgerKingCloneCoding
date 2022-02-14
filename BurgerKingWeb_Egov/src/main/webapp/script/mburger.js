@@ -212,7 +212,7 @@ function del_cart(){
 	if( count == 0 ){
 		alert("삭제할 항목을 선택해주세요");
 	} else{
-	    window.location.href = "deliveryCartDelete.do?menu=" + cb;
+	    window.location.href = "MdeliveryCartDelete.do?menu=" + cb;
 	}
 }
 

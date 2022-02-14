@@ -36,7 +36,7 @@ $(function(){
 			</ul>
 		</div>
 	</div>
-	<div class="menuarea">
+	<div class="menuarea" style="height:1270px;">
 		<ul>
 			<c:forEach var="productVO" items="${productList}">
 				<c:choose>

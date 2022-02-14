@@ -53,33 +53,33 @@
 					<ul id="ul1">
 						<li class="h_menu_item"><span>메뉴소개</span>
 							<ul class="header_submenu">
-								<li><a href="MmenuListForm.do?kind1=1"><span>스페셜&amp;할인팩</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=2"><span>프리미엄</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=3"><span>와퍼</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=4"><span>주니어&amp;버거</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=5"><span>올데이킹&amp;치킨버거</span></a></li> 
-								<li><a href="MmenuListForm.do?kind1=6"><span>사이드</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=7"><span>음료&amp;디저트</span></a></li>
-								<li><a href="MmenuListForm.do?kind1=8"><span>독퍼</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=1'"><a><span>스페셜&amp;할인팩</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=2'"><a><span>프리미엄</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=3'"><a><span>와퍼</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=4'"><a><span>주니어&amp;버거</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=5'"><a><span>올데이킹&amp;치킨버거</span></a></li> 
+								<li onclick="location.href='MmenuListForm.do?kind1=6'"><a><span>사이드</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=7'"><a><span>음료&amp;디저트</span></a></li>
+								<li onclick="location.href='MmenuListForm.do?kind1=8'"><a><span>독퍼</span></a></li>
 							</ul> 
 						</li>
 						<li class="h_menu_item"><span>이벤트</span>
 							<ul class="header_submenu">
-								<li><a href="MeventListForm.do"><span>이벤트</span></a></li>
+								<li onclick="location.href='MeventListForm.do'"><a><span>이벤트</span></a></li>
 							</ul>
 						</li>
 						<li class="h_menu_item">
 							<span>브랜드스토리</span>
 							<ul class="header_submenu">
-								<li><a href="MbrandStroyForm.do"><span>버거킹스토리</span></a></li>
+								<li onclick="location.href='MbrandStroyForm.do'"><a><span>버거킹스토리</span></a></li>
 							</ul>
 						</li>
 						<li class="h_menu_item">
 							<span>고객센터</span>
 							<ul class="header_submenu">
-								<li><a href="MfaqListForm.do?fnum=1"><span>FAQ</span></a></li>
-								<li><a href="MqnaForm.do"><span>문의</span></a></li>
-								<li><a href="MappGuideForm.do"><span>버거킹 앱 이용안내</span></a></li>
+								<li onclick="location.href='MfaqListForm.do?fnum=1'"><a><span>FAQ</span></a></li>
+								<li onclick="location.href='MqnaForm.do'"><a><span>문의</span></a></li>
+								<li onclick="location.href='MappGuideForm.do'"><a><span>버거킹 앱 이용안내</span></a></li>
 							</ul>
 						</li>
 					</ul>

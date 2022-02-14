@@ -22,7 +22,7 @@
 			</div>
 		</c:when>
 		<c:otherwise>
-					<div class="container01 orderWrap">
+		<div class="container01 orderWrap">
 			<h2 class="tit01 tit_ico delivery"><span>배달정보</span></h2>
 		</div>
 		<div class="container02 deli_info01">
@@ -36,15 +36,15 @@
 				<!-- <button type="button" class="btn04 h02 rbtn"><span>변경</span></button> -->
 			</div>
 			<div class="info_list">
-				<dl><dt>연락처</dt><dd>${userPhone}</dd></dl>
+				<dl><dt>연락처</dt><dt>&nbsp;&nbsp;${userPhone}</dt></dl>
 			</div>
-		</div>
-		<div class="tit01 tit_ico burger tit_ordermenu">
-			<h2><span>주문정보</span></h2>
+		</div> 
+		<div class="container01 orderWrap">
+			<h2 class="tit01 tit_ico burger"><span>주문정보</span></h2>
 		</div>
 		<div class="container02 order_accWrap open">		
 		<ul class="cart_list01">
-			<c:forEach var="orderList"  items="${ovo}">
+			<c:forEach var="orderList"  items="${ovo}"> 
 			<li>
 				<div class="cont">
 					<div class="menu_titWrap">
@@ -64,7 +64,7 @@
 								</span></strong>
 							</p>
 						</div>
-					</div>
+					</div> 
 					<div class="quantity"><strong class="tit">수량</strong>
 						<div class="num_set">
 							<div class="result">${orderList.QUANTITY}</div>
@@ -81,7 +81,7 @@
 						</strong>
 					</dd>
 				</dl>
-				</div><br><br><br>
+				</div>
 			</li>
 			<c:choose>
 				<c:when test="${empty spseqAm}">
@@ -89,8 +89,8 @@
 				</c:when>
 				<c:otherwise>
 					<ul class="cart_list01">
-					<li>
-					<div class="cont" style="padding: 32px 64px; font-size:2rem;font-weight: bold;">
+					<li> 
+					<div class="cont" style="padding: 32px 64px; font-size:50px;font-weight: bold;">
 						<c:forEach items="${spseqAm}" var="spseqAm">
 							<c:if test="${spseqAm.ODSEQ == orderList.ODSEQ}">
 								<div style="width:100%;">
@@ -108,7 +108,9 @@
 			</c:forEach>
 		</ul>
 		</div>
-		<h2 class="tit01 tit_ico money"><span>최종 결제금액</span></h2>
+		<div class="container01 orderWrap">
+			<h2 class="tit01 tit_ico money"><span>최종 결제금액</span></h2>
+		</div>
 		<div class="container02">
 			<div class="order_payment_list">
 				<dl class="tot">

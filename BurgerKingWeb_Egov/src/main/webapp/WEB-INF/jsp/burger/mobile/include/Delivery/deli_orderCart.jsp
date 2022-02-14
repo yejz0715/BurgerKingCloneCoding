@@ -11,13 +11,13 @@
 				 <c:choose>
 					 <c:when test="${ovo.size() == 0}">
 						 <dl>
-							 <dt><strong>딜리버리 </strong><strong>주문내역</strong>
+							 <dt><strong>딜리버리 주문내역</strong>
 							 <!-- <dd>주문내역이 없습니다.</dd> -->
 						 </dl> 
 					 </c:when>
 					 <c:otherwise>
 						 <dl>
-							 <dt><strong>딜리버리</strong><br><strong>주문내역</strong>
+							 <dt><strong>딜리버리 주문내역</strong>
 								 <em class="count">
 								 <span>${ovo.size()}</span>
 								 </em>

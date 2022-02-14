@@ -62,7 +62,6 @@
 						</div>
 						<div class="WEB user">
 							<p><span>${loginUser.NAME}</span>님 안녕하세요</p>
-							<a href="MdeliveryMypageForm.do"><strong>MY킹 바로가기</strong></a>
 						</div>
 					</c:otherwise>
 				</c:choose>

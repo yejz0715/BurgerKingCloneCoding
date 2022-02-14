@@ -58,9 +58,9 @@ function popup3() {
 								<img class="menuImg" src="<c:url value='/image/menu/product/${productVO.IMAGE}'/> ">					
 							</div> 
 							<div class="menuContdiv">
-								<p>${productVO.PNAME}</p>
+								<p style="font-size:40px">${productVO.PNAME}</p>
 								<p style="font-size:90%;color:#8d8d8d">${productVO.CONTENT}</p>
-								<p style="color:red;font-weight:bold">&#8361;${productVO.PRICE1}~</p>
+								<p style="color:red;font-weight:bold;font-size:40px">&#8361;${productVO.PRICE1}~</p>
 							</div>
 							</a>
 						</li>

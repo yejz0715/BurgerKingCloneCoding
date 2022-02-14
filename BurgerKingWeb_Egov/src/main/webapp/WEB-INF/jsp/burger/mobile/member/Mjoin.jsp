@@ -3,11 +3,12 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 
-
+<div class="outmjoin">
 
 <article>
 	
 	<div class="web_container">
+	<div></div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 		<div class="welcomeBox bg_w">
 			<h3 class="page_tit02">환영합니다!</h3>
 			<div class="txt_welcome">
@@ -42,5 +43,6 @@
 			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br><br>
 </article>
+</div>
 
 <%@ include file="../include/footer.jsp" %>

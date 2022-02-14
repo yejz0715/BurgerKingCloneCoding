@@ -126,7 +126,7 @@ footer #text_container p{
 
 #terms_wrap_ul {
    position: absolute;
-   left: 680px;
+   /* left: 680px; */
    /* right: 400px; */
    list-style: none;
    margin: 0px;
@@ -410,7 +410,7 @@ ul {
 
 .utilWrap {
    position: relative;
-   right: 20px;
+   right: -50px;
    top: 0;
 }
 
@@ -1243,7 +1243,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 
-.imgs{position: absolute; opacity: 0; transition: 1.5s;top: 50%;left: 50%;margin: 123.5px 0 0 188px;}
+.imgs{position: absolute; opacity: 0; transition: 1.5s;top: 240%;left: 50%;margin: 123.5px 0 0 188px;}
 
 #view1{opacity: 1;}
 .loginimg_name{
@@ -1752,7 +1752,7 @@ button{
 .bg_w {
    background: #fff;
    padding: 50px 0 45px;
-   text-align: center;
+   /* text-align: center; */
 
 }
 
@@ -2159,8 +2159,8 @@ strong {
 
 .WEB.user {
    position: absolute;
-   right: 20px;
-   bottom: 36px;
+   right: -30px;
+   bottom: 60px;
    min-height: 46px;
    padding: 3px 0 3px 57px;
    color: #fff;
@@ -4454,5 +4454,9 @@ address, em {
 }
 
 .outqnalist{
-	height:900px;
+	height:1270px;
+}
+
+.outmjoin{
+	height:1440px;
 }

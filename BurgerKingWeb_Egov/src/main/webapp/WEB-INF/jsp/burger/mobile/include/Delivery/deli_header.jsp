@@ -35,18 +35,18 @@
 				<c:choose>
 					<c:when test="${empty loginUser}">
 						<div class="WEB utilWrap">
-							<a href="mobilemain.do"><span>브랜드홈</span></a>
 							<a style="display: none;"><span>로그아웃</span></a>
-							<a style="display: none;"><span>MY킹</span></a>
 							<a href="MloginForm.do"><span>로그인</span></a>
 							<a href="MfaqListForm.do?fnum=1"><span>고객센터</span></a>
+							<a style="display: none;"><span>MY킹</span></a>
+							<a href="mobilemain.do"><span>브랜드홈</span></a>
 						</div> 
 					</c:when>
 					<c:when test="${memberkind == 2}">
 						<div class="WEB utilWrap">
-							<a href="start.do"><span>브랜드홈</span></a>
-							<a href="Mlogout.do"><span>비회원 로그아웃</span></a>
+							<a href="mobilemain.do"><span>브랜드홈</span></a>
 							<a href="MdeliveryOrderList.do"><span>주문 내역 확인</span></a>
+							<a href="Mlogout.do"><span>비회원 로그아웃</span></a>
 						</div>
 						<div class="WEB user">
 							<p><span>${loginUser.NAME}</span>님 안녕하세요</p>
@@ -54,11 +54,11 @@
 					</c:when>
 					<c:otherwise>
 						<div class="WEB utilWrap">
-							<a href="start.do"><span>브랜드홈</span></a>
 							<a href="Mlogout.do"><span>로그아웃</span></a>
-							<a href="MdeliveryMypageForm.do"><span>MY킹</span></a>
 							<a style="display: none;"><span>로그인</span></a>
 							<a href="MfaqListForm.do?fnum=1"><span>고객센터</span></a>
+							<a href="MdeliveryMypageForm.do"><span>MY킹</span></a>
+							<a href="mobilemain.do"><span>브랜드홈</span></a>
 						</div>
 						<div class="WEB user">
 							<p><span>${loginUser.NAME}</span>님 안녕하세요</p>

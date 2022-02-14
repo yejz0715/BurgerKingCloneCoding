@@ -88,7 +88,7 @@ begin
 end;
 
 -- 회원 삭제 프로시져
-create or replace procedure b_updateMember(
+create or replace procedure b_deleteMember(
 	p_mseq in member.mseq%type
 )
 is

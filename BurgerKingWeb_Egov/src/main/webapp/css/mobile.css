@@ -1118,6 +1118,9 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 .btn01.red {
    background: url("../image/main/bg_btn01_m_red.png") no-repeat 0 0;
    background-size: 100% 100%;
+   font-size: 40px;
+    text-align: center;
+    line-height: 46px;
 }
 
 .c_btn input+input {
@@ -3006,7 +3009,8 @@ input[type="password" i] {
     height: 200px;
     line-height: 200px;
     border-radius: 30px;
-    padding: 35px;    
+    padding: 35px;
+    color:#000; 
 }
 .pageMove{
     margin-top: 15px;
@@ -3948,15 +3952,14 @@ input[readonly=readonly] {
 
 .web_profileUpdate{
 	padding: 50px 0 45px;
-	max-width: 776px;
-    margin: 0 auto;
-   /*  padding: 0 8px;	 */
+    margin: 40px;
 }
 
 .web_profileUpdate .subTit{
 	position: relative;
-    font-size: 2.5rem;
+    font-size: 80px;
     line-height: 100%;
+    text-align: center;
 }
 
 
@@ -3965,7 +3968,7 @@ input[readonly=readonly] {
 	position: relative;
     margin: 25px 0;
     padding: 20px 30px;
-    font-size:20px;
+    font-size: 40px;
     background: #fff;
 	}
 	
@@ -3976,7 +3979,7 @@ input[readonly=readonly] {
 .web_profileUpdate legend{
 	
     font-weight: 700;
-    font-size: 25px;
+    font-size: 60px;
     color: #2e2e2e;
 	   
 }
@@ -4014,7 +4017,7 @@ input[readonly=readonly] {
 }
 
  .web_profileUpdate input[type="checkbox"] {
-     margin-top: 8px;
+     margin-top: 23px;
    
 } 
 
@@ -4030,7 +4033,7 @@ input[readonly=readonly] {
 	border:none;
 	background:#DDE7F0;
     padding:8px 18px;
-    font-size: 16px;
+    font-size: 40px;
    font-weight: bold;
     color: #2e2e2e;
     cursor: pointer;
@@ -4057,10 +4060,9 @@ input[readonly=readonly] {
 	position: relative;
     margin-bottom: 26px;
     margin-bottom: 15px;
-    font-size: 2rem;
     line-height: 100%;
     font-weight: 700;
-    font-size: 33px;
+    font-size: 60px;
     color: #2e2e2e;
 }
 
@@ -4068,7 +4070,7 @@ input[readonly=readonly] {
 	position: relative;
     margin: 25px 0;
     padding: 20px 30px;
-    font-size:20px;
+    font-size: 40px;
     background: #fff;
 	}
 	

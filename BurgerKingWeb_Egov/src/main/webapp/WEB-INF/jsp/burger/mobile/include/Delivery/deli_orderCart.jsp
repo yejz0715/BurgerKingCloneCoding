@@ -11,18 +11,18 @@
 				 <c:choose>
 					 <c:when test="${ovo.size() == 0}">
 						 <dl>
-							 <dt><strong>딜리버리 주문내역</strong></dt>
-							 <dd>주문내역이 없습니다.</dd>
+							 <dt><strong>딜리버리 </strong><strong>주문내역</strong>
+							 <!-- <dd>주문내역이 없습니다.</dd> -->
 						 </dl>
 					 </c:when>
 					 <c:otherwise>
 						 <dl>
-							 <dt><strong>딜리버리 주문내역</strong>
+							 <dt><strong>딜리버리</strong><br><strong>주문내역</strong>
 								 <em class="count">
 								 <span>${ovo.size()}</span>
 								 </em>
 							 </dt>
-							 <dd>주문내역</dd>
+							 <!-- <dd>주문내역</dd> -->
 						 </dl>
 					 </c:otherwise> 
 				 </c:choose>
@@ -36,7 +36,7 @@
 					 <c:when test="${cvo.size() == 0}"> 
 						 <dl>
 						 <dt><strong>카트</strong></dt>
-						 <dd>카트에 담은 상품이 없습니다.</dd>
+						 <!-- <dd>카트에 담은 상품이 없습니다.</dd> -->
 						 </dl>
 					 </c:when>
 					 <c:otherwise> 

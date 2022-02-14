@@ -454,16 +454,18 @@ ul {
      justify-content:space-around;
      align-items: center;
      height: 124px;
-    font-size: 1.375rem;
-    margin: 0 auto;
-    padding: 0 20px; 
-     background:url(../image/main/deliverytop.gif);
+    font-size: 50px;
+    margin: 0 auto; 
+    width:100%;
+    background:url(../image/main/deliverytop.gif);
 }
 
 .deliveryOrder{
    display:flex;
    flex-direction: row;
    color:#fff;
+   padding-right: 80px;
+   border-right: 2px solid #fff;
 }
 
 .deliveryOrder dl{
@@ -479,7 +481,7 @@ ul {
    display:flex;
    flex-direction: row;
    left:20px;
-   margin-right:150px;
+   margin: 0 75px 0 75px;
    color:#fff;
 }
 
@@ -625,7 +627,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 /* serviceCenter--------------------------------------------------------- */
 .page_tit {
    margin-bottom: 15px;
-   font-size: 2.5rem;
+   font-size: 80px;
    line-height: 100%;
    text-align: center
 }
@@ -2160,11 +2162,12 @@ strong {
 .WEB.user {
    position: absolute;
    right: 20px;
-   bottom: 36px;
+   bottom: 60px;
    min-height: 46px;
    padding: 3px 0 3px 57px;
    color: #fff;
    background: url(../image/main/loginuser.png) no-repeat 0;
+   font-size: 23px;
 }
 
 .WEB.user a {
@@ -2959,16 +2962,20 @@ input[type="password" i] {
 }
 
 .subTit_myPage{
-position: relative;
+	position: relative;
     margin-bottom: 26px;
+<<<<<<< HEAD
         margin-top: 50px;
+=======
+    text-align: center;
+>>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov.git
     }
     
     .pageTit{
     padding: 20px 0 23px;
     border-bottom: 3px solid #000;
     margin-bottom: 15px;
-    font-size: 2.5rem;
+    font-size: 80px;
     line-height: 100%;
     }
     
@@ -2982,18 +2989,31 @@ position: relative;
     margin-block-end: 0.8em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-size: 33px;
+    font-size: 80px;
+    text-align: center;
+    background: #f2ebe6;
+    height: 200px;
+    line-height: 200px;
+    border-radius: 30px;
+    padding: 35px;    
 }
 .pageMove{
-	
-	display: inline-block;
     margin-top: 15px;
-    padding: 5px 35px 5px 0;
+    width:100%;
     font-weight: 700;
     color: #fff;
-    background: url(../image/main/rednext.png) no-repeat 100%;
     font-size: 1.375rem;
     cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    height: 700px;
+}
+
+.pageMove a{
+	 text-decoration-line:none;
+	 color: #000;
+	 margin: 90px;
+	 font-size: 50px;
 }
 
 /*---------------------------------order-------------------------------------------*/
@@ -3884,9 +3904,10 @@ input[readonly=readonly] {
    
 }
 
-.pageMove a{
-	 text-decoration-line:none;
-	 color: #000;
+.tab_cont{
+	width: 100%;
+	position: relative;
+	height: 1080px;
 }
 
 

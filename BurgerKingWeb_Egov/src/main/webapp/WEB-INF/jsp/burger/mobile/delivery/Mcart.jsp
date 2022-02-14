@@ -15,7 +15,7 @@
 	<div class="container01 cartWrap">
 		<c:choose>
 		<c:when test="${empty cvo}">
-			<div class="tab_cont">
+			<div class="tab_cont1">
 				<div class="nodata"><p>주문내역이 없습니다.</p></div>
 			</div>
 		</c:when>
@@ -61,7 +61,7 @@
 				<c:otherwise>
 					<ul class="cart_list01">
 					<li>
-					<div class="cont" style="padding: 32px 64px; font-size:2rem;font-weight: bold;">
+					<div class="cont" style="padding: 32px 64px; font-size: 50px; font-weight: bold;">
 						<c:forEach items="${spseqAm}" var="spseqAm">
 							<c:if test="${spseqAm.CSEQ == cartList.CSEQ}">
 								<div style="width:100%;">
@@ -90,7 +90,11 @@
 		</div>
 		</c:otherwise>
 		</c:choose>
-		<div class="cartinfo">
+		<div class="cartinfo"> 
+			<ul class="txtlist01">
+				<li>주문서를 작성하기 전에 선택하신 상품명, 수량 및 가격이 정확한지 확인해주세요.</li>
+				<li>해당매장의 주문배달 최소금액은 12,000원 입니다.</li>
+			</ul>
 			<div class="c_btn item2">
 				<c:if test="${!empty loginUser}">
 					<button type="button" class="btn01 m ico add" onclick="location.href='MdeliveryForm.do?kind1=1'">
@@ -102,10 +106,6 @@
 				</c:if>
 				
 			</div>
-			<ul class="txtlist01">
-				<li>주문서를 작성하기 전에 선택하신 상품명, 수량 및 가격이 정확한지 확인해주세요.</li>
-				<li>해당매장의 주문배달 최소금액은 12,000원 입니다.</li>
-			</ul>
 		</div>
 	
 	</div>

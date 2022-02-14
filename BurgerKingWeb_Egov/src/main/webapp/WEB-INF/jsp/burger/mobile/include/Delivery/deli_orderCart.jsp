@@ -13,7 +13,7 @@
 						 <dl>
 							 <dt><strong>딜리버리 </strong><strong>주문내역</strong>
 							 <!-- <dd>주문내역이 없습니다.</dd> -->
-						 </dl>
+						 </dl> 
 					 </c:when>
 					 <c:otherwise>
 						 <dl>
@@ -46,7 +46,7 @@
 							<span>${cvo.size()}</span>
 							</em>
 							</dt>
-						 	<dd>카트에 담은 상품</dd>
+						 	<!-- <dd>카트에 담은 상품</dd> -->
 						 </dl>
 					 </c:otherwise> 
 				 </c:choose> 

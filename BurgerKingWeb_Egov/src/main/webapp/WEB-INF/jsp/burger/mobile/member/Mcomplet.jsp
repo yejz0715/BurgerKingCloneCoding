@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="../include/Delivery/deli_header.jsp"%>
-
+<div class="outmobile">
 <article>
 	
 	<div class="contentsBox01 join_welcome">
@@ -23,5 +23,5 @@
 	</div>
 
 </article>
-
+</div>
 <%@ include file="../include/footer.jsp" %>

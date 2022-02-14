@@ -502,17 +502,17 @@ ul {
     }
 
 .count{
-   position:absolute;
-   height: 25px;
-   width: 25px;
+   position: absolute;
+    height: 40px;
+    width: 40px;
     margin-left: 14px;
-    padding:5px;
+    padding: 5px;
     font-weight: 700;
-    font-size: 1rem;
-    color:#fff;
-    line-height: 25px;
-    text-align:center;
-    margin-bottom:5px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    margin-top: 5px;
     border-radius: 15px;
     background: #e22219;
 }
@@ -1098,7 +1098,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 .btn01.m {
    width: 48%;
    /* height: 68px; */
-   font-size: 1.5rem;
+   font-size: 40px;
    text-align: center;
    line-height: 46px;
    background: url(../image/main/bg_btn01_m.black.png) no-repeat 50%;
@@ -1860,10 +1860,12 @@ strong {
 
 .subtitWrap .tab01 {
    position: relative;
-   right: 0;
-   top: 50%;
-   overflow: auto;
-   text-align: center;
+    right: 0;
+    top: 50%;
+    overflow: auto;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    margin: 50px 30px;
 }
 
 .tab01 ul {
@@ -1878,7 +1880,7 @@ strong {
    display: inline-block;
    padding: 10px 1px;
    font-weight: 700;
-   font-size: 1.5rem;
+   font-size: 35px;
    color: #b8b8b8;
    border-width: 4px 0;
 }
@@ -3023,23 +3025,20 @@ input[type="password" i] {
     position: relative;
     margin: 25px 0;
     padding: 12px 0;
-    font-size: 1.5rem;
+    font-size: 50px;
     border-bottom: 2px solid #000;
 }
 
 .btn_infoingredient {
     position: relative;
     padding: 0 0 0 24px;
-    float:right;
-    right:20px;
+    float: right;
+    right: 20px;
     background: url(../image/main/information.png) no-repeat 0;
-    font-size: 1.125rem;
+    font-size: 35px;
     color: #2e2e2e;
 }
 
-.tit03>h2, .tit03>h3, .tit03>h4 {
-    margin-right: 10em; 
-}
 .tit03 h4 {
 	position:relative;
 	display: inline-block;
@@ -3414,7 +3413,7 @@ img {
     position: relative;
     margin-bottom: 24px;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 50px;
     color: rgba(0,0,0,.4);
 }
 .allchk01 input:checked+span {
@@ -3458,10 +3457,16 @@ input[type=checkbox]+:before {
     -ms-box-sizing: border-box;
     box-sizing: border-box;
 }
-.allchk01.btn04 {
-    height: 44px;
-    margin-left: 22px;
-    font-size: 1.25rem;
+.allchk01 .btn04 {
+    display: inline-block;
+    min-width: 3.5em;
+    height: 60px;
+    padding: 5px 10px;
+    font-size: 30px;
+    color: #fff;
+    background: #2e2e2e;
+    border-radius: 5px;
+    float: right;
 }
 .btn04 {
     display: inline-block;
@@ -3506,7 +3511,7 @@ input[type=checkbox]+:before {
 }
 .cart_list01 .menu_titWrap .tit {
     margin-bottom: 10px;
-    font-size: 2.5rem;
+    font-size: 60px;
     color: #000;
     line-height: 100%;
 }
@@ -3515,13 +3520,13 @@ input[type=checkbox]+:before {
 }
 .cart_list01 .menu_titWrap .set_info+.price {
     margin-top: 13px;
+    font-size: 60px;
 }
 .cart_list01 .prd_img {
     position: absolute;
     right: 0;
     bottom: 10px;
-    width: 254px;
-    height: 191px;
+    width: 400px;
     overflow: hidden;
 }
 .setmenu_detail {
@@ -3555,9 +3560,9 @@ input[type=checkbox]+:before {
     transform: translateY(-50%);
 }
 .cart_list01 .quantity {
-    position: absolute;
-    left: 64px;
-    bottom: 60px;
+    position: relative;
+    padding: 40px 0;
+    width: 100%;
 }
 .quantity, .quantity>* {
     display: inline-block;
@@ -3565,11 +3570,10 @@ input[type=checkbox]+:before {
 .cart_list01 .quantity .tit {
     float: left;
     width: 130px;
-    margin: 0;
     font-weight: 700;
-    font-size: 1.25rem;
+    font-size: 60px;
     color: #000;
-    line-height: 39px;
+    line-height: 60px;
 }
 .cart_list01 .quantity .num_set {
     float: right;
@@ -3577,8 +3581,8 @@ input[type=checkbox]+:before {
 .num_set {
     position: relative;
     display: inline-block;
-    width: 120px;
-    height: 39px;
+    width: 190px;
+    height: 60px;
     background: #fff;
     border-radius: 4px;
     overflow: hidden;
@@ -3592,7 +3596,7 @@ input[type=checkbox]+:before {
 .num_set button {
     position: absolute;
     top: 0;
-    width: 39px;
+    width: 60px;
     height: 100%;
     text-indent: -9999em;
     background-color: #d9d9d9!important;
@@ -3649,9 +3653,10 @@ input[readonly=readonly] {
     font-size: 1.625rem;
 }
 .sumWrap dd, .sumWrap dt {
-    display: table-cell;
+	display: table-cell;
     height: 24px;
     vertical-align: middle;
+    font-size: 50px;
 }
 .cart_list01 .sumWrap dd {
     width: 40%;
@@ -3661,7 +3666,7 @@ input[readonly=readonly] {
 .sumWrap dd {
     padding-left: 20px;
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 50px;
     color: #e2231a;
     text-align: right;
 }
@@ -3691,22 +3696,28 @@ input[readonly=readonly] {
 .cartinfo {
     position: relative;
     margin-top: 45px;
-    padding-right: 450px;
+    /* padding-right: 450px; */
+    font-size: 40px;
 }
-.cartinfo .c_btn {
-    position: absolute;
-    right: 0;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-    width:500px;
+.c_btn .btn01m{
+   width: 48%;
+   /* height: 68px; */
+   font-size: 40px;
+   text-align: center;
+   line-height: 46px;
+   background: url(../image/main/bg_btn01_m.black.png) no-repeat 50%;
+   background-size: 100% 100%;
+   border-radius: 0;
+}
+    
+}
+.cartinfo .c_btn{
+	
 }
 .c_btn:first-child {
     margin-top: 0;
 }
-/* .cartinfo .c_btn button {
-    width: 216px;
-} */
+
 .c_btn.item2 a, .c_btn.item2 button {
     float: left;
     width: 49%;
@@ -3741,7 +3752,7 @@ input[readonly=readonly] {
 
 .result{
 	text-align:center;
-	font-size: 2rem;
+	font-size: 50px;
 	font-weight:700;
 }
 .cart_list01>li:after {
@@ -3854,6 +3865,7 @@ input[readonly=readonly] {
 .order_accWrap .cart_list01 .quantity {
     left: 0;
     bottom: 30px;
+    width: 100%;
 }
 .order_accWrap .cart_list01 .sumWrap {
     height: 95px;
@@ -3921,6 +3933,7 @@ input[readonly=readonly] {
     text-align: center;
     background: url(../image/main/cartbackground.png) no-repeat center 150px;
     z-index: 10;
+    font-size: 40px;
 }
 
 

@@ -18,9 +18,7 @@
 					 <c:otherwise>
 						 <dl>
 							 <dt><strong>딜리버리 주문내역</strong>
-								 <em class="count">
-								 <span>${ovo.size()}</span>
-								 </em>
+								 <div class="count"><span>${ovo.size()}</span></div>
 							 </dt>
 							 <!-- <dd>주문내역</dd> -->
 						 </dl>
@@ -40,11 +38,11 @@
 						 </dl>
 					 </c:when>
 					 <c:otherwise> 
-						 <dl> 
+						 <dl>  
 							<dt><strong>카트</strong>
-							<em class="count">
+							<div class="count">
 							<span>${cvo.size()}</span>
-							</em>
+							</div>
 							</dt>
 						 	<!-- <dd>카트에 담은 상품</dd> -->
 						 </dl>

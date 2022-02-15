@@ -13,14 +13,14 @@
 						<input type="checkbox" name="guest_checkbox" class="check02">
 						<span>버거킹 이용약관</span>
 					</label>
-					<button type="button" class="btn_acc" style="width: 100px;" onclick="term_open()">
+					<button type="button" class="btn_acc" onclick="term_open()">
 						<span>상세보기</span>
-					</button>
+					</button>  
 				</div>
-				<div class="acc_cont" id="acc_cont" style="height: 0px;">
+				<div class="acc_cont" id="acc_cont" style="height: 0px;"> 
 					<p>
 						<strong>수집하는 개인정보 항목</strong><br> - 전화번호, 성명, 주소
-					</p>
+					</p> 
 					<br>
 					<p>
 						<strong>수집 목적 </strong><br> ① 성명, 주소: 제품의 전달, 청구서, 정확한 제품
@@ -61,7 +61,7 @@
 						<dt class="nonmember_WEB">휴대폰 번호</dt>
 						<dd>
 							<div class="inpbox st02">
-								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%">
+								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%" maxlength="13">
 							</div>
 						</dd>
 					</dl>

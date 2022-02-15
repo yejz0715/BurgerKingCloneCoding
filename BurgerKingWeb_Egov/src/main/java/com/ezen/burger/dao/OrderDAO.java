@@ -9,7 +9,7 @@ public interface OrderDAO {
 
 	void b_getOrderList(HashMap<String, Object> paramMap2);
 	
-	void getOrderListResult2(HashMap<String, Object> paramMap);
+	void b_getOrderListResult2(HashMap<String, Object> paramMap);
 //	public void insertOrder(String id);
 //
 //	public void insertOrderDetail(CartVO list, int oseq);

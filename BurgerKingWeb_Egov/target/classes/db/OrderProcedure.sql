@@ -161,3 +161,15 @@ begin
    open p_rc for
       select * from order_view2 where odseq = p_odseq;
 end;
+
+
+-- odseq값으로 oseq를 불러오는 프로시저
+create or replace procedure b_getOseq(
+   p_odseq in order_detail.odseq%type,
+   p_rc out SYS_REFCURSOR  
+)
+is
+begin
+   open p_rc for
+      select oseq from order_detail where odseq = p_odseq;
+end;

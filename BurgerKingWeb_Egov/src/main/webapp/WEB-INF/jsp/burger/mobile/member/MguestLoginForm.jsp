@@ -61,7 +61,7 @@
 						<dt class="nonmember_WEB">휴대폰 번호</dt>
 						<dd>
 							<div class="inpbox st02">
-								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%">
+								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%" maxlength="13">
 							</div>
 						</dd>
 					</dl>

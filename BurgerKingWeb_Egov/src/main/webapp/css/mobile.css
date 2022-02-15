@@ -2306,7 +2306,7 @@ strong {
 .tit_icon:before {
    content: "";
    position: absolute;
-   left: 180px;
+   left: -40px;
    top: 696px;
    width: 40px;
    height: 40px;
@@ -4468,6 +4468,7 @@ address, em {
 }
 
 .outmjoin{
+	margin-left:160px;
 	height:1440px;
 }
 

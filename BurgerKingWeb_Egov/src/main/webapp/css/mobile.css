@@ -1235,7 +1235,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
     line-height: 100px;
     font-size: 50px;
     background-color: #fff;
-}
+} 
 #nonmember_Text2{
    text-align:center;
    margin: 0 auto;

@@ -42,7 +42,7 @@
 		</div>
 		
 		<form action="MguestLogin.do" method="post" name="frm">
-			<h2 class="tit01 tit_ico setting"><span>비회원 설정</span></h2>
+			<h2 class="tit001 tit_ico setting"><span>비회원 설정</span></h2>
 	
 			<div class="container02">
 				<div class="dlist01">
@@ -50,7 +50,7 @@
 						<dt class="nonmember_WEB">이름</dt>
 						<dd>
 							<div class="inpbox st02">
-								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" style="width: 80%">
+								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" style="width: 100%">
 								<button type="button" class="btn_del01 " style="display: none;">
 									<span>입력 텍스트 삭제</span>
 								</button>
@@ -61,14 +61,14 @@
 						<dt class="nonmember_WEB">휴대폰 번호</dt>
 						<dd>
 							<div class="inpbox st02">
-								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%">
+								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 100%">
 							</div>
 						</dd>
 					</dl>
 				</div>
 			</div>
 			
-			<h2 class="tit01 tit_ico key"><span>주문서 비밀번호</span></h2>
+			<h2 class="tit001 tit_ico key"><span>주문서 비밀번호</span></h2>
 	
 			<div class="container02">
 				<div class="WEB nonmembertitbox">
@@ -80,11 +80,11 @@
 						<dd>
 							<div class="inpbox">
 								<input placeholder="4~6자리 이내의 숫자로만 입력하세요." maxlength="6"
-									type="password" class="st02" style="width: 80%" name="pwd">
+									type="password" class="st02" style="width: 100%" name="pwd">
 							</div>
 							<div class="inpbox">
 								<input placeholder="비밀번호를 다시 입력하세요." maxlength="6"
-									type="password" class="st02" style="width: 80%" name="pwd_chk">
+									type="password" class="st02" style="width: 100%" name="pwd_chk">
 							</div>
 						</dd>
 					</dl>

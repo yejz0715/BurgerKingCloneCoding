@@ -49,7 +49,7 @@
 					<dl>
 						<dt class="nonmember_WEB">이름</dt>
 						<dd>
-							<div class="inpbox st02">
+							<div class="inpbox">
 								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" style="width: 80%">
 								<button type="button" class="btn_del01 " style="display: none;">
 									<span>입력 텍스트 삭제</span>
@@ -61,7 +61,7 @@
 						<dt class="nonmember_WEB">휴대폰 번호</dt>
 						<dd>
 							<div class="inpbox st02">
-								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 80%" maxlength="13">
+								<input type="text" placeholder="핸드폰 번호를 입력하세요" name="phone" class="st02" style="width: 80%" maxlength="13">
 							</div>
 						</dd>
 					</dl>

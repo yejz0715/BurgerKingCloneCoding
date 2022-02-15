@@ -29,9 +29,9 @@
 			<div class="addrWrap01">
 				<p class="txt_addr">
 					<c:if test="${!empty mkind}">
-						<div style="color: red;">화면의 주문번호는 비회원 주문내역 확인에 필요합니다.(주문번호-주문세부번호)</div>
+						<div style="color: red; font-size: 50px;">화면의 주문번호는 비회원 주문내역 확인에 필요합니다.(주문번호-주문세부번호)</div>
 					</c:if>
-					<span>${Myaddress.ADDRESS}</span>	
+					<span class="txt_addr">${Myaddress.ADDRESS}</span>	
 				</p>
 				<!-- <button type="button" class="btn04 h02 rbtn"><span>변경</span></button> -->
 			</div>

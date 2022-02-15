@@ -959,6 +959,8 @@ td {
 
 .page_tit02>* {
    display: block;
+    text-align: center;
+    font-size: 80px;
 }
 
 em {
@@ -967,10 +969,6 @@ em {
 
 address, em {
    font-style: normal;
-}
-
-.page_tit02 {
-   font-size: 80px;
 }
 
 .tit_ico {

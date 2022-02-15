@@ -8,7 +8,7 @@
 
 		<div class="accWrap01">
 			<div class="container02 auth_list acc_list">
-				<div class="acc_tit">
+				<div class="acc_tit"> 
 					<label>
 						<input type="checkbox" name="guest_checkbox" class="check02">
 						<span>버거킹 이용약관</span>

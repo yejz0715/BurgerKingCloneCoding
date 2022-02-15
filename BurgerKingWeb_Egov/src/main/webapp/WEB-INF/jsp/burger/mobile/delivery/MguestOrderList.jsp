@@ -25,33 +25,33 @@
 					<c:if test="${!empty mkind}">
 						<div style="color: red;">화면의 주문번호는 비회원 주문내역 확인에 필요합니다.(주문번호-주문세부번호)</div>
 					</c:if>
-					<span>${address}</span>	
+					<span class="txt_addr">${address}</span>	
 				</p>
 				<!-- <button type="button" class="btn04 h02 rbtn"><span>변경</span></button> -->
 			</div>
 			<div class="info_list">
-				<dl><dt>연락처</dt><dd>${userPhone}</dd></dl>
+				<dl><dt>연락처</dt><dt>&nbsp;&nbsp;${userPhone}</dt></dl>
 				<dl>
 					<dt>진행상황</dt>
 					<c:choose>
 						<c:when test="${result == 1}">
-							<dd>주문 확인 전</dd>
+							<dt>&nbsp;&nbsp;주문 확인 전</dt>
 						</c:when>
 						<c:when test="${result == 2}">
-							<dd>주문 처리 중</dd>
+							<dt>&nbsp;&nbsp;주문 처리 중</dt>
 						</c:when>
 						<c:when test="${result == 3}">
-							<dd>배달 중</dd>
+							<dt>&nbsp;&nbsp;배달 중</dt>
 						</c:when>
 						<c:when test="${result == 4}">
-							<dd>배달 완료</dd>
+							<dt>&nbsp;&nbsp;배달 완료</dt>
 						</c:when>
 					</c:choose>
 				</dl>
 			</div>
 		</div>
-		<div class="tit01 tit_ico burger tit_ordermenu">
-			<h2><span>주문정보</span></h2>
+		<div class="container01 orderWrap">
+			<h2 class="tit01 tit_ico burger"><span>주문정보</span></h2>
 		</div>
 		<div class="container02 order_accWrap open">		
 		<ul class="cart_list01">

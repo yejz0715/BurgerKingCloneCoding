@@ -58,11 +58,11 @@
 					<h2 class="page_tit">회원가입</h2>
 				</div>
 				<div class="container01">
-					<h3 class="tit01 tit_ico man">
+					<h3 class="tit001 tit_ico man">
 						<span>기본정보</span>
-					</h3>
+					</h3><br><br>
 					<div class="container02">
-						<div class="titbox">
+						<div class="titboxx">
 							<p>회원정보를 입력해 주세요</p><br>
 							<label style="color: red;">${message}</label>
 						</div>
@@ -106,7 +106,7 @@
 							</dl>
 						</div>
 					</div>
-					<h2 class="tit01 tit_ico key">
+					<h2 class="tit001 tit_ico key">
 						<span>비밀번호 입력</span>
 					</h2>
 					<div class="container02">

@@ -22,7 +22,7 @@
 				</p>
 			</div>
 			<div class="c_btn m_item2">
-				<a href="main.do" class="btn01"><span>홈으로</span></a><a
+				<a href="mobilemain.do" class="btn01"><span>홈으로</span></a><a
 					href="MloginForm.do?non=1" class="btn01"><span>주문하기</span></a>
 			</div>
 		</div>

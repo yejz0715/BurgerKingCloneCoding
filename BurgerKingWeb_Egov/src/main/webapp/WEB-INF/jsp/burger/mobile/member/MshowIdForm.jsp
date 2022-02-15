@@ -13,7 +13,7 @@
 			<li><span><a href="MfindPwdForm.do?id=${memberVO.ID}&name=${memberVO.NAME}" style="font-size: 1.45em;">비밀번호 찾기</a></span></li>
 		</ul>
 		<div class="btnarea" style="height:0px; margin-top: 80px;"></div>
-		<div class="textarea" style="height: 300px;">
+		<div class="textarea" style="height: 450px; width: 90%;">
 			<div class="msgBox">
 				<span class="showid_text">아이디 찾기 완료</span><br>
 				<span class="showid_text"><small><b>회원님</b>의 아이디는 다음과 같습니다.</small></span>
@@ -29,7 +29,7 @@
 				</c:choose>
 			</div>
 		</div>
-		<div class="c_btn item2 findidalign" style="margin-left: -220px;">
+		<div class="c_btn item2 findidalign" style="height: 150px;">
 			<input type="button" class="btn01 m" value="비밀번호 찾기" onclick="location.href='MfindPwdForm.do?id=${memberVO.ID}&name=${memberVO.NAME}'"/>
 			<input type="button" class="btn01 m red" value="로그인" onclick="location.href='MloginForm.do'"/>
 		</div>

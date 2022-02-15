@@ -16,7 +16,7 @@
 	<select id="b_getOrderListResult2" statementType="CALLABLE" parameterType="java.util.HashMap">
 		{
 			CALL b_getOrderListResult2(
-				#{id}, #{result},
+				#{id},
 				#{ref_cursor, mode=OUT, jdbcType=CURSOR, javaType=ResultSet, resultMap=BurgerVO}
 			)
 		}

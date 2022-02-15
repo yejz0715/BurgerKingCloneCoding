@@ -182,7 +182,7 @@ public class AdminController {
 		
 		HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
 		for (int mseq : mseqArr) {
-			paramMap.put("mseq", mseq);
+			paramMap1.put("mseq", mseq);
 			as.b_deleteMember(paramMap1);
 		}
 		return "redirect:/adminMemberList.do";

@@ -3,7 +3,7 @@
 
 <article style="background: #f2ebe6;">
 	
-	<div class="web_container02">
+	<div class="web_container03">
 		<h2 class="page_tit02 bg_w" style="background: #f2ebe6;">비회원 주문</h2>
 
 		<div class="accWrap01">

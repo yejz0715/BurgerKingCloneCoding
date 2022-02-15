@@ -1002,10 +1002,11 @@ address, em {
 
 .weblogin_ui .login {
    width: 100%;
-   min-width: 530px;
-   padding-right: 5.23%;
-   border: 0px;
-   float: left;
+    min-width: 530px;
+    padding: 5.23%;
+    border: 0px;
+    float: left;
+    text-align: center;
 }
 
 .weblogin_ui>* {
@@ -1091,7 +1092,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
    display: inline-block;
    width: 256px;
    height: 68px;
-   font-size: 1.5rem;
+   font-size: 40px;
    padding: 12px 10px 10px;
    font-weight: 700;
    color: #fff;
@@ -1235,13 +1236,13 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
     line-height: 100px;
     font-size: 50px;
     background-color: #fff;
-}
+} 
 #nonmember_Text2{
    text-align:center;
    margin: 0 auto;
    width: 100%; height: 200px;
    line-height: 30px;
-   font-size: 150%;
+   font-size: 220%;
    background-color: #fff;
 }
 #nonmember_Text2 .inpbox{
@@ -1261,7 +1262,13 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 
-.imgs{position: absolute; opacity: 0; transition: 1.5s;top: 240%;left: 50%;margin: 123.5px 0 0 188px;}
+.imgs{
+	position: absolute;
+    opacity: 0;
+    transition: 1.5s;
+    margin: 0 auto;
+    margin: 0 240px;
+}
 
 #view1{opacity: 1;}
 .loginimg_name{
@@ -2283,6 +2290,28 @@ strong {
 }
 
 /*-------------join------------------조인----------------------------------*/
+.welcomeBox{
+	padding:50px;
+}
+
+.welcomeBox .page_tit02{
+	font-size:80px;
+	text-align: center;
+}
+.txt_welcome{
+	text-align: center;
+	font-size:40px;
+}
+
+.txt_welcome em{
+	text-align: center;
+	font-size:40px;
+}
+
+.txt_welcome .info{
+	text-align: center;
+	font-size:40px;
+}
 
 .tit_ico.key02:before {
    background-image:
@@ -2329,16 +2358,14 @@ strong {
    background-size: auto 100%;
 }
 
-/* .btn02, .btn02.red {
-   display: inline-block;
-   padding: 20px 10px;
-   font-weight: 700;
-   font-size: 1.625rem;
-   color: #fff;
-   background: #e22219 url(../image/main/bg_btn01_m_red.png) repeat-x 0;
-   background-size: auto 100%
-} */
+.page_titl{
+	text-align : center;
+	font-size : 80px;
+}
 
+.titbox p{
+	font-size:50px;
+}
 
 .btn02.red {
    font-weight: 700;
@@ -2349,6 +2376,13 @@ strong {
 .simple_login {
    margin-top: -40px;
    margin-left: 40px;
+}
+
+.joincontract{
+	font-size : 45px;
+}
+.joincontract .info{
+	
 }
 
 /*-----contract-----------------------------약관동의------------------------------ */
@@ -2522,13 +2556,14 @@ input[type=checkbox]+:before, input[type=radio]+:before {
    display: block;
    margin-top: 10px;
    padding-left: 50px;
-   font-size: 1rem;
+   font-size: 40px;
    color: #a3a3a3;
 }
 
 .auth_list .divide:last-of-type {
    margin-top: 27px;
    padding-bottom: 3px;
+   font-size: 50px;
 }
 
 .auth_list .divide {
@@ -2896,7 +2931,7 @@ input[type="password" i] {
 .txt77 {
 	position: static;
 	margin-top: 12px;
-	font-size: 1.4rem;
+	font-size: 36px;
 	color: #e22219;
 }
 
@@ -2905,18 +2940,17 @@ input[type="password" i] {
 }
 
 .btn77 {
-	display: inline-block;
-	width: 256px;
-	height: 48px;
-	font-size: 2rem;
-	padding: 0px 10px 10px;
-	font-weight: 700;
-	color: #fff;
-	text-align: center;
-	line-height: 46px;
-	background: url(../image/main/bg_btn01_m.black.png) no-repeat 50%;
-	background-size: 100% 100%;
-	border-radius: 0;
+    display: inline-block;
+    width: 100%;
+    height: 120px;
+    font-size: 80px;
+    padding: 0px 10px 10px;
+    font-weight: 700;
+    color: #fff;
+    text-align: center;
+    line-height: 133px;
+    background: url(../image/main/bg_btn01_m.black.png) no-repeat 50%;
+    background-size: 100% 100%;
 }
 
 /*---complet-----가입성공-----------------------  */
@@ -2927,10 +2961,11 @@ input[type="password" i] {
 }
 
 .join_welcome .logo {
-	height: 194px;
-	margin-bottom: -8%;
-	text-indent: -99999em;
-	background: url(../image/main/burgerkinglogo.png) no-repeat top;
+	height: 396px;
+    margin-bottom: -8%;
+    text-indent: -99999em;
+    background: url(../image/main/burgerkinglogo.png) no-repeat top;
+    background-size: 241px;
 }
 
 .join_welcome .cont {
@@ -2939,13 +2974,18 @@ input[type="password" i] {
 }
 
 .join_welcome .tit {
-	margin-bottom: 30px;
 	font-weight: 700;
-	font-size: 2.5rem;
+    font-size: 80px;
+    margin: 100px 0;
 }
 
 .join_welcome .c_btn {
 	margin-top: 55px;
+}
+
+.cont p{
+	font-size: 60px;
+    margin: 60px;
 }
 
 .c_btn *+*, .c_btn a+a {
@@ -4232,16 +4272,15 @@ input[type=checkbox]+:before {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QkYxMDA3MEFGRjU4MTFFODk5QkRCNUUyNkUxNzNCNkQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QkYxMDA3MEJGRjU4MTFFODk5QkRCNUUyNkUxNzNCNkQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCRjEwMDcwOEZGNTgxMUU4OTlCREI1RTI2RTE3M0I2RCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCRjEwMDcwOUZGNTgxMUU4OTlCREI1RTI2RTE3M0I2RCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PnLLIZAAAAKASURBVHja7JhNSFRRFMdnJNRGSUGUCdtEfm8GhDaJEH0SiYikqOBCCRVRw0UfxuguiohoF5MQLsRwE6SC5MZVKSXI4BdJCYISCZmLlNRy+l84wmN45869773RUebAbzHnvHvf/933zj3njjsUCrli2RJcMW5xgcde4Aku4PP5VOc4Bc4Dd5h/B0yAXZVJgsGgnkANewxamVgT6D3sV1woiRXEwjeYI4nlHbZADzgjiecehMBksAA+gdsglfwlYNQkOcJXcNAgNAvcB1/BkK0sNthdw7cksvUZ+AiuKzygEF8NysA4uAoSKXaO/CN2VjAbPAjzpYEbmp+H+BRuGsTt23OQZEfgU5o8WiZefZtVgRdArcbN9sAq+KEpsgd4rQhsiZAA+/YXPAKnKaO9tDJ9GpWozorAh2AywuT/QCXwgzWDX2RpA+hSECiy/JUVgSvgIngpuSYAhiXxJ5Tx3Mp3ghrw22qSbFOdDTDx1worxF3TDl44VUl2GP+8wthZzTktCfzD+NMUxnLXbDolMI82WTO7ojD+GuNvBBl2BVaAz6CIifsjbORnQbNEuJi72KrADvCW9inO8qnoZzKxUUNzwT3AB6rR2s1CuuJGfRksggEwTfVWVKEqk9rLdUsn2W6DO7jjTOKhG2dH+VwkupxL3JlE9oq3wL0oixOV6I6dJHkjqQROmChxM3YEhugJ9+j3MmWuaFzHNLqcAI0RlWOd/Bug24mOegrUg1/gvUGs6KjLwTvJWDGmFMwZ5hINxC3wHfx0QqCLMtTMhqgipEhK4ZxJVeo/yGPnN0lsKRbOxYuS2Jeo/TejYYO0qZttISN2J3fH/2GNC4wLPOIC/wswAHGHdld6BPEaAAAAAElFTkSuQmCC);
 }
 
-.dlist01 dt {
-    width: 28%;
-    padding-right: 10px;
-    font-weight: 700;
-}
+
  .dlist01 dt {
+ 	width: 28%;
+    font-weight: 700;
     display: table-cell;
     height: 70px;
     padding: 5px 0;
     vertical-align: middle;
+    font-size: 45px;
 }
 .dlist01 dd {
     display: table-cell;
@@ -4354,16 +4393,7 @@ input[type=checkbox]+:before {
 .tit_ico.origin:before {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MUI3QTc4MTgwMzRBMTFFOThENjlFRUQzNjk2NkREQzMiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MUI3QTc4MTkwMzRBMTFFOThENjlFRUQzNjk2NkREQzMiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDoxQjdBNzgxNjAzNEExMUU5OEQ2OUVFRDM2OTY2RERDMyIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDoxQjdBNzgxNzAzNEExMUU5OEQ2OUVFRDM2OTY2RERDMyIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PlUN54QAAAGXSURBVHjaYvz//z/DYAZMDIMcjDpw1IGjDhx14KgDBzlgQRfQ19enpvncQPyVVE0XL16kSwiKA/EFIFYfjFHMCMTzgVgFiJcDMftgc2AJEHtC2YZA3DOYHGgGxC1oYtlA7DsYHMgPxCuAmA1HlMvQy4E8OMRnALEiDjlhIF4KxMy0dqATEB/AkvCTgTiCgF47IK6jpQPFgHgJEBtjSfjBRJpRDcT2tHAgKB0tAGJJpITvjySfAsRviDCHGepJYWo7ELnogDl4HhDLQfnPgDgBiInphclAMw0jtRxogqXoAAEhaGjAEv5WIJ5EpJmgYiePGg7kw1F0wIAtWsIvA+JzRDqyC4iNKHUgqOhQJiLhO0DZv6C5+TMRZrNBq0Iech0IKjoiiUz4oDJOBJquQA7kIjIU1YB4GtHNLSSgSUJ6AgEpaHr8A8TeJBZfsUC8G4gXE+tADmi64yLRIncKqklQKJ4C4pvERHEvEOvRufHMA02PbIRCUBOaLvYMUCs/EIhXwgvb0dGtUQeOOnDUgaMOHHUgRQAgwAABYTjY7ztKDgAAAABJRU5ErkJggg==);
 }
-.tit_ico:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    background-repeat: no-repeat;
-    background-position: 0;
-}
+
 .popcont .container02.origin_info {
     padding: 36px 44px;
 }
@@ -4485,18 +4515,17 @@ address, em {
     padding: 40px 0px;
 }
 .btn02.st003 {
-   display: inline-block;
-   border-radius:10px;
-   height: 54px;
-   padding: 20px 10px;
-   font-weight: 700;
-   font-size: 3.625rem;
-   color: #fff;
-   text-align: center;
-   line-height: 44px;
-   background: #e22219 url(../img/bg_btn02_pattern.908362f6.png) repeat-x 0
-      0;
-   background-size: auto 100%;
+    display: inline-block;
+    border-radius: 45px;
+    height: 54px;
+    padding: 70px;
+    font-weight: 700;
+    font-size: 100px;
+    color: #fff;
+    text-align: center;
+    line-height: 44px;
+    background: #e22219 url(../img/bg_btn02_pattern.908362f6.png) repeat-x 0 0;
+    background-size: auto 100%;
 }
 .container02>.titboxx:first-child {
    padding: 37px 50px;
@@ -4508,13 +4537,18 @@ address, em {
     margin-bottom: 30px;
     font-weight: 700;
     color: #2e2e2e;
-    font-size: 54px;
+    font-size: 60px;
 }
 
 .tit001:first-child {
 	font-weight: 700;
     color: #2e2e2e;
-    font-size: 54px;
+    font-size: 60px;
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+.titboxx p{
+	font-size: 60px;
+    text-align: center;
 }

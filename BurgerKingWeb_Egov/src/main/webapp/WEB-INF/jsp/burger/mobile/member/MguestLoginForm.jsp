@@ -49,13 +49,8 @@
 					<dl>
 						<dt class="nonmember_WEB">이름</dt>
 						<dd>
-<<<<<<< HEAD
-							<div class="inpbox st02">
-								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" style="width: 100%">
-=======
 							<div class="inpbox">
-								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" style="width: 80%">
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov
+								<input type="text" placeholder="받는 분의 이름을 입력해 주세요." name="name" class="st02" >
 								<button type="button" class="btn_del01 " style="display: none;">
 									<span>입력 텍스트 삭제</span>
 								</button>
@@ -65,12 +60,8 @@
 					<dl>
 						<dt class="nonmember_WEB">휴대폰 번호</dt>
 						<dd>
-							<div class="inpbox st02">
-<<<<<<< HEAD
-								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02" style="width: 100%">
-=======
-								<input type="text" placeholder="핸드폰 번호를 입력하세요" name="phone" class="st02" style="width: 80%" maxlength="13">
->>>>>>> branch 'master' of https://github.com/Ezen-MVC-TeamProject/BurgerKingWeb_Egov
+							<div class="inpbox">
+								<input type="text" placeholder="핸드폰 번호를 입력해 주세요" name="phone" class="st02">
 							</div>
 						</dd>
 					</dl>
@@ -89,11 +80,11 @@
 						<dd>
 							<div class="inpbox">
 								<input placeholder="4~6자리 이내의 숫자로만 입력하세요." maxlength="6"
-									type="password" class="st02" style="width: 100%" name="pwd">
+									type="password" class="st02" name="pwd">
 							</div>
 							<div class="inpbox">
 								<input placeholder="비밀번호를 다시 입력하세요." maxlength="6"
-									type="password" class="st02" style="width: 100%" name="pwd_chk">
+									type="password" class="st02" name="pwd_chk">
 							</div>
 						</dd>
 					</dl>

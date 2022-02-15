@@ -274,7 +274,7 @@ function shownonArea2(){
 
 function term_open(){
 	if(document.getElementById("acc_cont").style.height == "0px"){
-        document.getElementById("acc_cont").style.height = "300px";
+        document.getElementById("acc_cont").style.height = "500px";
 	}else{
 		document.getElementById("acc_cont").style.height = "0px";
 	}

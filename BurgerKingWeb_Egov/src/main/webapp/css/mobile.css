@@ -959,6 +959,8 @@ td {
 
 .page_tit02>* {
    display: block;
+    text-align: center;
+    font-size: 80px;
 }
 
 em {
@@ -967,10 +969,6 @@ em {
 
 address, em {
    font-style: normal;
-}
-
-.page_tit02 {
-   font-size: 80px;
 }
 
 .tit_ico {
@@ -2306,7 +2304,7 @@ strong {
 .tit_icon:before {
    content: "";
    position: absolute;
-   left: 180px;
+   left: -40px;
    top: 696px;
    width: 40px;
    height: 40px;
@@ -4469,6 +4467,7 @@ address, em {
 }
 
 .outmjoin{
+	margin-left:160px;
 	height:1440px;
 }
 

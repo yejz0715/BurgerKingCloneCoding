@@ -12,7 +12,7 @@
 		<form method="post" name="address" action="MmyAddress.do">
 			<fieldset>
 				<legend>MY배달지</legend>
-				<label>Zip Code</label><input type="text" name="zip_num" size="10">
+				<label>Zip Code</label><input type="text" name="zip_num" size="10" style="width: 200px;">
 				<input type="button" value="주소 찾기" onclick="post_zip()"><br>
 				<label>Address</label><input type="text" name="addr1" size="50"><br>
 				<label>&nbsp;</label><input type="text" name="addr2" size="25">

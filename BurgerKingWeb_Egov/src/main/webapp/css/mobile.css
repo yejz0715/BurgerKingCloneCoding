@@ -2843,6 +2843,7 @@ input[type=text] {
 	display: inline-block;
 	height: 66px;
 	margin: 0;
+	width:100%;
 	padding: 3px 10px 3px 4px;
 	font-weight: 400;
 	font-size: 35px;
@@ -2854,8 +2855,6 @@ input[type=text] {
 	box-sizing: border-box;
 	appearance: none;
 }
-
-
 
 .tit_ico.key:before {
 	background-image:
@@ -4078,11 +4077,9 @@ input[readonly=readonly] {
 .webAddress fieldset{
 	position: relative;
     margin: 25px;
-    width: 100%;
     padding: 20px 30px;
     font-size: 40px;
     background: #fff;
-    max-width: 970px;
     overflow: hidden
 	}
 	

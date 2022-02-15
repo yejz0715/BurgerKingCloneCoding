@@ -15,9 +15,9 @@
 					</label>
 					<button type="button" class="btn_acc" onclick="term_open()">
 						<span>상세보기</span>
-					</button> 
+					</button>  
 				</div>
-				<div class="acc_cont" id="acc_cont" style="height: 0px;">
+				<div class="acc_cont" id="acc_cont" style="height: 0px;"> 
 					<p>
 						<strong>수집하는 개인정보 항목</strong><br> - 전화번호, 성명, 주소
 					</p> 

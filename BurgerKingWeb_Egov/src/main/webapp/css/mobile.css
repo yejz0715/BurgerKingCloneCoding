@@ -1241,7 +1241,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
    margin: 0 auto;
    width: 100%; height: 200px;
    line-height: 30px;
-   font-size: 150%;
+   font-size: 220%;
    background-color: #fff;
 }
 #nonmember_Text2 .inpbox{

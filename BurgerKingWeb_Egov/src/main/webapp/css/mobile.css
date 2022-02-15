@@ -484,8 +484,8 @@ ul {
    display:flex;
    flex-direction: row;
    left:20px;
-   margin: 0 90px 0 0;w
-   color:#fff;
+   color: #fff;
+   margin: 0 90px 0 0;
 }
 
 .deliveryCart dl{
@@ -671,7 +671,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .sc_table_header {
-   font-size: 25px;
+   font-size: 50px;
    background-color: #efefef;
    height: 50px;
 }
@@ -700,8 +700,8 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 .switch01 input+* {
    display: inline-block;
    width: 100%;
-   padding: 5px 10px;
-   font-size: 1.25rem;
+   padding: 12px 10px;
+   font-size: 50px;
    color: #fff;
    text-align: center;
    line-height: 38px;
@@ -709,6 +709,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
    border-radius: 5px;
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
+   margin: 10px 10px;
 }
 
 .switch01 input {
@@ -772,11 +773,6 @@ input {
    border-top: 3px solid #000;
 }
 
-table {
-   width: 100%;
-   border-collapse: collapse;
-   font-size: 1em;
-}
 
 table {
    display: table;
@@ -785,6 +781,8 @@ table {
    text-indent: initial;
    border-spacing: 2px;
    border-color: grey;
+   width: 100%;
+   font-size: 30px;
 }
 
 tr {
@@ -796,7 +794,7 @@ tr {
 .tlist01 tbody td, .tlist01 tbody th {
    height: 54px;
    padding: 10px;
-   font-size: 1.2rem;
+   font-size: 30px;
    text-align: center;
    vertical-align: middle;
    font-family: 'Noto Sans KR', sans-serif;
@@ -806,7 +804,7 @@ tr {
 .tlist01 tbody td:last-child {
    height: 0px;
    padding: 10px;
-   font-size: 1.2rem;
+   font-size: 30px;
    text-align: center;
    vertical-align: middle;
    font-family: 'Noto Sans KR', sans-serif;
@@ -823,7 +821,7 @@ td {
 
 .acc_cont td .text_area {
    background-color: #e5e5e5;
-   height: 54px;
+   height: 100%;
 }
 
 .acc_cont {
@@ -936,14 +934,14 @@ td {
 }
 
 .subtit {
-   margin-bottom: 27px;
-   font-size: 3rem;
-   text-align: center;
+    margin-bottom: 27px;
+	font-size: 50px;
+	margin-left: 30px;
 }
 
 .txt {
-   font-size: 1.25rem;
-   text-align: center;
+   font-size: 30px;
+   margin-left: 30px;
 }
 
 .WEB_guide_img {
@@ -2184,14 +2182,15 @@ strong {
 
 .WEB.user {
    position: absolute;
-   right: 5px;
-   bottom: 60px;
-   min-height: 46px;
-   padding: 3px 0 3px 57px;
-   color: #fff;
-   background: url(../image/main/loginuser.png) no-repeat 0;
-   font-size: 30px;
+    right: -20px;
+    bottom: 60px;
+    min-height: 46px;
+    padding: 3px 0 3px 57px;
+    color: #fff;
+    background: url(../image/main/loginuser.png) no-repeat 0;
+    font-size: 28px;
 }
+
 
 .WEB.user a {
    margin-top: 3px;
@@ -2219,7 +2218,7 @@ strong {
 }
 
 .qna_button_area {
-   float: right;
+   float: left;
 }
 
 .qna_webcon {

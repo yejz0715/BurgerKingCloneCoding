@@ -2182,14 +2182,15 @@ strong {
 
 .WEB.user {
    position: absolute;
-   right: 5px;
-   bottom: 60px;
-   min-height: 46px;
-   padding: 3px 0 3px 57px;
-   color: #fff;
-   background: url(../image/main/loginuser.png) no-repeat 0;
-   font-size: 30px;
+    right: -20px;
+    bottom: 60px;
+    min-height: 46px;
+    padding: 3px 0 3px 57px;
+    color: #fff;
+    background: url(../image/main/loginuser.png) no-repeat 0;
+    font-size: 28px;
 }
+
 
 .WEB.user a {
    margin-top: 3px;

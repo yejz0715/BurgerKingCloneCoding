@@ -2483,10 +2483,6 @@ button {
    cursor: pointer;
 }
 
-.auth_list button>span {
-   padding: 4px 0;
-   border-bottom: 2px solid #000;
-}
 
 .auth_list>* {
    position: relative;
@@ -2494,10 +2490,6 @@ button {
    padding: 7px 0;
 }
 
-.auth_list button>span {
-   padding: 4px 0;
-   border-bottom: 2px solid #000;
-}
 
 .auth_list label:only-child {
    margin: 0;
@@ -4085,9 +4077,12 @@ input[readonly=readonly] {
 .webAddress fieldset{
 	position: relative;
     margin: 25px;
+    width: 100%;
     padding: 20px 30px;
     font-size: 40px;
     background: #fff;
+    max-width: 970px;
+    overflow: hidden
 	}
 	
 .webAddress fieldset input:focus{
@@ -4169,6 +4164,7 @@ input[readonly=readonly] {
 
 .auth_list:only-child>* {
 	margin-bottom: 0;
+	font-size: 40px;
 }
 
 
@@ -4214,7 +4210,7 @@ input[type=checkbox]+:before {
 .auth_list .btn_acc {
 	left: auto;
 	right: 0;
-	width: 40px;
+	width: 200px;
 }
 .auth_list button {
     position: absolute;
@@ -4226,19 +4222,11 @@ input[type=checkbox]+:before {
     font-size: 1em;
 }
 
-.auth_list button {
-	font-weight: 700;
-	font-size: 1em;
-}
 
 .btn_acc77 {
 	text-indent: -9999em;
 }
 
-.auth_list button>span {
-	padding: 4px 0;
-	border-bottom: 2px solid #000;
-}
 
 .auth_list .btn_acc:after {
 	right: 0;

@@ -34,7 +34,7 @@
 	</select>
 	
 	<select id="b_getShortProductAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL b_getShortProductAllCount(
+	{CALL b_getShortProductAllCount(#{key}, 
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	
@@ -56,7 +56,7 @@
 	</update>
 	
 	<select id="b_getProductAllCount" statementType="CALLABLE" parameterType="java.util.HashMap">
-	{CALL b_getProductAllCount(
+	{CALL b_getProductAllCount(#{key}, 
 		#{cnt , mode=OUT, jdbcType=INTEGER } ) }
 	</select>
 	

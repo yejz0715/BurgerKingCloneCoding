@@ -68,6 +68,9 @@ public class AdminController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		if(id==null || pwd == null) {
+			return "/admin/adminLogin";
+		}
 		paramMap.put("id", id);
 		paramMap.put("ref_cursor", null);
 		

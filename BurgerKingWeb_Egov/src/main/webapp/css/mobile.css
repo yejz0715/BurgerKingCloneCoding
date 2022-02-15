@@ -484,8 +484,8 @@ ul {
    display:flex;
    flex-direction: row;
    left:20px;
-   margin: 0 90px 0 0;w
-   color:#fff;
+   color: #fff;
+   margin: 0 90px 0 0;
 }
 
 .deliveryCart dl{
@@ -671,7 +671,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 }
 
 .sc_table_header {
-   font-size: 25px;
+   font-size: 50px;
    background-color: #efefef;
    height: 50px;
 }
@@ -700,8 +700,8 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
 .switch01 input+* {
    display: inline-block;
    width: 100%;
-   padding: 5px 10px;
-   font-size: 1.25rem;
+   padding: 12px 10px;
+   font-size: 50px;
    color: #fff;
    text-align: center;
    line-height: 38px;
@@ -709,6 +709,7 @@ d, dl, dt, dd, em, figure, h1, h2, h3, h4, h5, h6, li, ol, p, ul {
    border-radius: 5px;
    -webkit-box-sizing: border-box;
    box-sizing: border-box;
+   margin: 10px 10px;
 }
 
 .switch01 input {
@@ -796,7 +797,7 @@ tr {
 .tlist01 tbody td, .tlist01 tbody th {
    height: 54px;
    padding: 10px;
-   font-size: 1.2rem;
+   font-size: 30px;
    text-align: center;
    vertical-align: middle;
    font-family: 'Noto Sans KR', sans-serif;
@@ -806,7 +807,7 @@ tr {
 .tlist01 tbody td:last-child {
    height: 0px;
    padding: 10px;
-   font-size: 1.2rem;
+   font-size: 30px;
    text-align: center;
    vertical-align: middle;
    font-family: 'Noto Sans KR', sans-serif;
@@ -823,7 +824,7 @@ td {
 
 .acc_cont td .text_area {
    background-color: #e5e5e5;
-   height: 54px;
+   height: 100%;
 }
 
 .acc_cont {

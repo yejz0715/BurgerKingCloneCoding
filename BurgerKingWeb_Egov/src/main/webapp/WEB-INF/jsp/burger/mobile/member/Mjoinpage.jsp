@@ -53,7 +53,7 @@
 	<form method="post" name="MjoinpageForm" action="Mjoinpage.do">
 	<fieldset>
 		<div class="contentsBox01">
-			<div class="web_container">
+			<div class="web_container03">
 				<div class="subtitWrap m_bg_basic">
 					<h2 class="page_tit">회원가입</h2>
 				</div>
@@ -149,14 +149,8 @@
 						</button>
 					</div>
 				</div>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-				
-			</div>
-						<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			
+			</div>			
 		</div>
-					<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</fieldset>
 	</form>
 </article>

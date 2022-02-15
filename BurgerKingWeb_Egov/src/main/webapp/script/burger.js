@@ -242,7 +242,7 @@ function post_zip(){
 	window.open( url, "우편번호 찾기", opt );
 }
 
-/*function play(){
+function play(){
 	var x=0;
 	setInterval(function(){
 	    for(var i=1;i<=5;i++)document.getElementById("view"+i).style.opacity = '0';
@@ -250,7 +250,7 @@ function post_zip(){
 	    document.getElementById("view"+x).style.opacity = '1';
 	    if(x==5)x=0;
 	}, 3000);
-}*/
+}
 
 function shownonArea1(){
 	document.getElementById("non_Btn1").style.color="red";

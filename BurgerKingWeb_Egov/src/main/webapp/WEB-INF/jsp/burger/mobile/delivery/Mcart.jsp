@@ -10,7 +10,7 @@
 <div class="web_container1">
 	<div class="subtitWrap">
 		<h2 class="page_tit">딜리버리 카트</h2>		
-		<h1 style="color:red; font-weight: bold;">${message}</h1>	
+		<h1 style="color:red; font-weight: bold; font-size: 50px; text-align: center;">${message}</h1>	
 	</div>
 	<div class="container01 cartWrap">
 		<c:choose>

@@ -21,9 +21,9 @@
 		</div>
 		<div class="weblogin_ui">
 			<div class="login bg_w">
-				<h3 class="tit01 tit_ico key02">이메일 회원가입</h3>
+				<h3 class="tit01 tit_icon key02"  >이메일 회원가입</h3><br><br><br>
 				<div class="c_btn" style="none">
-					<a href="Mcontract.do" class="btn02 st03" ><span>버거킹 회원가입</span></a>
+					<a href="Mcontract.do" class="btn02 st003" ><span>버거킹 회원가입</span></a>
 				</div>
 			</div>
 			<div id="base" style="background-color: white;">

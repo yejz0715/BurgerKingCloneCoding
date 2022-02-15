@@ -2375,7 +2375,7 @@ strong {
 .container02 {
    position: relative;
    margin: 15px 0;
-   font-size: 1.375rem;
+   font-size: 1.75rem;
    background: #fff;
    box-shadow: 0 1px 2px rgb(0 0 0/ 5%);
 }
@@ -2701,11 +2701,11 @@ input[type=checkbox]+:before {
 	margin-top: -60px;
 }
 .dup.reid {
-   width: 80px;
+   width: 100px;
    background: #fa5a5a;
-   font-size: 1rem;
+   font-size: 1.3rem;
    color: white;
-   font-weight: 700;
+   font-weight: 600;
 }
 .popWrap .titleBar {
 	position: relative;
@@ -2926,12 +2926,13 @@ input[type="password" i] {
 .vtop77 {
 	margin-top: 20px;
 	font-weight: 700;
+	font-size:2.2rem;
 }
 
 .txt77 {
 	position: static;
 	margin-top: 12px;
-	font-size: 1rem;
+	font-size: 1.4rem;
 	color: #e22219;
 }
 
@@ -2943,7 +2944,7 @@ input[type="password" i] {
 	display: inline-block;
 	width: 256px;
 	height: 48px;
-	font-size: 1.5rem;
+	font-size: 2rem;
 	padding: 0px 10px 10px;
 	font-weight: 700;
 	color: #fff;
@@ -4539,4 +4540,14 @@ address, em {
    background: #e22219 url(../img/bg_btn02_pattern.908362f6.png) repeat-x 0
       0;
    background-size: auto 100%;
+}
+.container02>.titboxx:first-child {
+   padding: 37px 50px;
+   font-size: 1.75rem;
+   background: #f8f8f8;
+}
+.tit001 {
+    font-weight: 700;
+    color: #2e2e2e;
+    font-size: 40px;
 }

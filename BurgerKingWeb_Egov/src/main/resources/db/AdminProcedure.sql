@@ -41,14 +41,13 @@ end;
 -- 배달이 진행중인 상품이 있을 경우 삭제가 되지 않게 하는 프로시저
 create or replace procedure b_getOrderListResult2(
    p_id in orders.id%type,
-   p_result in number,
    p_rc out SYS_REFCURSOR  
 )
 is
 
 begin
    open p_rc for
-      select * from order_view where id=p_id and p_result in ('2','3');
+      select * from order_view where id=p_id and result in ('2','3');
 end;
 
 -- 멤버삭제 프로시저

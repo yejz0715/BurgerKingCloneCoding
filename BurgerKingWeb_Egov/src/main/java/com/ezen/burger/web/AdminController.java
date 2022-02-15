@@ -169,8 +169,6 @@ public class AdminController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("ref_cursor" , null);
 		paramMap.put("id" , id);
-		paramMap.put("result" , null);
-		System.out.println(id);
 		os.b_getOrderListResult2(paramMap);
 
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");

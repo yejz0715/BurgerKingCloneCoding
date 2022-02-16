@@ -68,6 +68,9 @@ public class AdminController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
+		if(id==null || pwd == null) {
+			return "/admin/adminLogin";
+		}
 		paramMap.put("id", id);
 		paramMap.put("ref_cursor", null);
 		
@@ -166,8 +169,6 @@ public class AdminController {
 		HashMap<String, Object> paramMap = new HashMap<String, Object>();
 		paramMap.put("ref_cursor" , null);
 		paramMap.put("id" , id);
-		paramMap.put("result" , null);
-		System.out.println(id);
 		os.b_getOrderListResult2(paramMap);
 
 		ArrayList<HashMap<String, Object>> list = (ArrayList<HashMap<String, Object>>) paramMap.get("ref_cursor");
@@ -181,7 +182,7 @@ public class AdminController {
 		
 		HashMap<String, Object> paramMap1 = new HashMap<String, Object>();
 		for (int mseq : mseqArr) {
-			paramMap.put("mseq", mseq);
+			paramMap1.put("mseq", mseq);
 			as.b_deleteMember(paramMap1);
 		}
 		return "redirect:/adminMemberList.do";

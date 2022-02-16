@@ -81,7 +81,7 @@
 
 	<form method="post" name="contractFrm" >
 		<div class="contentsBox01">
-			<div class="web_container">
+			<div class="web_container03">
 				<div class="subtitWrap m_bg_basic">
 					<h2 class="page_titl">회원가입</h2>
 				</div>
@@ -93,7 +93,7 @@
 						<div class="titbox">
 							<p>회원가입 약관 동의 및 본인인증을 진행합니다.</p>
 						</div>
-						<div style="overflow-xy: hidden">
+						<div class="joincontract">
 							<label><input type="checkbox" id="chk1" class="check02"
 								name="agree" value="1"><span>버거킹 이용약관(필수)</span></label>
 							<button type="button" value="popbox" class="submit"
@@ -101,7 +101,7 @@
 								<span>상세보기</span>
 							</button>
 						</div>
-						<div>
+						<div class="joincontract">
 							<label><input type="checkbox" class="check02"
 								name="agree" value="2"><span>개인정보처리방침(필수)</span></label>
 							<button type="button" value="popbox" class="submit"
@@ -109,11 +109,11 @@
 								<span>상세보기</span>
 							</button>
 						</div>
-						<div>
+						<div class="joincontract">
 							<label><input type="checkbox" class="check02"
 								name="agree" value="3"><span>E-mail 광고성 정보 동의(선택)</span></label>
 						</div>
-						<div class="st02">
+						<div class="joincontract">
 							<label><input type="checkbox" class="check02"
 								name="agree" value="4"><span>SMS 광고성 정보 동의(선택)</span></label><span
 								class="info">다양한 이벤트와 주문 정보를 보내 드립니다.</span>
@@ -134,12 +134,8 @@
 
 					</div>
 				</div>
-			</div>
-			<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-			
+			</div>			
 		</div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 	</form>
 </article>
 

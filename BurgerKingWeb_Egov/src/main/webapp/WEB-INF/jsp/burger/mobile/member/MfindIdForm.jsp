@@ -15,21 +15,21 @@ function find_id(){
 	}
   }
 </script>   
-<div class="outmobile">
 <article style="background-color: #f2ebe6;">
 	
-	<div class="web_container02">
+	<div class="web_container03">
 		<form name="frm" action="MfindId.do" method="post">
-			<h1 class="fbig_h1" style="margin-bottom: 30px; ">아이디/비밀번호 찾기</h1>
-			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
+			
+			<ul id="terms_wrap_ul">
 				<li>
 					<span>
-						<a href="MfindIdForm.do" style="color: red; text-decoration: underline; font-size: 2em;">아이디 찾기</a>
+						<a href="MfindIdForm.do" style="color: red; text-decoration: underline;">아이디 찾기</a>
 					</span>
 				</li>
-				<li><span><a href="MfindPwdForm.do" style="font-size: 2em;">비밀번호 찾기</a></span></li>
+				<li><span><a href="MfindPwdForm.do">비밀번호 찾기</a></span></li>
 			</ul>
-			<div class="btnarea" style="text-align: center; margin-top: 80px;">
+			<h1 class="fbig_h1" style="margin-bottom: 30px; ">아이디/비밀번호 찾기</h1>
+			<div class="btnarea" style="text-align: center;">
 				<c:if test="${empty message}">
 					<span style="font-family: 'Noto Sans KR', sans-serif;">가입시 회원정보로 등록한 이름과 휴대폰 번호를 입력해 주세요.</span>
 				</c:if>
@@ -37,7 +37,7 @@ function find_id(){
 					<span class="coment_text">${message}</span>
 				</c:if>
 			</div>
-			<div class="textarea" style="height: 520px;">
+			<div class="textarea" style="max-height: 580px;">
 				<div class="inpbox" style="margin-bottom: 30px;">
 					<div class="vtop">이름</div>
 					<label>
@@ -67,5 +67,4 @@ function find_id(){
 		</form>
 	</div>
 </article>
-</div>
 <%@ include file="../include/footer.jsp" %>

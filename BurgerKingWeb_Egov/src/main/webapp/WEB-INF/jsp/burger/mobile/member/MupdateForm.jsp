@@ -14,7 +14,7 @@
 		<form name="frm" method="post" action="MupdateMember.do">
 			<fieldset>
 				<legend>기본정보</legend>
-				<label>이메일</label>
+				<label>이메일</lazbel>
 				<input type="text" name="id" value="${MemberVO.ID}" readonly /><br> 
 				<label>비밀번호</label>
 				<input type="password" name="pwd" value="${MemberVO.PWD}" /><br> 

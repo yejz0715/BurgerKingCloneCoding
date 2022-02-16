@@ -15,21 +15,21 @@ function find_pwd(){
 	}
   }
 </script> 
-<div class="outmobile">
 <article style="background-color: #f2ebe6;">
 	
-	<div class="web_container02">
+	<div class="web_container03">
 		<form name="frm" action="MfindPwd.do" method="post">
-			<h1 class="fbig_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
-			<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
+			
+			<ul id="terms_wrap_ul">
 				<li>
 					<span>
-						<a href="MfindIdForm.do" style="font-size: 2em;">아이디 찾기</a>
+						<a href="MfindIdForm.do" >아이디 찾기</a>
 					</span> 
 				</li>
-				<li><span><a href="MfindPwdForm.do" style="color: red; text-decoration: underline; font-size: 2em;">비밀번호 찾기</a></span></li>
+				<li><span><a href="MfindPwdForm.do" style="color: red; text-decoration: underline;">비밀번호 찾기</a></span></li>
 			</ul>
-			<div class="btnarea" style="text-align: center; margin-top: 80px;">
+			<h1 class="fbig_h1" style="margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
+			<div class="btnarea" style="text-align: center;">
 				<c:if test="${empty message}">
 					<span style="font-family: 'Noto Sans KR', sans-serif;">회원님의 정보(이메일)로 비밀번호 재설정을 위한 경로를 보내 드립니다.</span>
 				</c:if>
@@ -37,7 +37,7 @@ function find_pwd(){
 					<span class="coment_text">${message}</span>
 				</c:if>
 			</div>
-			<div class="textarea" style="height: 520px;">
+			<div class="textarea" style="max-height: 580px;">
 				<div class="inpbox" style="margin-bottom: 30px;">
 					<div class="vtop">이름</div>
 					<label>
@@ -59,6 +59,7 @@ function find_pwd(){
 					<li>ㆍ네이버, 카카오톡, 삼성 앱카드, 애플아이디로 가입하신 회원님께서는 해당 서비스에서 아이디/비밀번호 찾기를 진행해 주세요.</li>
 				</ul>
 			</div>
+			
 			<div class="c_btn item2 findidalign">
 				<input type="button" class="btn01 m red" value="비밀번호 찾기" onClick="find_pwd()"/>
 				<input type="button" class="btn01 m" value="돌아가기" onClick="location.href='MloginForm.do'"/>
@@ -66,5 +67,4 @@ function find_pwd(){
 		</form>
 	</div>
 </article>
-</div>
 <%@ include file="../include/footer.jsp" %>

@@ -9,7 +9,7 @@ function popup3() {
  
 </script>
 
-<div class="outmobile">
+
 <article>
 <div class="clear"></div>
 <div class="contentsWrap">
@@ -45,5 +45,5 @@ function popup3() {
 	</div>
 </div>
 </article>
-</div>
+
 <%@ include file="../include/footer.jsp" %>

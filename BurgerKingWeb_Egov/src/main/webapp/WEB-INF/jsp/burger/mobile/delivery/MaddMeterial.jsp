@@ -16,13 +16,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="popWrap">
-	<div class="popbox01">
+	<div class="popbox03">
 		<div class="pop_header01 st02">
 			<div class="titleBar">
 				<h1>재료를 추가해 더 맛있게 즐겨보세요!</h1>
 			</div>
-		</div>
+		</div> 
 		<div class="popcont bg_basic"> 
 			<ul class="menu_sub_list check_mode">
 				<c:forEach items="${subProductVO}" var="subproductVO" >
@@ -47,6 +46,6 @@
 			<span>추가함</span></button>
 		</div>
 	</div>
-</div>
+
 </body>
 </html>

@@ -16,20 +16,20 @@
 	}
 </script>     -->
 </head>
-<body>
+<body style="background: #f2ebe6; overflow: hidden;">
 	<form method="post" name="frm" >
 
-		<div class="popbox01">
+		<div class="popbox03">
 			<div class="M_headerWrap">
 				<div class="titleBar">
-					<h1 class="page_tit78 w_alignL">
+					<h1 class="page_tit77">
 						<span>개인정보처리방침</span>
 					</h1>
 				</div>
 			</div>
 			<div class="popcont nopadding">
-				<div class="auth_cont">
-					<h1 class="hide">개인정보처리방침</h1>
+				<div class="auth_cont2">
+					<h1>개인정보처리방침</h1>
 					<p>'주식회사 비케이알' (이하 '회사')이 취급하는 모든 개인정보는 개인정보보호법 등 관련 법령상의
 						개인정보보호 규정을 준수하여 이용자의 개인정보 보호 및 권익을 보호하고 개인정보와 관련한 이용자의 고충을 원활하게
 						처리할 수 있도록 다음과 같은 처리방침을 운영하고 있습니다.</p>
@@ -171,7 +171,7 @@
 					<p>'회사'는 다음과 같이 개인정보처리업무를 외부 전문업체에 위탁하여 운영하고 있으며, 정기적인 점검을 통해
 						개인정보처리의 법적 준수사항을 확인 감독하고 있습니다.</p>
 					<div style="overflow: scroll;">
-						<table class="tlist01">
+						<table class="tlist02">
 							<colgroup>
 								<col style="width: 20%;">
 								<col style="width: 25%;">
@@ -306,13 +306,14 @@
 						수 있습니다.</p>
 				</div>
 			</div>
-			<div class="pop_btn full_type c_btn item3">
-				<button type="button" class="btn02 dark" onclick="self.close();">
-					<span>확인</span>
-				</button>
-			</div>
+			
 		</div>
 
 	</form>
+	<div class="pop_btn full_type c_btn item3">
+		<button type="button" class="btn02 dark" onclick="self.close();">
+			<span>확인</span>
+		</button>
+	</div>
 </body>
 </html>

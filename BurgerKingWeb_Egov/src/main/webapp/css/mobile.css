@@ -2229,6 +2229,7 @@ strong {
 
 .qna_button_area {
    float: left;
+   margin-top: 30px;
 }
 
 .qna_webcon {

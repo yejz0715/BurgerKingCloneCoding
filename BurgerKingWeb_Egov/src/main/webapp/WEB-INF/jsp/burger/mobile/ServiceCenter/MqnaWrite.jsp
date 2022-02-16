@@ -8,17 +8,17 @@
 		<ul id="terms_wrap_ul" style="right: 0; top:0">
 			<li>
 				<span>
-					<a href="MfaqForm.do?fnum=1">FAQ</a>
+					<a href="MfaqList1.do">FAQ</a>
 				</span>
 			</li>
 			<li><span><a href="MqnaForm.do" style="color: red; text-decoration: underline;">문의</a></span></li>
 			<li><span><a href="MappGuideForm.do">App이용안내</a></span></li>
 		</ul>
 	</div>
-	
+	<br><br><br><br>
 	<div class="qna_webcon">
-		<h2>1:1 고객 게시판</h2>
-		<h3>고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h3>
+		<h3>1:1 고객 게시판</h3><br>
+		<h2>고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다.</h2>
 		<form name="frm" method="post" action="MqnaWrite.do">
 			<input type="hidden" name="command" value="qnaWrite.do">
 			<input type="hidden" name="id" value="${id}">

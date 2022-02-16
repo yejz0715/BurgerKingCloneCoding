@@ -18,19 +18,19 @@ function checkon()  {
 	}   
 </script>
 </head>
-<body>
+<body style="background: #f2ebe6; overflow: hidden;">
 
 <form method="post" name="frm" >
-	<div class="popbox01">
+	<div class="popbox03" >
 		<div class="M_headerWrap">
 			<div class="titleBar">
-				<h1 class="page_tit77 w_alignL">
+				<h1 class="page_tit77">
 					<span>이용약관</span>
 				</h1>
 			</div>
 		</div>
 		<div class="popcont nopadding">
-			<div class="auth_cont">
+			<div class="auth_cont2">
 				<h1>제 1장 총칙</h1>
 				<h2>제 1조 (목적)</h2>
 				<p>본 약관은 주식회사 비케이알(이하 "당사")이 제공하는 모든 서비스(이하 "서비스")의 이용조건 및 절차,

@@ -16,8 +16,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Nanum+Myeongjo:wght@800&family=Noto+Sans+KR&display=swap" rel="stylesheet">
 </head>
 <body>
-<div class="popWrap">
-	<div class="popbox01 nobtn">
+	<div class="popbox03">
 		<div class="M_headerWrap">
 			<div class="titleBar">
 				<div class="page_tit w_alignL"><span>메뉴 선택</span></div>
@@ -52,6 +51,5 @@
 			</c:forEach>
 		</ul>
 	</div>
-</div>
 </body>
 </html>

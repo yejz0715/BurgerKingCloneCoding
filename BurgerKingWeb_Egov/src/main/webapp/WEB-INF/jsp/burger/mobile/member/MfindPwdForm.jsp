@@ -17,7 +17,7 @@ function find_pwd(){
 </script> 
 <article style="background-color: #f2ebe6;">
 	
-	<div class="web_container03">
+	<div class="web_container04">
 		<form name="frm" action="MfindPwd.do" method="post">
 			
 			<ul id="terms_wrap_ul">
@@ -37,13 +37,13 @@ function find_pwd(){
 					<span class="coment_text">${message}</span>
 				</c:if>
 			</div>
-			<div class="textarea" style="max-height: 700px;">
+			<div class="textarea" style="max-height: 730px; overflow: hidden;">
 				<div class="inpbox" style="margin-bottom: 30px;">
 					<div class="vtop">이름</div>
 					<label>
 						<span class="hide">ID</span>
 						<input type="text" placeholder="이름" id="name" name="name" value="${name}" onblur="check_input1();">
-						<span id="name_coment_id" class="coment_text">이름을 입력해 주세요.</span>
+						<span class="coment_text" style="position: relative;">이름을 입력해 주세요.</span>
 					</label>
 				</div>
 				<div class="inpbox">
@@ -51,7 +51,7 @@ function find_pwd(){
 					<label>
 						<span class="hide">ID(email)</span>
 						<input placeholder="아이디(이메일)" type="email" name="id" value="${id}" id="id" onblur="check_input3();">
-						<span id="id_coment_id" class="coment_text">아이디를 입력해 주세요.</span>
+						<span class="coment_text" style="position: relative;">아이디를 입력해 주세요.</span>
 					</label>
 				</div>
 				<ul class="find_id_text">

@@ -1610,6 +1610,12 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
     margin: 0 30px;
     padding: 0 8px;
 }
+.web_container04 {
+   max-width: 100%;
+    min-height: 1300px;
+    margin: 0 30px;
+    padding: 0 8px;
+}
 
 #terms_wrap_ul li a:first-child {
    margin: 0px 15px 0px 0px;
@@ -1661,6 +1667,7 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
    margin: 0 auto;
    padding: 0 20px
 }
+
 
 .prd_intro .intro_txt {
    position: absolute;

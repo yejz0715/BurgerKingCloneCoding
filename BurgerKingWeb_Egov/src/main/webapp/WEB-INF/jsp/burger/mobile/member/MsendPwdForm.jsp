@@ -34,7 +34,7 @@
 									<label>
 										<span class="hide">비밀번호</span>
 										<input type="password" placeholder="비밀번호" id="pwd" name="pwd" onblur="check_input4();">
-										<span id="pwd_coment_id" class="coment_text">새 비밀번호를 입력해 주세요.</span>
+										<span class="coment_text" style="position: relative;">새 비밀번호를 입력해 주세요.</span>
 									</label>
 								</div>
 								<div class="inpbox">
@@ -42,7 +42,7 @@
 									<label>
 										<span class="hide">비밀번호 확인</span>
 										<input placeholder="비밀번호 확인" type="password" name="pwd_chk" id="pwd_chk" onblur="check_input5();">
-										<span id="pwd_chk_coment_id" class="coment_text">비밀번호 재확인</span>
+										<span class="coment_text" style="position: relative;">비밀번호 재확인</span>
 									</label>
 								</div>
 							</div>

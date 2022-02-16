@@ -468,7 +468,6 @@ ul {
   	display: flex;
     flex-direction: row;
     color: #fff;
-    border-right: 2px solid #fff;
 }
 
 .deliveryOrder dl{

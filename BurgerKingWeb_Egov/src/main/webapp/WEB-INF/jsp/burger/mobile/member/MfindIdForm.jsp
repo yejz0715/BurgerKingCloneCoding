@@ -36,8 +36,8 @@ function find_id(){
 				<c:if test="${!empty message}">
 					<span class="coment_text">${message}</span>
 				</c:if>
-			</div>
-			<div class="textarea" style="max-height: 700px;">
+			</div> 
+			<div class="textarea" style="max-height: 730px;">
 				<div class="inpbox" style="margin-bottom: 30px;">
 					<div class="vtop">이름</div>
 					<label>

@@ -2,8 +2,9 @@
 <%@ include file="../include/Delivery/deli_header.jsp"%>
 
 <article style="background-color: #f2ebe6;">
-	<div class="web_container02">
-		<h1 class="big_h1" style="font-size:1em; padding-top:50px; margin-bottom: 30px;">아이디/비밀번호 찾기</h1>
+	<div class="contentsBox01">
+	<div class="web_container03">
+		<h1 class="tit01">아이디/비밀번호 찾기</h1>
 		<ul id="terms_wrap_ul" style="left: 0px; position:relative;">
 			<li>
 				<span>
@@ -33,6 +34,7 @@
 			<input type="button" class="btn01 m" value="비밀번호 찾기" onclick="location.href='MfindPwdForm.do?id=${memberVO.ID}&name=${memberVO.NAME}'"/>
 			<input type="button" class="btn01 m red" value="로그인" onclick="location.href='MloginForm.do'"/>
 		</div>
+	</div>
 	</div>
 </article>
 

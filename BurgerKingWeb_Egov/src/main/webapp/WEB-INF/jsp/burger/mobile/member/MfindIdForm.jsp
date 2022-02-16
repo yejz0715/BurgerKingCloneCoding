@@ -36,14 +36,14 @@ function find_id(){
 				<c:if test="${!empty message}">
 					<span class="coment_text">${message}</span>
 				</c:if>
-			</div>
-			<div class="textarea" style="max-height: 580px;">
+			</div> 
+			<div class="textarea" style="max-height: 730px;">
 				<div class="inpbox" style="margin-bottom: 30px;">
 					<div class="vtop">이름</div>
 					<label>
 						<span class="hide">ID</span>
 						<input type="text" placeholder="이름" id="name" name="name" value="${memberVO.NAME}" onblur="check_input1();" >
-						<span id="name_coment" class="coment_text">이름을 입력해 주세요.</span>
+						<span id="name_coment_id" class="coment_text">이름을 입력해 주세요.</span>
 					</label>
 				</div>
 				<div class="inpbox">
@@ -51,7 +51,7 @@ function find_id(){
 					<label>
 						<span class="hide">Phone</span>
 						<input placeholder="휴대폰 번호" type="text" name="phone" id="phone" value="${memberVO.PHONE}" onblur="check_input2();">
-						<span id="phone_coment" class="coment_text">휴대폰 번호를 입력해 주세요.</span>
+						<span id="phone_coment_id" class="coment_text">휴대폰 번호를 입력해 주세요.</span>
 					</label>
 				</div>
 				<ul class="find_id_text">
@@ -66,5 +66,6 @@ function find_id(){
 			</div>
 		</form>
 	</div>
+	
 </article>
 <%@ include file="../include/footer.jsp" %>

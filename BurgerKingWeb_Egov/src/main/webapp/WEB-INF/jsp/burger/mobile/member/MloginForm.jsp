@@ -9,7 +9,7 @@
 		</h2>
 		<div class="weblogin_ui">
 			<form class="login" name="frm" method="post" action="Mlogin.do">
-				<h3 class="tit_ico tit01">일반 로그인</h3>
+				<h3 class="tit_ico tit01" style="float: left; margin-bottom: 30px;">일반 로그인</h3>
 				<div class="cont"> 
 					<div class="inpbox"> 
 						<label> 

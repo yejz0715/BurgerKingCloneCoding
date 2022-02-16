@@ -1593,11 +1593,16 @@ input[type=color], input[type=date], input[type=datetime], input[type=email],
 }
 
 /*findId/PwdForm------------------------------------------------------------------------*/
-      #name_coment{bottom:430px; left:40px;}
-      #phone_coment{bottom:250px; left:40px;}
-      #id_coment{bottom:250px; left:40px;}
-      #pwd_coment{bottom:280px; left:40px;}
-      #pwd_chk_coment{bottom:120px; left:40px;}
+    #name_coment{bottom:430px; left:40px;}
+    #phone_coment{bottom:250px; left:40px;}
+    #id_coment{bottom:250px; left:40px;}
+    #pwd_coment{bottom:280px; left:40px;}
+    #pwd_chk_coment{bottom:120px; left:40px;}
+	#name_coment_id{bottom:580px; left:40px;}
+	#phone_coment_id{bottom:400px; left:40px;}
+	#id_coment_id{bottom:370px; left:40px;}
+	#pwd_coment_id{bottom:250px; left:40px;}
+	#pwd_chk_coment_id{bottom:70px; left:40px;}
 
 .web_container03 {
    max-width: 100%;

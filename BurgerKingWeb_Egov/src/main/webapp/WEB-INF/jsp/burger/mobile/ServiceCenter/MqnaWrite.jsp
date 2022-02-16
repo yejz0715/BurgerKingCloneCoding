@@ -32,7 +32,7 @@
 			</fieldset>
 			<div class="clear"></div>
 			 
-			<div class="qna_button_area">
+			<div class="qnaWrite_button_area">
 				<div class="tab_cont">
 					<div class="faq_category">
 					<label>${message}</label>

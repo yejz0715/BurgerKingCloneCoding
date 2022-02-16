@@ -2236,14 +2236,14 @@ strong {
 
 .qna_button_area {
    float: left;
-   margin-left: 400px;
+   margin-top: 30px;
 }
 
 .qna_webcon {
    max-width: 1184px;
    height: 120px;
    position: relative;
-   margin: 0 auto;
+   margin: 0 auto; 
 }
 
 .qna_webcon input {
@@ -4564,4 +4564,9 @@ address, em {
 .titboxx p{
 	font-size: 60px;
     text-align: center;
+}
+
+.qnaWrite_button_area {
+    margin-left: 400px;
+  
 }

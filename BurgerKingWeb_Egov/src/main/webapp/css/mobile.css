@@ -464,6 +464,7 @@ ul {
     background:url(../image/main/deliverytop.gif);
 }
 
+
 .deliveryOrder{
   	display: flex;
     flex-direction: row;
@@ -479,6 +480,10 @@ ul {
     font-size: 1.125rem;
 }
 
+.deliveryOrder dt{
+ 
+    font-size: 50px;
+}
 .deliveryCart{
    display:flex;
    flex-direction: row;
@@ -494,6 +499,10 @@ ul {
 .deliveryCart dd{
    margin-top: 10px;
     font-size: 1.125rem;
+}
+
+.deliveryCart dt{
+    font-size: 50px;
 }
 
 .web_deliveryContainer a{  
@@ -2215,6 +2224,10 @@ strong {
     font-size: 28px;
 }
 
+.WEB.user p{
+	font-size: 40px;
+}
+
 
 .WEB.user a {
    margin-top: 3px;
@@ -3305,17 +3318,17 @@ img {
 
 .menu_sub_list02 .tit {
     margin-bottom: 7px;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .menu_sub_list02 .set {
     margin: 6px 0 10px;
     color: #2e2e2e;
-    font-size:30px;
+    font-size:20px;
 }
 
 .menu_sub_list02 .price {
-    font-size: 40px;
+    font-size: 30px;
 }
 .btn_detail {
     position: absolute;

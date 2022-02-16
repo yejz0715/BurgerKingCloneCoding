@@ -2228,6 +2228,7 @@ strong {
 
 .qna_button_area {
    float: left;
+   margin-left: 400px;
 }
 
 .qna_webcon {
@@ -2260,7 +2261,7 @@ strong {
    margin-top: 20px;
    text-align: center;
    margin-bottom: 20px;
-	 min-width: auto;
+	 /* min-width: auto; */
 }
 
 .qna_btn01 {
